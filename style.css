@@ -445,7 +445,7 @@ footer {
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 90px; /* Ahora sí, con espacio generoso */
+    margin-bottom: 105px; /* espacio aumentado */
 }
 
 .panel-botones {
@@ -476,3 +476,4 @@ footer {
 .panel-dropdown-menu a {
     color: black;
 }
+

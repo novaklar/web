@@ -437,15 +437,15 @@ footer {
 
 .hero h1 {
     color: #89a2ff;
-    font-size: 1.8rem; /* Reducido para que no se salga */
+    font-size: 1.8rem;
     margin-bottom: 10px;
-    margin-top: -10px; /* Subido un poco */
-    white-space: normal; /* Permite dividir en dos líneas si es necesario */
+    margin-top: -10px;
+    white-space: normal;
 }
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 60px; /* Espacio aumentado a 60px */
+    margin-bottom: 90px; /* Ahora sí, con espacio generoso */
 }
 
 .panel-botones {

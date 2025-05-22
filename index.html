@@ -5,26 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>novaklar</title>
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Ícono -->
     <link rel="icon" href="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" type="image/svg+xml">
-
-    <!-- Fuente personalizada -->
     <style>
-        @font-face {
-            font-family: 'Waratah';
-            src: url('https://raw.githubusercontent.com/novaklar/web/main/fonts/waratah.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
+        .logo-novaklar {
+            width: 180px;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
         }
 
-        .waratah-text {
-            font-family: 'Waratah', sans-serif;
+        @media (max-width: 600px) {
+            .logo-novaklar {
+                width: 140px;
+            }
         }
     </style>
 </head>
@@ -52,9 +48,9 @@
 
     <main>
         <section id="inicio" class="hero">
-            <h1>Bienvenido a <span class="waratah-text">novaklar</span></h1>
+            <h1>Bienvenido a <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/textonk.svg" alt="novaklar" class="logo-novaklar"></h1>
             <p>Soluciones innovadoras para tus necesidades digitales</p>
-            
+
             <div class="panel-botones">
                 <div class="panel-dropdown">
                     <button class="panel-btn">Servicios ▼</button>
@@ -62,7 +58,7 @@
                         <a href="https://novamarket.rdi.store" target="_blank">Market</a>
                     </div>
                 </div>
-                
+
                 <div class="panel-dropdown">
                     <button class="panel-btn">Catálogos ▼</button>
                     <div class="panel-dropdown-menu">
@@ -72,7 +68,7 @@
                         <a href="cursos.html">Cursos</a>
                     </div>
                 </div>
-                
+
                 <div class="panel-dropdown">
                     <button class="panel-btn">Elementos ▼</button>
                     <div class="panel-dropdown-menu">
@@ -103,22 +99,22 @@
         <!-- Sección Acerca de Novaklar -->
         <section class="about-novaklar">
             <h2>Acerca de Novaklar</h2>
-            
+
             <div class="about-section">
                 <h3>¿Quiénes somos?</h3>
                 <p>Novaklar es una empresa digital fundada el 20 de agosto de 2023 con la misión de ofrecer soluciones accesibles, innovadoras y rentables en el mundo digital. Nació como un proyecto estudiantil con visión empresarial, y hoy cuenta con más de 160 colaboradores y un modelo de crecimiento colaborativo único.</p>
             </div>
-            
+
             <div class="about-section">
                 <h3>¿Qué ofrecemos?</h3>
                 <p>Brindamos acceso a productos digitales como plataformas de streaming, recargas de juegos, suscripciones premium (ChatGPT Pro, Canva Pro, CapCut Pro), servicios de seguidores y cursos especializados. Todo desde un sistema de afiliación práctico y sin inversión inicial.</p>
             </div>
-            
+
             <div class="about-section">
                 <h3>Nuestra visión</h3>
                 <p>Queremos ser una empresa líder en la distribución de servicios digitales en Latinoamérica, democratizando el acceso a herramientas tecnológicas mientras generamos oportunidades de ingresos para todos.</p>
             </div>
-            
+
             <div class="about-section">
                 <h3>Modelo de negocio</h3>
                 <p>Nos basamos en tres roles fundamentales:</p>
@@ -129,7 +125,7 @@
                 </ul>
                 <p>Creemos en la innovación, la flexibilidad y el trabajo en red como motor de crecimiento real.</p>
             </div>
-            
+
             <div class="about-section terms">
                 <h3>Términos y condiciones generales</h3>
                 <ol>

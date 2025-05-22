@@ -24,6 +24,17 @@
         
         .welcome-text {
             margin-bottom: 2rem;
+            color: white;
+        }
+        
+        .welcome-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .welcome-text p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
         
         .panel-botones {
@@ -49,13 +60,19 @@
             font-weight: 600;
             border-radius: 8px;
             border: none;
-            background: white;
+            background: #f0f0f0; /* Color original más neutral */
             color: #333;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .panel-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
         
         .panel-dropdown-menu {
@@ -76,6 +93,10 @@
             transition: background 0.2s;
         }
         
+        .panel-dropdown-menu a:hover {
+            background: #f8f8f8;
+        }
+        
         .panel-dropdown:hover .panel-dropdown-menu {
             display: block;
         }
@@ -85,6 +106,14 @@
             .hero {
                 min-height: 70vh;
                 padding: 1rem;
+            }
+            
+            .welcome-text h1 {
+                font-size: 2rem;
+            }
+            
+            .welcome-text p {
+                font-size: 1rem;
             }
             
             .panel-botones {
@@ -160,7 +189,7 @@
             </div>
         </section>
 
-        <!-- Resto de tu contenido... -->
+        <!-- Sección de contadores -->
         <section class="counters">
             <div class="counter-container">
                 <div class="counter" data-target="163">0</div>
@@ -180,7 +209,42 @@
         <section class="about-novaklar">
             <h2>Acerca de Novaklar</h2>
             
-            <!-- ... resto del contenido ... -->
+            <div class="about-section">
+                <h3>¿Quiénes somos?</h3>
+                <p>Novaklar es una empresa digital fundada el 20 de agosto de 2023 con la misión de ofrecer soluciones accesibles, innovadoras y rentables en el mundo digital. Nació como un proyecto estudiantil con visión empresarial, y hoy cuenta con más de 160 colaboradores y un modelo de crecimiento colaborativo único.</p>
+            </div>
+            
+            <div class="about-section">
+                <h3>¿Qué ofrecemos?</h3>
+                <p>Brindamos acceso a productos digitales como plataformas de streaming, recargas de juegos, suscripciones premium (ChatGPT Pro, Canva Pro, CapCut Pro), servicios de seguidores y cursos especializados. Todo desde un sistema de afiliación práctico y sin inversión inicial.</p>
+            </div>
+            
+            <div class="about-section">
+                <h3>Nuestra visión</h3>
+                <p>Queremos ser una empresa líder en la distribución de servicios digitales en Latinoamérica, democratizando el acceso a herramientas tecnológicas mientras generamos oportunidades de ingresos para todos.</p>
+            </div>
+            
+            <div class="about-section">
+                <h3>Modelo de negocio</h3>
+                <p>Nos basamos en tres roles fundamentales:</p>
+                <ul>
+                    <li><strong>Revendedores:</strong> Venden sin necesidad de inversión previa.</li>
+                    <li><strong>Promotores:</strong> Recomiendan y ganan por comisión tras cada venta.</li>
+                    <li><strong>Reclutadores:</strong> Expanden el equipo y reciben comisiones por nuevos afiliados.</li>
+                </ul>
+                <p>Creemos en la innovación, la flexibilidad y el trabajo en red como motor de crecimiento real.</p>
+            </div>
+            
+            <div class="about-section terms">
+                <h3>Términos y condiciones generales</h3>
+                <ol>
+                    <li><strong>Uso de los servicios:</strong> Novaklar actúa como intermediario entre el usuario y los proveedores de servicios digitales. Al utilizar nuestra plataforma, el usuario acepta los términos aquí descritos.</li>
+                    <li><strong>Responsabilidad del usuario:</strong> Cada usuario es responsable de utilizar de forma ética y legal los productos adquiridos. Cualquier intento de fraude o mal uso implicará la suspensión inmediata del acceso.</li>
+                    <li><strong>Pagos y reembolsos:</strong> Los pagos deben ser realizados a través de los canales oficiales. Una vez entregado un producto digital correctamente, no se realizan reembolsos, excepto en casos de errores comprobables.</li>
+                    <li><strong>Protección de datos:</strong> Novaklar se compromete a proteger la privacidad de sus usuarios y no compartir datos personales con terceros sin consentimiento.</li>
+                    <li><strong>Cambios en los términos:</strong> Nos reservamos el derecho de modificar estos términos en cualquier momento. Se recomienda revisar esta sección periódicamente.</li>
+                </ol>
+            </div>
         </section>
     </main>
 

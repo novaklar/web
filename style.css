@@ -99,29 +99,29 @@ main {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 6rem 0 5rem;
-    background: linear-gradient(135deg, #081677, #892AFF);
+    padding: 3rem 0;
+    background-color: #89a2ff;
     color: white;
     border-radius: 10px;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .hero h1 {
-    font-size: 2.4rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 4rem;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
 }
 
 /* Panel de Botones */
 .panel-botones {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 2.5rem;
+    gap: 1.5rem;
+    margin-top: 2rem;
     flex-wrap: wrap;
     position: relative;
 }
@@ -132,27 +132,24 @@ main {
 }
 
 .panel-btn {
-    height: 70px;
-    padding: 0 2rem;
+    padding: 1rem 1.8rem;
     border-radius: 8px;
     font-weight: 600;
-    color: #000;
-    background-color: #fff;
+    color: white;
     transition: all 0.3s;
     min-width: 160px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    background-color: #081677;
 }
 
 .panel-btn:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    background-color: #f1f1f1;
+    background-color: #0a1d8a;
 }
 
 /* Dropdown Menus */
@@ -381,7 +378,6 @@ footer {
     .panel-btn {
         width: 100%;
         padding: 0.8rem;
-        height: 70px;
     }
     
     .panel-dropdown-menu {

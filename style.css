@@ -428,70 +428,67 @@ footer {
 .counters.visible {
     opacity: 1;
 }
-/* Contenedor del panel central */
-.panel-botones {
-    background-color: #081677;
-    padding: 25px 20px 40px 20px;
-    border-radius: 8px;
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
+/* Fondo sólido del contenedor principal */
+.main-container {
+  background-color: #081677;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 /* Título Bienvenido a Novaklar */
-.hero h1 {
-    color: #89a2ff;
-    font-size: 2rem;
-    margin-bottom: 5px; /* poco espacio hacia el slogan */
-    line-height: 1.1;
-    white-space: nowrap; /* evita salto de línea */
-    overflow: hidden;
-    text-overflow: ellipsis;
+.main-container h1 {
+  color: #89a2ff;
+  font-size: 2rem;
+  margin-top: 10px;     /* Subido más arriba */
+  margin-bottom: 10px;  /* Menor espacio con el slogan */
+  line-height: 1.2;
 }
 
-/* Slogan debajo del título */
-.hero p {
-    color: white;
-    font-size: 1.1rem;
-    margin-top: 5px; /* espacio reducido desde el título */
-    margin-bottom: 30px; /* espacio hasta los botones */
+/* Slogan (subtítulo debajo del título) */
+.main-container p {
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 30px; /* Menor separación con el título */
 }
 
-/* Botones panel */
-.panel-dropdown {
-    display: inline-block;
-    margin: 0 10px;
+/* Botones */
+.main-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px; /* Espaciado ajustado desde el título */
 }
 
-.panel-btn {
-    background-color: #89a2ff;
-    color: black;
-    border: none;
-    border-radius: 6px;
-    padding: 0 20px;
-    height: 70px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    min-width: 130px;
+.main-buttons button {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  padding: 0 25px;
+  height: 70px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.panel-btn:hover {
-    background-color: #6f7ed7;
+.main-buttons button:hover {
+  background-color: #e0e0e0;
 }
 
-/* Dropdown menu */
-.panel-dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #f8f8f8;
-    border-radius: 6px;
-    margin-top: 5px;
-    min-width: 140px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    z-index: 10;
-}
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+  .main-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.panel-dropdown:hover .panel-dropdown-menu {
-    display: block;
+  .main-buttons button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .main-container h1 {
+    font-size: 1.6rem;
+  }
 }

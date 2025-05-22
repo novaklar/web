@@ -4,10 +4,7 @@ const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
 
 burger.addEventListener('click', () => {
-    // Toggle nav
     nav.classList.toggle('active');
-    
-    // Burger animation
     burger.classList.toggle('toggle');
 });
 
@@ -15,7 +12,6 @@ burger.addEventListener('click', () => {
 const panelButtons = document.querySelectorAll('.panel-btn');
 const allDropdowns = document.querySelectorAll('.panel-dropdown-menu');
 
-// Close all dropdowns when clicking outside
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.panel-dropdown')) {
         allDropdowns.forEach(dropdown => {
@@ -24,49 +20,39 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Toggle dropdowns when clicking buttons
 panelButtons.forEach(button => {
     button.addEventListener('click', (e) => {
         e.stopPropagation();
         const dropdown = button.nextElementSibling;
-        
-        // Close all other dropdowns
         allDropdowns.forEach(item => {
             if (item !== dropdown) {
                 item.style.display = 'none';
             }
         });
-        
-        // Toggle current dropdown
-        if (dropdown.style.display === 'block') {
-            dropdown.style.display = 'none';
-        } else {
-            dropdown.style.display = 'block';
-        }
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
     });
 });
 
-// Close dropdowns when clicking on a menu item
 document.querySelectorAll('.panel-dropdown-menu a').forEach(item => {
     item.addEventListener('click', () => {
         item.closest('.panel-dropdown-menu').style.display = 'none';
     });
 });
 
-// Counter Animation
+// Counter Animation (más lento y fluido)
 const counters = document.querySelectorAll('.counter');
-const speed = 200;
+const speed = 100; // cuanto más alto, más lento
 
 function animateCounter(counter) {
     const target = +counter.getAttribute('data-target');
     let count = 0;
-    const increment = target / speed;
+    const increment = Math.max(target / speed, 1); // mínimo de 1 para evitar congelamiento
 
     function update() {
         if (count < target) {
             count += increment;
-            counter.innerText = Math.ceil(count);
-            setTimeout(update, 10);
+            counter.innerText = Math.floor(count);
+            setTimeout(update, 30); // más tiempo entre cada paso
         } else {
             counter.innerText = target;
             if (target === 5000) {
@@ -81,7 +67,6 @@ function animateCounter(counter) {
     update();
 }
 
-// Start animation when counters are in view
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {

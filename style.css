@@ -1,430 +1,617 @@
-* { 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Work Sans', sans-serif;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>novaklar</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap">
+    <link rel="icon" href="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" type="image/svg+xml">
+    <style>
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Work Sans', sans-serif;
+        }
 
-body {
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
-}
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
 
-/* Header */
-header {
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 5%;
-}
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%;
+        }
 
-.logo-container {
-    width: 100px;
-}
+        .logo-container {
+            width: 100px;
+        }
 
-.logo {
-    width: 100%;
-    height: auto;
-    max-height: 50px;
-}
+        .logo {
+            width: 100%;
+            height: auto;
+            max-height: 50px;
+        }
 
-/* Navigation */
-.nav-links {
-    display: flex;
-    list-style: none;
-}
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
 
-/* Estilos para los enlaces de redes sociales */
-.social-links {
-    display: flex;
-    gap: 20px;
-}
+        /* Estilos para los enlaces de redes sociales */
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
 
-.social-links a {
-    color: #333;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    padding: 0.5rem 0;
-    position: relative;
-}
+        .social-links a {
+            color: #333;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
 
-.social-links a:hover {
-    color: #081677;
-}
+        .social-links a:hover {
+            color: #081677;
+        }
 
-.social-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #081677;
-    transition: width 0.3s;
-}
+        .social-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #081677;
+            transition: width 0.3s;
+        }
 
-.social-links a:hover::after {
-    width: 100%;
-}
+        .social-links a:hover::after {
+            width: 100%;
+        }
 
-/* Burger Menu */
-.burger {
-    display: none;
-    cursor: pointer;
-}
+        /* Burger Menu */
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
 
-.burger div {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 5px;
-    transition: all 0.3s ease;
-}
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
 
-/* Main Content */
-main {
-    margin-top: 70px;
-    padding: 2rem 5%;
-}
+        /* Main Content */
+        main {
+            margin-top: 70px;
+            padding: 2rem 5%;
+        }
 
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 3rem 0;
-    background-color: #89a2ff;
-    color: white;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-}
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #89a2ff 0%, #081677 100%);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
 
-.hero h1 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-}
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-.hero p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-}
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
 
-/* Panel de Botones */
-.panel-botones {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-    position: relative;
-}
+        /* Panel de Botones */
+        .panel-botones {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
 
-.panel-dropdown {
-    position: relative;
-    display: inline-block;
-}
+        .panel-dropdown {
+            position: relative;
+            display: inline-block;
+            min-width: 200px;
+        }
 
-.panel-btn {
-    padding: 1rem 1.8rem;
-    border-radius: 8px;
-    font-weight: 600;
-    color: white;
-    transition: all 0.3s;
-    min-width: 160px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: none;
-    cursor: pointer;
-    position: relative;
-    background-color: #081677;
-}
+        .panel-btn {
+            padding: 1.2rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: none;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1rem;
+        }
 
-.panel-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    background-color: #0a1d8a;
-}
+        .panel-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.25);
+        }
 
-/* Dropdown Menus */
-.panel-dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 0 0 8px 8px;
-    z-index: 100;
-    animation: fadeIn 0.3s;
-}
+        /* Dropdown Menus */
+        .panel-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 100%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 8px 8px;
+            z-index: 100;
+            animation: fadeIn 0.3s;
+        }
 
-.panel-dropdown-menu a {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    transition: all 0.3s;
-}
+        .panel-dropdown-menu a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: all 0.3s;
+        }
 
-.panel-dropdown-menu a:hover {
-    background-color: #f1f1f1;
-    color: #081677;
-}
+        .panel-dropdown-menu a:hover {
+            background-color: #f1f1f1;
+            color: #081677;
+        }
 
-.panel-dropdown:hover .panel-dropdown-menu {
-    display: block;
-}
+        .panel-dropdown:hover .panel-dropdown-menu {
+            display: block;
+        }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-/* Sección de contadores */
-.counters {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 3rem 0;
-    background-color: #f0f4ff;
-    margin: 2rem 0;
-    opacity: 0;
-    transition: opacity 1s ease;
-}
+        /* Sección de contadores */
+        .counters {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 3rem 0;
+            background-color: #f0f4ff;
+            margin: 2rem 0;
+            opacity: 0;
+            transition: opacity 1s ease;
+            border-radius: 10px;
+        }
 
-.counter-container {
-    text-align: center;
-    margin: 1rem;
-    min-width: 150px;
-}
+        .counter-container {
+            text-align: center;
+            margin: 1rem;
+            min-width: 150px;
+        }
 
-.counter {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #081677;
-    margin-bottom: 0.5rem;
-}
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #081677;
+            margin-bottom: 0.5rem;
+        }
 
-.counters p {
-    font-size: 1.2rem;
-    color: #333;
-    font-weight: 500;
-}
+        .counters p {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 500;
+        }
 
-/* Sección Acerca de Novaklar */
-.about-novaklar {
-    padding: 3rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        /* Sección Acerca de Novaklar */
+        .about-novaklar {
+            padding: 3rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.about-novaklar h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-    color: #081677;
-    position: relative;
-}
+        .about-novaklar h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #081677;
+            position: relative;
+        }
 
-.about-novaklar h2::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 3px;
-    background-color: #89a2ff;
-    margin: 0.5rem auto 0;
-}
+        .about-novaklar h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #89a2ff;
+            margin: 0.5rem auto 0;
+        }
 
-.about-section {
-    margin-bottom: 2.5rem;
-    padding: 1.5rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-}
+        .about-section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
 
-.about-section:hover {
-    transform: translateY(-5px);
-}
+        .about-section:hover {
+            transform: translateY(-5px);
+        }
 
-.about-section h3 {
-    color: #081677;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-}
+        .about-section h3 {
+            color: #081677;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
 
-.about-section p {
-    margin-bottom: 1rem;
-    line-height: 1.7;
-}
+        .about-section p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
 
-.about-section ul, .about-section ol {
-    margin-left: 1.5rem;
-    margin-bottom: 1.5rem;
-}
+        .about-section ul, .about-section ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
 
-.about-section li {
-    margin-bottom: 0.5rem;
-    line-height: 1.6;
-}
+        .about-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
 
-.terms {
-    background-color: #f9f9f9;
-    border-left: 4px solid #081677;
-}
+        .terms {
+            background-color: #f9f9f9;
+            border-left: 4px solid #081677;
+        }
 
-.terms ol {
-    list-style-type: none;
-    counter-reset: item;
-    padding-left: 0;
-}
+        .terms ol {
+            list-style-type: none;
+            counter-reset: item;
+            padding-left: 0;
+        }
 
-.terms ol li {
-    counter-increment: item;
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-left: 2rem;
-}
+        .terms ol li {
+            counter-increment: item;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 2rem;
+        }
 
-.terms ol li::before {
-    content: counter(item) ".";
-    font-weight: bold;
-    color: #081677;
-    position: absolute;
-    left: 0;
-}
+        .terms ol li::before {
+            content: counter(item) ".";
+            font-weight: bold;
+            color: #081677;
+            position: absolute;
+            left: 0;
+        }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1.5rem;
-    background-color: #fff;
-    margin-top: 2rem;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-}
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #fff;
+            margin-top: 2rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    header {
-        padding: 0.5rem 3%;
-    }
-    
-    .logo-container {
-        width: 80px;
-    }
-    
-    .nav-links {
-        position: absolute;
-        right: 0;
-        top: 60px;
-        background-color: white;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-        clip-path: circle(0px at 90% -10%);
-        transition: all 0.5s ease-out;
-        pointer-events: none;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    }
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 0.5rem 3%;
+            }
+            
+            .logo-container {
+                width: 80px;
+            }
+            
+            .nav-links {
+                position: absolute;
+                right: 0;
+                top: 60px;
+                background-color: white;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                clip-path: circle(0px at 90% -10%);
+                transition: all 0.5s ease-out;
+                pointer-events: none;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
 
-    .nav-links.active {
-        clip-path: circle(1000px at 90% -10%);
-        pointer-events: all;
-    }
+            .nav-links.active {
+                clip-path: circle(1000px at 90% -10%);
+                pointer-events: all;
+            }
 
-    .social-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        margin-top: 1rem;
-        width: 100%;
-    }
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                margin-top: 1rem;
+                width: 100%;
+            }
 
-    .social-links a {
-        width: 100%;
-        text-align: center;
-    }
+            .social-links a {
+                width: 100%;
+                text-align: center;
+            }
 
-    .burger {
-        display: block;
-    }
+            .burger {
+                display: block;
+            }
 
-    .hero h1 {
-        font-size: 1.8rem;
-    }
+            .hero {
+                padding: 3rem 1rem;
+            }
 
-    .panel-botones {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
 
-    .panel-dropdown {
-        width: 100%;
-        max-width: 250px;
-    }
-    
-    .panel-btn {
-        width: 100%;
-        padding: 0.8rem;
-    }
-    
-    .panel-dropdown-menu {
-        width: 100%;
-    }
+            .hero p {
+                font-size: 1rem;
+            }
 
-    .counters {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .counter {
-        font-size: 2.5rem;
-    }
-    
-    .about-section {
-        padding: 1rem;
-    }
+            .panel-botones {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
 
-    .about-novaklar h2 {
-        font-size: 1.8rem;
-    }
-}
+            .panel-dropdown {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .panel-btn {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+            
+            .panel-dropdown-menu {
+                width: 100%;
+            }
 
-/* Animations */
-@keyframes navLinkFade {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+            .counters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .counter {
+                font-size: 2.5rem;
+            }
+            
+            .about-section {
+                padding: 1rem;
+            }
 
-.toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-.toggle .line2 {
-    opacity: 0;
-}
-.toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
+            .about-novaklar h2 {
+                font-size: 1.8rem;
+            }
+        }
 
-/* Animation for counters when visible */
-.counters.visible {
-    opacity: 1;
-}
+        /* Animations */
+        @keyframes navLinkFade {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .toggle .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .toggle .line2 {
+            opacity: 0;
+        }
+        .toggle .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Animation for counters when visible */
+        .counters.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" alt="novaklar Logo" class="logo">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="social-links">
+                    <a href="https://www.tiktok.com/@novaklar?_t=ZS-8wYRHKIgAeP&_r=1" target="_blank">TikTok</a>
+                    <a href="https://www.instagram.com/novaklar.co?igsh=M2ZwOG91amJmamwx" target="_blank">Instagram</a>
+                    <a href="https://youtube.com/@novaklar?si=l95-ZDJxJhrOwtOV" target="_blank">YouTube</a>
+                    <a href="https://whatsapp.com/channel/0029VaMxlM0EVccFMEFw9u04" target="_blank">WhatsApp</a>
+                </li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <h1>Bienvenido a novaklar</h1>
+            <p>Soluciones innovadoras para tus necesidades digitales</p>
+            
+            <div class="panel-botones">
+                <div class="panel-dropdown">
+                    <button class="panel-btn">Servicios ▼</button>
+                    <div class="panel-dropdown-menu">
+                        <a href="https://novamarket.rdi.store" target="_blank">Market</a>
+                    </div>
+                </div>
+                
+                <div class="panel-dropdown">
+                    <button class="panel-btn">Catálogos ▼</button>
+                    <div class="panel-dropdown-menu">
+                        <a href="streaming.html">Streaming</a>
+                        <a href="gaming.html">Gaming</a>
+                        <a href="apps.html">Apps</a>
+                        <a href="cursos.html">Cursos</a>
+                    </div>
+                </div>
+                
+                <div class="panel-dropdown">
+                    <button class="panel-btn">Elementos ▼</button>
+                    <div class="panel-dropdown-menu">
+                        <a href="https://photos.app.goo.gl/5dSreR3BwDKUeaTHA" target="_blank">Publicidad</a>
+                        <a href="#">Ranking</a>
+                        <a href="#">App</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de contadores -->
+        <section class="counters">
+            <div class="counter-container">
+                <div class="counter" data-target="163">0</div>
+                <p>Afiliados</p>
+            </div>
+            <div class="counter-container">
+                <div class="counter" data-target="5000">0</div>
+                <p>Ventas realizadas</p>
+            </div>
+            <div class="counter-container">
+                <div class="counter" data-target="95">0</div>
+                <p>% Clientes satisfechos</p>
+            </div>
+        </section>
+
+        <!-- Sección Acerca de Novaklar -->
+        <section class="about-novaklar">
+            <h2>Acerca de Novaklar</h2>
+            
+            <div class="about-section">
+                <h3>¿Quiénes somos?</h3>
+                <p>Novaklar es una empresa digital fundada el 20 de agosto de 2023 con la misión de ofrecer soluciones accesibles, innovadoras y rentables en el mundo digital. Nació como un proyecto estudiantil con visión empresarial, y hoy cuenta con más de 160 colaboradores y un modelo de crecimiento colaborativo único.</p>
+            </div>
+            
+            <div class="about-section">
+                <h3>¿Qué ofrecemos?</h3>
+                <p>Brindamos acceso a productos digitales como plataformas de streaming, recargas de juegos, suscripciones premium (ChatGPT Pro, Canva Pro, CapCut Pro), servicios de seguidores y cursos especializados. Todo desde un sistema de afiliación práctico y sin inversión inicial.</p>
+            </div>
+            
+            <div class="about-section">
+                <h3>Nuestra visión</h3>
+                <p>Queremos ser una empresa líder en la distribución de servicios digitales en Latinoamérica, democratizando el acceso a herramientas tecnológicas mientras generamos oportunidades de ingresos para todos.</p>
+            </div>
+            
+            <div class="about-section">
+                <h3>Modelo de negocio</h3>
+                <p>Nos basamos en tres roles fundamentales:</p>
+                <ul>
+                    <li><strong>Revendedores:</strong> Venden sin necesidad de inversión previa.</li>
+                    <li><strong>Promotores:</strong> Recomiendan y ganan por comisión tras cada venta.</li>
+                    <li><strong>Reclutadores:</strong> Expanden el equipo y reciben comisiones por nuevos afiliados.</li>
+                </ul>
+                <p>Creemos en la innovación, la flexibilidad y el trabajo en red como motor de crecimiento real.</p>
+            </div>
+            
+            <div class="about-section terms">
+                <h3>Términos y condiciones generales</h3>
+                <ol>
+                    <li><strong>Uso de los servicios:</strong> Novaklar actúa como intermediario entre el usuario y los proveedores de servicios digitales. Al utilizar nuestra plataforma, el usuario acepta los términos aquí descritos.</li>
+                    <li><strong>Responsabilidad del usuario:</strong> Cada usuario es responsable de utilizar de forma ética y legal los productos adquiridos. Cualquier intento de fraude o mal uso implicará la suspensión inmediata del acceso.</li>
+                    <li><strong>Pagos y reembolsos:</strong> Los pagos deben ser realizados a través de los canales oficiales. Una vez entregado un producto digital correctamente, no se realizan reembolsos, excepto en casos de errores comprobables.</li>
+                    <li><strong>Protección de datos:</strong> Novaklar se compromete a proteger la privacidad de sus usuarios y no compartir datos personales con terceros sin consentimiento.</li>
+                    <li><strong>Cambios en los términos:</strong> Nos reservamos el derecho de modificar estos términos en cualquier momento. Se recomienda revisar esta sección periódicamente.</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 novaklar. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Burger menu toggle
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            burger.classList.toggle('toggle');
+        });
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        const countersSection = document.querySelector('.counters');
+        
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if(count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(startCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        };
+        
+        // Intersection Observer for counters
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    countersSection.classList.add('visible');
+                    startCounters();
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(countersSection);
+    </script>
+</body>
+</html>

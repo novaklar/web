@@ -428,20 +428,28 @@ footer {
 .counters.visible {
     opacity: 1;
 }
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Work Sans', sans-serif;
-    background-color: #f4f4f4;
 }
 
-/* Header */
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
 header {
-    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
@@ -451,21 +459,20 @@ header {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
-.social-links a {
+.nav-links a {
     text-decoration: none;
-    color: #081677;
-    font-weight: 600;
-    margin: 0 8px;
+    color: #000;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-.burger {
-    display: none;
+.nav-links a:hover {
+    color: #89a2ff;
 }
 
-/* Hero */
 .hero {
     background: #081677;
     color: white;
@@ -475,22 +482,35 @@ header {
 
 .hero h1 {
     color: #89a2ff;
-    font-size: 2rem;
+    font-size: 2rem; /* Más pequeño */
     margin-bottom: 10px;
     white-space: nowrap;
-    margin-top: -10px;
+    margin-top: -10px; /* Subido */
 }
 
-.hero .slogan {
+.hero p.slogan {
     font-size: 1.2rem;
-    margin-bottom: 75px; /* Espaciado final: 10 + 20 + 30 + 15 = 75px */
+    margin-bottom: 90px; /* Espacio aumentado con precisión */
 }
 
 .panel-botones {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* En pantallas grandes, los botones se alinean en fila */
+@media (min-width: 768px) {
+    .panel-botones {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.panel-dropdown {
+    position: relative;
 }
 
 .panel-btn {
@@ -499,7 +519,7 @@ header {
     border: none;
     padding: 0 20px;
     height: 70px;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
@@ -513,75 +533,66 @@ header {
 
 .panel-dropdown-menu {
     display: none;
-    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
     background-color: white;
-    margin-top: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 10;
 }
 
 .panel-dropdown:hover .panel-dropdown-menu {
-    display: flex;
+    display: block;
 }
 
 .panel-dropdown-menu a {
-    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
     color: black;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.2s;
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
 .panel-dropdown-menu a:hover {
     background-color: #f0f0f0;
 }
 
-/* Hero - botones en fila en pantallas grandes */
-@media screen and (min-width: 768px) {
-    .panel-botones {
-        flex-direction: row;
-        justify-content: center;
-    }
-}
-
-/* Counters */
 .counters {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 30px;
     padding: 40px 20px;
-    background-color: white;
+    background-color: #f9f9f9;
     text-align: center;
 }
 
 .counter-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex: 1;
 }
 
 .counter {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
     color: #081677;
-    font-weight: bold;
 }
 
-/* About */
 .about-novaklar {
     padding: 60px 20px;
-    background-color: #f9f9f9;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .about-novaklar h2 {
     text-align: center;
+    margin-bottom: 40px;
     font-size: 2rem;
     color: #081677;
-    margin-bottom: 40px;
 }
 
 .about-section {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .about-section h3 {
@@ -591,17 +602,19 @@ header {
 
 .about-section ul {
     padding-left: 20px;
+    list-style-type: disc;
 }
 
-.about-section li {
-    margin-bottom: 8px;
-}
-
-/* Footer */
 footer {
-    text-align: center;
-    padding: 20px;
     background-color: #081677;
     color: white;
-    font-size: 0.9rem;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
 }
+
+.burger {
+    display: none;
+}
+
+/* Responsive: puedes añadir ajustes aquí si necesitas más detalle */

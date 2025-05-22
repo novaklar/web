@@ -439,13 +439,13 @@ footer {
     color: #89a2ff;
     font-size: 1.8rem; /* Reducido para que no se salga */
     margin-bottom: 10px;
-    margin-top: -10px; /* Lo subimos un poco */
-    white-space: normal; /* Permitimos que se parta en dos líneas si es necesario */
+    margin-top: -10px; /* Subido un poco */
+    white-space: normal; /* Permite dividir en dos líneas si es necesario */
 }
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 30px;
+    margin-bottom: 40px; /* Antes 30px → ahora 40px para agregar 10px más de espacio */
 }
 
 .panel-botones {

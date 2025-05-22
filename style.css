@@ -428,55 +428,50 @@ footer {
 .counters.visible {
     opacity: 1;
 }
-/* Fondo del panel principal */
 .hero {
     background: #081677;
-    padding: 80px 20px 60px;
-    text-align: center;
     color: white;
+    text-align: center;
+    padding: 60px 20px;
 }
 
-/* Título “Bienvenido a Novaklar” */
 .hero h1 {
     color: #89a2ff;
-    font-size: 3rem;
-    margin-bottom: 10px; /* menos espacio con el slogan */
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    white-space: nowrap;
 }
 
-/* Slogan “Innovación a tu alcance” */
 .hero p {
-    font-size: 1.4rem;
-    margin-top: 0; /* reducir el espacio con el título */
-    margin-bottom: 40px; /* más espacio con los botones */
+    font-size: 1.2rem;
+    margin-bottom: 30px;
 }
 
-/* Botones del panel principal */
-.panel-botones .panel-btn {
-    height: 70px;
+.panel-botones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.panel-btn {
     background-color: white;
-    color: #000;
-    font-weight: 600;
+    color: black;
     border: none;
-    border-radius: 10px;
     padding: 0 20px;
-    margin: 10px;
+    height: 70px;
     font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s ease, background-color 0.3s;
 }
 
-.panel-botones .panel-btn:hover {
-    background-color: #d9d9d9;
+.panel-btn:hover {
+    background-color: #e4e4e4;
+    transform: scale(1.03);
 }
 
-/* Asegura que el dropdown se muestre correctamente */
 .panel-dropdown-menu a {
     color: black;
-    text-decoration: none;
-    display: block;
-    padding: 8px 12px;
-}
-
-.panel-dropdown-menu a:hover {
-    background-color: #f0f0f0;
 }

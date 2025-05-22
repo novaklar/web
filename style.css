@@ -445,7 +445,7 @@ footer {
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 40px; /* Antes 30px → ahora 40px para agregar 10px más de espacio */
+    margin-bottom: 60px; /* Espacio aumentado a 60px */
 }
 
 .panel-botones {

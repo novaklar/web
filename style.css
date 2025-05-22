@@ -428,58 +428,70 @@ footer {
 .counters.visible {
     opacity: 1;
 }
-.hero {
-  background-color: #081677;
-  color: #ffffff;
-  padding: 30px 20px 40px 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 400px;
-  box-sizing: border-box;
+/* Contenedor del panel central */
+.panel-botones {
+    background-color: #081677;
+    padding: 25px 20px 40px 20px;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
 }
 
+/* Título Bienvenido a Novaklar */
 .hero h1 {
-  color: #89a2ff;
-  font-size: 2.5rem;
-  margin-top: 0;
-  margin-bottom: 10px;
-  max-width: 90%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    color: #89a2ff;
+    font-size: 2rem;
+    margin-bottom: 5px; /* poco espacio hacia el slogan */
+    line-height: 1.1;
+    white-space: nowrap; /* evita salto de línea */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+/* Slogan debajo del título */
 .hero p {
-  font-size: 1.2rem;
-  color: #ffffff;
-  margin-top: 0;
-  margin-bottom: 30px;
+    color: white;
+    font-size: 1.1rem;
+    margin-top: 5px; /* espacio reducido desde el título */
+    margin-bottom: 30px; /* espacio hasta los botones */
 }
 
-.hero .button-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
+/* Botones panel */
+.panel-dropdown {
+    display: inline-block;
+    margin: 0 10px;
 }
 
-.hero .button-container button {
-  height: 70px;
-  padding: 0 20px;
-  font-size: 1rem;
-  background-color: #ffffff;
-  color: #000000;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s;
+.panel-btn {
+    background-color: #89a2ff;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    padding: 0 20px;
+    height: 70px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 130px;
 }
 
-.hero .button-container button:hover {
-  transform: scale(1.05);
+.panel-btn:hover {
+    background-color: #6f7ed7;
 }
 
+/* Dropdown menu */
+.panel-dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f8f8f8;
+    border-radius: 6px;
+    margin-top: 5px;
+    min-width: 140px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+.panel-dropdown:hover .panel-dropdown-menu {
+    display: block;
+}

@@ -428,63 +428,55 @@ footer {
 .counters.visible {
     opacity: 1;
 }
-/* 👇 Al final de tu CSS, debajo de todo lo que ya tengas */
-
-.panel-botones {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-top: 40px;
+/* Fondo del panel principal */
+.hero {
+    background: #081677;
+    padding: 80px 20px 60px;
+    text-align: center;
+    color: white;
 }
 
-.panel-btn {
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    padding: 0 20px;
+/* Título “Bienvenido a Novaklar” */
+.hero h1 {
+    color: #89a2ff;
+    font-size: 3rem;
+    margin-bottom: 10px; /* menos espacio con el slogan */
+}
+
+/* Slogan “Innovación a tu alcance” */
+.hero p {
+    font-size: 1.4rem;
+    margin-top: 0; /* reducir el espacio con el título */
+    margin-bottom: 40px; /* más espacio con los botones */
+}
+
+/* Botones del panel principal */
+.panel-botones .panel-btn {
     height: 70px;
-    border-radius: 10px;
-    font-size: 1rem;
+    background-color: white;
+    color: #000;
     font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 0 20px;
+    margin: 10px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    width: 200px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
-.panel-btn:hover {
-    background-color: #f0f0f0;
+.panel-botones .panel-btn:hover {
+    background-color: #d9d9d9;
 }
 
-.panel-dropdown-menu {
-    display: none;
-    flex-direction: column;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 5px;
-    overflow: hidden;
-}
-
-.panel-dropdown:hover .panel-dropdown-menu {
-    display: flex;
-}
-
+/* Asegura que el dropdown se muestre correctamente */
 .panel-dropdown-menu a {
-    padding: 10px 20px;
+    color: black;
     text-decoration: none;
-    color: #000000;
-    font-weight: 500;
+    display: block;
+    padding: 8px 12px;
 }
 
 .panel-dropdown-menu a:hover {
-    background-color: #f5f5f5;
+    background-color: #f0f0f0;
 }
-
-@media (max-width: 600px) {
-    .panel-botones {
-        margin-top: 60px;
-    }
-}
-

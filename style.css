@@ -428,6 +428,51 @@ footer {
 .counters.visible {
     opacity: 1;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    height: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #89a2ff;
+}
+
 .hero {
     background: #081677;
     color: white;
@@ -437,22 +482,35 @@ footer {
 
 .hero h1 {
     color: #89a2ff;
-    font-size: 1.8rem;
+    font-size: 2rem; /* Más pequeño */
     margin-bottom: 10px;
-    margin-top: -10px;
-    white-space: normal;
+    white-space: nowrap;
+    margin-top: -10px; /* Subido */
 }
 
-.hero p {
+.hero p.slogan {
     font-size: 1.2rem;
-    margin-bottom: 105px; /* espacio aumentado */
+    margin-bottom: 90px; /* Espacio aumentado con precisión */
 }
 
 .panel-botones {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* En pantallas grandes, los botones se alinean en fila */
+@media (min-width: 768px) {
+    .panel-botones {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.panel-dropdown {
+    position: relative;
 }
 
 .panel-btn {
@@ -473,12 +531,90 @@ footer {
     transform: scale(1.03);
 }
 
-.panel-dropdown-menu a {
-    color: black;
+.panel-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 10;
 }
 
+.panel-dropdown:hover .panel-dropdown-menu {
+    display: block;
+}
 
-       
-       
+.panel-dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
 
- 
+.panel-dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.counters {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.counter-container {
+    flex: 1;
+}
+
+.counter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #081677;
+}
+
+.about-novaklar {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-novaklar h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #081677;
+}
+
+.about-section {
+    margin-bottom: 40px;
+}
+
+.about-section h3 {
+    color: #081677;
+    margin-bottom: 10px;
+}
+
+.about-section ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+footer {
+    background-color: #081677;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.burger {
+    display: none;
+}
+
+/* Responsive: puedes añadir ajustes aquí si necesitas más detalle */

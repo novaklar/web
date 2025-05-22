@@ -437,9 +437,10 @@ footer {
 
 .hero h1 {
     color: #89a2ff;
-    font-size: 2.5rem;
+    font-size: 1.8rem; /* Reducido para que no se salga */
     margin-bottom: 10px;
-    white-space: nowrap;
+    margin-top: -10px; /* Lo subimos un poco */
+    white-space: normal; /* Permitimos que se parta en dos líneas si es necesario */
 }
 
 .hero p {

@@ -435,31 +435,36 @@ footer {
   text-align: center;
 }
 
-/* Título Bienvenido a Novaklar */
+/* Título: Bienvenido a Novaklar */
 .main-container h1 {
   color: #89a2ff;
-  font-size: 2rem;
-  margin-top: 10px;     /* Subido más arriba */
-  margin-bottom: 10px;  /* Menor espacio con el slogan */
+  font-size: 1.8rem;
+  margin-top: 0px;      /* Lo subimos completamente al tope del contenedor */
+  margin-bottom: 10px;  /* Cercano al slogan */
   line-height: 1.2;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Slogan (subtítulo debajo del título) */
+/* Slogan debajo del título */
 .main-container p {
   color: white;
   font-size: 1.1rem;
-  margin-bottom: 30px; /* Menor separación con el título */
+  margin-bottom: 25px;
 }
 
-/* Botones */
+/* Contenedor de botones */
 .main-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  margin-top: 30px; /* Espaciado ajustado desde el título */
+  margin-top: 30px;
 }
 
+/* Botones individuales */
 .main-buttons button {
   background-color: #ffffff;
   color: #000000;
@@ -472,11 +477,12 @@ footer {
   transition: background-color 0.3s ease;
 }
 
+/* Hover para botones */
 .main-buttons button:hover {
   background-color: #e0e0e0;
 }
 
-/* Ajuste responsivo */
+/* Responsividad móvil */
 @media (max-width: 768px) {
   .main-buttons {
     flex-direction: column;
@@ -489,6 +495,7 @@ footer {
   }
 
   .main-container h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    white-space: normal;  /* Permitimos que el texto se divida en 2 líneas si es necesario en móvil */
   }
 }

@@ -5,10 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>novaklar</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Ícono -->
     <link rel="icon" href="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" type="image/svg+xml">
+
+    <!-- Fuente personalizada -->
+    <style>
+        @font-face {
+            font-family: 'Waratah';
+            src: url('https://raw.githubusercontent.com/novaklar/web/main/fonts/waratah.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .waratah-text {
+            font-family: 'Waratah', sans-serif;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -34,7 +52,7 @@
 
     <main>
         <section id="inicio" class="hero">
-            <h1>Bienvenido a novaklar</h1>
+            <h1>Bienvenido a <span class="waratah-text">novaklar</span></h1>
             <p>Soluciones innovadoras para tus necesidades digitales</p>
             
             <div class="panel-botones">

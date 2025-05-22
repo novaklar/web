@@ -57,34 +57,35 @@ document.querySelectorAll('.panel-dropdown-menu a').forEach(item => {
 const counters = document.querySelectorAll('.counter');
 const speed = 200;
 
-function animateCounters() {
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const increment = target / speed;
+function animateCounter(counter) {
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+    const increment = target / speed;
 
+    function update() {
         if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(animateCounters, 1);
+            count += increment;
+            counter.innerText = Math.ceil(count);
+            setTimeout(update, 10);
         } else {
             counter.innerText = target;
-            // Add plus sign for the sales counter
-            if (counter.getAttribute('data-target') === '5000') {
+            if (target === 5000) {
                 counter.innerText = '+' + target;
             }
-            // Add percentage for satisfaction counter
-            if (counter.getAttribute('data-target') === '95') {
+            if (target === 95) {
                 counter.innerText = target + '%';
             }
         }
-    });
+    }
+
+    update();
 }
 
 // Start animation when counters are in view
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            animateCounters();
+            counters.forEach(counter => animateCounter(counter));
             observer.unobserve(entry.target);
         }
     });

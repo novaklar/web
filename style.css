@@ -428,155 +428,230 @@ footer {
 .counters.visible {
     opacity: 1;
 }
-/* Reset y fuentes */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
 }
 
 body {
-  background-color: #ffffff;
-  color: #000000;
+    background-color: #ffffff;
+    color: #000000;
 }
 
-/* Encabezado */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Logo */
 .logo {
-  font-size: 2rem;
-  font-weight: bold;
+    height: 40px;
 }
 
-/* Botón hamburguesa */
-.menu-toggle {
-  width: 30px;
-  height: 24px;
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
-.menu-toggle span {
-  display: block;
-  height: 3px;
-  background-color: #000;
-  transition: all 0.3s ease;
-  border-radius: 2px;
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-/* Animación hamburguesa a X */
-.menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+.nav-links a:hover {
+    color: #89a2ff;
 }
 
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
+/* Hamburguesa */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
 }
 
-.menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
 }
 
-/* Menú desplegable */
-.menu {
-  display: none;
-  flex-direction: column;
-  background-color: #fff;
-  position: absolute;
-  top: 70px;
-  right: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 15px;
-  border-radius: 10px;
-  z-index: 1000;
+/* Responsive: hamburguesa en móviles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 8px;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .burger {
+        display: flex;
+    }
 }
 
-.menu.active {
-  display: flex;
+.hero {
+    background: #081677;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
 }
 
-.menu a {
-  padding: 10px 0;
-  text-decoration: none;
-  color: #000;
-  font-weight: 500;
+.hero h1 {
+    color: #89a2ff;
+    font-size: 1.5rem; /* Más pequeño en general */
+    margin-bottom: 10px;
+    margin-top: 0; /* Eliminado el margen negativo */
+    word-wrap: break-word;
 }
 
-/* Panel central */
-.main-panel {
-  width: 100vw;
-  background-color: #081689;
-  padding: 40px 20px;
-  text-align: center;
-  border-radius: 0;
-  color: #fff;
-}
-
-/* Ajuste de texto */
-.main-panel h1 {
-  font-size: 1.8rem;
-  color: #89a2ff;
-  margin-bottom: 10px;
-}
-
-.main-panel p {
-  font-size: 1rem;
-  margin-bottom: 30px;
-}
-
-/* Botones */
-.button-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-}
-
-button {
-  width: 80%;
-  max-width: 300px;
-  padding: 15px;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: #fff;
-  color: #000;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #e0e0e0;
-}
-
-/* Responsivo */
 @media (min-width: 768px) {
-  .main-panel {
-    padding: 60px 100px;
-  }
+    .hero h1 {
+        font-size: 2rem; /* Tamaño original para pantallas grandes */
+    }
+}
 
-  .button-container {
-    flex-direction: row;
+.hero p.slogan {
+    font-size: 1.2rem;
+    margin-bottom: 90px;
+}
+
+.panel-botones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .panel-botones {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.panel-dropdown {
+    position: relative;
+}
+
+.panel-btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 0 20px;
+    height: 70px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.panel-btn:hover {
+    background-color: #e4e4e4;
+    transform: scale(1.03);
+}
+
+.panel-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.panel-dropdown:hover .panel-dropdown-menu {
+    display: block;
+}
+
+.panel-dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.panel-dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.counters {
+    display: flex;
     justify-content: center;
-  }
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
 
-  button {
-    margin: 0 10px;
-  }
+.counter-container {
+    flex: 1;
+}
 
-  .menu {
-    right: 40px;
-  }
+.counter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #081677;
+}
+
+.about-novaklar {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-novaklar h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #081677;
+}
+
+.about-section {
+    margin-bottom: 40px;
+}
+
+.about-section h3 {
+    color: #081677;
+    margin-bottom: 10px;
+}
+
+.about-section ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+footer {
+    background-color: #081677;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
 }

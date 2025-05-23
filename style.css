@@ -473,6 +473,44 @@ header {
     color: #89a2ff;
 }
 
+/* Hamburguesa */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+}
+
+/* Responsive: hamburguesa en móviles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 8px;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .burger {
+        display: flex;
+    }
+}
+
 .hero {
     background: #081677;
     color: white;
@@ -482,15 +520,21 @@ header {
 
 .hero h1 {
     color: #89a2ff;
-    font-size: 2rem; /* Más pequeño */
+    font-size: 1.5rem; /* Más pequeño en general */
     margin-bottom: 10px;
-    white-space: nowrap;
-    margin-top: -10px; /* Subido */
+    margin-top: 0; /* Eliminado el margen negativo */
+    word-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: 2rem; /* Tamaño original para pantallas grandes */
+    }
 }
 
 .hero p.slogan {
     font-size: 1.2rem;
-    margin-bottom: 90px; /* Espacio aumentado con precisión */
+    margin-bottom: 90px;
 }
 
 .panel-botones {
@@ -501,7 +545,6 @@ header {
     margin-top: 2rem;
 }
 
-/* En pantallas grandes, los botones se alinean en fila */
 @media (min-width: 768px) {
     .panel-botones {
         flex-direction: row;
@@ -612,9 +655,3 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
-
-.burger {
-    display: none;
-}
-
-/* Responsive: puedes añadir ajustes aquí si necesitas más detalle */

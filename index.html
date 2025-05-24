@@ -9,6 +9,56 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" type="image/svg+xml">
+    <style>
+        /* Botón flotante de WhatsApp */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-button img {
+            width: 35px;
+            height: 35px;
+        }
+
+        /* Pop-up de ayuda */
+        .whatsapp-popup {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background-color: #fff;
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-weight: 500;
+            z-index: 998;
+            opacity: 1;
+            transition: opacity 1s ease;
+            animation: fadeOut 6s forwards;
+        }
+
+        @keyframes fadeOut {
+            0%   { opacity: 1; }
+            70%  { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -126,6 +176,12 @@
     <footer>
         <p>&copy; 2023 novaklar. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Botón de WhatsApp flotante con popup -->
+    <div class="whatsapp-popup">¿Necesitas ayuda?</div>
+    <a href="https://wa.me/573001234567" target="_blank" class="whatsapp-button" title="Chatea con nosotros">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 
     <script src="script.js"></script>
 </body>

@@ -5,7 +5,7 @@ const navLinks = document.querySelectorAll('.nav-links li');
 
 burger.addEventListener('click', () => {
     nav.classList.toggle('active');
-    burger.classList.toggle('toggle');
+    burger.classList.toggle('active');  // Cambiado toggle a active para coincidir con CSS
 });
 
 // Panel Dropdown Functionality

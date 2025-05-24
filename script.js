@@ -78,14 +78,14 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelector('.counters').style.opacity = '1';
 observer.observe(document.querySelector('.counters'));
-<script>
-  window.addEventListener("load", () => {
-    const popup = document.querySelector(".popup-message");
-    if (popup) {
-      popup.classList.add("active");
-      setTimeout(() => {
-        popup.classList.remove("active");
-      }, 4000);
-    }
-  });
-</script>
+window.addEventListener('DOMContentLoaded', () => {
+  const popup = document.querySelector('.popup-message');
+  
+  // Mostrar el mensaje
+  popup.classList.add('active');
+  
+  // Después de 4 segundos, ocultarlo
+  setTimeout(() => {
+    popup.classList.remove('active');
+  }, 4000);
+});

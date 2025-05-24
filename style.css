@@ -477,14 +477,32 @@ header {
 .burger {
     display: none;
     flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
     cursor: pointer;
-    gap: 5px;
+    transition: all 0.3s ease-in-out;
+    z-index: 1001;
 }
 
 .burger div {
-    width: 25px;
-    height: 3px;
+    height: 2px;
     background-color: #000;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Estado activo */
+.burger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Responsive: hamburguesa en móviles */
@@ -511,24 +529,27 @@ header {
     }
 }
 
+/* HERO */
 .hero {
     background: #081677;
     color: white;
     text-align: center;
     padding: 60px 20px;
+    width: 100vw;
+    margin: 0;
 }
 
 .hero h1 {
     color: #89a2ff;
-    font-size: 1.5rem; /* Más pequeño en general */
+    font-size: 1.5rem;
     margin-bottom: 10px;
-    margin-top: 0; /* Eliminado el margen negativo */
+    margin-top: 0;
     word-wrap: break-word;
 }
 
 @media (min-width: 768px) {
     .hero h1 {
-        font-size: 2rem; /* Tamaño original para pantallas grandes */
+        font-size: 2rem;
     }
 }
 

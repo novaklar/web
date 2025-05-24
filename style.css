@@ -701,30 +701,49 @@ footer {
 }
 
 /* Cambia color al pasar mouse */
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
 .whatsapp-button:hover {
   background-color: #128C4A;
 }
 
-/* Tooltip */
-.whatsapp-button::after {
-  content: "¿Necesitas ayuda?";
+/* Estilo del mensaje popup */
+.popup-message {
   position: absolute;
-  bottom: 70px; /* justo arriba del botón */
+  bottom: 70px;
   right: 0;
   background-color: #333;
   color: white;
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 14px;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
   transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  user-select: none;
 }
 
-/* Mostrar tooltip al pasar mouse */
-.whatsapp-button:hover::after {
+/* Clase que activa el mensaje */
+.popup-message.active {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }

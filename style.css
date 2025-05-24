@@ -428,6 +428,7 @@ footer {
 .counters.visible {
     opacity: 1;
 }
+/* RESET GENERAL */
 * {
     margin: 0;
     padding: 0;
@@ -435,11 +436,15 @@ footer {
     font-family: 'Work Sans', sans-serif;
 }
 
-body {
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
     background-color: #ffffff;
     color: #000000;
 }
 
+/* HEADER */
 header {
     display: flex;
     justify-content: space-between;
@@ -473,39 +478,23 @@ header {
     color: #89a2ff;
 }
 
-/* Hamburguesa */
+/* HAMBURGUESA */
 .burger {
     display: none;
     flex-direction: column;
-    justify-content: space-between;
-    width: 25px;
-    height: 18px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    z-index: 1001;
+    gap: 4px;
+    padding: 5px;
 }
 
 .burger div {
+    width: 22px;
     height: 2px;
     background-color: #000;
-    border-radius: 2px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease;
 }
 
-/* Estado activo */
-.burger.active div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger.active div:nth-child(2) {
-    opacity: 0;
-}
-
-.burger.active div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Responsive: hamburguesa en móviles */
+/* Responsive nav */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -529,13 +518,13 @@ header {
     }
 }
 
-/* HERO */
+/* PANEL CENTRAL (sección hero) */
 .hero {
-    background: #081677;
+    background-color: #081677;
     color: white;
     text-align: center;
     padding: 60px 20px;
-    width: 100vw;
+    width: 100%;
     margin: 0;
 }
 
@@ -623,6 +612,7 @@ header {
     background-color: #f0f0f0;
 }
 
+/* CONTADORES */
 .counters {
     display: flex;
     justify-content: center;
@@ -642,6 +632,7 @@ header {
     color: #081677;
 }
 
+/* NOSOTROS */
 .about-novaklar {
     padding: 60px 20px;
     max-width: 900px;
@@ -669,6 +660,7 @@ header {
     list-style-type: disc;
 }
 
+/* FOOTER */
 footer {
     background-color: #081677;
     color: white;

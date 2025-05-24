@@ -681,3 +681,50 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366; /* color oficial de WhatsApp */
+  width: 56px;
+  height: 56px;
+  border-radius: 16px; /* bordes redondeados */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  position: fixed;
+}
+
+/* Cambia color al pasar mouse */
+.whatsapp-button:hover {
+  background-color: #128C4A;
+}
+
+/* Tooltip */
+.whatsapp-button::after {
+  content: "¿Necesitas ayuda?";
+  position: absolute;
+  bottom: 70px; /* justo arriba del botón */
+  right: 0;
+  background-color: #333;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Mostrar tooltip al pasar mouse */
+.whatsapp-button:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}

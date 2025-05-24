@@ -685,55 +685,15 @@ footer {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #25D366; /* color oficial de WhatsApp */
-  width: 56px;
-  height: 56px;
-  border-radius: 16px; /* bordes redondeados */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  cursor: pointer;
-  z-index: 1000;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  position: fixed;
-}
-
-/* Cambia color al pasar mouse */
-.whatsapp-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
   background-color: #25D366;
-  width: 56px;
-  height: 56px;
   border-radius: 16px;
+  padding: 12px;
+  z-index: 9999;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  cursor: pointer;
-  z-index: 1000;
   text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.whatsapp-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: white;
-  padding: 14px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
 .whatsapp-button:hover {

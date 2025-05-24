@@ -685,13 +685,15 @@ footer {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #25D366;
-  border-radius: 16px;
+  background-color: #25d366;
+  color: white;
   padding: 12px;
-  z-index: 9999;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-decoration: none;
   transition: background-color 0.3s;
 }

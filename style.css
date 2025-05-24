@@ -719,31 +719,46 @@ footer {
   transition: background-color 0.3s ease;
 }
 
-.whatsapp-button:hover {
-  background-color: #128C4A;
-}
-
-/* Estilo del mensaje popup */
-.popup-message {
-  position: absolute;
-  bottom: 70px;
-  right: 0;
-  background-color: #333;
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
   color: white;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 14px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(10px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  user-select: none;
+  padding: 14px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: background-color 0.3s ease;
 }
 
-/* Clase que activa el mensaje */
+.whatsapp-button:hover {
+  background-color: #1ebe5d;
+}
+
+.popup-message {
+  background-color: #fff;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  white-space: nowrap;
+  font-size: 14px;
+  position: absolute;
+  right: 100%;
+  margin-right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .popup-message.active {
   opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  transform: translateX(0);
 }

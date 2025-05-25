@@ -9,39 +9,46 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f172a;
-      color: white;
+      background-color: white; /* Fondo blanco */
+      color: #333; /* Texto oscuro para mejor contraste */
     }
+
     header {
-      background-color: white;
+      background-color: #0f172a; /* Header negro */
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0.75rem 1.5rem;
     }
+
     header img {
       height: 35px;
+      filter: brightness(0) invert(1); /* Logo blanco */
     }
+
     header a {
       text-decoration: none;
-      color: black;
+      color: white; /* Texto blanco */
       font-weight: 600;
       font-size: 1rem;
     }
+
     .page-title {
       font-family: 'Comme', sans-serif;
       font-size: 2rem;
       font-weight: 700;
-      color: white;
+      color: #0f172a; /* Color oscuro para el título */
       text-align: center;
       margin: 2.5rem 0 0;
     }
+
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Imágenes más pequeñas */
+      gap: 1.2rem; /* Espacio reducido */
+      padding: 1.5rem;
     }
+
     .card {
       background-color: transparent;
       border: none;
@@ -49,45 +56,57 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
+
     .card img {
       width: 100%;
-      border-radius: 1rem;
+      border-radius: 0.75rem; /* Bordes más pequeños */
       transition: transform 0.3s ease;
       display: block;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
     }
+
     .card:hover img {
-      transform: scale(1.05);
+      transform: scale(1.03); /* Efecto hover más sutil */
     }
+
     .table-container {
       display: none;
-      margin-top: 1rem;
-      background-color: #1e293b;
+      margin-top: 0.75rem;
+      background-color: #f8fafc;
       padding: 0;
-      border-radius: 0.75rem;
+      border-radius: 0.5rem;
       overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: 1px solid #e2e8f0;
     }
+
     .table-container table {
       width: 100%;
-      color: white;
+      color: #334155;
       border-collapse: collapse;
     }
+
     .table-container th,
     .table-container td {
       padding: 0.5rem 1rem;
-      border-bottom: 1px solid #334155;
+      border-bottom: 1px solid #e2e8f0;
       text-align: left;
     }
+
     .table-container th:first-child,
     .table-container td:first-child {
       padding-left: 1rem;
     }
+
     .table-container th:last-child,
     .table-container td:last-child {
       padding-right: 1rem;
     }
+
     .table-container tr:last-child td {
       border-bottom: none;
     }
+
     .table-container thead {
       display: none;
     }
@@ -124,7 +143,7 @@
       { img: 14, valores: [5000, 10000, 5000] },    // Imagen 14
       { img: 15, valores: [10500, 14000, 3500] },   // Imagen 15
       { img: 17, valores: [14000, 20000, 6000] },   // Imagen 17 en posición 16
-      { img: 18, valores: [17000, 25000, 8000] },   // Imagen 18 en posición 17 (valores 17,25,8)
+      { img: 18, valores: [17000, 25000, 8000] },   // Imagen 18 en posición 17
       { img: 16, valores: [14000, 20000, 6000] }    // Imagen 16 en posición 18
     ];
 

@@ -9,12 +9,12 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: white; /* Fondo blanco */
-      color: #333; /* Texto oscuro para mejor contraste */
+      background-color: white;
+      color: #333;
     }
 
     header {
-      background-color: #0f172a; /* Header negro */
+      background-color: #0f172a;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -23,12 +23,12 @@
 
     header img {
       height: 35px;
-      filter: brightness(0) invert(1); /* Logo blanco */
+      filter: brightness(0) invert(1);
     }
 
     header a {
       text-decoration: none;
-      color: white; /* Texto blanco */
+      color: white;
       font-weight: 600;
       font-size: 1rem;
     }
@@ -37,16 +37,17 @@
       font-family: 'Comme', sans-serif;
       font-size: 2rem;
       font-weight: 700;
-      color: #0f172a; /* Color oscuro para el título */
+      color: #0f172a;
       text-align: center;
       margin: 2.5rem 0 0;
     }
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Imágenes más pequeñas */
-      gap: 1.2rem; /* Espacio reducido */
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Ancho fijo de 350px */
+      gap: 1.5rem;
       padding: 1.5rem;
+      justify-content: center;
     }
 
     .card {
@@ -55,18 +56,21 @@
       padding: 0;
       cursor: pointer;
       transition: transform 0.2s ease;
+      max-width: 350px; /* Aseguramos que no excedan 350px */
+      margin: 0 auto; /* Centramos las tarjetas */
     }
 
     .card img {
-      width: 100%;
-      border-radius: 0.75rem; /* Bordes más pequeños */
+      width: 350px; /* Ancho fijo de 350px */
+      height: auto; /* Altura automática para mantener proporción */
+      border-radius: 0.75rem;
       transition: transform 0.3s ease;
       display: block;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .card:hover img {
-      transform: scale(1.03); /* Efecto hover más sutil */
+      transform: scale(1.03);
     }
 
     .table-container {
@@ -78,6 +82,7 @@
       overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       border: 1px solid #e2e8f0;
+      width: 350px; /* Mismo ancho que la imagen */
     }
 
     .table-container table {
@@ -110,6 +115,20 @@
     .table-container thead {
       display: none;
     }
+
+    @media (max-width: 400px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .card img {
+        width: 100%;
+        max-width: 350px;
+      }
+      .table-container {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -127,24 +146,24 @@
 
     // Orden final de imágenes con sus valores
     const imagenesConValores = [
-      { img: 1, valores: [11000, 13000, 2000] },    // Imagen 1
-      { img: 2, valores: [5000, 10000, 5000] },     // Imagen 2
-      { img: 3, valores: [5000, 10000, 5000] },     // Imagen 3
-      { img: 4, valores: [5000, 9000, 4000] },      // Imagen 4
-      { img: 5, valores: [6000, 10000, 4000] },     // Imagen 5
-      { img: 6, valores: [7000, 10000, 3000] },     // Imagen 6
-      { img: 7, valores: [10000, 13000, 3000] },    // Imagen 7
-      { img: 8, valores: [10000, 12000, 2000] },    // Imagen 8
-      { img: 9, valores: [8000, 12000, 4000] },     // Imagen 9
-      { img: 10, valores: [5000, 10000, 5000] },    // Imagen 10
-      { img: 11, valores: [5000, 10000, 5000] },    // Imagen 11
-      { img: 12, valores: [6500, 10000, 3500] },    // Imagen 12
-      { img: 13, valores: [5000, 9000, 4000] },     // Imagen 13
-      { img: 14, valores: [5000, 10000, 5000] },    // Imagen 14
-      { img: 15, valores: [10500, 14000, 3500] },   // Imagen 15
-      { img: 17, valores: [14000, 20000, 6000] },   // Imagen 17 en posición 16
-      { img: 18, valores: [17000, 25000, 8000] },   // Imagen 18 en posición 17
-      { img: 16, valores: [14000, 20000, 6000] }    // Imagen 16 en posición 18
+      { img: 1, valores: [11000, 13000, 2000] },
+      { img: 2, valores: [5000, 10000, 5000] },
+      { img: 3, valores: [5000, 10000, 5000] },
+      { img: 4, valores: [5000, 9000, 4000] },
+      { img: 5, valores: [6000, 10000, 4000] },
+      { img: 6, valores: [7000, 10000, 3000] },
+      { img: 7, valores: [10000, 13000, 3000] },
+      { img: 8, valores: [10000, 12000, 2000] },
+      { img: 9, valores: [8000, 12000, 4000] },
+      { img: 10, valores: [5000, 10000, 5000] },
+      { img: 11, valores: [5000, 10000, 5000] },
+      { img: 12, valores: [6500, 10000, 3500] },
+      { img: 13, valores: [5000, 9000, 4000] },
+      { img: 14, valores: [5000, 10000, 5000] },
+      { img: 15, valores: [10500, 14000, 3500] },
+      { img: 17, valores: [14000, 20000, 6000] },
+      { img: 18, valores: [17000, 25000, 8000] },
+      { img: 16, valores: [14000, 20000, 6000] }
     ];
 
     imagenesConValores.forEach(item => {

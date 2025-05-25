@@ -1,128 +1,344 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ranking de Ventas</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #0012104D; /* color con transparencia */
-    color: #89A2FF;
-    padding: 20px;
-  }
-  h1 {
-    text-align: center;
-    color: #001210;
-    margin-bottom: 20px;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #001210;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #89A2FF;
-  }
-  th {
-    background-color: #89A2FF;
-    color: #001210;
-  }
-  tbody tr:nth-child(even) {
-    background-color: #003366;
-  }
-  tbody tr:hover {
-    background-color: #0055AA;
-    cursor: pointer;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ranking de Afiliados | Novaklar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: white;
+      color: #333;
+    }
+
+    header {
+      background-color: #081677; /* Mantenido azul oscuro */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      height: 40px;
+      filter: brightness(0) invert(1);
+    }
+
+    header a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    header a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    .page-title {
+      font-family: 'Comme', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #081677; /* Mantenido azul oscuro */
+      text-align: center;
+      margin: 3rem 0 2rem;
+      padding: 0 1rem;
+    }
+
+    .ranking-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2rem;
+    }
+
+    .ranking-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      border-radius: 0.6rem;
+      overflow: hidden;
+    }
+
+    .ranking-table thead {
+      background-color: #89a2ff; /* Nuevo azul claro */
+      color: white;
+    }
+
+    .ranking-table th {
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .ranking-table td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .ranking-table tbody tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .ranking-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .ranking-table tbody tr:hover {
+      background-color: #f1f5f9;
+    }
+
+    .rank-number {
+      font-weight: bold;
+      color: #89a2ff; /* Nuevo azul claro */
+      width: 40px;
+    }
+
+    .affiliate-name {
+      font-weight: 500;
+    }
+
+    .sales-count {
+      text-align: right;
+      font-weight: 600;
+    }
+
+    .top-affiliate {
+      background-color: #f0f4ff !important; /* Tono claro del azul */
+    }
+
+    .top-affiliate .rank-number {
+      color: #89a2ff; /* Nuevo azul claro */
+      font-weight: 800;
+    }
+
+    .medal {
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 1.2em;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      font-style: italic;
+      color: #666;
+    }
+
+    .error-message {
+      color: #d32f2f;
+      background-color: #fde8e8;
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    .last-updated {
+      text-align: right;
+      font-size: 0.8rem;
+      color: #89a2ff; /* Nuevo azul claro */
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .page-title {
+        font-size: 1.8rem;
+        margin: 2rem 0 1.5rem;
+      }
+      
+      .ranking-container {
+        padding: 0 1rem 1.5rem;
+      }
+      
+      .ranking-table th, 
+      .ranking-table td {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .page-title {
+        font-size: 1.6rem;
+      }
+      
+      header {
+        padding: 0.8rem 1rem;
+      }
+      
+      header img {
+        height: 35px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" alt="Novaklar Logo" />
+    <a href="https://novaklar.github.io/web/">Regresar</a>
+  </header>
 
-<h1>Ranking de Ventas por Afiliado</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Afiliado</th>
-      <th>Ventas</th>
-    </tr>
-  </thead>
-  <tbody id="ranking-body">
-    <tr><td colspan="2" style="text-align:center;">Cargando datos...</td></tr>
-  </tbody>
-</table>
+  <h1 class="page-title">Ranking de Afiliados</h1>
 
-<script>
-  const sheetId = '1D54c79yejujdFIJKVu4m3iM3ndUVnxP_fSgwSqGec5U';
-  const sheetName = 'Respuestas de formulario 1'; // Cambia si tienes otro nombre de pestaña
-  const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
+  <div class="ranking-container">
+    <div id="loading" class="loading">Cargando datos...</div>
+    <div id="error" class="error-message" style="display: none;"></div>
+    
+    <table class="ranking-table" id="ranking-table" style="display: none;">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Afiliado</th>
+          <th>Ventas</th>
+        </tr>
+      </thead>
+      <tbody id="ranking-body">
+        <!-- Los datos se cargarán aquí con JavaScript -->
+      </tbody>
+    </table>
+    
+    <div id="last-updated" class="last-updated"></div>
+  </div>
 
-  async function fetchSalesData() {
-    try {
-      const res = await fetch(url);
-      const text = await res.text();
-
-      // El JSON viene con un callback que debemos limpiar
-      const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
-
-      // Las filas empiezan desde json.table.rows
-      const rows = json.table.rows;
-
-      // El formato esperado: 
-      // Columna 0: Nombre de asesora (no lo usamos para el ranking)
-      // Columna 1 a 10: Campos afiliado+ventas (ej: "Sofía 3", "Sebastián 5", etc) - puede haber vacíos
-
-      const salesMap = {};
-
-      for (const row of rows) {
-        for (let i = 1; i < row.c.length; i++) {
-          const cell = row.c[i];
-          if (cell && cell.v) {
-            // Esperamos texto tipo "Sofía 3"
-            const parts = cell.v.trim().split(' ');
-            if(parts.length >= 2){
-              const ventas = parseInt(parts.pop(), 10);
-              const nombre = parts.join(' ');
-              if (!isNaN(ventas) && nombre.length > 0) {
-                salesMap[nombre] = (salesMap[nombre] || 0) + ventas;
-              }
-            }
-          }
-        }
-      }
-
-      // Convertir a array para ordenar
-      const salesArray = Object.entries(salesMap).map(([afiliado, ventas]) => ({afiliado, ventas}));
-      salesArray.sort((a, b) => b.ventas - a.ventas);
-
-      // Mostrar en tabla
-      const tbody = document.getElementById('ranking-body');
-      tbody.innerHTML = '';
-
-      if(salesArray.length === 0){
-        tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;">No hay datos disponibles</td></tr>';
-        return;
-      }
-
-      for(const item of salesArray){
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${item.afiliado}</td><td>${item.ventas}</td>`;
-        tbody.appendChild(tr);
-      }
-
-    } catch (error) {
-      console.error('Error al obtener datos:', error);
-      const tbody = document.getElementById('ranking-body');
-      tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;color:red;">Error al cargar los datos</td></tr>';
+  <script>
+    // ID de tu hoja de Google Sheets
+    const SPREADSHEET_ID = '1D54c79yejujdFIJKVu4m3iM3ndUVnxP_fSgwSqGec5U';
+    // Nombre de la hoja dentro del documento (por defecto es 'Sheet1')
+    const SHEET_NAME = 'Sheet1';
+    // Rango de datos a obtener (A:B significa columnas A y B)
+    const RANGE = 'A:B';
+    
+    // Elementos del DOM
+    const rankingBody = document.getElementById('ranking-body');
+    const loadingElement = document.getElementById('loading');
+    const errorElement = document.getElementById('error');
+    const tableElement = document.getElementById('ranking-table');
+    const lastUpdatedElement = document.getElementById('last-updated');
+    
+    // Función para formatear la fecha
+    function formatDate(date) {
+      const options = { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric', 
+        hour: '2-digit', 
+        minute: '2-digit',
+        second: '2-digit'
+      };
+      return new Date(date).toLocaleDateString('es-ES', options);
     }
-  }
-
-  fetchSalesData();
-</script>
-
+    
+    // Función para cargar datos desde Google Sheets
+    async function loadDataFromSheets() {
+      try {
+        // Mostrar estado de carga
+        loadingElement.style.display = 'block';
+        errorElement.style.display = 'none';
+        tableElement.style.display = 'none';
+        
+        // Construir la URL de la API de Google Sheets
+        const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&range=${RANGE}`;
+        
+        // Hacer la petición a la API
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+          throw new Error(`Error al cargar datos: ${response.status}`);
+        }
+        
+        const text = await response.text();
+        // Parsear la respuesta (que viene en formato JSONP)
+        const json = JSON.parse(text.substring(47).slice(0, -2));
+        
+        // Verificar si hay datos
+        if (!json.table.rows || json.table.rows.length === 0) {
+          throw new Error('No se encontraron datos en la hoja');
+        }
+        
+        // Procesar los datos
+        const affiliateData = json.table.rows.map(row => {
+          // Asumimos que la columna A es el nombre y la B es el número de ventas
+          return {
+            name: row.c[0]?.v || '',
+            sales: parseInt(row.c[1]?.v) || 0
+          };
+        }).filter(affiliate => affiliate.name && !isNaN(affiliate.sales));
+        
+        // Ordenar los afiliados por número de ventas (de mayor a menor)
+        affiliateData.sort((a, b) => b.sales - a.sales);
+        
+        // Limpiar la tabla
+        rankingBody.innerHTML = '';
+        
+        // Generar las filas de la tabla
+        affiliateData.forEach((affiliate, index) => {
+          const row = document.createElement('tr');
+          
+          // Añadir clase especial al primer puesto
+          if (index === 0) {
+            row.classList.add('top-affiliate');
+          }
+          
+          // Crear las celdas
+          const rankCell = document.createElement('td');
+          rankCell.className = 'rank-number';
+          
+          // Añadir medalla al primer puesto
+          if (index === 0) {
+            rankCell.innerHTML = `<span class="medal">🥇</span>${index + 1}`;
+          } else if (index === 1) {
+            rankCell.innerHTML = `<span class="medal">🥈</span>${index + 1}`;
+          } else if (index === 2) {
+            rankCell.innerHTML = `<span class="medal">🥉</span>${index + 1}`;
+          } else {
+            rankCell.textContent = index + 1;
+          }
+          
+          const nameCell = document.createElement('td');
+          nameCell.className = 'affiliate-name';
+          nameCell.textContent = affiliate.name;
+          
+          const salesCell = document.createElement('td');
+          salesCell.className = 'sales-count';
+          salesCell.textContent = affiliate.sales.toLocaleString('es-CO');
+          
+          // Añadir celdas a la fila
+          row.appendChild(rankCell);
+          row.appendChild(nameCell);
+          row.appendChild(salesCell);
+          
+          // Añadir fila a la tabla
+          rankingBody.appendChild(row);
+        });
+        
+        // Actualizar la fecha de última actualización
+        lastUpdatedElement.textContent = `Última actualización: ${formatDate(new Date())}`;
+        
+        // Mostrar la tabla y ocultar el loader
+        loadingElement.style.display = 'none';
+        tableElement.style.display = 'table';
+        
+      } catch (error) {
+        console.error('Error al cargar datos:', error);
+        loadingElement.style.display = 'none';
+        errorElement.textContent = `Error al cargar datos: ${error.message}`;
+        errorElement.style.display = 'block';
+      }
+    }
+    
+    // Cargar datos al iniciar la página
+    document.addEventListener('DOMContentLoaded', loadDataFromSheets);
+    
+    // Opcional: Actualizar datos cada X tiempo (ej. cada 5 minutos)
+    // setInterval(loadDataFromSheets, 5 * 60 * 1000);
+  </script>
 </body>
 </html>

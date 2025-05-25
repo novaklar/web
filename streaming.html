@@ -14,15 +14,16 @@
     }
 
     header {
-      background-color: #0f172a;
+      background-color: #081677; /* Nuevo color del header */
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.75rem 1.5rem;
+      padding: 1rem 1.5rem; /* Más padding */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     header img {
-      height: 35px;
+      height: 40px; /* Logo un poco más grande */
       filter: brightness(0) invert(1);
     }
 
@@ -31,23 +32,33 @@
       color: white;
       font-weight: 600;
       font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    header a:hover {
+      background-color: rgba(255,255,255,0.2);
     }
 
     .page-title {
       font-family: 'Comme', sans-serif;
-      font-size: 2rem;
+      font-size: 2.2rem; /* Título más grande */
       font-weight: 700;
-      color: #0f172a;
+      color: #081677;
       text-align: center;
-      margin: 2.5rem 0 0;
+      margin: 3rem 0 2rem; /* Más espacio arriba y abajo */
+      padding: 0 1rem;
     }
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Ajustado a 280px */
-      gap: 1rem;
-      padding: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 250px máximo */
+      gap: 1.8rem; /* Más separación entre imágenes */
+      padding: 1.5rem;
       justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .card {
@@ -56,31 +67,32 @@
       padding: 0;
       cursor: pointer;
       transition: transform 0.2s ease;
-      width: 280px; /* Ancho fijo */
+      width: 250px; /* Ancho fijo de 250px */
       margin: 0 auto;
     }
 
     .card img {
       width: 100%;
       height: auto;
-      border-radius: 0.5rem;
+      border-radius: 0.6rem;
       transition: transform 0.3s ease;
       display: block;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     }
 
     .card:hover img {
-      transform: scale(1.03);
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     .table-container {
       display: none;
-      margin-top: 0.5rem;
+      margin-top: 0.8rem;
       background-color: #f8fafc;
-      padding: 0;
-      border-radius: 0.5rem;
+      padding: 0.5rem 0;
+      border-radius: 0.6rem;
       overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       border: 1px solid #e2e8f0;
       width: 100%;
     }
@@ -89,11 +101,11 @@
       width: 100%;
       color: #334155;
       border-collapse: collapse;
-      font-size: 0.9rem; /* Texto más pequeño */
+      font-size: 0.9rem;
     }
 
     .table-container td {
-      padding: 0.4rem 0.8rem;
+      padding: 0.5rem 1rem;
       border-bottom: 1px solid #e2e8f0;
     }
 
@@ -101,18 +113,34 @@
       border-bottom: none;
     }
 
-    @media (max-width: 360px) {
+    @media (max-width: 600px) {
       .container {
-        grid-template-columns: 1fr;
-        padding: 0.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
       }
       .card {
-        width: 95%; /* Ocupa casi todo el ancho */
-        max-width: 280px; /* Pero no más de 280px */
+        width: 220px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .card {
+        width: 100%;
+        max-width: 250px;
       }
       .page-title {
-        font-size: 1.7rem;
-        margin: 1.5rem 0 0;
+        font-size: 1.8rem;
+        margin: 2rem 0 1.5rem;
+      }
+      header {
+        padding: 0.8rem 1rem;
+      }
+      header img {
+        height: 35px;
       }
     }
   </style>

@@ -44,9 +44,9 @@
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Ancho fijo de 350px */
-      gap: 1.5rem;
-      padding: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Ajustado a 280px */
+      gap: 1rem;
+      padding: 1rem;
       justify-content: center;
     }
 
@@ -56,17 +56,17 @@
       padding: 0;
       cursor: pointer;
       transition: transform 0.2s ease;
-      max-width: 350px; /* Aseguramos que no excedan 350px */
-      margin: 0 auto; /* Centramos las tarjetas */
+      width: 280px; /* Ancho fijo */
+      margin: 0 auto;
     }
 
     .card img {
-      width: 350px; /* Ancho fijo de 350px */
-      height: auto; /* Altura automática para mantener proporción */
-      border-radius: 0.75rem;
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
       transition: transform 0.3s ease;
       display: block;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .card:hover img {
@@ -75,58 +75,44 @@
 
     .table-container {
       display: none;
-      margin-top: 0.75rem;
+      margin-top: 0.5rem;
       background-color: #f8fafc;
       padding: 0;
       border-radius: 0.5rem;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       border: 1px solid #e2e8f0;
-      width: 350px; /* Mismo ancho que la imagen */
+      width: 100%;
     }
 
     .table-container table {
       width: 100%;
       color: #334155;
       border-collapse: collapse;
+      font-size: 0.9rem; /* Texto más pequeño */
     }
 
-    .table-container th,
     .table-container td {
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 0.8rem;
       border-bottom: 1px solid #e2e8f0;
-      text-align: left;
-    }
-
-    .table-container th:first-child,
-    .table-container td:first-child {
-      padding-left: 1rem;
-    }
-
-    .table-container th:last-child,
-    .table-container td:last-child {
-      padding-right: 1rem;
     }
 
     .table-container tr:last-child td {
       border-bottom: none;
     }
 
-    .table-container thead {
-      display: none;
-    }
-
-    @media (max-width: 400px) {
+    @media (max-width: 360px) {
       .container {
         grid-template-columns: 1fr;
+        padding: 0.5rem;
       }
-      .card img {
-        width: 100%;
-        max-width: 350px;
+      .card {
+        width: 95%; /* Ocupa casi todo el ancho */
+        max-width: 280px; /* Pero no más de 280px */
       }
-      .table-container {
-        width: 100%;
-        max-width: 350px;
+      .page-title {
+        font-size: 1.7rem;
+        margin: 1.5rem 0 0;
       }
     }
   </style>
@@ -144,7 +130,6 @@
   <script>
     const container = document.getElementById('cards-container');
 
-    // Orden final de imágenes con sus valores
     const imagenesConValores = [
       { img: 1, valores: [11000, 13000, 2000] },
       { img: 2, valores: [5000, 10000, 5000] },
@@ -171,7 +156,7 @@
       card.className = 'card';
       card.innerHTML = `
         <img src="https://raw.githubusercontent.com/novaklar/web/main/logos/${item.img}.jpg" alt="Streaming ${item.img}" />
-        <div class="table-container" id="table-${item.img}">
+        <div class="table-container">
           <table>
             <tbody>
               <tr><td>Precio Afiliado</td><td>$${item.valores[0].toLocaleString('es-CO')}</td></tr>
@@ -183,9 +168,7 @@
       `;
       card.addEventListener('click', () => {
         const table = card.querySelector('.table-container');
-        const visible = table.style.display === 'block';
-        document.querySelectorAll('.table-container').forEach(t => t.style.display = 'none');
-        table.style.display = visible ? 'none' : 'block';
+        table.style.display = table.style.display === 'block' ? 'none' : 'block';
       });
       container.appendChild(card);
     });

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ranking de Ventas</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #0012104D; /* color con transparencia */
+    color: #89A2FF;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    color: #001210;
+    margin-bottom: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #001210;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #89A2FF;
+  }
+  th {
+    background-color: #89A2FF;
+    color: #001210;
+  }
+  tbody tr:nth-child(even) {
+    background-color: #003366;
+  }
+  tbody tr:hover {
+    background-color: #0055AA;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h1>Ranking de Ventas por Afiliado</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Afiliado</th>
+      <th>Ventas</th>
+    </tr>
+  </thead>
+  <tbody id="ranking-body">
+    <tr><td colspan="2" style="text-align:center;">Cargando datos...</td></tr>
+  </tbody>
+</table>
+
+<script>
+  const sheetId = '1D54c79yejujdFIJKVu4m3iM3ndUVnxP_fSgwSqGec5U';
+  const sheetName = 'Respuestas de formulario 1'; // Cambia si tienes otro nombre de pestaña
+  const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
+
+  async function fetchSalesData() {
+    try {
+      const res = await fetch(url);
+      const text = await res.text();
+
+      // El JSON viene con un callback que debemos limpiar
+      const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
+
+      // Las filas empiezan desde json.table.rows
+      const rows = json.table.rows;
+
+      // El formato esperado: 
+      // Columna 0: Nombre de asesora (no lo usamos para el ranking)
+      // Columna 1 a 10: Campos afiliado+ventas (ej: "Sofía 3", "Sebastián 5", etc) - puede haber vacíos
+
+      const salesMap = {};
+
+      for (const row of rows) {
+        for (let i = 1; i < row.c.length; i++) {
+          const cell = row.c[i];
+          if (cell && cell.v) {
+            // Esperamos texto tipo "Sofía 3"
+            const parts = cell.v.trim().split(' ');
+            if(parts.length >= 2){
+              const ventas = parseInt(parts.pop(), 10);
+              const nombre = parts.join(' ');
+              if (!isNaN(ventas) && nombre.length > 0) {
+                salesMap[nombre] = (salesMap[nombre] || 0) + ventas;
+              }
+            }
+          }
+        }
+      }
+
+      // Convertir a array para ordenar
+      const salesArray = Object.entries(salesMap).map(([afiliado, ventas]) => ({afiliado, ventas}));
+      salesArray.sort((a, b) => b.ventas - a.ventas);
+
+      // Mostrar en tabla
+      const tbody = document.getElementById('ranking-body');
+      tbody.innerHTML = '';
+
+      if(salesArray.length === 0){
+        tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;">No hay datos disponibles</td></tr>';
+        return;
+      }
+
+      for(const item of salesArray){
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${item.afiliado}</td><td>${item.ventas}</td>`;
+        tbody.appendChild(tr);
+      }
+
+    } catch (error) {
+      console.error('Error al obtener datos:', error);
+      const tbody = document.getElementById('ranking-body');
+      tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;color:red;">Error al cargar los datos</td></tr>';
+    }
+  }
+
+  fetchSalesData();
+</script>
+
+</body>
+</html>

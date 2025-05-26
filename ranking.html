@@ -14,7 +14,7 @@
     }
 
     header {
-      background-color: #081677; /* Mantenido azul oscuro */
+      background-color: #081677;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -45,7 +45,7 @@
       font-family: 'Comme', sans-serif;
       font-size: 2.2rem;
       font-weight: 700;
-      color: #081677; /* Mantenido azul oscuro */
+      color: #081677;
       text-align: center;
       margin: 3rem 0 2rem;
       padding: 0 1rem;
@@ -67,7 +67,7 @@
     }
 
     .ranking-table thead {
-      background-color: #89a2ff; /* Nuevo azul claro */
+      background-color: #89a2ff;
       color: white;
     }
 
@@ -96,7 +96,7 @@
 
     .rank-number {
       font-weight: bold;
-      color: #89a2ff; /* Nuevo azul claro */
+      color: #89a2ff;
       width: 40px;
     }
 
@@ -110,11 +110,11 @@
     }
 
     .top-affiliate {
-      background-color: #f0f4ff !important; /* Tono claro del azul */
+      background-color: #f0f4ff !important;
     }
 
     .top-affiliate .rank-number {
-      color: #89a2ff; /* Nuevo azul claro */
+      color: #89a2ff;
       font-weight: 800;
     }
 
@@ -143,9 +143,25 @@
     .last-updated {
       text-align: right;
       font-size: 0.8rem;
-      color: #89a2ff; /* Nuevo azul claro */
+      color: #89a2ff;
       margin-top: 0.5rem;
       font-weight: 500;
+    }
+
+    .refresh-btn {
+      display: block;
+      margin: 1rem auto;
+      padding: 0.5rem 1rem;
+      background-color: #89a2ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .refresh-btn:hover {
+      background-color: #768fe6;
     }
 
     @media (max-width: 600px) {
@@ -192,6 +208,8 @@
     <div id="loading" class="loading">Cargando datos...</div>
     <div id="error" class="error-message" style="display: none;"></div>
     
+    <button id="refresh-btn" class="refresh-btn">Actualizar ahora</button>
+    
     <table class="ranking-table" id="ranking-table" style="display: none;">
       <thead>
         <tr>
@@ -209,20 +227,23 @@
   </div>
 
   <script>
-    // ID de tu hoja de Google Sheets
+    // Configuración
     const SPREADSHEET_ID = '1D54c79yejujdFIJKVu4m3iM3ndUVnxP_fSgwSqGec5U';
-    // Nombre de la hoja dentro del documento (por defecto es 'Sheet1')
     const SHEET_NAME = 'Sheet1';
-    // Rango de datos a obtener (A:B significa columnas A y B)
     const RANGE = 'A:B';
-    
+    const UPDATE_INTERVAL = 5 * 60 * 1000; // 5 minutos
+
     // Elementos del DOM
     const rankingBody = document.getElementById('ranking-body');
     const loadingElement = document.getElementById('loading');
     const errorElement = document.getElementById('error');
     const tableElement = document.getElementById('ranking-table');
     const lastUpdatedElement = document.getElementById('last-updated');
-    
+    const refreshBtn = document.getElementById('refresh-btn');
+
+    // Variable para controlar el intervalo de actualización
+    let refreshInterval;
+
     // Función para formatear la fecha
     function formatDate(date) {
       const options = { 
@@ -235,19 +256,18 @@
       };
       return new Date(date).toLocaleDateString('es-ES', options);
     }
-    
+
     // Función para cargar datos desde Google Sheets
     async function loadDataFromSheets() {
       try {
-        // Mostrar estado de carga
         loadingElement.style.display = 'block';
         errorElement.style.display = 'none';
-        tableElement.style.display = 'none';
+        refreshBtn.disabled = true;
         
-        // Construir la URL de la API de Google Sheets
-        const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&range=${RANGE}`;
+        // Evitar caché con un parámetro único
+        const cacheBuster = new Date().getTime();
+        const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&range=${RANGE}&t=${cacheBuster}`;
         
-        // Hacer la petición a la API
         const response = await fetch(url);
         
         if (!response.ok) {
@@ -255,43 +275,38 @@
         }
         
         const text = await response.text();
-        // Parsear la respuesta (que viene en formato JSONP)
         const json = JSON.parse(text.substring(47).slice(0, -2));
         
-        // Verificar si hay datos
         if (!json.table.rows || json.table.rows.length === 0) {
           throw new Error('No se encontraron datos en la hoja');
         }
         
         // Procesar los datos
         const affiliateData = json.table.rows.map(row => {
-          // Asumimos que la columna A es el nombre y la B es el número de ventas
           return {
             name: row.c[0]?.v || '',
             sales: parseInt(row.c[1]?.v) || 0
           };
         }).filter(affiliate => affiliate.name && !isNaN(affiliate.sales));
         
-        // Ordenar los afiliados por número de ventas (de mayor a menor)
+        // Ordenar por ventas
         affiliateData.sort((a, b) => b.sales - a.sales);
         
-        // Limpiar la tabla
+        // Actualizar la tabla
         rankingBody.innerHTML = '';
-        
-        // Generar las filas de la tabla
         affiliateData.forEach((affiliate, index) => {
           const row = document.createElement('tr');
           
-          // Añadir clase especial al primer puesto
+          // Destacar el primer puesto
           if (index === 0) {
             row.classList.add('top-affiliate');
           }
           
-          // Crear las celdas
+          // Celda de posición
           const rankCell = document.createElement('td');
           rankCell.className = 'rank-number';
           
-          // Añadir medalla al primer puesto
+          // Añadir medallas a los primeros puestos
           if (index === 0) {
             rankCell.innerHTML = `<span class="medal">🥇</span>${index + 1}`;
           } else if (index === 1) {
@@ -302,43 +317,56 @@
             rankCell.textContent = index + 1;
           }
           
+          // Celda de nombre
           const nameCell = document.createElement('td');
           nameCell.className = 'affiliate-name';
           nameCell.textContent = affiliate.name;
           
+          // Celda de ventas
           const salesCell = document.createElement('td');
           salesCell.className = 'sales-count';
           salesCell.textContent = affiliate.sales.toLocaleString('es-CO');
           
-          // Añadir celdas a la fila
-          row.appendChild(rankCell);
-          row.appendChild(nameCell);
-          row.appendChild(salesCell);
-          
-          // Añadir fila a la tabla
+          // Construir fila
+          row.append(rankCell, nameCell, salesCell);
           rankingBody.appendChild(row);
         });
         
-        // Actualizar la fecha de última actualización
+        // Actualizar marca de tiempo
         lastUpdatedElement.textContent = `Última actualización: ${formatDate(new Date())}`;
         
-        // Mostrar la tabla y ocultar el loader
+        // Mostrar tabla
         loadingElement.style.display = 'none';
         tableElement.style.display = 'table';
+        refreshBtn.disabled = false;
         
       } catch (error) {
         console.error('Error al cargar datos:', error);
         loadingElement.style.display = 'none';
         errorElement.textContent = `Error al cargar datos: ${error.message}`;
         errorElement.style.display = 'block';
+        refreshBtn.disabled = false;
       }
     }
-    
-    // Cargar datos al iniciar la página
-    document.addEventListener('DOMContentLoaded', loadDataFromSheets);
-    
-    // Opcional: Actualizar datos cada X tiempo (ej. cada 5 minutos)
-    // setInterval(loadDataFromSheets, 5 * 60 * 1000);
+
+    // Iniciar actualización automática
+    function startAutoRefresh() {
+      // Cargar datos inmediatamente
+      loadDataFromSheets();
+      
+      // Configurar intervalo de actualización
+      refreshInterval = setInterval(loadDataFromSheets, UPDATE_INTERVAL);
+    }
+
+    // Evento para el botón de actualización manual
+    refreshBtn.addEventListener('click', () => {
+      // Reiniciar el intervalo
+      clearInterval(refreshInterval);
+      startAutoRefresh();
+    });
+
+    // Iniciar cuando la página cargue
+    document.addEventListener('DOMContentLoaded', startAutoRefresh);
   </script>
 </body>
 </html>

@@ -53,7 +53,7 @@
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(580px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
       gap: 1.8rem;
       padding: 1.5rem;
       justify-content: center;
@@ -67,13 +67,13 @@
       padding: 0;
       cursor: pointer;
       transition: transform 0.2s ease;
-      width: 580px;
+      width: 600px;
       margin: 0 auto;
     }
 
     .card-img-container {
-      width: 580px;
-      height: 260px;
+      width: 600px;
+      height: 260px; /* Mantiene relación 900:390 ≈ 600:260 */
       margin: 0 auto;
       display: flex;
       justify-content: center;
@@ -86,7 +86,7 @@
     .card img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       image-rendering: -webkit-optimize-contrast;
       image-rendering: crisp-edges;
       transition: transform 0.3s ease;
@@ -144,17 +144,17 @@
       }
       .card, .card-img-container {
         width: 100%;
-        max-width: 580px;
+        max-width: 600px;
       }
     }
 
     @media (max-width: 600px) {
       .card-img-container {
-        width: 290px;
-        height: 130px;
+        width: 300px;
+        height: 130px; /* Mantiene relación 900:390 ≈ 300:130 */
       }
       .card {
-        width: 290px;
+        width: 300px;
       }
       .page-title {
         font-size: 1.8rem;
@@ -164,11 +164,11 @@
 
     @media (max-width: 400px) {
       .card-img-container {
-        width: 260px;
+        width: 280px;
         height: 120px;
       }
       .card {
-        width: 260px;
+        width: 280px;
       }
       header {
         padding: 0.8rem 1rem;
@@ -195,56 +195,56 @@
     const robloxPlans = [
       { 
         robux: "40 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
         afiliado: 5000,
         sugerido: 6000,
         ganancia: 1000
       },
       { 
         robux: "80 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
         afiliado: 7300,
         sugerido: 8300,
         ganancia: 1000
       },
       { 
         robux: "120 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
         afiliado: 11000,
         sugerido: 12000,
         ganancia: 1000
       },
       { 
         robux: "160 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
         afiliado: 12000,
         sugerido: 14000,
         ganancia: 2000
       },
       { 
         robux: "240 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
         afiliado: 17000,
         sugerido: 19000,
         ganancia: 2000
       },
       { 
         robux: "400 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
         afiliado: 24000,
         sugerido: 26000,
         ganancia: 2000
       },
       { 
         robux: "480 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
         afiliado: 29000,
         sugerido: 32000,
         ganancia: 3000
       },
       { 
         robux: "Premium",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
         afiliado: 50000,
         sugerido: 53000,
         ganancia: 3000

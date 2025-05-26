@@ -53,7 +53,7 @@
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(580px, 1fr));
       gap: 1.8rem;
       padding: 1.5rem;
       justify-content: center;
@@ -67,13 +67,13 @@
       padding: 0;
       cursor: pointer;
       transition: transform 0.2s ease;
-      width: 280px;
+      width: 580px;
       margin: 0 auto;
     }
 
     .card-img-container {
-      width: 280px;
-      height: 120px;
+      width: 580px;
+      height: 260px;
       margin: 0 auto;
       display: flex;
       justify-content: center;
@@ -86,14 +86,14 @@
     .card img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       image-rendering: -webkit-optimize-contrast;
       image-rendering: crisp-edges;
       transition: transform 0.3s ease;
     }
 
     .card:hover img {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
 
     .table-container {
@@ -137,39 +137,44 @@
       text-align: center !important;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .container {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
         padding: 1rem;
       }
       .card, .card-img-container {
-        width: 250px;
-        height: 107px;
+        width: 100%;
+        max-width: 580px;
       }
     }
 
-    @media (max-width: 400px) {
-      .container {
-        grid-template-columns: 1fr;
+    @media (max-width: 600px) {
+      .card-img-container {
+        width: 290px;
+        height: 130px;
       }
       .card {
-        width: 100%;
-        max-width: 280px;
+        width: 290px;
       }
       .page-title {
         font-size: 1.8rem;
         margin: 2rem 0 1.5rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .card-img-container {
+        width: 260px;
+        height: 120px;
+      }
+      .card {
+        width: 260px;
       }
       header {
         padding: 0.8rem 1rem;
       }
       header img {
         height: 35px;
-      }
-      .card-img-container {
-        width: 230px;
-        height: 98px;
       }
     }
   </style>
@@ -190,56 +195,56 @@
     const robloxPlans = [
       { 
         robux: "40 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
         afiliado: 5000,
         sugerido: 6000,
         ganancia: 1000
       },
       { 
         robux: "80 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
         afiliado: 7300,
         sugerido: 8300,
         ganancia: 1000
       },
       { 
         robux: "120 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
         afiliado: 11000,
         sugerido: 12000,
         ganancia: 1000
       },
       { 
         robux: "160 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
         afiliado: 12000,
         sugerido: 14000,
         ganancia: 2000
       },
       { 
         robux: "240 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
         afiliado: 17000,
         sugerido: 19000,
         ganancia: 2000
       },
       { 
         robux: "400 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
         afiliado: 24000,
         sugerido: 26000,
         ganancia: 2000
       },
       { 
         robux: "480 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
         afiliado: 29000,
         sugerido: 32000,
         ganancia: 3000
       },
       { 
         robux: "Premium",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblo.png",
         afiliado: 50000,
         sugerido: 53000,
         ganancia: 3000

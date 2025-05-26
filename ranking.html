@@ -157,11 +157,25 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      transition: background-color 0.2s;
+      transition: all 0.3s ease;
+      font-weight: 600;
     }
 
     .refresh-btn:hover {
       background-color: #768fe6;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .refresh-btn:active {
+      transform: translateY(0);
+    }
+
+    .refresh-btn:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
     }
 
     @media (max-width: 600px) {
@@ -208,7 +222,10 @@
     <div id="loading" class="loading">Cargando datos...</div>
     <div id="error" class="error-message" style="display: none;"></div>
     
-    <button id="refresh-btn" class="refresh-btn">Actualizar ahora</button>
+    <button id="refresh-btn" class="refresh-btn">
+      <span id="refresh-text">Actualizar ahora</span>
+      <span id="refresh-icon" style="margin-left: 5px;">↻</span>
+    </button>
     
     <table class="ranking-table" id="ranking-table" style="display: none;">
       <thead>
@@ -229,8 +246,8 @@
   <script>
     // Configuración
     const SPREADSHEET_ID = '1D54c79yejujdFIJKVu4m3iM3ndUVnxP_fSgwSqGec5U';
-    const SHEET_NAME = 'Sheet1';
-    const RANGE = 'A:B';
+    const SHEET_NAME = 'Form_Responses1'; // Nombre de la hoja según tu imagen
+    const RANGE = 'A:B'; // Usamos las columnas A (Timestamp) y B (Afiliado y ventas)
     const UPDATE_INTERVAL = 5 * 60 * 1000; // 5 minutos
 
     // Elementos del DOM
@@ -240,6 +257,8 @@
     const tableElement = document.getElementById('ranking-table');
     const lastUpdatedElement = document.getElementById('last-updated');
     const refreshBtn = document.getElementById('refresh-btn');
+    const refreshText = document.getElementById('refresh-text');
+    const refreshIcon = document.getElementById('refresh-icon');
 
     // Variable para controlar el intervalo de actualización
     let refreshInterval;
@@ -257,22 +276,49 @@
       return new Date(date).toLocaleDateString('es-ES', options);
     }
 
+    // Función para animar el icono de actualización
+    function spinRefreshIcon() {
+      let rotation = 0;
+      const spinInterval = setInterval(() => {
+        rotation += 30;
+        if (rotation >= 360) rotation = 0;
+        refreshIcon.style.transform = `rotate(${rotation}deg)`;
+      }, 50);
+      
+      return spinInterval;
+    }
+
+    // Función para extraer nombre y ventas del formato "Nombre X"
+    function parseAffiliateData(text) {
+      if (!text) return null;
+      
+      // Buscar el último espacio que separa nombre de ventas
+      const lastSpaceIndex = text.lastIndexOf(' ');
+      if (lastSpaceIndex === -1) return null;
+      
+      const name = text.substring(0, lastSpaceIndex).trim();
+      const sales = parseInt(text.substring(lastSpaceIndex + 1));
+      
+      if (!name || isNaN(sales)) return null;
+      
+      return { name, sales };
+    }
+
     // Función para cargar datos desde Google Sheets
     async function loadDataFromSheets() {
+      let spinInterval;
       try {
         loadingElement.style.display = 'block';
         errorElement.style.display = 'none';
         refreshBtn.disabled = true;
+        refreshText.textContent = 'Actualizando...';
+        spinInterval = spinRefreshIcon();
         
-        // Evitar caché con un parámetro único
         const cacheBuster = new Date().getTime();
         const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&range=${RANGE}&t=${cacheBuster}`;
         
         const response = await fetch(url);
-        
-        if (!response.ok) {
-          throw new Error(`Error al cargar datos: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`Error ${response.status}`);
         
         const text = await response.text();
         const json = JSON.parse(text.substring(47).slice(0, -2));
@@ -281,15 +327,20 @@
           throw new Error('No se encontraron datos en la hoja');
         }
         
-        // Procesar los datos
-        const affiliateData = json.table.rows.map(row => {
-          return {
-            name: row.c[0]?.v || '',
-            sales: parseInt(row.c[1]?.v) || 0
-          };
-        }).filter(affiliate => affiliate.name && !isNaN(affiliate.sales));
+        // Procesar los datos específicos de tu formato
+        const affiliateData = json.table.rows
+          .map(row => {
+            // Extraemos el texto de la columna B (Afiliado y ventas)
+            const cellValue = row.c[1]?.v || row.c[1]?.f || '';
+            return parseAffiliateData(cellValue);
+          })
+          .filter(Boolean); // Eliminamos entradas nulas
         
-        // Ordenar por ventas
+        if (affiliateData.length === 0) {
+          throw new Error('Formato de datos no reconocido');
+        }
+        
+        // Ordenar por ventas (de mayor a menor)
         affiliateData.sort((a, b) => b.sales - a.sales);
         
         // Actualizar la tabla
@@ -332,20 +383,20 @@
           rankingBody.appendChild(row);
         });
         
-        // Actualizar marca de tiempo
         lastUpdatedElement.textContent = `Última actualización: ${formatDate(new Date())}`;
-        
-        // Mostrar tabla
         loadingElement.style.display = 'none';
         tableElement.style.display = 'table';
-        refreshBtn.disabled = false;
         
       } catch (error) {
-        console.error('Error al cargar datos:', error);
+        console.error('Error:', error);
         loadingElement.style.display = 'none';
         errorElement.textContent = `Error al cargar datos: ${error.message}`;
         errorElement.style.display = 'block';
+      } finally {
+        if (spinInterval) clearInterval(spinInterval);
         refreshBtn.disabled = false;
+        refreshText.textContent = 'Actualizar ahora';
+        refreshIcon.style.transform = 'rotate(0deg)';
       }
     }
 
@@ -362,6 +413,7 @@
     refreshBtn.addEventListener('click', () => {
       // Reiniciar el intervalo
       clearInterval(refreshInterval);
+      loadDataFromSheets();
       startAutoRefresh();
     });
 

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaming | Novaklar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: white;
+      color: #333;
+    }
+
+    header {
+      background-color: #081677;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      height: 40px;
+      filter: brightness(0) invert(1);
+    }
+
+    header a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    header a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    .page-title {
+      font-family: 'Comme', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #081677;
+      text-align: center;
+      margin: 3rem 0 2rem;
+      padding: 0 1rem;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.8rem;
+      padding: 1.5rem;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      width: 250px;
+      margin: 0 auto;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.6rem;
+      transition: transform 0.3s ease;
+      display: block;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .table-container {
+      display: none;
+      margin-top: 0.8rem;
+      background-color: #f8fafc;
+      padding: 0.5rem 0;
+      border-radius: 0.6rem;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      border: 1px solid #e2e8f0;
+      width: 100%;
+    }
+
+    .table-container table {
+      width: 100%;
+      color: #334155;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .table-container th {
+      padding: 0.5rem 1rem;
+      background-color: #e2e8f0;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .table-container td {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .table-container tr:last-child td {
+      border-bottom: none;
+    }
+
+    .plan-header {
+      background-color: #3c5cf2 !important; /* Color azul claro */
+      color: white !important;
+      text-align: center !important;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+      }
+      .card {
+        width: 220px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .card {
+        width: 100%;
+        max-width: 250px;
+      }
+      .page-title {
+        font-size: 1.8rem;
+        margin: 2rem 0 1.5rem;
+      }
+      header {
+        padding: 0.8rem 1rem;
+      }
+      header img {
+        height: 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" alt="Novaklar Logo" />
+    <a href="https://novaklar.github.io/web/">Regresar</a>
+  </header>
+
+  <h1 class="page-title">Gaming</h1>
+
+  <div class="container" id="cards-container"></div>
+
+  <script>
+    const container = document.getElementById('cards-container');
+
+    const robloxPlans = [
+      { 
+        robux: "40 Robux",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        afiliado: 5000,
+        sugerido: 6000,
+        ganancia: 1000
+      },
+      { 
+        robux: "80 Robux",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        afiliado: 7300,
+        sugerido: 8300,
+        ganancia: 1000
+      },
+      { 
+        robux: "120 Robux",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        afiliado: 11000,
+        sugerido: 12000,
+        ganancia: 1000
+      },
+      { 
+        robux: "160 Robux",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        afiliado: 12000,
+        sugerido: 14000,
+        ganancia: 2000
+      },
+      { 
+        robux: "240 Robux",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        afiliado: 17000,
+        sugerido: 19000,
+        ganancia: 2000
+      },
+      { 
+        robux: "400 Robux",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        afiliado: 24000,
+        sugerido: 26000,
+        ganancia: 2000
+      },
+      { 
+        robux: "480 Robux",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        afiliado: 29000,
+        sugerido: 32000,
+        ganancia: 3000
+      },
+      { 
+        robux: "Premium",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/roblox.png",
+        afiliado: 50000,
+        sugerido: 53000,
+        ganancia: 3000
+      }
+    ];
+
+    // Creamos una sola tarjeta con la imagen
+    const card = document.createElement('div');
+    card.className = 'card';
+    
+    // Añadimos la imagen
+    card.innerHTML = `
+      <img src="${robloxPlans[0].img}" alt="Roblox" />
+      <div class="table-container">
+        <table>
+    `;
+    
+    // Añadimos todos los planes en la misma tabla
+    const table = card.querySelector('table');
+    
+    robloxPlans.forEach(plan => {
+      table.innerHTML += `
+        <tr><th colspan="2" class="plan-header">${plan.robux}</th></tr>
+        <tr><td>Precio Afiliado</td><td>$${plan.afiliado.toLocaleString('es-CO')}</td></tr>
+        <tr><td>Precio Sugerido</td><td>$${plan.sugerido.toLocaleString('es-CO')}</td></tr>
+        <tr><td>Ganancia</td><td>$${plan.ganancia.toLocaleString('es-CO')}</td></tr>
+      `;
+    });
+    
+    table.innerHTML += `</table></div>`;
+    
+    // Mostrar/ocultar al hacer clic
+    card.addEventListener('click', () => {
+      const tableContainer = card.querySelector('.table-container');
+      tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
+    });
+    
+    container.appendChild(card);
+  </script>
+</body>
+</html>

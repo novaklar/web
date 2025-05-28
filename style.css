@@ -58,7 +58,7 @@ header {
 }
 
 .social-links a:hover {
-    color: #001187;
+    color: #00128f;
 }
 
 .social-links a::after {
@@ -68,7 +68,7 @@ header {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #001187;
+    background-color: #00128f;
     transition: width 0.3s;
 }
 
@@ -100,7 +100,7 @@ main {
 .hero {
     text-align: center;
     padding: 3rem 0;
-    background-color: #6ba1ff;
+    background-color: #6c91ff;
     color: white;
     border-radius: 10px;
     margin-bottom: 2rem;
@@ -143,7 +143,7 @@ main {
     border: none;
     cursor: pointer;
     position: relative;
-    background-color: #001187;
+    background-color: #00128f;
 }
 
 .panel-btn:hover {
@@ -177,7 +177,7 @@ main {
 
 .panel-dropdown-menu a:hover {
     background-color: #f1f1f1;
-    color: #001187;
+    color: #00128f;
 }
 
 .panel-dropdown:hover .panel-dropdown-menu {
@@ -210,7 +210,7 @@ main {
 .counter {
     font-size: 3rem;
     font-weight: 700;
-    color: #001187;
+    color: #00128f;
     margin-bottom: 0.5rem;
 }
 
@@ -231,7 +231,7 @@ main {
     text-align: center;
     font-size: 2.2rem;
     margin-bottom: 2rem;
-    color: #001187;
+    color: #00128f;
     position: relative;
 }
 
@@ -240,7 +240,7 @@ main {
     display: block;
     width: 80px;
     height: 3px;
-    background-color: #6ba1ff;
+    background-color: #6c91ff;
     margin: 0.5rem auto 0;
 }
 
@@ -258,7 +258,7 @@ main {
 }
 
 .about-section h3 {
-    color: #001187;
+    color: #00128f;
     margin-bottom: 1rem;
     font-size: 1.4rem;
 }
@@ -280,7 +280,7 @@ main {
 
 .terms {
     background-color: #f9f9f9;
-    border-left: 4px solid #001187;
+    border-left: 4px solid #00128f;
 }
 
 .terms ol {
@@ -299,7 +299,7 @@ main {
 .terms ol li::before {
     content: counter(item) ".";
     font-weight: bold;
-    color: #001187;
+    color: #00128f;
     position: absolute;
     left: 0;
 }
@@ -475,7 +475,7 @@ header {
 }
 
 .nav-links a:hover {
-    color: #6ba1ff;
+    color: #6c91ff;
 }
 
 /* HAMBURGUESA */
@@ -533,7 +533,7 @@ header {
 
 /* PANEL CENTRAL (sección hero) */
 .hero {
-    background-color: #001187;
+    background-color: #00128f;
     color: white;
     text-align: center;
     padding: 60px 20px;
@@ -542,7 +542,7 @@ header {
 }
 
 .hero h1 {
-    color: #6ba1ff;
+    color: #6c91ff;
     font-size: 1.5rem;
     margin-bottom: 10px;
     margin-top: 0;
@@ -642,7 +642,7 @@ header {
 .counter {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #001187;
+    color: #00128f;
 }
 
 /* NOSOTROS */
@@ -656,7 +656,7 @@ header {
     text-align: center;
     margin-bottom: 40px;
     font-size: 2rem;
-    color: #001187;
+    color: #00128f;
 }
 
 .about-section {
@@ -664,7 +664,7 @@ header {
 }
 
 .about-section h3 {
-    color: #001187;
+    color: #00128f;
     margin-bottom: 10px;
 }
 
@@ -675,7 +675,7 @@ header {
 
 /* FOOTER */
 footer {
-    background-color: #001187;
+    background-color: #00128f;
     color: white;
     text-align: center;
     padding: 20px;

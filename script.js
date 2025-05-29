@@ -1,7 +1,7 @@
 // Mobile Navigation
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
-const navLinks = document.querySelectorAll('.nav-links li');
+const navLinksContainer = document.querySelector('.nav-links ul'); // Contenedor de los li
 const closeBtn = document.querySelector('.close-btn');
 
 // Función para abrir/cerrar el menú
@@ -11,13 +11,27 @@ function toggleMenu() {
     document.body.classList.toggle('no-scroll');
 }
 
+// Ordenar elementos del menú por longitud de texto (DOMContentLoaded para asegurar carga)
+document.addEventListener('DOMContentLoaded', () => {
+    const navItems = Array.from(document.querySelectorAll('.nav-links li'));
+    
+    // Ordenar de menor a mayor longitud de texto
+    navItems.sort((a, b) => {
+        return a.textContent.trim().length - b.textContent.trim().length;
+    });
+    
+    // Reinsertar en el DOM en orden
+    navItems.forEach(item => {
+        navLinksContainer.appendChild(item);
+    });
+});
+
 // Eventos para el menú móvil
 burger.addEventListener('click', toggleMenu);
-
 closeBtn.addEventListener('click', toggleMenu);
 
 // Cerrar menú al hacer clic en un enlace
-navLinks.forEach(link => {
+document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         if (nav.classList.contains('active')) {
             toggleMenu();
@@ -58,29 +72,24 @@ document.querySelectorAll('.panel-dropdown-menu a').forEach(item => {
 
 // Counter Animation (más lento y fluido)
 const counters = document.querySelectorAll('.counter');
-const speed = 100; // cuanto más alto, más lento
+const speed = 100;
 
 function animateCounter(counter) {
     const target = +counter.getAttribute('data-target');
     let count = 0;
-    const increment = Math.max(target / speed, 1); // mínimo de 1 para evitar congelamiento
+    const increment = Math.max(target / speed, 1);
 
     function update() {
         if (count < target) {
             count += increment;
             counter.innerText = Math.floor(count);
-            setTimeout(update, 30); // más tiempo entre cada paso
+            setTimeout(update, 30);
         } else {
             counter.innerText = target;
-            if (target === 5000) {
-                counter.innerText = '+' + target;
-            }
-            if (target === 95) {
-                counter.innerText = target + '%';
-            }
+            if (target === 5000) counter.innerText = '+' + target;
+            if (target === 95) counter.innerText = target + '%';
         }
     }
-
     update();
 }
 
@@ -93,20 +102,16 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.5 });
 
-document.querySelector('.counters').style.opacity = '1';
-observer.observe(document.querySelector('.counters'));
+if (document.querySelector('.counters')) {
+    document.querySelector('.counters').style.opacity = '1';
+    observer.observe(document.querySelector('.counters'));
+}
 
 // Popup Message
 window.addEventListener('DOMContentLoaded', () => {
     const popup = document.querySelector('.popup-message');
-    
-    // Mostrar el mensaje
     if (popup) {
         popup.classList.add('active');
-        
-        // Después de 4 segundos, ocultarlo
-        setTimeout(() => {
-            popup.classList.remove('active');
-        }, 4000);
+        setTimeout(() => popup.classList.remove('active'), 4000);
     }
 });

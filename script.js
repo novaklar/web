@@ -2,10 +2,27 @@
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
+const closeBtn = document.querySelector('.close-btn');
 
-burger.addEventListener('click', () => {
+// Función para abrir/cerrar el menú
+function toggleMenu() {
     nav.classList.toggle('active');
-    burger.classList.toggle('active');  // Cambiado toggle a active para coincidir con CSS
+    burger.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
+}
+
+// Eventos para el menú móvil
+burger.addEventListener('click', toggleMenu);
+
+closeBtn.addEventListener('click', toggleMenu);
+
+// Cerrar menú al hacer clic en un enlace
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (nav.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
 });
 
 // Panel Dropdown Functionality
@@ -78,14 +95,18 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelector('.counters').style.opacity = '1';
 observer.observe(document.querySelector('.counters'));
+
+// Popup Message
 window.addEventListener('DOMContentLoaded', () => {
-  const popup = document.querySelector('.popup-message');
-  
-  // Mostrar el mensaje
-  popup.classList.add('active');
-  
-  // Después de 4 segundos, ocultarlo
-  setTimeout(() => {
-    popup.classList.remove('active');
-  }, 4000);
+    const popup = document.querySelector('.popup-message');
+    
+    // Mostrar el mensaje
+    if (popup) {
+        popup.classList.add('active');
+        
+        // Después de 4 segundos, ocultarlo
+        setTimeout(() => {
+            popup.classList.remove('active');
+        }, 4000);
+    }
 });

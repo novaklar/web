@@ -15,7 +15,7 @@ html, body {
 
 /* ===== HEADER ===== */
 header {
-    background-color: #000; /* Fondo negro */
+    background-color: #000; /* Fondo negro manteniendo lo solicitado */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
@@ -24,7 +24,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 5%;
+    padding: 0.8rem 5%; /* Aumentado ligeramente el padding vertical */
 }
 
 .logo-container {
@@ -46,7 +46,7 @@ header {
 }
 
 .nav-links a {
-    color: #fff; /* Texto blanco */
+    color: #fff;
     font-size: 0.95rem;
     font-weight: 500;
     text-decoration: none;
@@ -56,7 +56,7 @@ header {
 }
 
 .nav-links a:hover {
-    color: #6c91ff; /* Azul claro al hover */
+    color: #6c91ff;
 }
 
 .nav-links a::after {
@@ -85,7 +85,7 @@ header {
 .burger div {
     width: 25px;
     height: 3px;
-    background-color: #fff; /* Líneas blancas */
+    background-color: #fff;
     margin: 3px 0;
     transition: all 0.3s ease;
 }
@@ -103,37 +103,37 @@ header {
 
 /* ===== MAIN CONTENT ===== */
 main {
-    margin-top: 70px;
+    margin-top: 90px; /* Aumentado de 70px a 90px para más espacio bajo el header */
     padding: 2rem 5%;
 }
 
-/* Hero Section */
+/* ===== HERO SECTION (Panel Central) ===== */
 .hero {
     text-align: center;
-    padding: 3rem 0;
-    background-color: #6c91ff;
+    padding: 4rem 0; /* Aumentado el padding vertical */
+    background-color: #00128f; /* Azul corporativo como fondo */
     color: white;
     border-radius: 10px;
     margin-bottom: 2rem;
 }
 
 .hero h1 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem; /* Aumentado ligeramente */
+    margin-bottom: 1.5rem; /* Más espacio bajo el título */
     color: white;
 }
 
 .hero p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+    font-size: 1.2rem; /* Aumentado ligeramente */
+    margin-bottom: 3rem; /* Aumentado a 3rem para más espacio sobre los botones */
 }
 
 /* ===== PANEL DE BOTONES ===== */
 .panel-botones {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1.8rem; /* Aumentado el espacio entre botones */
+    margin-top: 1rem;
     flex-wrap: wrap;
 }
 
@@ -143,23 +143,26 @@ main {
 }
 
 .panel-btn {
-    padding: 1rem 1.8rem;
+    padding: 1.2rem 2rem; /* Aumentado el padding para botones más grandes */
     border-radius: 8px;
     font-weight: 600;
     color: white;
     transition: all 0.3s;
-    min-width: 160px;
+    min-width: 180px; /* Ancho mínimo aumentado */
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: none;
     cursor: pointer;
-    background-color: #00128f;
+    background-color: #6c91ff; /* Lavanda corporativo */
+    font-size: 1.1rem; /* Tamaño de fuente aumentado */
+    height: auto; /* Altura automática basada en contenido */
+    line-height: 1.4; /* Mejor espaciado de línea */
 }
 
 .panel-btn:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    background-color: #0a1d8a;
+    background-color: #5a7de0; /* Tonos más oscuros al hover */
 }
 
 /* Dropdown Menus */
@@ -169,7 +172,7 @@ main {
     top: 100%;
     left: 0;
     background-color: white;
-    min-width: 160px;
+    min-width: 180px; /* Ancho aumentado para coincidir con botones */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 0 0 8px 8px;
     z-index: 100;
@@ -183,6 +186,7 @@ main {
     display: block;
     text-align: left;
     transition: all 0.3s;
+    font-size: 1rem; /* Tamaño de fuente adecuado */
 }
 
 .panel-dropdown-menu a:hover {
@@ -376,7 +380,7 @@ footer {
 /* ===== RESPONSIVE DESIGN ===== */
 @media screen and (max-width: 768px) {
     header {
-        padding: 0.5rem 3%;
+        padding: 0.8rem 3%; /* Padding consistente con desktop */
     }
     
     .logo-container {
@@ -386,12 +390,12 @@ footer {
     .nav-links {
         position: absolute;
         right: 0;
-        top: 60px;
+        top: 70px; /* Ajustado por el aumento de altura del header */
         background-color: #000;
         width: 100%;
         flex-direction: column;
         align-items: center;
-        padding: 1rem 0;
+        padding: 1.5rem 0; /* Más espacio interno */
         clip-path: circle(0px at 90% -10%);
         transition: all 0.5s ease-out;
         pointer-events: none;
@@ -407,30 +411,46 @@ footer {
         width: 100%;
         text-align: center;
         padding: 0.8rem;
+        font-size: 1.1rem; /* Tamaño aumentado para móvil */
     }
 
     .burger {
         display: flex;
     }
 
+    main {
+        margin-top: 100px; /* Más espacio para móvil */
+    }
+
+    .hero {
+        padding: 3rem 1.5rem; /* Padding ajustado para móvil */
+    }
+
     .hero h1 {
-        font-size: 1.8rem;
+        font-size: 2rem; /* Tamaño ajustado para móvil */
+        margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem; /* Espacio ajustado para móvil */
     }
 
     .panel-botones {
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 1.2rem; /* Espacio consistente */
     }
 
     .panel-dropdown {
         width: 100%;
-        max-width: 250px;
+        max-width: 280px; /* Ancho máximo aumentado */
     }
     
     .panel-btn {
         width: 100%;
-        padding: 0.8rem;
+        padding: 1.1rem; /* Padding consistente */
+        font-size: 1.05rem; /* Tamaño adecuado para móvil */
     }
     
     .panel-dropdown-menu {
@@ -447,7 +467,7 @@ footer {
     }
     
     .about-section {
-        padding: 1rem;
+        padding: 1.2rem;
     }
 
     .about-novaklar h2 {

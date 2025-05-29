@@ -478,92 +478,18 @@ header {
     color: #6c91ff;
 }
 
-/* HAMBURGUESA */
-.burger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1000;
-    position: relative;
-}
+// Ordenar enlaces por longitud de texto
+document.addEventListener('DOMContentLoaded', () => {
+    const navItems = document.querySelectorAll('.nav-links li');
+    
+    // Asignar orden basado en longitud de texto
+    navItems.forEach(item => {
+        const textLength = item.textContent.trim().length;
+        item.style.setProperty('--text-length', textLength);
+        item.style.order = textLength;
+    });
+});
 
-.burger div {
-    width: 25px;
-    height: 3px;
-    background-color: #000;
-    margin: 3px 0;
-    transition: all 0.3s ease;
-    transform-origin: center;
-}
-
-/* Animación al activar hamburguesa */
-.burger.active div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-    background-color: white; /* Cambia a blanco cuando el overlay está activo */
-}
-
-.burger.active div:nth-child(2) {
-    opacity: 0;
-}
-
-.burger.active div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-    background-color: white; /* Cambia a blanco cuando el overlay está activo */
-}
-
-/* Full-screen Overlay Navigation */
-.nav-links {
-    display: none;
-}
-
-.nav-links.active {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #00128f;
-    z-index: 999;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-/* Botón de cerrar (X) */
-.close-btn {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-    z-index: 1001;
-}
-
-.nav-links.active a {
-    color: white;
-    font-size: 2rem;
-    margin: 15px 0;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: color 0.3s;
-}
-
-.nav-links.active a:hover {
-    color: #ccc;
-}
-
-/* Responsive nav */
-@media (max-width: 768px) {
-    .burger {
-        display: flex;
-    }
-}
 /* PANEL CENTRAL (sección hero) */
 .hero {
     background-color: #00128f;

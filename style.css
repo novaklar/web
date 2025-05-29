@@ -74,12 +74,16 @@ header {
     width: 100%;
 }
 
-/* Burger Menu */
+/* Burger Menu - Mejorado */
 .burger {
     display: none;
     cursor: pointer;
     padding: 5px;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
 }
 
 .burger div {
@@ -88,22 +92,25 @@ header {
     background-color: #fff;
     margin: 3px 0;
     transition: all 0.3s ease;
+    transform-origin: center;
 }
 
-/* Burger animation when active */
+/* Burger animation when active - Corregido alineación */
 .burger.active div:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
+    transform: rotate(45deg) translate(4px, 4px);
+    margin: -2px 0;
 }
 .burger.active div:nth-child(2) {
     opacity: 0;
 }
 .burger.active div:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
+    transform: rotate(-45deg) translate(4px, -4px);
+    margin: -2px 0;
 }
 
 /* ===== MAIN CONTENT ===== */
 main {
-    margin-top: 120px; /* Aumentado de 90px a 120px (30px más) */
+    margin-top: 120px;
     padding: 2rem 5%;
 }
 
@@ -118,15 +125,19 @@ main {
 }
 
 .hero h1 {
-    font-size: 2.2rem; /* Reducido de 2.5rem para evitar salto de línea */
+    font-size: 2.2rem;
     margin-bottom: 1.5rem;
-    color: #6c91ff; /* Cambiado a lavanda corporativo */
+    color: #6c91ff;
     line-height: 1.2;
+    white-space: nowrap; /* Evita que se divida en dos líneas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 20px;
 }
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 4rem; /* Aumentado de 3rem a 4rem para más espacio */
+    margin-bottom: 5rem; /* Aumentado considerablemente el espacio */
     padding: 0 10%;
 }
 
@@ -148,24 +159,23 @@ main {
     padding: 1.2rem 2rem;
     border-radius: 8px;
     font-weight: 600;
-    color: #000; /* Texto negro */
+    color: #000;
     transition: all 0.3s;
     min-width: 180px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: none;
+    border: none; /* Eliminado el borde */
     cursor: pointer;
-    background-color: #fff; /* Fondo blanco */
+    background-color: #fff;
     font-size: 1.1rem;
     height: auto;
     line-height: 1.4;
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Borde sutil para definición */
 }
 
 .panel-btn:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    background-color: #f5f5f5; /* Tonos más oscuros al hover */
+    background-color: #f5f5f5;
 }
 
 /* Dropdown Menus */
@@ -415,6 +425,7 @@ footer {
         text-align: center;
         padding: 0.8rem;
         font-size: 1.1rem;
+        display: block; /* Asegura que los enlaces se muestren en columna */
     }
 
     .burger {
@@ -422,7 +433,7 @@ footer {
     }
 
     main {
-        margin-top: 130px; /* Aumentado para móvil también */
+        margin-top: 130px;
     }
 
     .hero {
@@ -430,14 +441,14 @@ footer {
     }
 
     .hero h1 {
-        font-size: 1.8rem; /* Reducido para móvil para evitar salto */
-        margin-bottom: 1.2rem;
-        white-space: nowrap; /* Evita que se divida en dos líneas */
+        font-size: 1.8rem;
+        white-space: normal; /* Permite salto de línea solo si es necesario */
+        padding: 0 10px;
     }
 
     .hero p {
         font-size: 1.1rem;
-        margin-bottom: 3.5rem; /* Espacio aumentado para móvil */
+        margin-bottom: 4.5rem; /* Espacio aumentado para móvil */
         padding: 0 5%;
     }
 
@@ -477,6 +488,13 @@ footer {
 
     .about-novaklar h2 {
         font-size: 1.8rem;
+    }
+}
+
+/* Media query adicional para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.6rem; /* Tamaño reducido para pantallas muy pequeñas */
     }
 }
 

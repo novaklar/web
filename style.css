@@ -478,17 +478,58 @@ header {
     color: #6c91ff;
 }
 
-// Ordenar enlaces por longitud de texto
-document.addEventListener('DOMContentLoaded', () => {
-    const navItems = document.querySelectorAll('.nav-links li');
-    
-    // Asignar orden basado en longitud de texto
-    navItems.forEach(item => {
-        const textLength = item.textContent.trim().length;
-        item.style.setProperty('--text-length', textLength);
-        item.style.order = textLength;
-    });
-});
+/* HAMBURGUESA */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.burger div {
+    width: 22px;
+    height: 2px;
+    background-color: #000;
+    margin: 2px 0;
+    transition: all 0.3s ease;
+}
+
+/* Animación al activar hamburguesa: se transforma en X */
+.burger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive nav */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 8px;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .burger {
+        display: flex;
+    }
+}
 
 /* PANEL CENTRAL (sección hero) */
 .hero {

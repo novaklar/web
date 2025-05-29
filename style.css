@@ -1,19 +1,21 @@
-* { 
+/* ===== RESET & BASE STYLES ===== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Work Sans', sans-serif;
 }
 
-body {
-    line-height: 1.6;
-    color: #333;
+html, body {
+    width: 100%;
     background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* Header */
+/* ===== HEADER ===== */
 header {
-    background-color: #fff;
+    background-color: #000; /* Fondo negro */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
@@ -33,22 +35,18 @@ header {
     width: 100%;
     height: auto;
     max-height: 50px;
+    filter: brightness(0) invert(1); /* Logo blanco */
 }
 
 /* Navigation */
 .nav-links {
     display: flex;
     list-style: none;
-}
-
-/* Estilos para los enlaces de redes sociales */
-.social-links {
-    display: flex;
     gap: 20px;
 }
 
-.social-links a {
-    color: #333;
+.nav-links a {
+    color: #fff; /* Texto blanco */
     font-size: 0.95rem;
     font-weight: 500;
     text-decoration: none;
@@ -57,42 +55,53 @@ header {
     position: relative;
 }
 
-.social-links a:hover {
-    color: #00128f;
+.nav-links a:hover {
+    color: #6c91ff; /* Azul claro al hover */
 }
 
-.social-links a::after {
+.nav-links a::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #00128f;
+    background-color: #6c91ff;
     transition: width 0.3s;
 }
 
-.social-links a:hover::after {
+.nav-links a:hover::after {
     width: 100%;
 }
-
-
 
 /* Burger Menu */
 .burger {
     display: none;
     cursor: pointer;
+    padding: 5px;
+    flex-direction: column;
 }
 
 .burger div {
     width: 25px;
     height: 3px;
-    background-color: #333;
-    margin: 5px;
+    background-color: #fff; /* Líneas blancas */
+    margin: 3px 0;
     transition: all 0.3s ease;
 }
 
-/* Main Content */
+/* Burger animation when active */
+.burger.active div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.burger.active div:nth-child(2) {
+    opacity: 0;
+}
+.burger.active div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* ===== MAIN CONTENT ===== */
 main {
     margin-top: 70px;
     padding: 2rem 5%;
@@ -111,6 +120,7 @@ main {
 .hero h1 {
     font-size: 2.2rem;
     margin-bottom: 1rem;
+    color: white;
 }
 
 .hero p {
@@ -118,14 +128,13 @@ main {
     margin-bottom: 2rem;
 }
 
-/* Panel de Botones */
+/* ===== PANEL DE BOTONES ===== */
 .panel-botones {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
     margin-top: 2rem;
     flex-wrap: wrap;
-    position: relative;
 }
 
 .panel-dropdown {
@@ -144,7 +153,6 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: none;
     cursor: pointer;
-    position: relative;
     background-color: #00128f;
 }
 
@@ -191,7 +199,7 @@ main {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Sección de contadores */
+/* ===== COUNTERS SECTION ===== */
 .counters {
     display: flex;
     justify-content: space-around;
@@ -201,6 +209,10 @@ main {
     margin: 2rem 0;
     opacity: 0;
     transition: opacity 1s ease;
+}
+
+.counters.visible {
+    opacity: 1;
 }
 
 .counter-container {
@@ -222,7 +234,7 @@ main {
     font-weight: 500;
 }
 
-/* Sección Acerca de Novaklar */
+/* ===== ABOUT SECTION ===== */
 .about-novaklar {
     padding: 3rem 5%;
     max-width: 1200px;
@@ -280,6 +292,7 @@ main {
     line-height: 1.6;
 }
 
+/* Terms specific styles */
 .terms {
     background-color: #f9f9f9;
     border-left: 4px solid #00128f;
@@ -306,16 +319,61 @@ main {
     left: 0;
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 footer {
     text-align: center;
     padding: 1.5rem;
-    background-color: #fff;
+    background-color: #00128f;
+    color: white;
     margin-top: 2rem;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Design */
+/* ===== WHATSAPP BUTTON ===== */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 1000;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C4A;
+}
+
+.whatsapp-button::after {
+    content: "¿Necesitas ayuda?";
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background-color: #333;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-button:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
 @media screen and (max-width: 768px) {
     header {
         padding: 0.5rem 3%;
@@ -329,7 +387,7 @@ footer {
         position: absolute;
         right: 0;
         top: 60px;
-        background-color: white;
+        background-color: #000;
         width: 100%;
         flex-direction: column;
         align-items: center;
@@ -345,21 +403,14 @@ footer {
         pointer-events: all;
     }
 
-    .social-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        margin-top: 1rem;
-        width: 100%;
-    }
-
-    .social-links a {
+    .nav-links a {
         width: 100%;
         text-align: center;
+        padding: 0.8rem;
     }
 
     .burger {
-        display: block;
+        display: flex;
     }
 
     .hero h1 {
@@ -404,7 +455,7 @@ footer {
     }
 }
 
-/* Animations */
+/* Animation for nav links */
 @keyframes navLinkFade {
     from {
         opacity: 0;
@@ -414,282 +465,4 @@ footer {
         opacity: 1;
         transform: translateX(0);
     }
-}
-
-.toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-.toggle .line2 {
-    opacity: 0;
-}
-.toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Animation for counters when visible */
-.counters.visible {
-    opacity: 1;
-}
-/* RESET GENERAL */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Work Sans', sans-serif;
-}
-
-html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    color: #000000;
-}
-
-/* HAMBURGUESA */
-.burger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.burger div {
-    width: 22px;
-    height: 2px;
-    background-color: #000;
-    margin: 2px 0;
-    transition: all 0.3s ease;
-}
-
-/* Animación al activar hamburguesa: se transforma en X */
-.burger.active div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger.active div:nth-child(2) {
-    opacity: 0;
-}
-
-.burger.active div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Responsive nav */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background-color: white;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-        border-radius: 8px;
-        z-index: 999;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .burger {
-        display: flex;
-    }
-}
-
-/* PANEL CENTRAL (sección hero) */
-.hero {
-    background-color: #00128f;
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-    width: 100%;
-    margin: 0;
-}
-
-.hero h1 {
-    color: #6c91ff;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    margin-top: 0;
-    word-wrap: break-word;
-}
-
-@media (min-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-}
-
-.hero p.slogan {
-    font-size: 1.2rem;
-    margin-bottom: 90px;
-}
-
-.panel-botones {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-@media (min-width: 768px) {
-    .panel-botones {
-        flex-direction: row;
-        justify-content: center;
-    }
-}
-
-.panel-dropdown {
-    position: relative;
-}
-
-.panel-btn {
-    background-color: white;
-    color: black;
-    border: none;
-    padding: 0 20px;
-    height: 70px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.3s;
-}
-
-.panel-btn:hover {
-    background-color: #e4e4e4;
-    transform: scale(1.03);
-}
-
-.panel-dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    z-index: 10;
-}
-
-.panel-dropdown:hover .panel-dropdown-menu {
-    display: block;
-}
-
-.panel-dropdown-menu a {
-    display: block;
-    padding: 10px 20px;
-    color: black;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.panel-dropdown-menu a:hover {
-    background-color: #f0f0f0;
-}
-
-/* CONTADORES */
-.counters {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.counter-container {
-    flex: 1;
-}
-
-.counter {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #00128f;
-}
-
-/* NOSOTROS */
-.about-novaklar {
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.about-novaklar h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-    color: #00128f;
-}
-
-.about-section {
-    margin-bottom: 40px;
-}
-
-.about-section h3 {
-    color: #00128f;
-    margin-bottom: 10px;
-}
-
-.about-section ul {
-    padding-left: 20px;
-    list-style-type: disc;
-}
-
-/* FOOTER */
-footer {
-    background-color: #00128f;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-}
-.whatsapp-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  cursor: pointer;
-  z-index: 1000;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  position: fixed;
-}
-
-.whatsapp-button:hover {
-  background-color: #128C4A;
-}
-
-.whatsapp-button::after {
-  content: "¿Necesitas ayuda?";
-  position: absolute;
-  bottom: 70px;
-  right: 0;
-  background-color: #333;
-  color: white;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 12px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.whatsapp-button:hover::after {
-  opacity: 1;
-  transform: translateY(0);
 }

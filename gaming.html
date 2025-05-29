@@ -136,6 +136,12 @@
       text-align: center !important;
     }
 
+    .plan-header-black {
+      background-color: #000000 !important;
+      color: white !important;
+      text-align: center !important;
+    }
+
     @media (max-width: 768px) {
       .container {
         padding: 1rem;
@@ -184,6 +190,7 @@
   <script>
     const container = document.getElementById('cards-container');
 
+    // Roblox Plans
     const robloxPlans = [
       { 
         robux: "40 Robux",
@@ -257,36 +264,114 @@
       }
     ];
 
-    const card = document.createElement('div');
-    card.className = 'card';
-    
-    card.innerHTML = `
-      <div class="card-img-container">
-        <img src="${robloxPlans[0].img}" alt="Roblox" style="width:100%">
-      </div>
-      <div class="table-container">
-        <table>
-    `;
-    
-    const table = card.querySelector('table');
-    
-    robloxPlans.forEach(plan => {
-      table.innerHTML += `
-        <tr><th colspan="2" class="plan-header">${plan.robux}</th></tr>
-        <tr><td>Precio Afiliado</td><td>$${plan.afiliado.toLocaleString('es-CO')}</td></tr>
-        <tr><td>Precio Sugerido</td><td>$${plan.sugerido.toLocaleString('es-CO')}</td></tr>
-        <tr><td>Ganancia</td><td>$${plan.ganancia.toLocaleString('es-CO')}</td></tr>
+    // Free Fire Plans
+    const freeFirePlans = [
+      { 
+        diamantes: "110 Diamantes",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
+        afiliado: 7000,
+        sugerido: 8000,
+        ganancia: 1000
+      },
+      { 
+        diamantes: "341 Diamantes",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
+        afiliado: 15000,
+        sugerido: 16000,
+        ganancia: 1000
+      },
+      { 
+        diamantes: "451 Diamantes",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
+        afiliado: 20000,
+        sugerido: 22000,
+        ganancia: 2000
+      },
+      { 
+        diamantes: "572 Diamantes",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
+        afiliado: 22000,
+        sugerido: 24000,
+        ganancia: 2000
+      },
+      { 
+        diamantes: "1166 Diamantes",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
+        afiliado: 41000,
+        sugerido: 43000,
+        ganancia: 2000
+      },
+      { 
+        diamantes: "2398 Diamantes",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
+        afiliado: 80000,
+        sugerido: 85000,
+        ganancia: 5000
+      },
+      { 
+        diamantes: "6160 Diamantes",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
+        afiliado: 190000,
+        sugerido: 200000,
+        ganancia: 10000
+      },
+      { 
+        diamantes: "Tarjeta Semanal",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
+        afiliado: 11000,
+        sugerido: 12000,
+        ganancia: 1000
+      },
+      { 
+        diamantes: "Tarjeta Mensual",
+        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
+        afiliado: 48500,
+        sugerido: 52500,
+        ganancia: 4000
+      }
+    ];
+
+    // Function to create a card
+    function createCard(plans, titleKey, imgSrc, headerClass) {
+      const card = document.createElement('div');
+      card.className = 'card';
+      
+      card.innerHTML = `
+        <div class="card-img-container">
+          <img src="${imgSrc}" alt="${titleKey}" style="width:100%">
+        </div>
+        <div class="table-container">
+          <table>
       `;
-    });
-    
-    table.innerHTML += `</table></div>`;
-    
-    card.addEventListener('click', () => {
-      const tableContainer = card.querySelector('.table-container');
-      tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
-    });
-    
-    container.appendChild(card);
+      
+      const table = card.querySelector('table');
+      
+      plans.forEach(plan => {
+        table.innerHTML += `
+          <tr><th colspan="2" class="${headerClass}">${plan[titleKey]}</th></tr>
+          <tr><td>Precio Afiliado</td><td>$${plan.afiliado.toLocaleString('es-CO')}</td></tr>
+          <tr><td>Precio Sugerido</td><td>$${plan.sugerido.toLocaleString('es-CO')}</td></tr>
+          <tr><td>Ganancia</td><td>$${plan.ganancia.toLocaleString('es-CO')}</td></tr>
+        `;
+      });
+      
+      table.innerHTML += `</table></div>`;
+      
+      card.addEventListener('click', () => {
+        const tableContainer = card.querySelector('.table-container');
+        tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
+      });
+      
+      return card;
+    }
+
+    // Add Roblox card (blue header)
+    const robloxCard = createCard(robloxPlans, 'robux', robloxPlans[0].img, 'plan-header');
+    container.appendChild(robloxCard);
+
+    // Add Free Fire card (black header)
+    const freeFireCard = createCard(freeFirePlans, 'diamantes', freeFirePlans[0].img, 'plan-header-black');
+    container.appendChild(freeFireCard);
   </script>
 </body>
 </html>

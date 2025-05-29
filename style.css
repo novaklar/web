@@ -15,7 +15,7 @@ html, body {
 
 /* ===== HEADER ===== */
 header {
-    background-color: #000;
+    background-color: #00128f; /* Cambiado a azul corporativo */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
@@ -35,7 +35,7 @@ header {
     width: 100%;
     height: auto;
     max-height: 50px;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1); /* Logo blanco */
 }
 
 /* Navigation */
@@ -56,7 +56,7 @@ header {
 }
 
 .nav-links a:hover {
-    color: #6c91ff;
+    color: #d9e1ff; /* Color más claro para hover */
 }
 
 .nav-links a::after {
@@ -66,7 +66,7 @@ header {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #6c91ff;
+    background-color: #d9e1ff;
     transition: width 0.3s;
 }
 
@@ -118,7 +118,7 @@ main {
 .hero {
     text-align: center;
     padding: 4rem 0;
-    background-color: #00128f;
+    background-color: #6c91ff; /* Cambiado a tono lila */
     color: white;
     border-radius: 10px;
     margin-bottom: 2rem;
@@ -127,9 +127,9 @@ main {
 .hero h1 {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
-    color: #6c91ff;
+    color: #fff; /* Cambiado a blanco */
     line-height: 1.2;
-    white-space: nowrap; /* Evita que se divida en dos líneas */
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0 20px;
@@ -137,8 +137,9 @@ main {
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 5rem; /* Aumentado considerablemente el espacio */
+    margin-bottom: 5rem;
     padding: 0 10%;
+    color: #fff; /* Texto blanco para mejor contraste */
 }
 
 /* ===== PANEL DE BOTONES ===== */
@@ -164,7 +165,7 @@ main {
     min-width: 180px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: none; /* Eliminado el borde */
+    border: none;
     cursor: pointer;
     background-color: #fff;
     font-size: 1.1rem;
@@ -404,7 +405,7 @@ footer {
         position: absolute;
         right: 0;
         top: 70px;
-        background-color: #000;
+        background-color: #00128f;
         width: 100%;
         flex-direction: column;
         align-items: center;
@@ -425,7 +426,7 @@ footer {
         text-align: center;
         padding: 0.8rem;
         font-size: 1.1rem;
-        display: block; /* Asegura que los enlaces se muestren en columna */
+        display: block;
     }
 
     .burger {
@@ -442,13 +443,13 @@ footer {
 
     .hero h1 {
         font-size: 1.8rem;
-        white-space: normal; /* Permite salto de línea solo si es necesario */
+        white-space: normal;
         padding: 0 10px;
     }
 
     .hero p {
         font-size: 1.1rem;
-        margin-bottom: 4.5rem; /* Espacio aumentado para móvil */
+        margin-bottom: 4.5rem;
         padding: 0 5%;
     }
 
@@ -494,7 +495,7 @@ footer {
 /* Media query adicional para pantallas muy pequeñas */
 @media screen and (max-width: 480px) {
     .hero h1 {
-        font-size: 1.6rem; /* Tamaño reducido para pantallas muy pequeñas */
+        font-size: 1.6rem;
     }
 }
 

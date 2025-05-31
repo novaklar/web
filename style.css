@@ -90,6 +90,9 @@ header {
     align-items: center;
     width: 40px;
     height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
 }
 
 .burger div {
@@ -113,7 +116,7 @@ header {
 
 /* ===== MAIN CONTENT ===== */
 main {
-    margin-top: 160px; /* Aumentado de 140px a 160px para mayor espacio del header */
+    margin-top: 160px;
     padding: 1.5rem 5%;
 }
 
@@ -136,12 +139,12 @@ main {
     font-size: 4.5rem;
     color: #6c91ff;
     line-height: 1;
-    margin-bottom: 0.2rem; /* Reducido de 0.5rem para acercar el slogan */
+    margin-bottom: 0; /* Eliminado el margen inferior para acercar el slogan */
 }
 
 .hero p.slogan {
     font-size: 1.3rem;
-    margin: 1rem 0 3.3rem; /* Ajustado margen superior/inferior (1.5rem->1rem y 3rem->3.3rem) */
+    margin: 0.5rem 0 4rem; /* 0.5rem arriba (reducido) y 4rem abajo (aumentado 30px) */
     padding: 0 10%;
     color: #fff;
     font-family: 'Comme', sans-serif;
@@ -165,7 +168,7 @@ main {
 .panel-btn {
     padding: 1.5rem 3rem;
     height: 75px;
-    min-width: 280px; /* Aumentado de 220px para que coincida con el ancho del texto "novaklar" */
+    min-width: 300px; /* Aumentado a 300px (20px más que los 280px anteriores) */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -194,11 +197,12 @@ main {
     top: 100%;
     left: 0;
     background-color: white;
-    min-width: 280px; /* Aumentado para coincidir con el botón */
+    min-width: 300px; /* Aumentado para coincidir con el botón */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 0 0 8px 8px;
     z-index: 100;
     animation: fadeIn 0.3s;
+    overflow: hidden; /* Previene deformaciones */
 }
 
 .panel-dropdown-menu a {
@@ -209,6 +213,7 @@ main {
     text-align: left;
     transition: all 0.3s;
     font-size: 0.95rem;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
 
 .panel-dropdown-menu a:hover {
@@ -422,7 +427,7 @@ footer {
     }
 
     main {
-        margin-top: 120px; /* Aumentado de 100px para versión móvil */
+        margin-top: 120px;
         padding: 1rem;
     }
 
@@ -437,7 +442,7 @@ footer {
 
     .hero p.slogan {
         font-size: 1.2rem;
-        margin: 0.8rem 0 3rem; /* Ajustado para versión móvil */
+        margin: 0.3rem 0 3.5rem; /* Ajustado para versión móvil */
     }
 
     .panel-botones {

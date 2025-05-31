@@ -85,9 +85,9 @@ header {
     width: 100%;
 }
 
-/* ===== HAMBURGER MENU - AJUSTES FINALES ===== */
+/* ===== HAMBURGER MENU ===== */
 .burger {
-    display: flex !important; /* Forzado a mostrarse */
+    display: flex !important;
     cursor: pointer;
     padding: 8px;
     flex-direction: column;
@@ -127,18 +127,14 @@ main {
     padding: 1.5rem 5%;
 }
 
-/* ===== HERO SECTION - AJUSTES FINALES ===== */
+/* ===== HERO SECTION - ESPACIO DRÁSTICAMENTE AUMENTADO ===== */
 .hero {
     text-align: center;
-    padding: 4rem 0;
+    padding: 6rem 0; /* Aumentado de 4rem a 6rem */
     background-color: #00128f;
     color: white;
     border-radius: 10px;
     margin-bottom: 3rem;
-}
-
-.hero-title {
-    margin: 0 auto;
 }
 
 .hero-title .logo-text {
@@ -151,20 +147,21 @@ main {
 
 .hero p.slogan {
     font-size: 1.3rem;
-    margin: 5px 0 150px !important; /* Aumenté este valor de 120px a 150px */
+    margin: 30px 0 220px !important; /* Cambio drástico: 220px de margen inferior (antes 90px) */
     padding: 0 10%;
     color: #fff;
     font-family: 'Comme', sans-serif !important;
     font-weight: 600;
 }
 
-/* ===== BUTTON PANEL - AJUSTES FINALES ===== */
+/* ===== BUTTON PANEL ===== */
 .panel-botones {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin-top: 1rem;
+    margin-top: 3rem; /* Aumentado de 1rem a 3rem */
     flex-wrap: wrap;
+    transform: translateY(-60px); /* Compensación para el espacio extra */
 }
 
 .panel-dropdown {
@@ -440,7 +437,7 @@ footer {
     }
 
     .hero {
-        padding: 3rem 0;
+        padding: 4rem 0;
         margin: 0 auto 2rem;
     }
 
@@ -450,13 +447,15 @@ footer {
 
     .hero p.slogan {
         font-size: 1.2rem;
-        margin: 5px 0 90px !important; /* Cambié de 90px a 120px para móvil */
+        margin: 20px 0 180px !important; /* Ajuste proporcional para móvil */
     }
 
     .panel-botones {
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
+        margin-top: 2rem;
+        transform: translateY(-50px); /* Compensación para móvil */
     }
 
     .panel-btn {
@@ -483,6 +482,10 @@ footer {
 @media screen and (max-width: 480px) {
     .hero-title .logo-text {
         font-size: 2.8rem;
+    }
+
+    .hero p.slogan {
+        margin: 15px 0 150px !important; /* Ajuste para pantallas pequeñas */
     }
     
     .panel-btn {

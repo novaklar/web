@@ -21,6 +21,44 @@
       font-size: 3rem;
       color: #000;
     }
+    
+    /* Estilos para el menú hamburguesa */
+    .nav-links {
+      display: flex;
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        z-index: 100;
+      }
+      
+      .nav-links.active {
+        transform: translateX(0);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      }
+      
+      .burger {
+        display: block;
+        cursor: pointer;
+        z-index: 101;
+      }
+      
+      .social-links {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -146,6 +184,22 @@
     document.querySelector('.burger').addEventListener('click', function() {
       this.classList.toggle('active');
       document.querySelector('.nav-links').classList.toggle('active');
+      
+      // Evitar scroll cuando el menú está abierto
+      if (this.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Cerrar menú al hacer clic en un enlace (para móviles)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.burger').classList.remove('active');
+        document.querySelector('.nav-links').classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
     });
 
     // Script para los contadores

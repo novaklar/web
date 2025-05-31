@@ -437,7 +437,7 @@ footer {
     }
 
     .hero {
-        padding: 4rem 0 3rem; /* Solo reduje el padding-bottom de 6rem a 3rem */
+        padding: 4rem 0 3rem;
         margin: 0 auto 2rem;
     }
 
@@ -447,7 +447,7 @@ footer {
 
     .hero p.slogan {
         font-size: 1.2rem;
-        margin: 20px 0 180px !important; /* Mantengo el mismo margen inferior para la frase */
+        margin: 20px 0 200px !important; /* Ajustado a 200px (antes 180px) */
     }
 
     .panel-botones {
@@ -485,7 +485,7 @@ footer {
     }
 
     .hero p.slogan {
-        margin: 15px 0 150px !important; /* Mantengo el mismo margen inferior para la frase */
+        margin: 15px 0 170px !important; /* Ajustado a 170px (antes 150px) */
     }
     
     .panel-btn {

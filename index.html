@@ -52,6 +52,20 @@
       color: #000;
     }
     
+    /* Estilo para la sección de contadores - MODIFICADO A 20% DE TRANSPARENCIA (80% opacidad) */
+    .counters {
+      background-color: rgba(108, 145, 255, 0.2); /* #6c91ff con 80% de opacidad (20% transparencia) */
+      padding: 30px;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+    
+    .counter-container {
+      text-align: center;
+    }
+    
     @media (max-width: 768px) {
       .burger {
         display: block;
@@ -89,6 +103,12 @@
         gap: 30px;
       }
       
+      .counters {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+      
       .burger.active .line1 {
         transform: rotate(-45deg) translate(-5px, 6px);
       }
@@ -100,11 +120,6 @@
       .burger.active .line3 {
         transform: rotate(45deg) translate(-5px, -6px);
       }
-    }
-
-    /* Aumentar espacio entre panel central y contadores */
-    .counters {
-      margin-top: 50px;
     }
   </style>
 </head>
@@ -160,17 +175,18 @@
     </section>
 
     <section class="counters">
+      <!-- Reorganizado el orden de los contadores -->
+      <div class="counter-container">
+        <div class="counter" data-target="95">0</div>
+        <p>% Clientes satisfechos</p>
+      </div>
       <div class="counter-container">
         <div class="counter" data-target="163">0</div>
-        <p>Afiliados</p>
+        <p>Afiliados activos</p>
       </div>
       <div class="counter-container">
         <div class="counter" data-target="5000">0</div>
         <p>Ventas realizadas</p>
-      </div>
-      <div class="counter-container">
-        <div class="counter" data-target="95">0</div>
-        <p>% Clientes satisfechos</p>
       </div>
     </section>
 

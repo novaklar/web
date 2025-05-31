@@ -151,7 +151,7 @@ main {
 
 .hero p.slogan {
     font-size: 1.3rem;
-    margin: 5px 0 120px !important; /* Aumenté este valor de 90px a 120px */
+    margin: 5px 0 150px !important; /* Aumenté este valor de 120px a 150px */
     padding: 0 10%;
     color: #fff;
     font-family: 'Comme', sans-serif !important;
@@ -450,7 +450,7 @@ footer {
 
     .hero p.slogan {
         font-size: 1.2rem;
-        margin: 5px 0 90px !important; /* Ajusté este valor también para móvil */
+        margin: 5px 0 90px !important; /* Cambié de 90px a 120px para móvil */
     }
 
     .panel-botones {

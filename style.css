@@ -15,7 +15,7 @@ html, body {
 
 /* ===== HEADER ===== */
 header {
-    background-color: #6c91ff; /* Cambiado a tono lila */
+    background-color: #6c91ff; /* Color lila corporativo */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
@@ -88,14 +88,14 @@ header {
 
 .burger div {
     width: 25px;
-    height: 4px; /* Aumentado de 3px a 4px */
+    height: 4px; /* Líneas más gruesas */
     background-color: #fff;
-    margin: 4px 0; /* Aumentado el margen */
+    margin: 4px 0; /* Más espacio entre líneas */
     transition: all 0.3s ease;
     transform-origin: center;
 }
 
-/* Burger animation when active */
+/* Animación de hamburguesa a X - Mejor alineación */
 .burger.active div:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
     margin: -1px 0;
@@ -110,7 +110,7 @@ header {
 
 /* ===== MAIN CONTENT ===== */
 main {
-    margin-top: 120px;
+    margin-top: 120px; /* Espacio aumentado bajo el header */
     padding: 2rem 5%;
 }
 
@@ -127,7 +127,7 @@ main {
 .hero h1 {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
-    color: #fff;
+    color: #fff; /* Texto blanco */
     line-height: 1.2;
     white-space: nowrap;
     overflow: hidden;
@@ -137,7 +137,7 @@ main {
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 5rem;
+    margin-bottom: 5rem; /* Espacio aumentado sobre botones */
     padding: 0 10%;
 }
 
@@ -159,15 +159,15 @@ main {
     padding: 1.2rem 2rem;
     border-radius: 8px;
     font-weight: 600;
-    color: #000;
+    color: #000; /* Texto negro */
     transition: all 0.3s;
     min-width: 180px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: none;
+    border: none; /* Sin borde */
     cursor: pointer;
-    background-color: #fff;
-    font-size: 1.1rem;
+    background-color: #fff; /* Fondo blanco */
+    font-size: 1.1rem; /* Texto más grande */
     height: auto;
     line-height: 1.4;
 }
@@ -216,28 +216,301 @@ main {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* ===== COUNTERS SECTION ===== */
+.counters {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 3rem 0;
+    background-color: #f0f4ff;
+    margin: 2rem 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.counters.visible {
+    opacity: 1;
+}
+
+.counter-container {
+    text-align: center;
+    margin: 1rem;
+    min-width: 150px;
+}
+
+.counter {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #00128f;
+    margin-bottom: 0.5rem;
+}
+
+.counters p {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-novaklar {
+    padding: 3rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-novaklar h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #00128f;
+    position: relative;
+}
+
+.about-novaklar h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #6c91ff;
+    margin: 0.5rem auto 0;
+}
+
+.about-section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.about-section:hover {
+    transform: translateY(-5px);
+}
+
+.about-section h3 {
+    color: #00128f;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.about-section p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.about-section ul, .about-section ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Terms specific styles */
+.terms {
+    background-color: #f9f9f9;
+    border-left: 4px solid #00128f;
+}
+
+.terms ol {
+    list-style-type: none;
+    counter-reset: item;
+    padding-left: 0;
+}
+
+.terms ol li {
+    counter-increment: item;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.terms ol li::before {
+    content: counter(item) ".";
+    font-weight: bold;
+    color: #00128f;
+    position: absolute;
+    left: 0;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #00128f;
+    color: white;
+    margin-top: 2rem;
+}
+
+/* ===== WHATSAPP BUTTON ===== */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 1000;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C4A;
+}
+
+.whatsapp-button::after {
+    content: "¿Necesitas ayuda?";
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background-color: #333;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-button:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media screen and (max-width: 768px) {
-    .nav-links {
-        background-color: #6c91ff; /* Mantiene el lila en móvil */
+    header {
+        padding: 0.8rem 3%;
     }
     
+    .logo-container {
+        width: 80px;
+    }
+    
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 70px;
+        background-color: #6c91ff; /* Mantiene color lila */
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem 0;
+        clip-path: circle(0px at 90% -10%);
+        transition: all 0.5s ease-out;
+        pointer-events: none;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+        font-size: 1.1rem;
+        display: block;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    main {
+        margin-top: 130px;
+    }
+
+    .hero {
+        padding: 3rem 1.5rem;
+    }
+
     .hero h1 {
         font-size: 1.8rem;
         white-space: normal;
+        padding: 0 10px;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 4.5rem;
+        padding: 0 5%;
+    }
+
+    .panel-botones {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+    }
+
+    .panel-dropdown {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .panel-btn {
+        width: 100%;
+        padding: 1.1rem;
+        font-size: 1.05rem;
+    }
+    
+    .panel-dropdown-menu {
+        width: 100%;
+    }
+
+    .counters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .counter {
+        font-size: 2.5rem;
+    }
+    
+    .about-section {
+        padding: 1.2rem;
+    }
+
+    .about-novaklar h2 {
+        font-size: 1.8rem;
     }
 }
 
-/* Resto del CSS permanece igual... */
-
-/* Media query para pantallas muy pequeñas */
+/* Media query adicional para pantallas muy pequeñas */
 @media screen and (max-width: 480px) {
     .hero h1 {
         font-size: 1.6rem;
     }
     
     .burger div {
-        height: 4px; /* Mantiene el grosor en móvil */
+        height: 4px;
         margin: 3px 0;
+    }
+}
+
+/* Animation for nav links */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }

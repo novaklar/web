@@ -133,16 +133,19 @@ main {
     margin-bottom: 3rem;
 }
 
-.hero-title svg {
+.hero-title img {
     width: 100%;
     height: auto;
-    fill: #6c91ff; /* Color lila para el SVG */
+    filter: brightness(0) invert(78%) sepia(11%) saturate(1753%) hue-rotate(191deg) brightness(101%) contrast(101%); /* Color lila */
 }
 
-.hero p {
+.hero p.slogan {
     font-size: 1.2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
     padding: 0 10%;
+    color: #fff;
+    font-family: 'Comme', sans-serif;
+    font-weight: 600;
 }
 
 /* ===== PANEL DE BOTONES ===== */
@@ -174,6 +177,7 @@ main {
     font-size: 1.1rem;
     height: auto;
     line-height: 1.4;
+    font-family: 'Comme', sans-serif;
 }
 
 .panel-btn:hover {
@@ -247,6 +251,7 @@ main {
     font-weight: 700;
     color: #00128f;
     margin-bottom: 0.5rem;
+    font-family: 'Comme', sans-serif;
 }
 
 .counters p {
@@ -268,6 +273,7 @@ main {
     margin-bottom: 2rem;
     color: #00128f;
     position: relative;
+    font-family: 'Comme', sans-serif;
 }
 
 .about-novaklar h2::after {
@@ -296,6 +302,7 @@ main {
     color: #00128f;
     margin-bottom: 1rem;
     font-size: 1.4rem;
+    font-family: 'Comme', sans-serif;
 }
 
 .about-section p {
@@ -449,9 +456,9 @@ footer {
         margin-bottom: 2rem;
     }
 
-    .hero p {
+    .hero p.slogan {
         font-size: 1.1rem;
-        margin-bottom: 3.5rem;
+        margin-bottom: 4.5rem;
         padding: 0 5%;
     }
 

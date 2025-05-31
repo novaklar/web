@@ -80,9 +80,9 @@ header {
     width: 100%;
 }
 
-/* ===== HAMBURGER MENU ===== */
+/* ===== HAMBURGER MENU - AHORA 100% VISIBLE ===== */
 .burger {
-    display: none;
+    display: flex;
     cursor: pointer;
     padding: 8px;
     flex-direction: column;
@@ -98,7 +98,7 @@ header {
 .burger div {
     width: 28px;
     height: 3px;
-    background-color: #000;
+    background-color: #000 !important;
     margin: 5px 0;
     transition: all 0.3s ease;
     transform-origin: center;
@@ -116,11 +116,11 @@ header {
 
 /* ===== MAIN CONTENT ===== */
 main {
-    margin-top: 160px;
+    margin-top: 160px; /* Aumentado para más espacio del header */
     padding: 1.5rem 5%;
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO SECTION - PANEL CENTRAL ===== */
 .hero {
     text-align: center;
     padding: 4rem 0;
@@ -139,19 +139,19 @@ main {
     font-size: 4.5rem;
     color: #6c91ff;
     line-height: 1;
-    margin-bottom: 0; /* Eliminado el margen inferior para acercar el slogan */
+    margin-bottom: 0 !important; /* CERO espacio con el slogan */
 }
 
 .hero p.slogan {
     font-size: 1.3rem;
-    margin: 0.5rem 0 4rem; /* 0.5rem arriba (reducido) y 4rem abajo (aumentado 30px) */
+    margin: 10px 0 70px !important; /* 10px arriba, 70px abajo (+30px) */
     padding: 0 10%;
     color: #fff;
     font-family: 'Comme', sans-serif;
     font-weight: 600;
 }
 
-/* ===== BUTTON PANEL ===== */
+/* ===== BUTTON PANEL - BOTONES MÁS ANCHOS ===== */
 .panel-botones {
     display: flex;
     justify-content: center;
@@ -168,7 +168,7 @@ main {
 .panel-btn {
     padding: 1.5rem 3rem;
     height: 75px;
-    min-width: 300px; /* Aumentado a 300px (20px más que los 280px anteriores) */
+    min-width: 320px !important; /* Ancho aumentado significativamente */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -197,12 +197,12 @@ main {
     top: 100%;
     left: 0;
     background-color: white;
-    min-width: 300px; /* Aumentado para coincidir con el botón */
+    min-width: 320px !important; /* Mismo ancho que los botones */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 0 0 8px 8px;
     z-index: 100;
     animation: fadeIn 0.3s;
-    overflow: hidden; /* Previene deformaciones */
+    overflow: hidden;
 }
 
 .panel-dropdown-menu a {
@@ -213,7 +213,7 @@ main {
     text-align: left;
     transition: all 0.3s;
     font-size: 0.95rem;
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    white-space: nowrap;
 }
 
 .panel-dropdown-menu a:hover {
@@ -442,7 +442,7 @@ footer {
 
     .hero p.slogan {
         font-size: 1.2rem;
-        margin: 0.3rem 0 3.5rem; /* Ajustado para versión móvil */
+        margin: 5px 0 60px !important;
     }
 
     .panel-botones {
@@ -454,7 +454,11 @@ footer {
     .panel-btn {
         height: 65px;
         padding: 1.2rem;
-        min-width: 100%;
+        min-width: 280px !important;
+    }
+
+    .panel-dropdown-menu {
+        min-width: 280px !important;
     }
 
     .counters {
@@ -476,6 +480,11 @@ footer {
     .panel-btn {
         height: 60px;
         font-size: 1rem;
+        min-width: 260px !important;
+    }
+    
+    .panel-dropdown-menu {
+        min-width: 260px !important;
     }
     
     .about-novaklar h2 {

@@ -147,7 +147,7 @@ main {
 
 .hero p.slogan {
     font-size: 1.3rem;
-    margin: 30px 0 220px !important;
+    margin: 30px 0 250px !important; /* Cambiado de 220px a 250px para bajar los botones */
     padding: 0 10%;
     color: #fff;
     font-family: 'Comme', sans-serif !important;
@@ -397,37 +397,108 @@ footer {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media screen and (max-width: 768px) {
+    header {
+        padding: 0.8rem 3%;
+    }
+    
     .nav-links {
-        flex-direction: column;
         position: absolute;
-        top: 70px;
         right: 0;
+        top: 70px;
+        background-color: #fff;
         width: 100%;
-        background: #fff;
-        display: none;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        padding: 1rem 0;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem 0;
+        clip-path: circle(0px at 90% -10%);
+        transition: all 0.5s ease-out;
+        pointer-events: none;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
 
     .nav-links.active {
-        display: flex;
+        clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .burger {
+        display: flex !important;
+    }
+
+    main {
+        margin-top: 120px;
+        padding: 1rem;
+    }
+
+    .hero {
+        padding: 4rem 0 3rem;
+        margin: 0 auto 2rem;
+    }
+
+    .hero-title .logo-text {
+        font-size: 3.5rem;
+    }
+
+    .hero p.slogan {
+        font-size: 1.2rem;
+        margin: 20px 0 220px !important; /* Ajustado de 200px a 220px */
     }
 
     .panel-botones {
         flex-direction: column;
         align-items: center;
-        gap: 1.2rem;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        transform: translateY(-50px);
     }
 
     .panel-btn {
-        width: 90% !important;
+        height: 65px;
+        padding: 1.2rem;
+        min-width: 280px !important;
+    }
+
+    .panel-dropdown-menu {
+        min-width: 280px !important;
+    }
+
+    .counters {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+    }
+    
+    .counter {
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-title .logo-text {
+        font-size: 2.8rem;
     }
 
     .hero p.slogan {
-        margin-bottom: 100px !important;
+        margin: 15px 0 190px !important; /* Ajustado de 170px a 190px */
     }
-
-    .logo-container {
-        width: 80px;
+    
+    .panel-btn {
+        height: 60px;
+        font-size: 1rem;
+        min-width: 260px !important;
+    }
+    
+    .panel-dropdown-menu {
+        min-width: 260px !important;
+    }
+    
+    .about-novaklar h2 {
+        font-size: 1.8rem;
     }
 }

@@ -11,11 +11,12 @@ html, body {
     background-color: #f9f9f9;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* ===== HEADER ===== */
 header {
-    background-color: #fff; /* Fondo blanco */
+    background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
@@ -35,7 +36,7 @@ header {
     width: 100%;
     height: auto;
     max-height: 50px;
-    filter: brightness(0); /* Logo negro */
+    filter: brightness(0);
 }
 
 /* Navigation */
@@ -46,7 +47,7 @@ header {
 }
 
 .nav-links a {
-    color: #333; /* Texto negro */
+    color: #333;
     font-size: 0.95rem;
     font-weight: 500;
     text-decoration: none;
@@ -56,7 +57,7 @@ header {
 }
 
 .nav-links a:hover {
-    color: #6c91ff; /* Lila corporativo para hover */
+    color: #6c91ff;
 }
 
 .nav-links a::after {
@@ -74,7 +75,7 @@ header {
     width: 100%;
 }
 
-/* Burger Menu - Líneas más gruesas */
+/* Burger Menu - Visible y negro */
 .burger {
     display: none;
     cursor: pointer;
@@ -88,60 +89,59 @@ header {
 
 .burger div {
     width: 25px;
-    height: 5px; /* Líneas más gruesas */
-    background-color: #333; /* Color negro */
-    margin: 5px 0; /* Más espacio entre líneas */
+    height: 4px;
+    background-color: #333;
+    margin: 4px 0;
     transition: all 0.3s ease;
     transform-origin: center;
 }
 
-/* Animación de hamburguesa a X - Mejor alineación */
 .burger.active div:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
-    margin: -2px 0;
+    margin: -1px 0;
 }
 .burger.active div:nth-child(2) {
     opacity: 0;
 }
 .burger.active div:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
-    margin: -2px 0;
+    margin: -1px 0;
 }
 
 /* ===== MAIN CONTENT ===== */
 main {
-    margin-top: 120px;
-    padding: 2rem 5%;
+    margin-top: 90px;
+    padding: 1.5rem 5%;
 }
 
-/* ===== HERO SECTION (Panel Central) ===== */
+/* ===== HERO SECTION ===== */
 .hero {
     text-align: center;
-    padding: 4rem 0;
-    background-color: #00128f; /* Fondo azul corporativo */
+    padding: 2rem 0;
+    background-color: #00128f;
     color: white;
     border-radius: 10px;
     margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .hero-title {
     width: 80%;
-    max-width: 600px;
-    margin-bottom: 3rem;
+    max-width: 350px;
+    margin: 0 auto;
 }
 
-.hero-title img {
+.logo-svg {
     width: 100%;
     height: auto;
-    filter: brightness(0) invert(78%) sepia(11%) saturate(1753%) hue-rotate(191deg) brightness(101%) contrast(101%); /* Color lila */
+    display: block;
+    margin: 0 auto;
+    color: #6c91ff;
+    fill: currentColor;
 }
 
 .hero p.slogan {
     font-size: 1.2rem;
-    margin-bottom: 5rem;
+    margin: 1rem 0 2.5rem;
     padding: 0 10%;
     color: #fff;
     font-family: 'Comme', sans-serif;
@@ -152,7 +152,7 @@ main {
 .panel-botones {
     display: flex;
     justify-content: center;
-    gap: 1.8rem;
+    gap: 1.5rem;
     margin-top: 1rem;
     flex-wrap: wrap;
 }
@@ -163,18 +163,18 @@ main {
 }
 
 .panel-btn {
-    padding: 1.2rem 2rem;
+    padding: 1rem 1.8rem;
     border-radius: 8px;
     font-weight: 600;
     color: #000;
     transition: all 0.3s;
-    min-width: 180px;
+    min-width: 160px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: none;
     cursor: pointer;
     background-color: #fff;
-    font-size: 1.1rem;
+    font-size: 1rem;
     height: auto;
     line-height: 1.4;
     font-family: 'Comme', sans-serif;
@@ -193,7 +193,7 @@ main {
     top: 100%;
     left: 0;
     background-color: white;
-    min-width: 180px;
+    min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 0 0 8px 8px;
     z-index: 100;
@@ -207,7 +207,7 @@ main {
     display: block;
     text-align: left;
     transition: all 0.3s;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .panel-dropdown-menu a:hover {
@@ -229,7 +229,7 @@ main {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 3rem 0;
+    padding: 2.5rem 0;
     background-color: #f0f4ff;
     margin: 2rem 0;
     opacity: 0;
@@ -242,12 +242,12 @@ main {
 
 .counter-container {
     text-align: center;
-    margin: 1rem;
-    min-width: 150px;
+    margin: 0.5rem;
+    min-width: 120px;
 }
 
 .counter {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #00128f;
     margin-bottom: 0.5rem;
@@ -255,22 +255,22 @@ main {
 }
 
 .counters p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #333;
     font-weight: 500;
 }
 
 /* ===== ABOUT SECTION ===== */
 .about-novaklar {
-    padding: 3rem 5%;
+    padding: 2.5rem 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .about-novaklar h2 {
     text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
     color: #00128f;
     position: relative;
     font-family: 'Comme', sans-serif;
@@ -279,44 +279,44 @@ main {
 .about-novaklar h2::after {
     content: '';
     display: block;
-    width: 80px;
+    width: 70px;
     height: 3px;
     background-color: #6c91ff;
     margin: 0.5rem auto 0;
 }
 
 .about-section {
-    margin-bottom: 2.5rem;
-    padding: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.2rem;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
 }
 
 .about-section:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 .about-section h3 {
     color: #00128f;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
     font-family: 'Comme', sans-serif;
 }
 
 .about-section p {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     line-height: 1.7;
 }
 
 .about-section ul, .about-section ol {
-    margin-left: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-left: 1.2rem;
+    margin-bottom: 1.2rem;
 }
 
 .about-section li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     line-height: 1.6;
 }
 
@@ -334,9 +334,9 @@ main {
 
 .terms ol li {
     counter-increment: item;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     position: relative;
-    padding-left: 2rem;
+    padding-left: 1.8rem;
 }
 
 .terms ol li::before {
@@ -350,7 +350,7 @@ main {
 /* ===== FOOTER ===== */
 footer {
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.2rem;
     background-color: #00128f;
     color: white;
     margin-top: 2rem;
@@ -419,7 +419,7 @@ footer {
         width: 100%;
         flex-direction: column;
         align-items: center;
-        padding: 1.5rem 0;
+        padding: 1rem 0;
         clip-path: circle(0px at 90% -10%);
         transition: all 0.5s ease-out;
         pointer-events: none;
@@ -435,7 +435,7 @@ footer {
         width: 100%;
         text-align: center;
         padding: 0.8rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
         display: block;
     }
 
@@ -444,39 +444,41 @@ footer {
     }
 
     main {
-        margin-top: 130px;
+        margin-top: 80px;
+        padding: 1rem;
     }
 
     .hero {
-        padding: 3rem 1.5rem;
+        padding: 1.5rem 0;
     }
 
     .hero-title {
         width: 90%;
-        margin-bottom: 2rem;
+        max-width: 280px;
+        margin-bottom: 0.5rem;
     }
 
     .hero p.slogan {
         font-size: 1.1rem;
-        margin-bottom: 4.5rem;
+        margin: 0.8rem 0 2rem;
         padding: 0 5%;
     }
 
     .panel-botones {
         flex-direction: column;
         align-items: center;
-        gap: 1.2rem;
+        gap: 1rem;
     }
 
     .panel-dropdown {
         width: 100%;
-        max-width: 280px;
+        max-width: 250px;
     }
     
     .panel-btn {
         width: 100%;
-        padding: 1.1rem;
-        font-size: 1.05rem;
+        padding: 0.9rem;
+        font-size: 0.95rem;
     }
     
     .panel-dropdown-menu {
@@ -486,30 +488,34 @@ footer {
     .counters {
         flex-direction: column;
         align-items: center;
+        padding: 1.5rem 0;
     }
     
     .counter {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .about-section {
-        padding: 1.2rem;
+        padding: 1rem;
     }
 
     .about-novaklar h2 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 }
 
-/* Media query adicional para pantallas muy pequeñas */
 @media screen and (max-width: 480px) {
     .hero-title {
-        width: 95%;
+        max-width: 240px;
     }
     
     .burger div {
-        height: 5px;
-        margin: 4px 0;
+        height: 4px;
+        margin: 3px 0;
+    }
+    
+    .about-novaklar {
+        padding: 1.5rem 3%;
     }
 }
 

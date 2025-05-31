@@ -6,6 +6,14 @@
     font-family: 'Work Sans', sans-serif;
 }
 
+/* ===== FUENTE WARATAH ===== */
+@font-face {
+    font-family: 'Waratah';
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/waratah.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html, body {
     width: 100%;
     background-color: #f9f9f9;
@@ -75,7 +83,7 @@ header {
     width: 100%;
 }
 
-/* Burger Menu - Visible y negro */
+/* Burger Menu */
 .burger {
     display: none;
     cursor: pointer;
@@ -110,36 +118,34 @@ header {
 
 /* ===== MAIN CONTENT ===== */
 main {
-    margin-top: 90px;
+    margin-top: 120px; /* Aumentado para separar del header */
     padding: 1.5rem 5%;
 }
 
 /* ===== HERO SECTION ===== */
 .hero {
     text-align: center;
-    padding: 2rem 0;
+    padding: 4rem 0; /* Más padding interno */
     background-color: #00128f;
     color: white;
     border-radius: 10px;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem; /* Más margen inferior */
 }
 
 .hero-title {
-    margin: 0 auto;
+    margin: 0 auto 2rem; /* Espacio adicional abajo */
 }
 
 .hero-title .logo-text {
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-family: 'Waratah', sans-serif;
+    font-size: 4.5rem;
     color: #6c91ff;
-    font-family: 'Comme', sans-serif;
     line-height: 1;
-    margin-bottom: 0.5rem;
 }
 
 .hero p.slogan {
-    font-size: 1.2rem;
-    margin: 1rem 0 2.5rem;
+    font-size: 1.3rem;
+    margin: 3rem 0 3.5rem; /* 40px de espacio arriba/abajo */
     padding: 0 10%;
     color: #fff;
     font-family: 'Comme', sans-serif;
@@ -150,7 +156,7 @@ main {
 .panel-botones {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2rem; /* Más espacio entre botones */
     margin-top: 1rem;
     flex-wrap: wrap;
 }
@@ -161,20 +167,22 @@ main {
 }
 
 .panel-btn {
-    padding: 1rem 1.8rem;
+    padding: 1.5rem 2.5rem; /* Botones más grandes */
+    height: 75px; /* Altura fija aumentada */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 8px;
     font-weight: 600;
     color: #000;
     transition: all 0.3s;
-    min-width: 160px;
+    min-width: 180px; /* Ancho mínimo aumentado */
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: none;
     cursor: pointer;
     background-color: #fff;
-    font-size: 1rem;
-    height: auto;
-    line-height: 1.4;
+    font-size: 1.1rem;
     font-family: 'Comme', sans-serif;
 }
 
@@ -191,7 +199,7 @@ main {
     top: 100%;
     left: 0;
     background-color: white;
-    min-width: 160px;
+    min-width: 180px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 0 0 8px 8px;
     z-index: 100;
@@ -285,7 +293,7 @@ main {
 
 .about-section {
     margin-bottom: 2rem;
-    padding: 1.2rem;
+    padding: 1.5rem;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -298,23 +306,23 @@ main {
 
 .about-section h3 {
     color: #00128f;
-    margin-bottom: 0.8rem;
-    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
     font-family: 'Comme', sans-serif;
 }
 
 .about-section p {
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
     line-height: 1.7;
 }
 
 .about-section ul, .about-section ol {
-    margin-left: 1.2rem;
+    margin-left: 1.5rem;
     margin-bottom: 1.2rem;
 }
 
 .about-section li {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
     line-height: 1.6;
 }
 
@@ -332,9 +340,9 @@ main {
 
 .terms ol li {
     counter-increment: item;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
     position: relative;
-    padding-left: 1.8rem;
+    padding-left: 2rem;
 }
 
 .terms ol li::before {
@@ -348,20 +356,20 @@ main {
 /* ===== FOOTER ===== */
 footer {
     text-align: center;
-    padding: 1.2rem;
+    padding: 1.5rem;
     background-color: #00128f;
     color: white;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 /* ===== WHATSAPP BUTTON ===== */
 .whatsapp-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 25px;
+    right: 25px;
     background-color: #25D366;
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
     border-radius: 16px;
     display: flex;
     justify-content: center;
@@ -370,43 +378,23 @@ footer {
     cursor: pointer;
     z-index: 1000;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .whatsapp-button:hover {
     background-color: #128C4A;
+    transform: scale(1.05);
 }
 
-.whatsapp-button::after {
-    content: "¿Necesitas ayuda?";
-    position: absolute;
-    bottom: 70px;
-    right: 0;
-    background-color: #333;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-size: 12px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.whatsapp-button:hover::after {
-    opacity: 1;
-    transform: translateY(0);
+.whatsapp-button svg {
+    width: 30px;
+    height: 30px;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media screen and (max-width: 768px) {
     header {
         padding: 0.8rem 3%;
-    }
-    
-    .logo-container {
-        width: 80px;
     }
     
     .nav-links {
@@ -417,7 +405,7 @@ footer {
         width: 100%;
         flex-direction: column;
         align-items: center;
-        padding: 1rem 0;
+        padding: 1.5rem 0;
         clip-path: circle(0px at 90% -10%);
         transition: all 0.5s ease-out;
         pointer-events: none;
@@ -432,9 +420,7 @@ footer {
     .nav-links a {
         width: 100%;
         text-align: center;
-        padding: 0.8rem;
-        font-size: 1rem;
-        display: block;
+        padding: 1rem;
     }
 
     .burger {
@@ -442,87 +428,58 @@ footer {
     }
 
     main {
-        margin-top: 80px;
+        margin-top: 100px;
         padding: 1rem;
     }
 
     .hero {
-        padding: 1.5rem 0;
+        padding: 3rem 0;
+        margin: 0 auto 2rem;
     }
 
     .hero-title .logo-text {
-        font-size: 2.8rem;
+        font-size: 3.5rem;
     }
 
     .hero p.slogan {
-        font-size: 1.1rem;
-        margin: 0.8rem 0 2rem;
-        padding: 0 5%;
+        font-size: 1.2rem;
+        margin: 2.5rem 0 3rem;
     }
 
     .panel-botones {
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
-    .panel-dropdown {
-        width: 100%;
-        max-width: 250px;
-    }
-    
     .panel-btn {
-        width: 100%;
-        padding: 0.9rem;
-        font-size: 0.95rem;
-    }
-    
-    .panel-dropdown-menu {
-        width: 100%;
+        height: 65px;
+        padding: 1.2rem;
+        min-width: 160px;
     }
 
     .counters {
         flex-direction: column;
         align-items: center;
-        padding: 1.5rem 0;
+        padding: 2rem 0;
     }
     
     .counter {
-        font-size: 2rem;
-    }
-    
-    .about-section {
-        padding: 1rem;
-    }
-
-    .about-novaklar h2 {
-        font-size: 1.7rem;
+        font-size: 2.2rem;
     }
 }
 
 @media screen and (max-width: 480px) {
     .hero-title .logo-text {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
     }
     
-    .burger div {
-        height: 4px;
-        margin: 3px 0;
+    .panel-btn {
+        height: 60px;
+        font-size: 1rem;
     }
     
-    .about-novaklar {
-        padding: 1.5rem 3%;
-    }
-}
-
-/* Animation for nav links */
-@keyframes navLinkFade {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
+    .about-novaklar h2 {
+        font-size: 1.8rem;
     }
 }

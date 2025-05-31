@@ -1,4 +1,4 @@
-/* ===== RESET & BASE STYLES ===== */
+/* ===== GLOBAL STYLES ===== */
 * {
     margin: 0;
     padding: 0;
@@ -6,12 +6,9 @@
     font-family: 'Work Sans', sans-serif;
 }
 
-/* ===== FUENTE WARATAH ===== */
 @font-face {
     font-family: 'Waratah';
     src: url('https://raw.githubusercontent.com/novaklar/web/main/waratah.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 html, body {
@@ -30,10 +27,10 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+    padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 5%;
 }
 
 .logo-container {
@@ -47,7 +44,7 @@ header {
     filter: brightness(0);
 }
 
-/* Navigation */
+/* ===== NAVIGATION ===== */
 .nav-links {
     display: flex;
     list-style: none;
@@ -83,57 +80,55 @@ header {
     width: 100%;
 }
 
-/* Burger Menu */
+/* ===== HAMBURGER MENU ===== */
 .burger {
     display: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 }
 
 .burger div {
-    width: 25px;
-    height: 4px;
-    background-color: #333;
-    margin: 4px 0;
+    width: 28px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px 0;
     transition: all 0.3s ease;
     transform-origin: center;
 }
 
 .burger.active div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-    margin: -1px 0;
+    transform: rotate(45deg) translate(6px, 6px);
 }
 .burger.active div:nth-child(2) {
     opacity: 0;
 }
 .burger.active div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-    margin: -1px 0;
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* ===== MAIN CONTENT ===== */
 main {
-    margin-top: 120px; /* Aumentado para separar del header */
+    margin-top: 140px;
     padding: 1.5rem 5%;
 }
 
 /* ===== HERO SECTION ===== */
 .hero {
     text-align: center;
-    padding: 4rem 0; /* Más padding interno */
+    padding: 4rem 0;
     background-color: #00128f;
     color: white;
     border-radius: 10px;
-    margin-bottom: 3rem; /* Más margen inferior */
+    margin-bottom: 3rem;
 }
 
 .hero-title {
-    margin: 0 auto 2rem; /* Espacio adicional abajo */
+    margin: 0 auto;
 }
 
 .hero-title .logo-text {
@@ -141,22 +136,23 @@ main {
     font-size: 4.5rem;
     color: #6c91ff;
     line-height: 1;
+    margin-bottom: 0.5rem;
 }
 
 .hero p.slogan {
     font-size: 1.3rem;
-    margin: 3rem 0 3.5rem; /* 40px de espacio arriba/abajo */
+    margin: 1.5rem 0 3rem;
     padding: 0 10%;
     color: #fff;
     font-family: 'Comme', sans-serif;
     font-weight: 600;
 }
 
-/* ===== PANEL DE BOTONES ===== */
+/* ===== BUTTON PANEL ===== */
 .panel-botones {
     display: flex;
     justify-content: center;
-    gap: 2rem; /* Más espacio entre botones */
+    gap: 2rem;
     margin-top: 1rem;
     flex-wrap: wrap;
 }
@@ -167,8 +163,9 @@ main {
 }
 
 .panel-btn {
-    padding: 1.5rem 2.5rem; /* Botones más grandes */
-    height: 75px; /* Altura fija aumentada */
+    padding: 1.5rem 3rem;
+    height: 75px;
+    min-width: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -176,7 +173,6 @@ main {
     font-weight: 600;
     color: #000;
     transition: all 0.3s;
-    min-width: 180px; /* Ancho mínimo aumentado */
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: none;
@@ -192,14 +188,13 @@ main {
     background-color: #f5f5f5;
 }
 
-/* Dropdown Menus */
 .panel-dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background-color: white;
-    min-width: 180px;
+    min-width: 220px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 0 0 8px 8px;
     z-index: 100;
@@ -326,7 +321,6 @@ main {
     line-height: 1.6;
 }
 
-/* Terms specific styles */
 .terms {
     background-color: #f9f9f9;
     border-left: 4px solid #00128f;
@@ -443,7 +437,7 @@ footer {
 
     .hero p.slogan {
         font-size: 1.2rem;
-        margin: 2.5rem 0 3rem;
+        margin: 1rem 0 2.5rem;
     }
 
     .panel-botones {
@@ -455,7 +449,7 @@ footer {
     .panel-btn {
         height: 65px;
         padding: 1.2rem;
-        min-width: 160px;
+        min-width: 100%;
     }
 
     .counters {

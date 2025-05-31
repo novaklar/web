@@ -151,10 +151,10 @@ main {
 
 .hero p.slogan {
     font-size: 1.3rem;
-    margin: 5px 0 90px !important; /* 90px = 70px anteriores + 20px extra */
+    margin: 5px 0 120px !important; /* Aumenté este valor de 90px a 120px */
     padding: 0 10%;
     color: #fff;
-    font-family: 'Comme', sans-serif !important; /* Aplicado al slogan */
+    font-family: 'Comme', sans-serif !important;
     font-weight: 600;
 }
 
@@ -189,7 +189,7 @@ main {
     cursor: pointer;
     background-color: #fff;
     font-size: 1.1rem;
-    font-family: 'Comme', sans-serif !important; /* Aplicado a los botones */
+    font-family: 'Comme', sans-serif !important;
 }
 
 .panel-btn:hover {
@@ -450,7 +450,7 @@ footer {
 
     .hero p.slogan {
         font-size: 1.2rem;
-        margin: 5px 0 70px !important;
+        margin: 5px 0 90px !important; /* Ajusté este valor también para móvil */
     }
 
     .panel-botones {

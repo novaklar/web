@@ -11,6 +11,11 @@
     src: url('https://raw.githubusercontent.com/novaklar/web/main/waratah.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Comme';
+    src: url('https://fonts.googleapis.com/css2?family=Comme:wght@400;500;600;700&display=swap');
+}
+
 html, body {
     width: 100%;
     background-color: #f9f9f9;
@@ -80,9 +85,9 @@ header {
     width: 100%;
 }
 
-/* ===== HAMBURGER MENU - AHORA 100% VISIBLE ===== */
+/* ===== HAMBURGER MENU - AJUSTES FINALES ===== */
 .burger {
-    display: flex;
+    display: flex !important; /* Forzado a mostrarse */
     cursor: pointer;
     padding: 8px;
     flex-direction: column;
@@ -93,6 +98,8 @@ header {
     background: transparent;
     border: none;
     outline: none;
+    position: relative;
+    z-index: 1100;
 }
 
 .burger div {
@@ -116,11 +123,11 @@ header {
 
 /* ===== MAIN CONTENT ===== */
 main {
-    margin-top: 160px; /* Aumentado para más espacio del header */
+    margin-top: 160px;
     padding: 1.5rem 5%;
 }
 
-/* ===== HERO SECTION - PANEL CENTRAL ===== */
+/* ===== HERO SECTION - AJUSTES FINALES ===== */
 .hero {
     text-align: center;
     padding: 4rem 0;
@@ -139,19 +146,19 @@ main {
     font-size: 4.5rem;
     color: #6c91ff;
     line-height: 1;
-    margin-bottom: 0 !important; /* CERO espacio con el slogan */
+    margin-bottom: 0 !important;
 }
 
 .hero p.slogan {
     font-size: 1.3rem;
-    margin: 10px 0 70px !important; /* 10px arriba, 70px abajo (+30px) */
+    margin: 5px 0 90px !important; /* 90px = 70px anteriores + 20px extra */
     padding: 0 10%;
     color: #fff;
-    font-family: 'Comme', sans-serif;
+    font-family: 'Comme', sans-serif !important; /* Aplicado al slogan */
     font-weight: 600;
 }
 
-/* ===== BUTTON PANEL - BOTONES MÁS ANCHOS ===== */
+/* ===== BUTTON PANEL - AJUSTES FINALES ===== */
 .panel-botones {
     display: flex;
     justify-content: center;
@@ -168,7 +175,7 @@ main {
 .panel-btn {
     padding: 1.5rem 3rem;
     height: 75px;
-    min-width: 320px !important; /* Ancho aumentado significativamente */
+    min-width: 320px !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -182,7 +189,7 @@ main {
     cursor: pointer;
     background-color: #fff;
     font-size: 1.1rem;
-    font-family: 'Comme', sans-serif;
+    font-family: 'Comme', sans-serif !important; /* Aplicado a los botones */
 }
 
 .panel-btn:hover {
@@ -197,7 +204,7 @@ main {
     top: 100%;
     left: 0;
     background-color: white;
-    min-width: 320px !important; /* Mismo ancho que los botones */
+    min-width: 320px !important;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 0 0 8px 8px;
     z-index: 100;
@@ -214,6 +221,7 @@ main {
     transition: all 0.3s;
     font-size: 0.95rem;
     white-space: nowrap;
+    font-family: 'Comme', sans-serif;
 }
 
 .panel-dropdown-menu a:hover {
@@ -423,7 +431,7 @@ footer {
     }
 
     .burger {
-        display: flex;
+        display: flex !important;
     }
 
     main {
@@ -442,7 +450,7 @@ footer {
 
     .hero p.slogan {
         font-size: 1.2rem;
-        margin: 5px 0 60px !important;
+        margin: 5px 0 70px !important;
     }
 
     .panel-botones {

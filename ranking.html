@@ -247,8 +247,9 @@
     // Configuración
     const SPREADSHEET_ID = '1D54c79yejujdFIJKVu4m3iM3ndUVnxP_fSgwSqGec5U';
     const SHEET_NAME = 'Form_Responses1';
-    const RANGE = 'A:F';
-    const AFFILIATE_COLUMNS = 5; // Desde B hasta F
+    const RANGE = 'A:K'; // Cambiado de A:F a A:K para incluir todas las columnas
+    const AFFILIATE_COLUMNS_START = 1; // Columna B (0-based sería 1)
+    const AFFILIATE_COLUMNS_END = 10; // Columna K (0-based sería 10)
     const UPDATE_INTERVAL = 5 * 60 * 1000;
 
     // Elementos del DOM
@@ -310,7 +311,9 @@
         const numberLastMatch = text.match(/^(.+?)\s+(\d+)$/);
         // Caso 2: "X Nombre" (número al inicio)
         const numberFirstMatch = text.match(/^(\d+)\s+(.+)$/);
-        // Caso 3: Solo nombre (asumir 1 venta)
+        // Caso 3: "Nombre - X" (número después de guión)
+        const numberAfterDash = text.match(/^(.+?)\s*-\s*(\d+)$/);
+        // Caso 4: Solo nombre (asumir 1 venta)
         const nameOnlyMatch = text.match(/^([a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+)$/);
         
         let name, sales;
@@ -321,6 +324,9 @@
         } else if (numberFirstMatch) {
           name = numberFirstMatch[2].trim();
           sales = parseInt(numberFirstMatch[1]);
+        } else if (numberAfterDash) {
+          name = numberAfterDash[1].trim();
+          sales = parseInt(numberAfterDash[2]);
         } else if (nameOnlyMatch) {
           name = nameOnlyMatch[1].trim();
           sales = 1; // Valor por defecto cuando no se especifica
@@ -328,7 +334,7 @@
           return null;
         }
         
-        if (!name || name.length < 2 || isNaN(sales)) return null;
+        if (!name || name.length < 2 || isNaN(sales) || sales <= 0) return null;
         
         return {
           displayName: name,
@@ -347,8 +353,12 @@
       
       try {
         rows.forEach(row => {
-          for (let i = 1; i <= AFFILIATE_COLUMNS; i++) {
-            if (row.c && row.c[i]) {
+          // Verificar si la fila tiene datos
+          if (!row.c || !Array.isArray(row.c)) return;
+          
+          // Iterar sobre todas las columnas de afiliados (B a K)
+          for (let i = AFFILIATE_COLUMNS_START; i <= AFFILIATE_COLUMNS_END; i++) {
+            if (row.c[i]) {
               const cellValue = String(row.c[i]?.v || row.c[i]?.f || '');
               if (cellValue.trim()) {
                 const affiliate = parseAffiliateData(cellValue);

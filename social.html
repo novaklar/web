@@ -228,6 +228,7 @@
 
   <script>
     const container = document.getElementById('cards-container');
+    let currentOpenTable = null;
 
     // Instagram Plans
     const igPlans = [
@@ -419,9 +420,22 @@
       
       table.innerHTML += `</table></div>`;
       
-      card.addEventListener('click', () => {
-        const tableContainer = card.querySelector('.table-container');
+      const tableContainer = card.querySelector('.table-container');
+      
+      card.addEventListener('click', (e) => {
+        // Evitar que se cierre si se hace clic en la tabla
+        if (e.target.closest('.table-container')) return;
+        
+        // Cerrar la tabla actualmente abierta si es diferente a esta
+        if (currentOpenTable && currentOpenTable !== tableContainer) {
+          currentOpenTable.style.display = 'none';
+        }
+        
+        // Alternar la tabla actual
         tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
+        
+        // Actualizar la referencia a la tabla abierta
+        currentOpenTable = tableContainer.style.display === 'block' ? tableContainer : null;
       });
       
       return card;

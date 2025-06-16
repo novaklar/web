@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo | Novaklar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: white;
+      color: #333;
+    }
+
+    header {
+      background-color: #00128f;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      height: 40px;
+      filter: brightness(0) invert(1);
+    }
+
+    header a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    header a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    .page-title {
+      font-family: 'Comme', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #00128f;
+      text-align: center;
+      margin: 3rem 0 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .content-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2rem;
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    .description {
+      margin-bottom: 2rem;
+    }
+
+    .video-container {
+      margin: 2rem 0;
+    }
+
+    .video-container video {
+      width: 100%;
+      display: block;
+    }
+
+    .copy-button {
+      display: block;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      background-color: #6c91ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .copy-button:hover {
+      background-color: #5a7de6;
+    }
+
+    .copy-button:active {
+      transform: scale(0.98);
+    }
+
+    .success-message {
+      text-align: center;
+      color: #16a34a;
+      font-weight: 600;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .error-message {
+      text-align: center;
+      color: #dc2626;
+      font-weight: 600;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .features-title {
+      font-family: 'Comme', sans-serif;
+      font-size: 1.8rem;
+      color: #00128f;
+      margin: 3rem 0 1rem;
+      text-align: center;
+    }
+
+    .feature-section {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .feature-section:last-child {
+      border-bottom: none;
+    }
+
+    .feature-section h3 {
+      color: #00128f;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .page-title {
+        font-size: 1.8rem;
+        margin: 2rem 0 1rem;
+      }
+      .content-container {
+        padding: 0 1rem 1.5rem;
+      }
+      .features-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .page-title {
+        font-size: 1.6rem;
+      }
+      header {
+        padding: 0.8rem 1rem;
+      }
+      header img {
+        height: 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" alt="Novaklar Logo" />
+    <a href="https://novaklar.github.io/web/">Regresar</a>
+  </header>
+
+  <h1 class="page-title">Catálogo</h1>
+
+  <div class="content-container">
+    <div class="description">
+      <p>El Catálogo para Clientes es una herramienta práctica y efectiva que te permite promocionar los productos y servicios de Novaklar de forma ordenada y profesional. Es ideal tanto para revendedores como para promotores, ya que facilita las ventas y mejora la experiencia del cliente.</p>
+      <p>Haz clic en el botón a continuación para copiar el enlace directamente al portapapeles y poder usarlo cuando lo necesites.</p>
+    </div>
+    
+    <button class="copy-button" id="copyButton">Obtener Link</button>
+    <div class="success-message" id="successMessage">¡Enlace copiado al portapapeles!</div>
+    <div class="error-message" id="errorMessage">No se pudo copiar automáticamente. Por favor, selecciona y copia manualmente: <span id="linkText">https://novaklar.github.io/catalogo/</span></div>
+
+    <div class="video-container">
+      <video controls autoplay muted>
+        <source src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/publicidadnk.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video>
+    </div>
+
+    <h2 class="features-title">Detalles</h2>
+    
+    <div class="feature-section">
+      <h3>Búsqueda rápida</h3>
+      <p>El catálogo incluye una barra de búsqueda que permite encontrar de forma ágil cualquier servicio disponible, optimizando el tiempo de navegación y selección.</p>
+    </div>
+
+    <div class="feature-section">
+      <h3>Navegación por categorías</h3>
+      <p>Debajo de la búsqueda, se encuentra una sección de categorías desde la cual se pueden filtrar los productos por tipo o visualizar todos en una única vista general, según la preferencia del usuario.</p>
+    </div>
+
+    <div class="feature-section">
+      <h3>Información del producto</h3>
+      <p>Cada servicio tiene su propia tarjeta informativa. Al hacer clic sobre ella, se despliega una breve descripción con detalles clave que ayudan a comprender el producto y facilitar su promoción o venta.</p>
+    </div>
+  </div>
+
+  <script>
+    const copyButton = document.getElementById('copyButton');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    const linkText = document.getElementById('linkText');
+    const linkToCopy = 'https://novaklar.github.io/catalogo/';
+
+    copyButton.addEventListener('click', async () => {
+      try {
+        // Método moderno usando Clipboard API
+        await navigator.clipboard.writeText(linkToCopy);
+        
+        // Mostrar mensaje de éxito
+        successMessage.style.display = 'block';
+        errorMessage.style.display = 'none';
+        
+        // Ocultar mensaje después de 3 segundos
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 3000);
+      } catch (err) {
+        // Fallback para navegadores más antiguos
+        try {
+          const textarea = document.createElement('textarea');
+          textarea.value = linkToCopy;
+          textarea.style.position = 'fixed';  // Evitar desplazamiento
+          document.body.appendChild(textarea);
+          textarea.select();
+          
+          const successful = document.execCommand('copy');
+          document.body.removeChild(textarea);
+          
+          if(successful) {
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+            setTimeout(() => {
+              successMessage.style.display = 'none';
+            }, 3000);
+          } else {
+            throw new Error('Falló el método alternativo');
+          }
+        } catch (err) {
+          // Mostrar mensaje de error con el enlace visible
+          errorMessage.style.display = 'block';
+          successMessage.style.display = 'none';
+          linkText.textContent = linkToCopy;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

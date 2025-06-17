@@ -178,23 +178,6 @@
       box-shadow: none;
     }
 
-    .total-sales {
-      background-color: #6c91ff;
-      color: white;
-      padding: 1rem;
-      border-radius: 0.6rem;
-      margin-top: 1.5rem;
-      text-align: center;
-      font-weight: 600;
-      font-size: 1.2rem;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-
-    .total-sales span {
-      font-weight: 700;
-      font-size: 1.3rem;
-    }
-
     @media (max-width: 600px) {
       .page-title {
         font-size: 1.8rem;
@@ -209,15 +192,6 @@
       .ranking-table td {
         padding: 0.6rem 0.8rem;
         font-size: 0.9rem;
-      }
-
-      .total-sales {
-        font-size: 1rem;
-        padding: 0.8rem;
-      }
-
-      .total-sales span {
-        font-size: 1.1rem;
       }
     }
 
@@ -265,10 +239,6 @@
         <!-- Los datos se cargarán aquí con JavaScript -->
       </tbody>
     </table>
-
-    <div id="total-sales" class="total-sales" style="display: none;">
-      Total de ventas: <span id="total-sales-count">0</span>
-    </div>
     
     <div id="last-updated" class="last-updated"></div>
   </div>
@@ -291,8 +261,6 @@
     const refreshBtn = document.getElementById('refresh-btn');
     const refreshText = document.getElementById('refresh-text');
     const refreshIcon = document.getElementById('refresh-icon');
-    const totalSalesElement = document.getElementById('total-sales');
-    const totalSalesCountElement = document.getElementById('total-sales-count');
 
     // Variable para el intervalo de actualización
     let refreshInterval;
@@ -382,7 +350,6 @@
     // Función para consolidar datos de todas las columnas
     function consolidateAffiliateData(rows) {
       const affiliatesMap = new Map();
-      let totalSales = 0;
       
       try {
         rows.forEach(row => {
@@ -396,7 +363,6 @@
               if (cellValue.trim()) {
                 const affiliate = parseAffiliateData(cellValue);
                 if (affiliate) {
-                  totalSales += affiliate.sales;
                   const key = affiliate.normalizedName;
                   if (affiliatesMap.has(key)) {
                     affiliatesMap.get(key).sales += affiliate.sales;
@@ -412,30 +378,24 @@
           }
         });
         
-        return {
-          affiliates: Array.from(affiliatesMap.values()),
-          totalSales: totalSales
-        };
+        return Array.from(affiliatesMap.values());
       } catch (error) {
         console.error('Error consolidating data:', error);
-        return {
-          affiliates: [],
-          totalSales: 0
-        };
+        return [];
       }
     }
 
     // Función para renderizar el ranking
-    function renderRanking(data) {
+    function renderRanking(affiliateData) {
       rankingBody.innerHTML = '';
       
       // Ordenar por ventas (descendente) y luego por nombre (ascendente)
-      data.affiliates.sort((a, b) => {
+      affiliateData.sort((a, b) => {
         if (b.sales !== a.sales) return b.sales - a.sales;
         return a.name.localeCompare(b.name);
       });
       
-      data.affiliates.forEach((affiliate, index) => {
+      affiliateData.forEach((affiliate, index) => {
         const row = document.createElement('tr');
         if (index < 3) row.classList.add('top-affiliate');
         
@@ -458,10 +418,6 @@
         row.append(rankCell, nameCell, salesCell);
         rankingBody.appendChild(row);
       });
-
-      // Actualizar el total de ventas
-      totalSalesCountElement.textContent = data.totalSales.toLocaleString('es-CO');
-      totalSalesElement.style.display = 'block';
     }
 
     // Función para cargar datos desde Google Sheets
@@ -470,8 +426,6 @@
       try {
         loadingElement.style.display = 'block';
         errorElement.style.display = 'none';
-        tableElement.style.display = 'none';
-        totalSalesElement.style.display = 'none';
         refreshBtn.disabled = true;
         refreshText.textContent = 'Actualizando...';
         spinInterval = spinRefreshIcon();
@@ -488,7 +442,7 @@
         if (!json.table?.rows) throw new Error('Estructura de datos inesperada');
         
         const affiliateData = consolidateAffiliateData(json.table.rows);
-        if (affiliateData.affiliates.length === 0) {
+        if (affiliateData.length === 0) {
           throw new Error('No se encontraron datos válidos de afiliados');
         }
         

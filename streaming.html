@@ -14,16 +14,16 @@
     }
 
     header {
-      background-color: #00128f; /* Nuevo color del header */
+      background-color: #00128f;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 1.5rem; /* Más padding */
+      padding: 1rem 1.5rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     header img {
-      height: 40px; /* Logo un poco más grande */
+      height: 40px;
       filter: brightness(0) invert(1);
     }
 
@@ -43,18 +43,18 @@
 
     .page-title {
       font-family: 'Comme', sans-serif;
-      font-size: 2.2rem; /* Título más grande */
+      font-size: 2.2rem;
       font-weight: 700;
       color: #00128f;
       text-align: center;
-      margin: 3rem 0 2rem; /* Más espacio arriba y abajo */
+      margin: 3rem 0 2rem;
       padding: 0 1rem;
     }
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 250px máximo */
-      gap: 1.8rem; /* Más separación entre imágenes */
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.8rem;
       padding: 1.5rem;
       justify-content: center;
       max-width: 1200px;
@@ -67,13 +67,14 @@
       padding: 0;
       cursor: pointer;
       transition: transform 0.2s ease;
-      width: 250px; /* Ancho fijo de 250px */
+      width: 300px;
       margin: 0 auto;
     }
 
     .card img {
-      width: 100%;
-      height: auto;
+      width: 300px;
+      height: 130px;
+      object-fit: cover;
       border-radius: 0.6rem;
       transition: transform 0.3s ease;
       display: block;
@@ -115,12 +116,15 @@
 
     @media (max-width: 600px) {
       .container {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 1.5rem;
         padding: 1rem;
       }
       .card {
-        width: 220px;
+        width: 280px;
+      }
+      .card img {
+        width: 280px;
       }
     }
 
@@ -130,7 +134,11 @@
       }
       .card {
         width: 100%;
-        max-width: 250px;
+        max-width: 300px;
+      }
+      .card img {
+        width: 100%;
+        max-width: 300px;
       }
       .page-title {
         font-size: 1.8rem;
@@ -159,31 +167,30 @@
     const container = document.getElementById('cards-container');
 
     const imagenesConValores = [
-      { img: 1, valores: [11000, 13000, 2000] },
-      { img: 2, valores: [5000, 10000, 5000] },
-      { img: 3, valores: [5000, 10000, 5000] },
-      { img: 4, valores: [5000, 9000, 4000] },
-      { img: 5, valores: [6000, 10000, 4000] },
-      { img: 6, valores: [7000, 10000, 3000] },
-      { img: 7, valores: [10000, 13000, 3000] },
-      { img: 8, valores: [10000, 12000, 2000] },
-      { img: 9, valores: [8000, 12000, 4000] },
-      { img: 10, valores: [5000, 10000, 5000] },
-      { img: 11, valores: [5000, 10000, 5000] },
-      { img: 12, valores: [6500, 10000, 3500] },
-      { img: 13, valores: [5000, 9000, 4000] },
-      { img: 14, valores: [5000, 10000, 5000] },
-      { img: 15, valores: [10500, 14000, 3500] },
-      { img: 17, valores: [14000, 20000, 6000] },
-      { img: 18, valores: [17000, 25000, 8000] },
-      { img: 16, valores: [14000, 20000, 6000] }
+      { img: 1, valores: [11000, 13000, 2000] }, // Correcto
+      { img: 2, valores: [5000, 10000, 5000] }, // Correcto
+      { img: "d1", valores: [7000, 10000, 3000] }, // Correcto
+      { img: "d2", valores: [10000, 13000, 3000] }, // Correcto
+      { img: 5, valores: [5000, 10000, 5000] }, // Correcto
+      { img: 6, valores: [5000, 9000, 4000] }, // Correcto
+      { img: 7, valores: [7000, 10000, 3000] }, // Correcto
+      { img: 8, valores: [10500, 14000, 3500] }, // Correcto
+      { img: 9, valores: [6000, 10000, 4000] }, // Correcto
+      { img: 10, valores: [8000, 12000, 4000] }, // Correcto
+      { img: 11, valores: [5000, 10000, 5000] }, // Correcto
+      { img: 12, valores: [5000, 9000, 4000] }, // Anteriormente en 13
+      { img: 13, valores: [6500, 10000, 3500] }, // Anteriormente en 12
+      { img: 14, valores: [5000, 10000, 5000] }, // Correcto
+      { img: 15, valores: [10500, 14000, 3500] }, // Correcto
+      { img: "combo1", valores: [14000, 20000, 6000] }, // Correcto
+      { img: "combo2", valores: [14000, 20000, 6000] } // Correcto
     ];
 
     imagenesConValores.forEach(item => {
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
-        <img src="https://raw.githubusercontent.com/novaklar/web/main/logos/${item.img}.jpg" alt="Streaming ${item.img}" />
+        <img src="https://raw.githubusercontent.com/novaklar/web/main/nkc/${item.img}.png" alt="Streaming ${item.img}" />
         <div class="table-container">
           <table>
             <tbody>

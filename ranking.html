@@ -47,8 +47,16 @@
       font-weight: 700;
       color: #00128f;
       text-align: center;
-      margin: 3rem 0 2rem;
+      margin: 3rem 0 0.5rem;
       padding: 0 1rem;
+    }
+
+    .season-info {
+      text-align: center;
+      color: #00128f;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
     }
 
     .ranking-container {
@@ -198,7 +206,12 @@
     @media (max-width: 600px) {
       .page-title {
         font-size: 1.8rem;
-        margin: 2rem 0 1.5rem;
+        margin: 2rem 0 0.5rem;
+      }
+      
+      .season-info {
+        font-size: 1rem;
+        margin-bottom: 1rem;
       }
       
       .ranking-container {
@@ -243,6 +256,7 @@
   </header>
 
   <h1 class="page-title">Ranking de Afiliados</h1>
+  <div class="season-info" id="season-info"></div>
 
   <div class="ranking-container">
     <div id="loading" class="loading">Cargando datos...</div>
@@ -281,6 +295,11 @@
     const AFFILIATE_COLUMNS_START = 1; // Columna B (0-based sería 1)
     const AFFILIATE_COLUMNS_END = 10; // Columna K (0-based sería 10)
     const UPDATE_INTERVAL = 5 * 60 * 1000;
+    
+    // Configuración de temporadas (base: julio 2025 = temporada 23)
+    const BASE_SEASON = 23;
+    const BASE_YEAR = 2025;
+    const BASE_MONTH = 6; // 0 = enero, 6 = julio
 
     // Elementos del DOM
     const rankingBody = document.getElementById('ranking-body');
@@ -293,9 +312,40 @@
     const refreshIcon = document.getElementById('refresh-icon');
     const totalSalesElement = document.getElementById('total-sales');
     const totalSalesCountElement = document.getElementById('total-sales-count');
+    const seasonInfoElement = document.getElementById('season-info');
 
     // Variable para el intervalo de actualización
     let refreshInterval;
+
+    // Función para calcular el mes y temporada actual
+    function getCurrentSeasonInfo() {
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      const currentMonth = now.getMonth(); // 0-11
+      
+      // Calcular la diferencia en meses desde la temporada base
+      const monthsDiff = (currentYear - BASE_YEAR) * 12 + (currentMonth - BASE_MONTH);
+      
+      // Calcular la temporada actual
+      const currentSeason = BASE_SEASON + Math.max(0, monthsDiff);
+      
+      // Nombres de los meses en español
+      const monthNames = [
+        'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+        'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+      ];
+      
+      return {
+        month: monthNames[currentMonth],
+        season: currentSeason
+      };
+    }
+
+    // Función para actualizar la información de temporada
+    function updateSeasonInfo() {
+      const { month, season } = getCurrentSeasonInfo();
+      seasonInfoElement.textContent = `${month} - temporada #${season}`;
+    }
 
     // Función para formatear la fecha
     function formatDate(date) {
@@ -513,6 +563,7 @@
 
     // Inicia la actualización automática
     function startAutoRefresh() {
+      updateSeasonInfo(); // Actualizar la información de temporada
       loadDataFromSheets();
       refreshInterval = setInterval(loadDataFromSheets, UPDATE_INTERVAL);
     }

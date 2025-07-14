@@ -168,23 +168,23 @@
     let currentOpenTable = null;
 
     const imagenesConValores = [
-      { img: 1, valores: [11500, 14000, 2500] },
-      { img: 2, valores: [5500, 10000, 5500] },
-      { img: "d1", valores: [7500, 10000, 3500] },
-      { img: "d2", valores: [10500, 13000, 3500] },
-      { img: 5, valores: [5500, 10000, 5500] },
-      { img: 6, valores: [5500, 9000, 4500] },
-      { img: 7, valores: [7500, 10000, 3500] },
-      { img: 8, valores: [11000, 14000, 4000] },
-      { img: 9, valores: [6500, 10000, 4500] },
-      { img: 10, valores: [8500, 12000, 4500] },
-      { img: 11, valores: [5500, 10000, 5500] },
-      { img: 12, valores: [5500, 9000, 4500] },
-      { img: 13, valores: [7000, 10000, 4000] },
-      { img: 14, valores: [5500, 10000, 5500] },
-      { img: 15, valores: [11000, 14000, 4000] },
-      { img: "combo1", valores: [14000, 20000, 6000] },
-      { img: "combo2", valores: [14000, 20000, 6000] }
+      { img: 1, valores: [11500, 14000, 2500] }, // Este mantiene su ganancia original
+      { img: 2, valores: [5500, 10000, 4500] }, // Cambiado de 10500 a 10000
+      { img: "d1", valores: [7500, 11500, 4000] }, // Ajustado para ganancia mínima
+      { img: "d2", valores: [10500, 14500, 4000] }, // Ajustado para ganancia mínima
+      { img: 5, valores: [5500, 10000, 4500] }, // Cambiado de 10500 a 10000
+      { img: 6, valores: [5500, 10000, 4500] }, // Ya cumplía con ganancia mínima
+      { img: 7, valores: [7500, 11500, 4000] }, // Ajustado para ganancia mínima
+      { img: 8, valores: [11000, 15000, 4000] }, // Ajustado para ganancia mínima
+      { img: 9, valores: [6500, 10500, 4000] }, // Ajustado para ganancia mínima
+      { img: 10, valores: [8500, 12500, 4000] }, // Ya cumplía con ganancia mínima
+      { img: 11, valores: [5500, 10000, 4500] }, // Cambiado de 10500 a 10000
+      { img: 12, valores: [5500, 9500, 4000] }, // Ya cumplía con ganancia mínima
+      { img: 13, valores: [7000, 11000, 4000] }, // Ajustado para ganancia mínima
+      { img: 14, valores: [5500, 10000, 4500] }, // Cambiado de 10500 a 10000
+      { img: 15, valores: [11000, 15000, 4000] }, // Ajustado para ganancia mínima
+      { img: "combo1", valores: [14000, 20000, 6000] }, // Ya cumplía con ganancia mínima
+      { img: "combo2", valores: [14000, 20000, 6000] } // Ya cumplía con ganancia mínima
     ];
 
     imagenesConValores.forEach(item => {

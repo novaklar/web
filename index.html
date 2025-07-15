@@ -264,18 +264,11 @@
       });
     });
 
-    // Script mejorado para los contadores con localStorage
+    // Script mejorado para los contadores (sin localStorage)
     const counters = document.querySelectorAll('.counter');
     const animationDuration = 3000; // 3 segundos para completar la animación
-    const storageKey = 'countersAnimated';
     
     function animateCounters() {
-      // Verificar si ya se animaron previamente
-      if (localStorage.getItem(storageKey)) {
-        setFinalValues();
-        return;
-      }
-      
       const startTime = performance.now();
       
       function updateCounters(currentTime) {
@@ -290,20 +283,10 @@
         
         if (progress < 1) {
           requestAnimationFrame(updateCounters);
-        } else {
-          // Marcar en localStorage que ya se animaron
-          localStorage.setItem(storageKey, 'true');
         }
       }
       
       requestAnimationFrame(updateCounters);
-    }
-    
-    function setFinalValues() {
-      counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        counter.textContent = target;
-      });
     }
     
     // Activar contadores cuando son visibles

@@ -1,134 +1,308 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>novaklar</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" type="image/svg+xml">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>novaklar</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Comme:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" type="image/svg+xml"/>
+  <style>
+    @font-face {
+      font-family: 'Waratah';
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/waratah.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    .logo-text {
+      font-family: 'Waratah', sans-serif;
+      font-size: 3rem;
+      color: #000;
+    }
+    
+    /* Estilos mejorados para el menú hamburguesa */
+    .burger {
+      display: none;
+      cursor: pointer;
+      padding: 10px;
+    }
+    
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: #000;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-links {
+      display: flex;
+    }
+    
+    .social-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    
+    .social-links a {
+      text-decoration: none;
+      color: #000;
+    }
+    
+    /* Estilo para la sección de contadores - MODIFICADO A 20% DE TRANSPARENCIA (80% opacidad) */
+    .counters {
+      background-color: rgba(108, 145, 255, 0.1); /* #6c91ff con 80% de opacidad (20% transparencia) */
+      padding: 30px;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+    
+    .counter-container {
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .burger {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        max-width: 300px;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+        z-index: 999;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      }
+      
+      .nav-links.active {
+        transform: translateX(0);
+      }
+      
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        gap: 30px;
+      }
+      
+      .counters {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+      
+      .burger.active .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+      
+      .burger.active .line2 {
+        opacity: 0;
+      }
+      
+      .burger.active .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" alt="novaklar Logo" class="logo">
+  <header>
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" alt="novaklar Logo" class="logo" />
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li class="social-links">
+          <a href="https://www.tiktok.com/@novaklar?_t=ZS-8wYRHKIgAeP&_r=1" target="_blank">TikTok</a>
+          <a href="https://youtube.com/@novaklar?si=l95-ZDJxJhrOwtOV" target="_blank">YouTube</a>
+          <a href="https://www.instagram.com/novaklar.co?igsh=M2ZwOG91amJmamwx" target="_blank">Instagram</a>
+          <a href="https://whatsapp.com/channel/0029VaMxlM0EVccFMEFw9u04" target="_blank">WhatsApp</a>
+        </li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-title">
+        <div class="logo-text">novaklar</div>
+      </div>
+      <p class="slogan">Innovación a tu alcance</p>
+
+      <div class="panel-botones">
+        <div class="panel-dropdown">
+          <button class="panel-btn">Catálogos</button>
+          <div class="panel-dropdown-menu">
+            <a href="streaming.html">Streaming</a>
+            <a href="gaming.html">Gaming</a>
+            <a href="social.html">Social+</a>
+            <a href="apps.html">Apps</a>
+          </div>
         </div>
-        <nav>
-            <ul class="nav-links">
-                <li class="social-links">
-                    <a href="https://www.tiktok.com/@novaklar?_t=ZS-8wYRHKIgAeP&_r=1" target="_blank">TikTok</a>
-                    <a href="https://www.instagram.com/novaklar.co?igsh=M2ZwOG91amJmamwx" target="_blank">Instagram</a>
-                    <a href="https://youtube.com/@novaklar?si=l95-ZDJxJhrOwtOV" target="_blank">YouTube</a>
-                    <a href="https://whatsapp.com/channel/0029VaMxlM0EVccFMEFw9u04" target="_blank">WhatsApp</a>
-                </li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
 
-    <main>
-        <section id="inicio" class="hero">
-            <h1>Bienvenido a novaklar</h1>
-            <p>Soluciones innovadoras para tus necesidades digitales</p>
-            
-            <div class="panel-botones">
-                <div class="panel-dropdown">
-                    <button class="panel-btn">Servicios ▼</button>
-                    <div class="panel-dropdown-menu">
-                        <a href="https://novamarket.rdi.store" target="_blank">Market</a>
-                    </div>
-                </div>
-                
-                <div class="panel-dropdown">
-                    <button class="panel-btn">Catálogos ▼</button>
-                    <div class="panel-dropdown-menu">
-                        <a href="streaming.html">Streaming</a>
-                        <a href="gaming.html">Gaming</a>
-                        <a href="apps.html">Apps</a>
-                        <a href="cursos.html">Cursos</a>
-                    </div>
-                </div>
-                
-                <div class="panel-dropdown">
-                    <button class="panel-btn">Elementos ▼</button>
-                    <div class="panel-dropdown-menu">
-                        <a href="https://photos.app.goo.gl/5dSreR3BwDKUeaTHA" target="_blank">Publicidad</a>
-                        <a href="#">Ranking</a>
-                        <a href="#">App</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="panel-dropdown">
+          <button class="panel-btn">Elementos</button>
+          <div class="panel-dropdown-menu">
+            <a href="catalogo.html">Catálogo Clientes</a>
+            <a href="https://photos.app.goo.gl/5dSreR3BwDKUeaTHA" target="_blank">Publicidad</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="https://drive.google.com/drive/folders/1__tjn1hgH0zokQbTMviBeWl_HYHshoIH" target="_blank">App</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Sección de contadores -->
-        <section class="counters">
-            <div class="counter-container">
-                <div class="counter" data-target="163">0</div>
-                <p>Afiliados</p>
-            </div>
-            <div class="counter-container">
-                <div class="counter" data-target="5000">0</div>
-                <p>Ventas realizadas</p>
-            </div>
-            <div class="counter-container">
-                <div class="counter" data-target="95">0</div>
-                <p>% Clientes satisfechos</p>
-            </div>
-        </section>
+    <section class="counters">
+      <!-- Reorganizado el orden de los contadores -->
+      <div class="counter-container">
+        <div class="counter" data-target="95">0</div>
+        <p>% Clientes satisfechos</p>
+      </div>
+      <div class="counter-container">
+        <div class="counter" data-target="207">0</div>
+        <p>Afiliados activos</p>
+      </div>
+      <div class="counter-container">
+        <div class="counter" data-target="5000">0</div>
+        <p>Ventas realizadas</p>
+      </div>
+    </section>
 
-        <!-- Sección Acerca de Novaklar -->
-        <section class="about-novaklar">
-            <h2>Acerca de Novaklar</h2>
-            
-            <div class="about-section">
-                <h3>¿Quiénes somos?</h3>
-                <p>Novaklar es una empresa digital fundada el 20 de agosto de 2023 con la misión de ofrecer soluciones accesibles, innovadoras y rentables en el mundo digital. Nació como un proyecto estudiantil con visión empresarial, y hoy cuenta con más de 160 colaboradores y un modelo de crecimiento colaborativo único.</p>
-            </div>
-            
-            <div class="about-section">
-                <h3>¿Qué ofrecemos?</h3>
-                <p>Brindamos acceso a productos digitales como plataformas de streaming, recargas de juegos, suscripciones premium (ChatGPT Pro, Canva Pro, CapCut Pro), servicios de seguidores y cursos especializados. Todo desde un sistema de afiliación práctico y sin inversión inicial.</p>
-            </div>
-            
-            <div class="about-section">
-                <h3>Nuestra visión</h3>
-                <p>Queremos ser una empresa líder en la distribución de servicios digitales en Latinoamérica, democratizando el acceso a herramientas tecnológicas mientras generamos oportunidades de ingresos para todos.</p>
-            </div>
-            
-            <div class="about-section">
-                <h3>Modelo de negocio</h3>
-                <p>Nos basamos en tres roles fundamentales:</p>
-                <ul>
-                    <li><strong>Revendedores:</strong> Venden sin necesidad de inversión previa.</li>
-                    <li><strong>Promotores:</strong> Recomiendan y ganan por comisión tras cada venta.</li>
-                    <li><strong>Reclutadores:</strong> Expanden el equipo y reciben comisiones por nuevos afiliados.</li>
-                </ul>
-                <p>Creemos en la innovación, la flexibilidad y el trabajo en red como motor de crecimiento real.</p>
-            </div>
-            
-            <div class="about-section terms">
-                <h3>Términos y condiciones generales</h3>
-                <ol>
-                    <li><strong>Uso de los servicios:</strong> Novaklar actúa como intermediario entre el usuario y los proveedores de servicios digitales. Al utilizar nuestra plataforma, el usuario acepta los términos aquí descritos.</li>
-                    <li><strong>Responsabilidad del usuario:</strong> Cada usuario es responsable de utilizar de forma ética y legal los productos adquiridos. Cualquier intento de fraude o mal uso implicará la suspensión inmediata del acceso.</li>
-                    <li><strong>Pagos y reembolsos:</strong> Los pagos deben ser realizados a través de los canales oficiales. Una vez entregado un producto digital correctamente, no se realizan reembolsos, excepto en casos de errores comprobables.</li>
-                    <li><strong>Protección de datos:</strong> Novaklar se compromete a proteger la privacidad de sus usuarios y no compartir datos personales con terceros sin consentimiento.</li>
-                    <li><strong>Cambios en los términos:</strong> Nos reservamos el derecho de modificar estos términos en cualquier momento. Se recomienda revisar esta sección periódicamente.</li>
-                </ol>
-            </div>
-        </section>
-    </main>
+    <section class="about-novaklar">
+      <h2>Acerca de Novaklar</h2>
 
-    <footer>
-        <p>&copy; 2023 novaklar. Todos los derechos reservados.</p>
-    </footer>
+      <div class="about-section">
+        <h3>¿Quiénes somos?</h3>
+        <p>Novaklar es una empresa digital fundada el 20 de agosto de 2023 con la misión de ofrecer soluciones accesibles, innovadoras y rentables en el mundo digital. Nació como un proyecto estudiantil con visión empresarial, y hoy cuenta con más de 160 colaboradores y un modelo de crecimiento colaborativo único.</p>
+      </div>
 
-    <script src="script.js"></script>
+      <div class="about-section">
+        <h3>¿Qué ofrecemos?</h3>
+        <p>Brindamos acceso a productos digitales como plataformas de streaming, recargas de juegos, suscripciones premium (ChatGPT Pro, Canva Pro, CapCut Pro), servicios de seguidores y cursos especializados. Todo desde un sistema de afiliación práctico y sin inversión inicial.</p>
+      </div>
+
+      <div class="about-section">
+        <h3>Nuestra visión</h3>
+        <p>Queremos ser una empresa líder en la distribución de servicios digitales en Latinoamérica, democratizando el acceso a herramientas tecnológicas mientras generamos oportunidades de ingresos para todos.</p>
+      </div>
+
+      <div class="about-section">
+        <h3>Modelo de negocio</h3>
+        <p>Nos basamos en tres roles fundamentales:</p>
+        <ul>
+          <li><strong>Revendedores:</strong> Venden sin necesidad de inversión previa.</li>
+          <li><strong>Promotores:</strong> Recomiendan y ganan por comisión tras cada venta.</li>
+          <li><strong>Reclutadores:</strong> Expanden el equipo y reciben comisiones por nuevos afiliados.</li>
+        </ul>
+        <p>Creemos en la innovación, la flexibilidad y el trabajo en red como motor de crecimiento real.</p>
+      </div>
+
+      <div class="about-section terms">
+        <h3>Términos y condiciones generales</h3>
+        <ol>
+          <li><strong>Uso de los servicios:</strong> Novaklar actúa como intermediario entre el usuario y los proveedores de servicios digitales. Al utilizar nuestra plataforma, el usuario acepta los términos aquí descritos.</li>
+          <li><strong>Responsabilidad del usuario:</strong> Cada usuario es responsable de utilizar de forma ética y legal los productos adquiridos. Cualquier intento de fraude o mal uso implicará la suspensión inmediata del acceso.</li>
+          <li><strong>Pagos y reembolsos:</strong> Los pagos deben ser realizados a través de los canales oficiales. Una vez entregado un producto digital correctamente, no se realizan reembolsos, excepto en casos de errores comprobables.</li>
+          <li><strong>Protección de datos:</strong> Novaklar se compromete a proteger la privacidad de sus usuarios y no compartir datos personales con terceros sin consentimiento.</li>
+          <li><strong>Cambios en los términos:</strong> Nos reservamos el derecho de modificar estos términos en cualquier momento. Se recomienda revisar esta sección periódicamente.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 novaklar. Todos los derechos reservados.</p>
+  </footer>
+
+  <a href="https://wa.me/573177317091" target="_blank" class="whatsapp-button" aria-label="Chat WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
+      <path d="M20.52 3.48A11.91 11.91 0 0012 0C5.372 0 0 5.372 0 12a11.9 11.9 0 001.986 6.238L0 24l5.762-1.906A11.913 11.913 0 0012 24c6.627 0 12-5.372 12-12a11.91 11.91 0 00-3.48-8.52zm-8.52 18c-2.085 0-4.031-.676-5.618-1.812l-.4-.243-3.423 1.132 1.15-3.338-.26-.405A8.954 8.954 0 013 12c0-4.962 4.038-9 9-9 2.407 0 4.665.937 6.364 2.636a8.922 8.922 0 012.636 6.364c0 4.962-4.038 9-9 9zm5.375-7.625c-.296-.148-1.748-.863-2.02-.96-.273-.099-.472-.148-.672.149-.2.296-.77.96-.945 1.158-.174.198-.348.223-.644.074-.296-.148-1.248-.46-2.377-1.462-.88-.783-1.474-1.75-1.647-2.046-.174-.296-.019-.455.13-.602.134-.132.296-.347.444-.52.148-.174.198-.296.296-.494.099-.198.05-.371-.025-.52-.075-.148-.672-1.618-.92-2.214-.242-.582-.487-.503-.672-.512l-.574-.01c-.2 0-.52.074-.792.371s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.148.198 2.095 3.2 5.076 4.487.709.306 1.262.488 1.694.625.712.226 1.36.194 1.872.118.57-.085 1.748-.714 1.996-1.404.248-.69.248-1.28.174-1.404-.074-.123-.272-.198-.568-.347z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Script mejorado para el menú hamburguesa
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
+    
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      burger.classList.toggle('active');
+      body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        burger.classList.remove('active');
+        body.style.overflow = 'auto';
+      });
+    });
+
+    // Script mejorado para los contadores (sin localStorage)
+    const counters = document.querySelectorAll('.counter');
+    const animationDuration = 3000; // 3 segundos para completar la animación
+    
+    function animateCounters() {
+      const startTime = performance.now();
+      
+      function updateCounters(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / animationDuration, 1);
+        
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-target');
+          const count = Math.floor(progress * target);
+          counter.textContent = count;
+        });
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCounters);
+        }
+      }
+      
+      requestAnimationFrame(updateCounters);
+    }
+    
+    // Activar contadores cuando son visibles
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.5});
+    
+    const countersSection = document.querySelector('.counters');
+    if(countersSection) {
+      observer.observe(countersSection);
+    }
+  </script>
 </body>
 </html>

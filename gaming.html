@@ -101,7 +101,6 @@
       display: none;
       margin-top: 0.8rem;
       background-color: #f8fafc;
-      padding: 0.5rem 0;
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -117,10 +116,18 @@
       font-size: 0.9rem;
     }
 
+    /* Estilo solo para el PRIMER encabezado de cada tarjeta */
+    .table-container table > thead:first-child tr:first-child th:first-child,
+    .table-container table > tbody:first-child tr:first-child th:first-child {
+      border-top-left-radius: 0.6rem;
+      border-top-right-radius: 0.6rem;
+      padding-top: 0.6rem;
+    }
+
+    /* Estilo base para TODOS los encabezados */
     .table-container th {
       padding: 0.5rem 1rem;
-      background-color: #e2e8f0;
-      text-align: left;
+      text-align: center;
       font-weight: 600;
     }
 
@@ -136,13 +143,11 @@
     .plan-header {
       background-color: #3c5cf2 !important;
       color: white !important;
-      text-align: center !important;
     }
 
     .plan-header-black {
       background-color: #000000 !important;
       color: white !important;
-      text-align: center !important;
     }
 
     @media (max-width: 768px) {
@@ -189,6 +194,7 @@
 
   <script>
     const container = document.getElementById('cards-container');
+    let currentOpenTable = null;
 
     // Roblox Plans
     const robloxPlans = [
@@ -346,9 +352,13 @@
       
       const table = card.querySelector('table');
       
-      plans.forEach(plan => {
+      plans.forEach((plan, index) => {
         table.innerHTML += `
-          <tr><th colspan="2" class="${headerClass}">${plan[titleKey]}</th></tr>
+          <tr>
+            <th colspan="2" class="${headerClass}">
+              ${plan[titleKey]}
+            </th>
+          </tr>
           <tr><td>Precio Afiliado</td><td>$${plan.afiliado.toLocaleString('es-CO')}</td></tr>
           <tr><td>Precio Sugerido</td><td>$${plan.sugerido.toLocaleString('es-CO')}</td></tr>
           <tr><td>Ganancia</td><td>$${plan.ganancia.toLocaleString('es-CO')}</td></tr>
@@ -357,9 +367,22 @@
       
       table.innerHTML += `</table></div>`;
       
-      card.addEventListener('click', () => {
-        const tableContainer = card.querySelector('.table-container');
+      const tableContainer = card.querySelector('.table-container');
+      
+      card.addEventListener('click', (e) => {
+        // Evitar que se cierre si se hace clic en la tabla
+        if (e.target.closest('.table-container')) return;
+        
+        // Cerrar la tabla actualmente abierta si es diferente a esta
+        if (currentOpenTable && currentOpenTable !== tableContainer) {
+          currentOpenTable.style.display = 'none';
+        }
+        
+        // Alternar la tabla actual
         tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
+        
+        // Actualizar la referencia a la tabla abierta
+        currentOpenTable = tableContainer.style.display === 'block' ? tableContainer : null;
       });
       
       return card;

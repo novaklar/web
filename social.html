@@ -101,7 +101,6 @@
       display: none;
       margin-top: 0.8rem;
       background-color: #f8fafc;
-      padding: 0.5rem 0;
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -117,10 +116,18 @@
       font-size: 0.9rem;
     }
 
+    /* Estilo solo para el PRIMER encabezado de cada tarjeta */
+    .table-container table > thead:first-child tr:first-child th:first-child,
+    .table-container table > tbody:first-child tr:first-child th:first-child {
+      border-top-left-radius: 0.6rem;
+      border-top-right-radius: 0.6rem;
+      padding-top: 0.6rem;
+    }
+
+    /* Estilo base para TODOS los encabezados */
     .table-container th {
       padding: 0.5rem 1rem;
-      background-color: #e2e8f0;
-      text-align: left;
+      text-align: center;
       font-weight: 600;
     }
 
@@ -136,37 +143,31 @@
     .plan-header-ig {
       background: linear-gradient(90deg, #8f0af9, #fe096a, #fe6704, #ffc601) !important;
       color: white !important;
-      text-align: center !important;
     }
 
     .plan-header-ti {
       background-color: #000000 !important;
       color: white !important;
-      text-align: center !important;
     }
 
     .plan-header-fa {
       background-color: #1877f2 !important;
       color: white !important;
-      text-align: center !important;
     }
 
     .plan-header-yo {
       background-color: #ed1d24 !important;
       color: white !important;
-      text-align: center !important;
     }
 
     .plan-header-te {
       background-color: #30a3e5 !important;
       color: white !important;
-      text-align: center !important;
     }
 
     .plan-header-x {
       background-color: #000000 !important;
       color: white !important;
-      text-align: center !important;
     }
 
     .cotizacion-text {
@@ -409,9 +410,13 @@
       
       const table = card.querySelector('table');
       
-      plans.forEach(plan => {
+      plans.forEach((plan, index) => {
         table.innerHTML += `
-          <tr><th colspan="2" class="${headerClass}">${plan.plan}</th></tr>
+          <tr>
+            <th colspan="2" class="${headerClass}">
+              ${plan.plan}
+            </th>
+          </tr>
           <tr><td>Precio Afiliado</td><td>$${plan.afiliado.toLocaleString('es-CO')}</td></tr>
           <tr><td>Precio Sugerido</td><td>$${plan.sugerido.toLocaleString('es-CO')}</td></tr>
           <tr><td>Ganancia</td><td>$${plan.ganancia.toLocaleString('es-CO')}</td></tr>

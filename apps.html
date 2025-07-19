@@ -89,7 +89,6 @@
       display: none;
       margin-top: 0.8rem;
       background-color: #f8fafc;
-      padding: 0.5rem 0;
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -102,6 +101,13 @@
       color: #334155;
       border-collapse: collapse;
       font-size: 0.9rem;
+    }
+
+    /* Estilo para el primer encabezado de cada tabla */
+    .table-container thead:first-child tr:first-child th:first-child {
+      border-top-left-radius: 0.6rem;
+      border-top-right-radius: 0.6rem;
+      padding-top: 0.6rem;
     }
 
     .table-container th {
@@ -176,6 +182,7 @@
 
   <script>
     const container = document.getElementById('cards-container');
+    let currentlyOpenCard = null;
 
     const imagenesConValores = [
       { 
@@ -231,7 +238,7 @@
         tableContent = `
           <div class="table-container">
             <table>
-              ${plans.map(([planName, valores]) => `
+              ${plans.map(([planName, valores], index) => `
                 <thead>
                   <tr>
                     <th colspan="2" style="background: ${item.headerBg}">Plan ${planName.charAt(0).toUpperCase() + planName.slice(1)}</th>
@@ -247,6 +254,7 @@
           </div>
         `;
       } else {
+        // Tarjeta simple sin encabezado
         tableContent = `
           <div class="table-container">
             <table>
@@ -265,9 +273,24 @@
         ${tableContent}
       `;
       
-      card.addEventListener('click', () => {
-        const table = card.querySelector('.table-container');
-        table.style.display = table.style.display === 'block' ? 'none' : 'block';
+      const tableContainer = card.querySelector('.table-container');
+      
+      card.addEventListener('click', (e) => {
+        // Si el clic fue en la imagen y la tabla ya está abierta, no hacer nada
+        if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') {
+          return;
+        }
+        
+        // Si hay otra tarjeta abierta, la cerramos
+        if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
+          currentlyOpenCard.style.display = 'none';
+        }
+        
+        // Alternar la visibilidad de la tabla actual
+        tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
+        
+        // Actualizar la referencia a la tarjeta abierta actualmente
+        currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
       });
       
       container.appendChild(card);

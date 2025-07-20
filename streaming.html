@@ -113,6 +113,16 @@
     .table-container tr:last-child td {
       border-bottom: none;
     }
+    
+    .section-title {
+      font-family: 'Comme', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #00128f;
+      text-align: center;
+      margin: 2rem 0;
+      grid-column: 1 / -1;
+    }
 
     @media (max-width: 600px) {
       .container {
@@ -168,30 +178,77 @@
     let currentOpenTable = null;
 
     const imagenesConValores = [
-      { img: 1, valores: [11500, 14000, 2500] }, // Este mantiene su ganancia original
-      { img: 2, valores: [5500, 10000, 4500] }, // Cambiado de 10500 a 10000
-      { img: "d1", valores: [7500, 11500, 4000] }, // Ajustado para ganancia mínima
-      { img: "d2", valores: [10500, 14500, 4000] }, // Ajustado para ganancia mínima
-      { img: 5, valores: [5500, 10000, 4500] }, // Cambiado de 10500 a 10000
-      { img: 6, valores: [5500, 10000, 4500] }, // Ya cumplía con ganancia mínima
-      { img: 7, valores: [7500, 11500, 4000] }, // Ajustado para ganancia mínima
-      { img: 8, valores: [11000, 15000, 4000] }, // Ajustado para ganancia mínima
-      { img: 9, valores: [8500, 12500, 4000] }, // Ajustado para ganancia mínima
-      { img: 10, valores: [8500, 12500, 4000] }, // Ya cumplía con ganancia mínima
-      { img: 11, valores: [5500, 10000, 4500] }, // Cambiado de 10500 a 10000
-      { img: 12, valores: [5500, 9500, 4000] }, // Ya cumplía con ganancia mínima
-      { img: 13, valores: [7000, 11000, 4000] }, // Ajustado para ganancia mínima
-      { img: 14, valores: [5500, 10000, 4500] }, // Cambiado de 10500 a 10000
-      { img: 15, valores: [11000, 15000, 4000] }, // Ajustado para ganancia mínima
-      { img: "combo1", valores: [14000, 20000, 6000] }, // Ya cumplía con ganancia mínima
-      { img: "combo2", valores: [14000, 20000, 6000] } // Ya cumplía con ganancia mínima
+      { img: 1, valores: [11500, 14000, 2500] },
+      { img: 2, valores: [5500, 10000, 4500] },
+      { img: "d1", valores: [7500, 11500, 4000] },
+      { img: "d2", valores: [10500, 14500, 4000] },
+      { img: 5, valores: [5500, 10000, 4500] },
+      { img: 6, valores: [5500, 10000, 4500] },
+      { img: 7, valores: [7500, 11500, 4000] },
+      { img: 8, valores: [11000, 15000, 4000] },
+      { img: 9, valores: [8500, 12500, 4000] },
+      { img: 10, valores: [8500, 12500, 4000] },
+      { img: 11, valores: [5500, 10000, 4500] },
+      { img: 12, valores: [5500, 9500, 4000] },
+      { img: 13, valores: [7000, 11000, 4000] },
+      { img: 14, valores: [5500, 10000, 4500] },
+      { img: 15, valores: [11000, 15000, 4000] },
+      { img: "16.6", valores: [8500, 12000, 3500] }
+    ];
+    
+    const combos = [
+      { img: "combo1", valores: [15000, 20000, 5000] },
+      { img: "combo2", valores: [15000, 20000, 5000] }
     ];
 
+    // Renderizar imágenes normales
     imagenesConValores.forEach(item => {
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
         <img src="https://raw.githubusercontent.com/novaklar/web/main/nkc/${item.img}.png" alt="Streaming ${item.img}" />
+        <div class="table-container">
+          <table>
+            <tbody>
+              <tr><td>Precio Afiliado</td><td>$${item.valores[0].toLocaleString('es-CO')}</td></tr>
+              <tr><td>Precio Sugerido</td><td>$${item.valores[1].toLocaleString('es-CO')}</td></tr>
+              <tr><td>Ganancia</td><td>$${item.valores[2].toLocaleString('es-CO')}</td></tr>
+            </tbody>
+          </table>
+        </div>
+      `;
+      
+      const table = card.querySelector('.table-container');
+      
+      card.addEventListener('click', () => {
+        if (currentOpenTable && currentOpenTable !== table) {
+          currentOpenTable.style.display = 'none';
+        }
+        
+        if (table.style.display === 'block') {
+          table.style.display = 'none';
+          currentOpenTable = null;
+        } else {
+          table.style.display = 'block';
+          currentOpenTable = table;
+        }
+      });
+      
+      container.appendChild(card);
+    });
+    
+    // Agregar título de Combos
+    const combosTitle = document.createElement('h2');
+    combosTitle.className = 'section-title';
+    combosTitle.textContent = 'Combos';
+    container.appendChild(combosTitle);
+    
+    // Renderizar combos
+    combos.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="https://raw.githubusercontent.com/novaklar/web/main/nkc/${item.img}.png" alt="Combo ${item.img}" />
         <div class="table-container">
           <table>
             <tbody>

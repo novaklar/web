@@ -2,42 +2,41 @@
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
+const body = document.body;
 
 burger.addEventListener('click', () => {
     nav.classList.toggle('active');
     burger.classList.toggle('active');
+    body.style.overflow = nav.classList.contains('active') ? 'hidden' : 'auto';
 });
 
-// Panel Dropdown Functionality
-const panelButtons = document.querySelectorAll('.panel-btn');
-const allDropdowns = document.querySelectorAll('.panel-dropdown-menu');
-
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.panel-dropdown')) {
-        allDropdowns.forEach(dropdown => {
-            dropdown.style.display = 'none';
-        });
-    }
-});
-
-panelButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const dropdown = button.nextElementSibling;
-        allDropdowns.forEach(item => {
-            if (item !== dropdown) {
-                item.style.display = 'none';
-            }
-        });
-        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+// Cerrar menú al hacer clic en un enlace
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        burger.classList.remove('active');
+        body.style.overflow = 'auto';
     });
 });
 
-document.querySelectorAll('.panel-dropdown-menu a').forEach(item => {
-    item.addEventListener('click', () => {
-        item.closest('.panel-dropdown-menu').style.display = 'none';
+// Función para el nuevo panel de botones
+function toggleMenu(event, menuId) {
+    event.preventDefault();
+    const menu = document.getElementById(menuId);
+    const hero = document.querySelector('.hero');
+    const allMenus = document.querySelectorAll('.menu-desplegable');
+    
+    allMenus.forEach(m => {
+        if (m.id !== menuId) {
+            m.classList.remove('active');
+        }
     });
-});
+    
+    menu.classList.toggle('active');
+    
+    const anyMenuOpen = Array.from(allMenus).some(m => m.classList.contains('active'));
+    hero.style.paddingBottom = anyMenuOpen ? '40px' : '30px';
+}
 
 // Counter Animation - Versión mejorada
 const counters = document.querySelectorAll('.counter');
@@ -90,17 +89,12 @@ if (counterSection) {
     observer.observe(counterSection);
 }
 
-// Popup Message
-window.addEventListener('DOMContentLoaded', () => {
-    const popup = document.querySelector('.popup-message');
-    
-    if (popup) {
-        // Mostrar el mensaje
-        popup.classList.add('active');
-        
-        // Después de 4 segundos, ocultarlo
-        setTimeout(() => {
-            popup.classList.remove('active');
-        }, 4000);
+// Cerrar menús desplegables al hacer clic fuera
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.boton')) {
+        document.querySelectorAll('.menu-desplegable').forEach(menu => {
+            menu.classList.remove('active');
+        });
+        document.querySelector('.hero').style.paddingBottom = '30px';
     }
 });

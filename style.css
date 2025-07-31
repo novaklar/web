@@ -108,7 +108,7 @@ main {
 
 .hero p.slogan {
     font-size: 1.3rem;
-    margin: 30px 0 170px !important; /* Aumentado de 160px a 170px */
+    margin: 30px 0 190px !important; /* Aumentado de 170px a 190px */
     padding: 0 10%;
     color: #fff;
     font-family: 'Comme', sans-serif !important;
@@ -377,7 +377,7 @@ footer {
 
     .hero p.slogan {
         font-size: 1.2rem;
-        margin: 20px 0 120px !important; /* Ajustado para mantener proporción */
+        margin: 20px 0 140px !important; /* Ajustado proporcionalmente (120px + 20px) */
     }
 
     .counters {
@@ -401,7 +401,7 @@ footer {
     }
 
     .hero p.slogan {
-        margin: 15px 0 100px !important; /* Ajustado para mantener proporción */
+        margin: 15px 0 120px !important; /* Ajustado proporcionalmente (100px + 20px) */
     }
     
     .about-novaklar h2 {

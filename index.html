@@ -152,10 +152,11 @@
       </div>
       <p class="slogan">Innovación a tu alcance</p>
 
-      <div class="panel-botones">
-        <div class="panel-dropdown">
-          <button class="panel-btn">Catálogos</button>
-          <div class="panel-dropdown-menu">
+      <!-- Nuevo panel de botones basado en la referencia -->
+      <div class="botones-container">
+        <div class="boton">
+          <button class="boton-principal" onclick="toggleMenu(event, 'catalogos')">Catálogos</button>
+          <div class="menu-desplegable" id="catalogos">
             <a href="streaming.html">Streaming</a>
             <a href="gaming.html">Gaming</a>
             <a href="social.html">Social+</a>
@@ -164,9 +165,9 @@
           </div>
         </div>
 
-        <div class="panel-dropdown">
-          <button class="panel-btn">Elementos</button>
-          <div class="panel-dropdown-menu">
+        <div class="boton">
+          <button class="boton-principal" onclick="toggleMenu(event, 'elementos')">Elementos</button>
+          <div class="menu-desplegable" id="elementos">
             <a href="catalogo.html">Catálogo Clientes</a>
             <a href="https://photos.app.goo.gl/5dSreR3BwDKUeaTHA" target="_blank">Publicidad</a>
             <a href="ranking.html">Ranking</a>
@@ -244,66 +245,6 @@
     </svg>
   </a>
 
-  <script>
-    // Script mejorado para el menú hamburguesa
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
-    const body = document.body;
-    
-    burger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      burger.classList.toggle('active');
-      body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
-    });
-    
-    // Cerrar menú al hacer clic en un enlace
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        burger.classList.remove('active');
-        body.style.overflow = 'auto';
-      });
-    });
-
-    // Script mejorado para los contadores (sin localStorage)
-    const counters = document.querySelectorAll('.counter');
-    const animationDuration = 3000; // 3 segundos para completar la animación
-    
-    function animateCounters() {
-      const startTime = performance.now();
-      
-      function updateCounters(currentTime) {
-        const elapsedTime = currentTime - startTime;
-        const progress = Math.min(elapsedTime / animationDuration, 1);
-        
-        counters.forEach(counter => {
-          const target = +counter.getAttribute('data-target');
-          const count = Math.floor(progress * target);
-          counter.textContent = count;
-        });
-        
-        if (progress < 1) {
-          requestAnimationFrame(updateCounters);
-        }
-      }
-      
-      requestAnimationFrame(updateCounters);
-    }
-    
-    // Activar contadores cuando son visibles
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          animateCounters();
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {threshold: 0.5});
-    
-    const countersSection = document.querySelector('.counters');
-    if(countersSection) {
-      observer.observe(countersSection);
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -52,9 +52,9 @@
       color: #000;
     }
     
-    /* Estilo para la sección de contadores con 40% de transparencia */
+    /* Estilo para la sección de contadores - MODIFICADO A 20% DE TRANSPARENCIA (80% opacidad) */
     .counters {
-      background-color: rgba(108, 145, 255, 0.6); /* #6c91ff con 60% de opacidad (40% transparencia) */
+      background-color: rgba(108, 145, 255, 0.1); /* #6c91ff con 80% de opacidad (20% transparencia) */
       padding: 30px;
       border-radius: 15px;
       display: flex;
@@ -167,11 +167,10 @@
         <div class="panel-dropdown">
           <button class="panel-btn">Elementos</button>
           <div class="panel-dropdown-menu">
-            <a href="https://drive.google.com/drive/folders/1__tjn1hgH0zokQbTMviBeWl_HYHshoIH" target="_blank">App</a>
-            <a href="ranking.html">Ranking</a>
-            <a href="https://photos.app.goo.gl/X1ij3g7FZMECusDEA" target="_blank">PD Deportes</a>
-            <a href="https://photos.app.goo.gl/5dSreR3BwDKUeaTHA" target="_blank">PD Streaming</a>
             <a href="catalogo.html">Catálogo Clientes</a>
+            <a href="https://photos.app.goo.gl/5dSreR3BwDKUeaTHA" target="_blank">Publicidad</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="https://drive.google.com/drive/folders/1__tjn1hgH0zokQbTMviBeWl_HYHshoIH" target="_blank">App</a>
           </div>
         </div>
       </div>
@@ -245,6 +244,66 @@
     </svg>
   </a>
 
-  <script src="script.js"></script>
+  <script>
+    // Script mejorado para el menú hamburguesa
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
+    
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      burger.classList.toggle('active');
+      body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        burger.classList.remove('active');
+        body.style.overflow = 'auto';
+      });
+    });
+
+    // Script mejorado para los contadores (sin localStorage)
+    const counters = document.querySelectorAll('.counter');
+    const animationDuration = 3000; // 3 segundos para completar la animación
+    
+    function animateCounters() {
+      const startTime = performance.now();
+      
+      function updateCounters(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / animationDuration, 1);
+        
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-target');
+          const count = Math.floor(progress * target);
+          counter.textContent = count;
+        });
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCounters);
+        }
+      }
+      
+      requestAnimationFrame(updateCounters);
+    }
+    
+    // Activar contadores cuando son visibles
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.5});
+    
+    const countersSection = document.querySelector('.counters');
+    if(countersSection) {
+      observer.observe(countersSection);
+    }
+  </script>
 </body>
 </html>

@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Streaming | Novaklar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
+  <title>Blue day | Novaklar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: white;
-      color: #333;
+      font-family: 'Montserrat', sans-serif;
+      background: #0f172a; 
+      color: #f8fafc;
+      overflow-x: hidden;
     }
 
     header {
-      background-color: #00128f;
+      background-color: transparent;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 10;
     }
 
     header img {
@@ -41,14 +44,33 @@
       background-color: rgba(255,255,255,0.2);
     }
 
-    .page-title {
+    .blue-day-title {
       font-family: 'Comme', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #00128f;
+      font-size: 3rem;
+      color: #3b82f6;
       text-align: center;
-      margin: 3rem 0 2rem;
-      padding: 0 1rem;
+      margin: 3rem 0 0;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: glow 2s infinite alternate;
+      position: relative;
+      z-index: 10;
+    }
+
+    .anniversary-text {
+      font-size: 1.2rem;
+      text-align: center;
+      color: #94a3b8;
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 20px #38bdf8, 0 0 40px #3b82f6; }
+      to   { text-shadow: 0 0 40px #0ea5e9, 0 0 80px #60a5fa; }
     }
 
     .container {
@@ -59,55 +81,56 @@
       justify-content: center;
       max-width: 1200px;
       margin: 0 auto;
+      position: relative;
+      z-index: 10;
     }
 
     .card {
-      background-color: transparent;
-      border: none;
+      background-color: rgba(30, 41, 59, 0.7);
+      border: 1px solid #475569;
       padding: 0;
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       width: 300px;
       margin: 0 auto;
+      border-radius: 0.6rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
     }
 
     .card img {
       width: 300px;
       height: 130px;
       object-fit: cover;
-      border-radius: 0.6rem;
-      transition: transform 0.3s ease;
+      border-radius: 0.6rem 0.6rem 0 0;
       display: block;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-    }
-
-    .card:hover img {
-      transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     .table-container {
       display: none;
       margin-top: 0.8rem;
-      background-color: #f8fafc;
+      background-color: #1e293b;
       padding: 0.5rem 0;
-      border-radius: 0.6rem;
+      border-radius: 0 0 0.6rem 0.6rem;
       overflow: hidden;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      border: 1px solid #e2e8f0;
+      border-top: 1px solid #475569;
       width: 100%;
     }
 
     .table-container table {
       width: 100%;
-      color: #334155;
+      color: #cbd5e1;
       border-collapse: collapse;
       font-size: 0.9rem;
     }
 
     .table-container td {
       padding: 0.5rem 1rem;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid #475569;
     }
 
     .table-container tr:last-child td {
@@ -118,10 +141,19 @@
       font-family: 'Comme', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
-      color: #00128f;
+      color: #3b82f6;
       text-align: center;
       margin: 2rem 0;
       grid-column: 1 / -1;
+      position: relative;
+      z-index: 10;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 5;
     }
 
     @media (max-width: 600px) {
@@ -150,9 +182,11 @@
         width: 100%;
         max-width: 300px;
       }
-      .page-title {
-        font-size: 1.8rem;
-        margin: 2rem 0 1.5rem;
+      .blue-day-title {
+        font-size: 2.2rem;
+      }
+      .anniversary-text {
+        font-size: 1rem;
       }
       header {
         padding: 0.8rem 1rem;
@@ -169,39 +203,114 @@
     <a href="https://novaklar.github.io/web/">Regresar</a>
   </header>
 
-  <h1 class="page-title">Streaming</h1>
+  <h1 class="blue-day-title">Blue day</h1>
+  <p class="anniversary-text">¡Por nuestro aniversario, todos los productos de Novaklar tienen un 36% de descuento!</p>
 
   <div class="container" id="cards-container"></div>
 
+  <canvas id="fireworks"></canvas>
+
   <script>
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+
+    class Particle {
+      constructor(x, y, color, size, velX, velY) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.size = size;
+        this.velX = velX;
+        this.velY = velY;
+        this.alpha = 1;
+      }
+      update() {
+        this.x += this.velX;
+        this.y += this.velY;
+        this.alpha -= 0.01;
+      }
+      draw() {
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    function createFirework(x, y, color) {
+      for (let i = 0; i < 60; i++) {
+        const angle = (Math.PI * 2 * i) / 60;
+        const speed = Math.random() * 5;
+        particles.push(new Particle(
+          x, y, color, 3,
+          Math.cos(angle) * speed,
+          Math.sin(angle) * speed
+        ));
+      }
+    }
+
+    // Lanza un solo fuego artificial cada 2 segundos
+    setInterval(() => {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * (canvas.height / 2);
+      const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      createFirework(x, y, color);
+    }, 2000);
+
+    function animate() {
+      // Dibuja un rectángulo semi-transparente para crear el efecto de rastro
+      ctx.fillStyle = "rgba(0,0,0,0.2)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Filtra las partículas que aún son visibles y las dibuja
+      particles = particles.filter(p => p.alpha > 0);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
     const container = document.getElementById('cards-container');
     let currentOpenTable = null;
 
     const imagenesConValores = [
-      { img: 1, valores: [11500, 14000, 2500] },
-      { img: 2, valores: [5500, 10000, 4500] },
-      { img: "d1", valores: [7500, 11500, 4000] },
-      { img: "d2", valores: [10500, 14500, 4000] },
-      { img: 5, valores: [5500, 10000, 4500] },
-      { img: 6, valores: [5500, 10000, 4500] },
-      { img: 7, valores: [7500, 11500, 4000] },
-      { img: 8, valores: [11000, 15000, 4000] },
-      { img: 9, valores: [8500, 12500, 4000] },
-      { img: 10, valores: [8500, 12500, 4000] },
-      { img: 11, valores: [5500, 10000, 4500] },
-      { img: 12, valores: [5500, 9500, 4000] },
-      { img: 13, valores: [7000, 11000, 4000] },
-      { img: 14, valores: [5500, 10000, 4500] },
-      { img: 15, valores: [11000, 15000, 4000] },
-      { img: "16.6", valores: [8500, 12000, 3500] }
+      { img: 1, valores: [9500] },
+      { img: 2, valores: [3500] },
+      { img: "d1", valores: [5500] },
+      { img: "d2", valores: [8500] },
+      { img: 5, valores: [3500] },
+      { img: 6, valores: [3500] },
+      { img: 7, valores: [5500] },
+      { img: 8, valores: [9000] },
+      { img: 9, valores: [6500] },
+      { img: 10, valores: [6500] },
+      { img: 11, valores: [3500] },
+      { img: 12, valores: [3500] },
+      { img: 13, valores: [5000] },
+      { img: 14, valores: [3500] },
+      { img: 15, valores: [9000] },
+      { img: "16.6", valores: [6500] }
     ];
     
     const combos = [
-      { img: "combo1", valores: [15000, 20000, 5000] },
-      { img: "combo2", valores: [15000, 20000, 5000] }
+      { img: "combo1", valores: [13000] },
+      { img: "combo2", valores: [13000] }
     ];
 
-    // Renderizar imágenes normales
     imagenesConValores.forEach(item => {
       const card = document.createElement('div');
       card.className = 'card';
@@ -211,8 +320,6 @@
           <table>
             <tbody>
               <tr><td>Precio Afiliado</td><td>$${item.valores[0].toLocaleString('es-CO')}</td></tr>
-              <tr><td>Precio Sugerido</td><td>$${item.valores[1].toLocaleString('es-CO')}</td></tr>
-              <tr><td>Ganancia</td><td>$${item.valores[2].toLocaleString('es-CO')}</td></tr>
             </tbody>
           </table>
         </div>
@@ -237,13 +344,11 @@
       container.appendChild(card);
     });
     
-    // Agregar título de Combos
     const combosTitle = document.createElement('h2');
     combosTitle.className = 'section-title';
     combosTitle.textContent = 'Combos';
     container.appendChild(combosTitle);
     
-    // Renderizar combos
     combos.forEach(item => {
       const card = document.createElement('div');
       card.className = 'card';
@@ -253,8 +358,6 @@
           <table>
             <tbody>
               <tr><td>Precio Afiliado</td><td>$${item.valores[0].toLocaleString('es-CO')}</td></tr>
-              <tr><td>Precio Sugerido</td><td>$${item.valores[1].toLocaleString('es-CO')}</td></tr>
-              <tr><td>Ganancia</td><td>$${item.valores[2].toLocaleString('es-CO')}</td></tr>
             </tbody>
           </table>
         </div>

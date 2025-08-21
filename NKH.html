@@ -190,6 +190,7 @@
             border: 1px solid var(--accent-color);
             width: 100%;
             box-sizing: border-box;
+            overflow-y: auto; /* Permite scroll si el texto es muy largo */
         }
         #slide-text {
             width: 100%;
@@ -197,9 +198,17 @@
             vertical-align: bottom;
             opacity: 0;
             white-space: normal;
+            text-align: justify; /* Justificación del texto */
         }
         #slide-text.show {
             opacity: 1;
+        }
+
+        /* Optimización de fuente para pantallas pequeñas */
+        @media (max-width: 600px) {
+            #slide-text-wrapper {
+                font-size: 0.8em;
+            }
         }
 
         /* --- Outro (Pantalla Final) --- */
@@ -343,32 +352,29 @@
 
             let currentMilestone = 0;
             const slideDuration = 15000;
+            let typingTimeout;
 
-            const updateText = (text) => {
-                slideText.textContent = text;
+            // Función para la animación de escritura
+            const typeText = (text, callback) => {
+                let i = 0;
+                slideText.textContent = '';
                 slideText.classList.add('show');
-            };
+                const speed = 20; // Velocidad de escritura en ms
 
-            const createStars = (numStars) => {
-                for (let i = 0; i < numStars; i++) {
-                    const star = document.createElement('div');
-                    star.className = 'star';
-                    const size = Math.random() * 2 + 1;
-                    const x = Math.random() * 100;
-                    const y = Math.random() * 100;
-                    const xEnd = x + (Math.random() - 0.5) * 20;
-                    const yEnd = y + (Math.random() - 0.5) * 20;
-                    star.style.width = `${size}px`;
-                    star.style.height = `${size}px`;
-                    star.style.setProperty('--x', `${x}vw`);
-                    star.style.setProperty('--y', `${y}vh`);
-                    star.style.setProperty('--x-end', `${xEnd}vw`);
-                    star.style.setProperty('--y-end', `${yEnd}vh`);
-                    star.style.animationDelay = `${Math.random() * 5}s`;
-                    starsBg.appendChild(star);
-                }
+                const type = () => {
+                    if (i < text.length) {
+                        slideText.textContent += text.charAt(i);
+                        i++;
+                        typingTimeout = setTimeout(type, speed);
+                    } else {
+                        // Cuando la escritura termina, se llama a la función de callback
+                        if (callback) {
+                            setTimeout(callback, slideDuration - (text.length * speed));
+                        }
+                    }
+                };
+                type();
             };
-            createStars(50);
 
             const showSlide = () => {
                 if (currentMilestone < milestones.length) {
@@ -381,8 +387,7 @@
                     currentSlide.onload = () => {
                         currentSlide.classList.remove('image-loading');
                         currentSlide.classList.add('image-show');
-                        updateText(description);
-                        setTimeout(showNextSlide, slideDuration);
+                        typeText(description, showNextSlide); // Usa la nueva función de escritura
                     };
                     currentSlide.src = imageUrl;
                     currentMilestone++;
@@ -392,6 +397,8 @@
             };
 
             const showNextSlide = () => {
+                // Limpia el temporizador de escritura anterior antes de mostrar la siguiente diapositiva
+                clearTimeout(typingTimeout);
                 slideText.classList.remove('show');
                 showSlide();
             };

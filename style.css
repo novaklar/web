@@ -11,6 +11,11 @@
     src: url('https://raw.githubusercontent.com/novaklar/web/main/waratah.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Comme';
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/comme.ttf') format('truetype');
+}
+
 html, body {
     width: 100%;
     background-color: #f9f9f9;
@@ -105,12 +110,12 @@ main {
     line-height: 1;
     margin-bottom: 0 !important;
     display: inline-block;
-    min-width: 400px;
+    min-width: 400px; /* Ancho mínimo para que los botones coincidan */
 }
 
 .hero p.slogan {
     font-size: 1.3rem;
-    margin: 30px 0 205px !important;
+    margin: 30px 0 205px !important; /* Aumentado de 170px a 205px (35px más) */
     padding: 0 10%;
     color: #fff;
     font-family: 'Comme', sans-serif !important;
@@ -126,7 +131,7 @@ main {
     margin-top: 2rem;
     transform: translateY(-20px);
     width: 100%;
-    max-width: 400px;
+    max-width: 400px; /* Mismo ancho que el título */
     margin-left: auto;
     margin-right: auto;
 }
@@ -139,7 +144,7 @@ main {
     background-color: white;
     color: black;
     border: none;
-    padding: 20px 24px;
+    padding: 20px 24px; /* Aumentado el padding vertical para mayor altura */
     font-size: 1em;
     cursor: pointer;
     border-radius: 5px;
@@ -151,7 +156,7 @@ main {
     outline: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: auto;
-    min-height: 60px;
+    min-height: 60px; /* Altura mínima aumentada */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -194,6 +199,26 @@ main {
     max-height: 500px;
 }
 
+/* ===== NUEVO BOTÓN DE CONTACTO ===== */
+.contact-button {
+    background-color: #6c91ff;
+    color: white;
+    font-family: 'Comme', sans-serif;
+    width: 250px; /* Ancho ajustado a 250px */
+    line-height: normal;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    padding: 15px 16px; /* Aumentado el padding para mayor altura */
+}
+
+.contact-button:hover {
+    background-color: #5a7ed3;
+}
+
 /* ===== COUNTERS SECTION ===== */
 .counters {
     display: flex;
@@ -222,38 +247,6 @@ main {
     font-size: 1.1rem;
     color: #333;
     font-weight: 500;
-}
-
-/* --- NUEVO CONTENEDOR PARA EL BOTÓN DE CONTACTO --- */
-.contact-button-container {
-    margin-top: 30px;
-    max-width: 400px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* --- Botón "Contactar asesoras" con estilo simple y modificado --- */
-.contact-button {
-  display: block;
-  width: 100%;
-  padding: 15px 25px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: #fff; /* Frase del botón en blanco */
-  text-align: center;
-  border: none;
-  cursor: pointer;
-  background-color: #6c91ff;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  font-family: 'Comme', sans-serif;
-}
-
-.contact-button:hover {
-  transform: scale(1.05);
-  background-color: #5b7fec;
 }
 
 /* ===== ABOUT SECTION ===== */
@@ -386,15 +379,11 @@ footer {
         flex-direction: row;
         justify-content: center;
         gap: 30px;
-        max-width: 600px;
-    }
-
-    .contact-button-container {
-        max-width: 600px;
+        max-width: 600px; /* Ajuste para pantallas más grandes */
     }
     
     .hero-title .logo-text {
-        min-width: 600px;
+        min-width: 600px; /* Ajuste para pantallas más grandes */
     }
 }
 
@@ -415,26 +404,22 @@ footer {
 
     .hero-title .logo-text {
         font-size: 3.5rem;
-        min-width: 300px;
+        min-width: 300px; /* Ajuste para tablet */
     }
 
     .hero p.slogan {
         font-size: 1.2rem;
-        margin: 20px 0 155px !important;
+        margin: 20px 0 155px !important; /* Ajuste proporcional (120px + 35px) */
     }
 
     .botones-container {
-        max-width: 300px;
+        max-width: 300px; /* Ajuste para tablet */
     }
 
     .counters {
         flex-direction: column;
         align-items: center;
         padding: 2rem 0;
-    }
-
-    .contact-button-container {
-        max-width: 300px;
     }
     
     .counter {
@@ -449,21 +434,17 @@ footer {
 
     .hero-title .logo-text {
         font-size: 2.8rem;
-        min-width: 250px;
+        min-width: 250px; /* Ajuste para móvil */
     }
 
     .hero p.slogan {
-        margin: 15px 0 135px !important;
+        margin: 15px 0 135px !important; /* Ajuste proporcional (100px + 35px) */
     }
     
     .botones-container {
-        max-width: 250px;
+        max-width: 250px; /* Ajuste para móvil */
     }
     
-    .contact-button-container {
-        max-width: 250px;
-    }
-
     .about-novaklar h2 {
         font-size: 1.8rem;
     }

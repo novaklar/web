@@ -21,14 +21,14 @@
       font-size: 3rem;
       color: #000;
     }
-    
+
     /* Estilos mejorados para el menú hamburguesa */
     .burger {
       display: none;
       cursor: pointer;
       padding: 10px;
     }
-    
+
     .burger div {
       width: 25px;
       height: 3px;
@@ -36,22 +36,22 @@
       margin: 5px;
       transition: all 0.3s ease;
     }
-    
+
     .nav-links {
       display: flex;
     }
-    
+
     .social-links {
       display: flex;
       list-style: none;
       gap: 20px;
     }
-    
+
     .social-links a {
       text-decoration: none;
       color: #000;
     }
-    
+
     /* Estilo para la sección de contadores - MODIFICADO A 20% DE TRANSPARENCIA (80% opacidad) */
     .counters {
       background-color: rgba(108, 145, 255, 0.1); /* #6c91ff con 80% de opacidad (20% transparencia) */
@@ -61,11 +61,59 @@
       justify-content: space-around;
       margin-top: 50px;
     }
-    
+
     .counter-container {
       text-align: center;
     }
-    
+
+    /* Nuevos estilos para el botón "Contactar asesoras" */
+    .contact-button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .contact-button {
+        position: relative;
+        background-color: #fff;
+        color: #000;
+        font-family: 'Comme', sans-serif;
+        font-weight: bold;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+        overflow: hidden;
+        /* Estilos del borde animado */
+        box-shadow: 0 0 0 5px rgba(108, 145, 255, 1);
+        animation: box-shadow-animation 5s ease infinite;
+    }
+
+    .contact-button:hover {
+        transform: translateY(-3px);
+    }
+
+    @keyframes box-shadow-animation {
+      0% {
+        box-shadow: 0 0 0 5px #6c91ff;
+      }
+      25% {
+        box-shadow: 0 0 0 5px #00128f;
+      }
+      50% {
+        box-shadow: 0 0 0 5px #6c91ff;
+      }
+      75% {
+        box-shadow: 0 0 0 5px #00128f;
+      }
+      100% {
+        box-shadow: 0 0 0 5px #6c91ff;
+      }
+    }
+
     @media (max-width: 768px) {
       .burger {
         display: block;
@@ -74,7 +122,7 @@
         right: 20px;
         z-index: 1000;
       }
-      
+
       .nav-links {
         position: fixed;
         top: 0;
@@ -91,34 +139,38 @@
         z-index: 999;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
       }
-      
+
       .nav-links.active {
         transform: translateX(0);
       }
-      
+
       .social-links {
         flex-direction: column;
         align-items: center;
         padding: 0;
         gap: 30px;
       }
-      
+
       .counters {
         flex-direction: column;
         gap: 20px;
         padding: 20px;
       }
-      
+
       .burger.active .line1 {
         transform: rotate(-45deg) translate(-5px, 6px);
       }
-      
+
       .burger.active .line2 {
         opacity: 0;
       }
-      
+
       .burger.active .line3 {
         transform: rotate(45deg) translate(-5px, -6px);
+      }
+
+      .contact-button-container {
+        margin: 20px 0;
       }
     }
   </style>
@@ -190,6 +242,10 @@
         <p>Ventas realizadas</p>
       </div>
     </section>
+
+    <div class="contact-button-container">
+        <a href="asesoras.html" class="contact-button">Contactar asesoras</a>
+    </div>
 
     <section class="about-novaklar">
       <h2>Acerca de Novaklar</h2>

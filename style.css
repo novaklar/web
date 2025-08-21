@@ -204,7 +204,7 @@ main {
     background-color: #6c91ff;
     color: white;
     font-family: 'Comme', sans-serif;
-    width: 250px; /* Ancho ajustado a 250px */
+    width: 280px;
     line-height: normal;
     border: none;
     border-radius: 5px;
@@ -212,7 +212,8 @@ main {
     text-align: center;
     text-decoration: none;
     transition: background-color 0.2s ease;
-    padding: 15px 16px; /* Aumentado el padding para mayor altura */
+    padding: 20px 16px; /* AUMENTADO PARA MAYOR ALTURA */
+    font-weight: bold;
 }
 
 .contact-button:hover {

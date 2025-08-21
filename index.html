@@ -68,50 +68,48 @@
 
     /* Nuevos estilos para el botón "Contactar asesoras" */
     .contact-button-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      padding: 0 20px; /* Para que no se pegue a los bordes en móviles */
+      max-width: 800px; /* Ancho máximo para alinear con "Acerca de Novaklar" */
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .contact-button {
-        position: relative;
-        background-color: #fff;
-        color: #000;
+        display: block;
+        width: 100%; /* El botón ocupa todo el ancho del contenedor */
+        background: linear-gradient(45deg, #6c91ff, #00128f, #6c91ff, #00128f);
+        background-size: 400% 400%;
+        color: #fff;
         font-family: 'Comme', sans-serif;
         font-weight: bold;
-        padding: 15px 30px;
+        padding: 20px 30px; /* Aumentado el padding para grosor */
         border: none;
         border-radius: 10px;
         font-size: 1rem;
         cursor: pointer;
         text-decoration: none;
         transition: transform 0.3s ease;
-        overflow: hidden;
-        /* Estilos del borde animado */
-        box-shadow: 0 0 0 5px rgba(108, 145, 255, 1);
-        animation: box-shadow-animation 5s ease infinite;
+        animation: gradient-animation 5s ease infinite;
+        text-align: center;
     }
 
     .contact-button:hover {
         transform: translateY(-3px);
     }
 
-    @keyframes box-shadow-animation {
-      0% {
-        box-shadow: 0 0 0 5px #6c91ff;
-      }
-      25% {
-        box-shadow: 0 0 0 5px #00128f;
-      }
-      50% {
-        box-shadow: 0 0 0 5px #6c91ff;
-      }
-      75% {
-        box-shadow: 0 0 0 5px #00128f;
-      }
-      100% {
-        box-shadow: 0 0 0 5px #6c91ff;
-      }
+    @keyframes gradient-animation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
     }
 
     @media (max-width: 768px) {
@@ -170,7 +168,8 @@
       }
 
       .contact-button-container {
-        margin: 20px 0;
+        margin: 20px auto;
+        padding: 0 20px;
       }
     }
   </style>

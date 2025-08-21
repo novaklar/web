@@ -21,14 +21,14 @@
       font-size: 3rem;
       color: #000;
     }
-
+    
     /* Estilos mejorados para el menú hamburguesa */
     .burger {
       display: none;
       cursor: pointer;
       padding: 10px;
     }
-
+    
     .burger div {
       width: 25px;
       height: 3px;
@@ -36,22 +36,22 @@
       margin: 5px;
       transition: all 0.3s ease;
     }
-
+    
     .nav-links {
       display: flex;
     }
-
+    
     .social-links {
       display: flex;
       list-style: none;
       gap: 20px;
     }
-
+    
     .social-links a {
       text-decoration: none;
       color: #000;
     }
-
+    
     /* Estilo para la sección de contadores - MODIFICADO A 20% DE TRANSPARENCIA (80% opacidad) */
     .counters {
       background-color: rgba(108, 145, 255, 0.1); /* #6c91ff con 80% de opacidad (20% transparencia) */
@@ -61,57 +61,11 @@
       justify-content: space-around;
       margin-top: 50px;
     }
-
+    
     .counter-container {
       text-align: center;
     }
-
-    /* Nuevos estilos para el botón "Contactar asesoras" */
-    .contact-button-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 30px;
-      padding: 0 20px; /* Para que no se pegue a los bordes en móviles */
-      max-width: 800px; /* Ancho máximo para alinear con "Acerca de Novaklar" */
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .contact-button {
-        display: block;
-        width: 100%; /* El botón ocupa todo el ancho del contenedor */
-        background: linear-gradient(45deg, #6c91ff, #00128f, #6c91ff, #00128f);
-        background-size: 400% 400%;
-        color: #fff;
-        font-family: 'Comme', sans-serif;
-        font-weight: bold;
-        padding: 20px 30px; /* Aumentado el padding para grosor */
-        border: none;
-        border-radius: 10px;
-        font-size: 1rem;
-        cursor: pointer;
-        text-decoration: none;
-        transition: transform 0.3s ease;
-        animation: gradient-animation 5s ease infinite;
-        text-align: center;
-    }
-
-    .contact-button:hover {
-        transform: translateY(-3px);
-    }
-
-    @keyframes gradient-animation {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-
+    
     @media (max-width: 768px) {
       .burger {
         display: block;
@@ -120,7 +74,7 @@
         right: 20px;
         z-index: 1000;
       }
-
+      
       .nav-links {
         position: fixed;
         top: 0;
@@ -137,39 +91,34 @@
         z-index: 999;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
       }
-
+      
       .nav-links.active {
         transform: translateX(0);
       }
-
+      
       .social-links {
         flex-direction: column;
         align-items: center;
         padding: 0;
         gap: 30px;
       }
-
+      
       .counters {
         flex-direction: column;
         gap: 20px;
         padding: 20px;
       }
-
+      
       .burger.active .line1 {
         transform: rotate(-45deg) translate(-5px, 6px);
       }
-
+      
       .burger.active .line2 {
         opacity: 0;
       }
-
+      
       .burger.active .line3 {
         transform: rotate(45deg) translate(-5px, -6px);
-      }
-
-      .contact-button-container {
-        margin: 20px auto;
-        padding: 0 20px;
       }
     }
   </style>
@@ -242,9 +191,7 @@
       </div>
     </section>
 
-    <div class="contact-button-container">
-        <a href="asesoras.html" class="contact-button">Contactar asesoras</a>
-    </div>
+    <a href="asesoras.html" class="contact-button">Contactar asesoras</a>
 
     <section class="about-novaklar">
       <h2>Acerca de Novaklar</h2>

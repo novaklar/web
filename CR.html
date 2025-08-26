@@ -5,70 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Asesoras | Novaklar</title>
   <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: white;
-      color: #333;
+    :root {
+      --primary-blue: #00128f;
+      --secondary-blue: #6c91ff;
+      --light-blue: #eef5ff;
+      --primary-teal: #147a80;
+      --secondary-teal: #beff7d;
+      --light-teal: #e7fcfb;
+      --white: #ffffff;
+      --light-gray: #f9f9f9;
+      --medium-gray: #555;
+      --dark-gray: #333;
+      --shadow: 0 4px 15px rgba(0,0,0,0.08);
+      --transition: all 0.3s ease;
     }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--white);
+      color: var(--dark-gray);
+      line-height: 1.6;
+      padding-bottom: 2rem;
+    }
+
+    /* Header Styles */
     header {
-      background-color: #00128f;
+      background-color: var(--primary-blue);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 1.5rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     header img {
       height: 40px;
       filter: brightness(0) invert(1);
+      transition: var(--transition);
+    }
+
+    header img:hover {
+      transform: scale(1.05);
     }
 
     header a {
       text-decoration: none;
-      color: white;
+      color: var(--white);
       font-weight: 600;
       font-size: 1rem;
       padding: 0.5rem 1rem;
       border-radius: 4px;
-      transition: background-color 0.2s;
+      transition: var(--transition);
     }
 
     header a:hover {
       background-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
     }
 
+    /* Imagen debajo del header */
+    .header-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      background: linear-gradient(to bottom, var(--light-blue), var(--white));
+    }
+
+    .header-image img {
+      width: 400px;
+      height: 400px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+      transition: transform 0.5s ease;
+    }
+
+    .header-image img:hover {
+      transform: scale(1.05) rotate(5deg);
+    }
+
+    /* Main Content */
     .contact-container {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 2rem;
-      padding: 2rem 1rem;
+      gap: 2.5rem;
+      padding: 2rem 1rem 3rem;
       max-width: 1200px;
       margin: 0 auto;
     }
 
     .contact-section {
-      background-color: #f9f9f9;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
       max-width: 500px;
       width: 100%;
       text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .contact-section:hover::before {
+      opacity: 1;
     }
 
     .sales-section {
-      border: 2px solid #00128f;
-      background: linear-gradient(145deg, #eef5ff, #f9f9f9);
+      border: 2px solid var(--primary-blue);
+      background: linear-gradient(145deg, var(--light-blue), var(--light-gray));
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 18, 143, 0.15), 0 5px 10px rgba(0, 0, 0, 0.05);
+      z-index: 2;
     }
-    
+
     .recruitment-section {
-      border: 2px solid #147a80;
-      background: linear-gradient(145deg, #e7fcfb, #f9f9f9);
+      border: 2px solid var(--primary-teal);
+      background: linear-gradient(145deg, var(--light-teal), var(--light-gray));
     }
 
     .section-title {
@@ -76,67 +152,93 @@
       font-size: 1.8rem;
       font-weight: 700;
       margin-top: 0;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      display: inline-block;
     }
 
     .sales-title {
-      color: #00128f;
+      color: var(--primary-blue);
     }
 
     .recruitment-title {
-      color: #147a80;
+      color: var(--primary-teal);
     }
 
     .contact-info {
       font-size: 1rem;
       line-height: 1.6;
-      color: #555;
-      margin-bottom: 1.5rem;
+      color: var(--medium-gray);
+      margin-bottom: 1.8rem;
       text-align: justify;
     }
 
     .button-group {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.2rem;
       align-items: center;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      width: 100%;
     }
 
     .whatsapp-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      max-width: 200px;
       padding: 1rem 1.5rem;
-      color: white;
       border-radius: 15px;
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      min-width: 140px;
+    }
+
+    .whatsapp-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: var(--transition);
+    }
+
+    .whatsapp-btn:hover::after {
+      left: 100%;
     }
 
     .sales-btn {
-      background-color: #6c91ff;
+      background-color: var(--secondary-blue);
+      color: var(--white);
     }
 
     .sales-btn:hover {
       background-color: #5577e9;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
     }
     
     .recruitment-btn {
-      background-color: #beff7d;
-      color: #147a80;
+      background-color: var(--secondary-teal);
+      color: var(--primary-teal);
     }
 
     .recruitment-btn:hover {
       background-color: #aae96c;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
     }
 
     .whatsapp-btn i {
@@ -144,21 +246,62 @@
       font-size: 1.2rem;
     }
 
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .contact-container {
+        gap: 2rem;
+        padding: 2rem 1rem;
+      }
+      
+      .contact-section {
+        padding: 2rem;
+      }
+      
+      .sales-section {
+        transform: none;
+        box-shadow: var(--shadow);
+      }
+      
+      .button-row {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .header-image img {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
     @media (max-width: 600px) {
       .contact-section {
         padding: 1.5rem;
       }
+      
       .contact-container {
         gap: 1.5rem;
       }
+      
       .section-title {
         font-size: 1.5rem;
       }
+      
       header {
         padding: 0.8rem 1rem;
       }
+      
       header img {
         height: 35px;
+      }
+      
+      .whatsapp-btn {
+        width: 100%;
+        max-width: 220px;
+      }
+      
+      .header-image img {
+        width: 250px;
+        height: 250px;
       }
     }
     
@@ -167,9 +310,13 @@
         padding: 0.8rem 1rem;
         font-size: 0.9rem;
       }
+      
+      .header-image img {
+        width: 200px;
+        height: 200px;
+      }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <header>
@@ -177,19 +324,31 @@
     <a href="https://novaklar.github.io/web/">Regresar</a>
   </header>
 
+  <!-- Imagen agregada debajo del header -->
+  <div class="header-image">
+    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/logos/Phone.png" alt="Icono de teléfono">
+  </div>
+
   <div class="contact-container">
     <div class="contact-section sales-section">
-      <h2 class="section-title sales-title">Asesoras de Venta</h2>
+      <h2 class="section-title sales-title">Asesoras Comerciales</h2>
       <p class="contact-info">
-        Si tienes preguntas sobre cómo realizar una compra, referir una venta o reportar un servicio, contacta a nuestras asesoras. ¡Están listas para atenderte!
+        Si tienes preguntas sobre cómo realizar una compra, referir una venta o reportar un servicio, contacta a nuestras asesoras. ¡Están listas para atenderte con la mejor actitud y disposición!
       </p>
       <div class="button-group">
-        <a href="https://wa.me/573117982735?text=Hola%20Danna%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn sales-btn" target="_blank">
-          <i class="fab fa-whatsapp"></i> Contactar a Danna
-        </a>
-        <a href="https://wa.me/573127741655?text=Hola%20Tatiana%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn sales-btn" target="_blank">
-          <i class="fab fa-whatsapp"></i> Contactar a Tatiana
-        </a>
+        <div class="button-row">
+          <a href="https://wa.me/573018205460?text=Hola%20Luz%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn sales-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Luz
+          </a>
+          <a href="https://wa.me/573117982735?text=Hola%20Danna%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn sales-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Danna
+          </a>
+        </div>
+        <div class="button-row">
+          <a href="https://wa.me/573127741655?text=Hola%20Tatiana%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn sales-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Tatiana
+          </a>
+        </div>
       </div>
     </div>
 
@@ -199,21 +358,22 @@
         Si tienes preguntas sobre el funcionamiento de la empresa o alguna anomalía en el proceso de admisión, nuestras asesoras de reclutamiento pueden ayudarte.
       </p>
       <div class="button-group">
-        <a href="https://wa.me/573018205460?text=Hola%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn recruitment-btn" target="_blank">
-          <i class="fab fa-whatsapp"></i> Contactar a Luz
-        </a>
-        <a href="https://wa.me/573216495733?text=Hola%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn recruitment-btn" target="_blank">
-          <i class="fab fa-whatsapp"></i> Contactar a Ester
-        </a>
-        <a href="https://wa.me/573027069241?text=Hola%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn recruitment-btn" target="_blank">
-          <i class="fab fa-whatsapp"></i> Contactar a Brijith
-        </a>
-        <a href="https://wa.me/573027069328?text=Hola%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn recruitment-btn" target="_blank">
-          <i class="fab fa-whatsapp"></i> Contactar a Katherin
-        </a>
-        <a href="https://wa.me/573027069188?text=Hola%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn recruitment-btn" target="_blank">
-          <i class="fab fa-whatsapp"></i> Contactar a Neyereth
-        </a>
+        <div class="button-row">
+          <a href="https://wa.me/573216495733?text=Hola%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn recruitment-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Ester
+          </a>
+          <a href="https://wa.me/573027069241?text=Hola%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn recruitment-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Brijith
+          </a>
+        </div>
+        <div class="button-row">
+          <a href="https://wa.me/573027069328?text=Hola%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn recruitment-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Katherin
+          </a>
+          <a href="https://wa.me/573027069188?text=Hola%2C%20te%20contacto%20desde%20la%20página%20web%20https%3A%2F%2Fnovaklar.github.io%2Fweb%2F" class="whatsapp-btn recruitment-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Neyereth
+          </a>
+        </div>
       </div>
     </div>
   </div>

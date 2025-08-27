@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>novaklar studio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variables de color para fácil mantenimiento */
+        :root {
+            --primary-color: #080a33; /* Azul oscuro de novaklar */
+            --accent-color: #c51e5d; /* Magenta de novaklar */
+            --text-light: #f0f0f0;
+            --text-dark: #cccccc;
+            --glass-background: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Estilos Generales */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--primary-color);
+            background-image: radial-gradient(at 0% 0%, var(--primary-color) 0%, #000000 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="0.5" fill="%231a1d40" /><circle cx="75" cy="75" r="0.5" fill="%231a1d40" /><circle cx="10" cy="90" r="0.5" fill="%231a1d40" /><circle cx="90" cy="10" r="0.5" fill="%231a1d40" /><circle cx="50" cy="50" r="0.5" fill="%231a1d40" /></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Comme', sans-serif;
+        }
+
+        h1 { font-size: 2.8em; }
+        h2 { font-size: 2.2em; }
+        h3 { font-size: 1.6em; }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-dark);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            filter: brightness(1.2);
+        }
+
+        /* Glassmorphism Effect */
+        .glassmorphism-card {
+            background: var(--glass-background);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            margin-bottom: 30px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 10, 51, 0.8);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .logo-container {
+            width: 130px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            /* Filtro para cambiar el color del logo SVG al color solicitado #c51e5d */
+            filter: invert(25%) sepia(73%) saturate(3850%) hue-rotate(322deg) brightness(85%) contrast(91%);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu a {
+            margin-left: 20px;
+            font-weight: 600;
+            color: var(--text-dark);
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--text-light);
+        }
+
+        /* Botón CTA */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--accent-color), #a01a4e);
+            color: var(--text-light);
+            padding: 12px 25px;
+            border-radius: 30px;
+            margin-top: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(197, 30, 93, 0.4);
+            text-align: center;
+            width: 280px;
+            margin: 15px 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(197, 30, 93, 0.6);
+            filter: brightness(1.1);
+        }
+
+        .cta-button i {
+            margin-left: 8px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .package-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .package-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+
+        .package-card h3 i {
+            margin-right: 12px;
+            font-size: 1.1em;
+        }
+
+        .package-card ul {
+            list-style: none;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .package-card ul li {
+            margin-bottom: 10px;
+            padding-left: 0;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .package-card ul li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-size: 1.2em;
+            position: absolute;
+            left: -15px;
+            top: -2px;
+        }
+
+        .package-card .price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 15px;
+        }
+
+        .package-card .price span {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .package-button {
+            background: var(--accent-color);
+            color: var(--text-light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+            font-size: 0.9em;
+            display: inline-block;
+        }
+
+        .package-button:hover {
+            background: #a01a4e;
+            transform: translateY(-2px);
+        }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Destacado */
+        .package-card.featured {
+            border: 1px solid var(--glass-border) !important;
+            box-shadow: 0 0 40px rgba(197, 30, 93, 0.4), 0 4px 30px rgba(0, 0, 0, 0.1);
+            transform: scale(1.03);
+            position: relative;
+            z-index: 1;
+        }
+
+        .package-card.featured:hover {
+            transform: translateY(-12px) scale(1.05);
+            box-shadow: 0 0 50px rgba(197, 30, 93, 0.6), 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        .about-section, .contact-section {
+            padding: 50px 5%;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-section p, .contact-section p {
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Section */
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+        
+        .social-links {
+            margin-top: 35px;
+        }
+
+        .social-links a {
+            margin: 0 12px;
+            color: var(--text-dark);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: auto;
+            color: var(--text-dark);
+            border-top: 1px solid var(--glass-border);
+            background: rgba(8, 10, 51, 0.5);
+        }
+
+        /* Responsive Design - Optimizado para móviles */
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.7em; }
+            h3 { font-size: 1.4em; }
+
+            .header {
+                flex-direction: column;
+                padding: 12px 5%;
+            }
+
+            .logo-container {
+                width: 120px;
+                margin-bottom: 10px;
+            }
+
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-menu a {
+                margin: 5px 10px;
+                font-size: 0.9em;
+            }
+
+            .glassmorphism-card {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+
+            .hero-content {
+                padding: 20px;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .package-card {
+                margin-bottom: 0;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+                width: 240px;
+                margin: 10px 5px;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.3em; }
+
+            .hero-content h1 {
+                font-size: 1.8em;
+            }
+
+            .package-card .price {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .package-card .price span {
+                margin-bottom: 5px;
+            }
+            
+            .social-links a {
+                margin: 0 8px;
+            }
+            
+            .social-links i {
+                font-size: 1.5em !important;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" alt="novaklar studio logo">
+        </div>
+        <nav class="nav-menu">
+            <a href="#services">Servicios</a>
+            <a href="#about">Nosotros</a>
+            <a href="#contact">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content glassmorphism-card">
+                <h1>Diseño que Transforma Ideas en Realidad Digital</h1>
+                <p>En <strong>novaklar studio</strong>, fusionamos innovación, estética y funcionalidad para crear experiencias visuales impactantes. Nuestro enfoque se centra en el <strong>diseño futurista, minimalista y moderno</strong>, utilizando la técnica del <strong>glassmorfismo</strong> para generar una interfaz limpia, elegante y con un toque de sofisticación. Nos especializamos en dar vida a la identidad de tu marca, asegurando que cada proyecto no solo se vea increíble, sino que también cumpla sus objetivos.</p>
+                <a href="#services" class="cta-button">Explora Nuestros Servicios <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <h2>Nuestros Paquetes</h2>
+            <div class="packages-grid">
+                <div class="package-card glassmorphism-card">
+                    <h3><i class="fas fa-pencil-alt"></i> Personalizado</h3>
+                    <ul>
+                        <li>Para clientes que ya tienen parte del trabajo hecho o requieren algo puntual</li>
+                        <li>Vectorización o ajustes de un logo existente</li>
+                        <li>Mini rebranding (nueva paleta, tipografía, mejoras visuales)</li>
+                        <li>Página web simple sin catálogo</li>
+                        <li>Solo catálogo web</li>
+                        <li>Material publicitario adicional</li>
+                    </ul>
+                    <div class="price">
+                        <span>Desde $30.000</span>
+                        <a href="https://wa.me/573172280539?text=Hola,%20estoy%20interesado%20en%20el%20plan%20Personalizado" class="package-button">Más información</a>
+                    </div>
+                </div>
+
+                <div class="package-card glassmorphism-card">
+                    <h3><i class="fas fa-box"></i> Identidad básica</h3>
+                    <ul>
+                        <li>Logo sencillo</li>
+                        <li>Paleta de colores + tipografía</li>
+                        <li>Manual de uso básico (marca y tipografías)</li>
+                    </ul>
+                    <div class="price">
+                        <span>$50.000</span>
+                        <a href="https://wa.me/573172280539?text=Hola,%20estoy%20interesado%20en%20el%20paquete%20Identidad%20básica" class="package-button">Más información</a>
+                    </div>
+                </div>
+
+                <div class="package-card glassmorphism-card">
+                    <h3><i class="fas fa-cube"></i> Impulso de marca</h3>
+                    <ul>
+                        <li>Logo + variaciones</li>
+                        <li>Paleta + tipografías</li>
+                        <li>Mini manual de marca</li>
+                        <li>Catálogo web (ej. streaming, gaming, apps o cursos) alojado en GitHub Pages</li>
+                        <li>Mockups básicos (redes sociales o tarjetas)</li>
+                    </ul>
+                    <div class="price">
+                        <span>$100.000</span>
+                        <a href="https://wa.me/573172280539?text=Hola,%20estoy%20interesado%20en%20el%20paquete%20Impulso%20de%20marca" class="package-button">Más información</a>
+                    </div>
+                </div>
+
+                <div class="package-card glassmorphism-card">
+                    <h3><i class="fas fa-gem"></i> Branding completo</h3>
+                    <ul>
+                        <li>Branding completo (logo profesional con variaciones, paleta, tipografías)</li>
+                        <li>Manual de marca detallado</li>
+                        <li>Catálogo web interactivo alojado en GitHub Pages</li>
+                        <li>Página web de presentación (landing) también en GitHub Pages</li>
+                        <li>Mockups y material promocional</li>
+                    </ul>
+                    <div class="price">
+                        <span>$200.000</span>
+                        <a href="https://wa.me/573172280539?text=Hola,%20estoy%20interesado%20en%20el%20paquete%20Branding%20completo" class="package-button">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="glassmorphism-card">
+                <h2>Sobre novaklar studio</h2>
+                <p>Somos un equipo apasionado por el diseño digital, comprometidos con la excelencia y la innovación. En Palmira, Valle del Cauca, impulsamos la visión de nuestros clientes hacia el futuro. Cada uno de nuestros proyectos es abordado con un enfoque meticuloso y estratégico, asegurando que cada diseño no solo sea visualmente atractivo, sino que también comunique el mensaje correcto y genere un impacto duradero. Nuestro objetivo es ser tu socio creativo en el mundo digital.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="glassmorphism-card">
+                <h2>Hablemos de tu Proyecto</h2>
+                <p>¿Listo para llevar tu marca al siguiente nivel? Contáctanos y creemos algo extraordinario juntos. Estamos disponibles para discutir tus ideas, responder a tus preguntas y ayudarte a elegir el paquete que mejor se adapte a tus necesidades. No importa el tamaño de tu proyecto, en <strong>novaklar studio</strong> estamos listos para colaborar contigo y materializar tu visión. Esperamos saber de ti pronto.</p>
+                
+                <div class="contact-buttons">
+                    <a href="mailto:novaklar.oficial@gmail.com" class="cta-button">Enviar correo <i class="fas fa-envelope"></i></a>
+                    <a href="https://wa.me/573172280539" class="cta-button">WhatsApp <i class="fab fa-whatsapp"></i></a>
+                </div>
+                
+                <p class="social-text">También puedes encontrarnos en Instagram:</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/novaklar.co?igsh=b2hvaWxsbjRiMGs2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 novaklar studio. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

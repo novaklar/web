@@ -222,7 +222,7 @@ main {
 
 /* ===== BOTÓN NK-STUDIO - MODIFICADO (TEXTO MÁS GRANDE) ===== */
 .nk-studio-button { 
-    background-color: #c51e5d; 
+    background-color: #080a33; 
     color: white; 
     font-family: 'Comme', sans-serif; 
     width: 100%; /* Cambiado a 100% para ocupar todo el ancho del contenedor */
@@ -496,3 +496,4 @@ footer {
         font-size: 1.8rem; 
     } 
 }
+

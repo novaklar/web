@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ranking de Afiliados | Novaklar</title>
   <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: white;
+      background-color: #f8fafc;
       color: #333;
     }
 
@@ -47,7 +48,7 @@
       font-weight: 700;
       color: #00128f;
       text-align: center;
-      margin: 3rem 0 0.5rem;
+      margin: 2rem 0 0.5rem;
       padding: 0 1rem;
     }
 
@@ -60,34 +61,65 @@
     }
 
     .ranking-container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 0 1.5rem 2rem;
+    }
+
+    .search-container {
+      margin: 1.5rem 0;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.8rem 1rem 0.8rem 3rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 0.6rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #6c91ff;
+      box-shadow: 0 0 0 3px rgba(108, 145, 255, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
     }
 
     .ranking-table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 1rem;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      border-radius: 0.6rem;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+      border-radius: 0.8rem;
       overflow: hidden;
+      background-color: white;
     }
 
     .ranking-table thead {
-      background-color: #6c91ff;
+      background: linear-gradient(135deg, #6c91ff, #4a72da);
       color: white;
     }
 
     .ranking-table th {
-      padding: 1rem;
+      padding: 1.2rem 1rem;
       text-align: left;
       font-weight: 600;
+      font-size: 1.05rem;
     }
 
     .ranking-table td {
-      padding: 0.8rem 1rem;
-      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem;
+      border-bottom: 1px solid #f1f5f9;
     }
 
     .ranking-table tbody tr:nth-child(even) {
@@ -99,13 +131,14 @@
     }
 
     .ranking-table tbody tr:hover {
-      background-color: #f1f5f9;
+      background-color: #f1f7ff;
     }
 
     .rank-number {
       font-weight: bold;
       color: #6c91ff;
-      width: 40px;
+      width: 50px;
+      text-align: center;
     }
 
     .affiliate-name {
@@ -115,14 +148,26 @@
     .sales-count {
       text-align: right;
       font-weight: 600;
+      color: #4a72da;
     }
 
     .top-affiliate {
-      background-color: #f0f4ff !important;
+      background-color: #f0f7ff !important;
+      position: relative;
+    }
+
+    .top-affiliate::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      background: linear-gradient(to bottom, #6c91ff, #4a72da);
     }
 
     .top-affiliate .rank-number {
-      color: #6c91ff;
+      color: #4a72da;
       font-weight: 800;
     }
 
@@ -134,45 +179,58 @@
 
     .loading {
       text-align: center;
-      padding: 2rem;
+      padding: 3rem;
       font-style: italic;
       color: #666;
+      font-size: 1.1rem;
+    }
+
+    .loading i {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #6c91ff;
     }
 
     .error-message {
       color: #d32f2f;
       background-color: #fde8e8;
-      padding: 1rem;
-      border-radius: 4px;
+      padding: 1.2rem;
+      border-radius: 0.6rem;
       margin: 1rem 0;
       text-align: center;
+      border-left: 4px solid #d32f2f;
+    }
+
+    .error-message i {
+      margin-right: 0.5rem;
     }
 
     .last-updated {
       text-align: right;
-      font-size: 0.8rem;
-      color: #6c91ff;
+      font-size: 0.85rem;
+      color: #64748b;
       margin-top: 0.5rem;
       font-weight: 500;
     }
 
     .refresh-btn {
       display: block;
-      margin: 1rem auto;
-      padding: 0.5rem 1rem;
-      background-color: #6c91ff;
+      margin: 1.5rem auto;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(135deg, #6c91ff, #4a72da);
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 0.6rem;
       cursor: pointer;
       transition: all 0.3s ease;
       font-weight: 600;
+      box-shadow: 0 4px 6px rgba(108, 145, 255, 0.2);
     }
 
     .refresh-btn:hover {
-      background-color: #5a8ce6;
       transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 12px rgba(108, 145, 255, 0.3);
     }
 
     .refresh-btn:active {
@@ -180,33 +238,47 @@
     }
 
     .refresh-btn:disabled {
-      background-color: #cccccc;
+      background: #cbd5e1;
       cursor: not-allowed;
       transform: none;
       box-shadow: none;
     }
 
     .total-sales {
-      background-color: #6c91ff;
+      background: linear-gradient(135deg, #6c91ff, #4a72da);
       color: white;
-      padding: 1rem;
-      border-radius: 0.6rem;
-      margin-top: 1.5rem;
+      padding: 1.2rem;
+      border-radius: 0.8rem;
+      margin-top: 2rem;
       text-align: center;
       font-weight: 600;
       font-size: 1.2rem;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(108, 145, 255, 0.3);
     }
 
     .total-sales span {
       font-weight: 700;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
 
-    @media (max-width: 600px) {
+    .no-results {
+      text-align: center;
+      padding: 2rem;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    .no-results i {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 1rem;
+      color: #cbd5e1;
+    }
+
+    @media (max-width: 768px) {
       .page-title {
         font-size: 1.8rem;
-        margin: 2rem 0 0.5rem;
+        margin: 1.5rem 0 0.5rem;
       }
       
       .season-info {
@@ -220,21 +292,21 @@
       
       .ranking-table th, 
       .ranking-table td {
-        padding: 0.6rem 0.8rem;
+        padding: 0.8rem;
         font-size: 0.9rem;
       }
 
       .total-sales {
         font-size: 1rem;
-        padding: 0.8rem;
+        padding: 1rem;
       }
 
       .total-sales span {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
       }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
       .page-title {
         font-size: 1.6rem;
       }
@@ -245,6 +317,15 @@
       
       header img {
         height: 35px;
+      }
+      
+      .ranking-table {
+        font-size: 0.85rem;
+      }
+      
+      .ranking-table th, 
+      .ranking-table td {
+        padding: 0.6rem;
       }
     }
   </style>
@@ -259,13 +340,24 @@
   <div class="season-info" id="season-info"></div>
 
   <div class="ranking-container">
-    <div id="loading" class="loading">Cargando datos...</div>
-    <div id="error" class="error-message" style="display: none;"></div>
+    <div id="loading" class="loading">
+      <i class="fas fa-spinner fa-spin"></i>
+      Cargando datos...
+    </div>
+    <div id="error" class="error-message" style="display: none;">
+      <i class="fas fa-exclamation-circle"></i>
+      <span id="error-text"></span>
+    </div>
     
     <button id="refresh-btn" class="refresh-btn">
       <span id="refresh-text">Actualizar ahora</span>
-      <span id="refresh-icon" style="margin-left: 5px;">↻</span>
+      <span id="refresh-icon" style="margin-left: 8px;"><i class="fas fa-sync-alt"></i></span>
     </button>
+
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="search-input" class="search-input" placeholder="Buscar afiliado..." />
+    </div>
     
     <table class="ranking-table" id="ranking-table" style="display: none;">
       <thead>
@@ -280,6 +372,11 @@
       </tbody>
     </table>
 
+    <div id="no-results" class="no-results" style="display: none;">
+      <i class="fas fa-search"></i>
+      No se encontraron resultados para su búsqueda
+    </div>
+
     <div id="total-sales" class="total-sales" style="display: none;">
       Total de ventas: <span id="total-sales-count">0</span>
     </div>
@@ -291,7 +388,7 @@
     // Configuración
     const SPREADSHEET_ID = '1D54c79yejujdFIJKVu4m3iM3ndUVnxP_fSgwSqGec5U';
     const SHEET_NAME = 'Form_Responses1';
-    const RANGE = 'A:K'; // Cambiado de A:F a A:K para incluir todas las columnas
+    const RANGE = 'A:K';
     const AFFILIATE_COLUMNS_START = 1; // Columna B (0-based sería 1)
     const AFFILIATE_COLUMNS_END = 10; // Columna K (0-based sería 10)
     const UPDATE_INTERVAL = 5 * 60 * 1000;
@@ -305,6 +402,7 @@
     const rankingBody = document.getElementById('ranking-body');
     const loadingElement = document.getElementById('loading');
     const errorElement = document.getElementById('error');
+    const errorTextElement = document.getElementById('error-text');
     const tableElement = document.getElementById('ranking-table');
     const lastUpdatedElement = document.getElementById('last-updated');
     const refreshBtn = document.getElementById('refresh-btn');
@@ -313,15 +411,18 @@
     const totalSalesElement = document.getElementById('total-sales');
     const totalSalesCountElement = document.getElementById('total-sales-count');
     const seasonInfoElement = document.getElementById('season-info');
+    const searchInput = document.getElementById('search-input');
+    const noResultsElement = document.getElementById('no-results');
 
-    // Variable para el intervalo de actualización
+    // Variables globales
+    let allAffiliates = [];
     let refreshInterval;
 
     // Función para calcular el mes y temporada actual
     function getCurrentSeasonInfo() {
       const now = new Date();
       const currentYear = now.getFullYear();
-      const currentMonth = now.getMonth(); // 0-11
+      const currentMonth = now.getMonth();
       
       // Calcular la diferencia en meses desde la temporada base
       const monthsDiff = (currentYear - BASE_YEAR) * 12 + (currentMonth - BASE_MONTH);
@@ -354,31 +455,56 @@
         month: 'long', 
         day: 'numeric', 
         hour: '2-digit', 
-        minute: '2-digit',
-        second: '2-digit'
+        minute: '2-digit'
       };
       return new Date(date).toLocaleDateString('es-ES', options);
     }
 
     // Función para animar el icono de actualización
     function spinRefreshIcon() {
-      let rotation = 0;
-      const spinInterval = setInterval(() => {
-        rotation += 30;
-        if (rotation >= 360) rotation = 0;
-        refreshIcon.style.transform = `rotate(${rotation}deg)`;
-      }, 50);
-      return spinInterval;
+      refreshIcon.classList.add('fa-spin');
     }
 
-    // Función mejorada para normalizar nombres
+    function stopSpinRefreshIcon() {
+      refreshIcon.classList.remove('fa-spin');
+    }
+
+    // Función mejorada para normalizar nombres - MÁS ROBUSTA
     function normalizeName(name) {
       if (!name || typeof name !== 'string') return '';
+      
       return name
         .toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        .trim()
-        .replace(/\s+/g, ' ');
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Eliminar acentos
+        .replace(/[^a-z0-9\s]/g, '') // Eliminar caracteres especiales
+        .replace(/\s+/g, ' ') // Reemplazar múltiples espacios por uno solo
+        .trim() // Eliminar espacios al inicio y final
+        .replace(/\b\w/g, c => c.toUpperCase()); // Capitalizar cada palabra
+    }
+
+    // Función para limpiar y estandarizar nombres - NUEVA FUNCIÓN
+    function cleanName(name) {
+      if (!name || typeof name !== 'string') return '';
+      
+      // Lista de variaciones comunes de nombres
+      const nameVariations = {
+        'caroll': 'Caroll',
+        'carroll': 'Caroll',
+        'arias': 'Arias',
+        'aryas': 'Arias',
+        'aryaz': 'Arias'
+      };
+      
+      // Aplicar normalización básica
+      let cleaned = normalizeName(name);
+      
+      // Reemplazar variaciones conocidas
+      Object.keys(nameVariations).forEach(variation => {
+        const regex = new RegExp(`\\b${variation}\\b`, 'gi');
+        cleaned = cleaned.replace(regex, nameVariations[variation]);
+      });
+      
+      return cleaned;
     }
 
     // Función mejorada para parsear datos de afiliados
@@ -389,40 +515,49 @@
         // Eliminar espacios extras y normalizar
         text = text.trim().replace(/\s+/g, ' ');
         
-        // Caso 1: "Nombre X" (número al final)
-        const numberLastMatch = text.match(/^(.+?)\s+(\d+)$/);
-        // Caso 2: "X Nombre" (número al inicio)
-        const numberFirstMatch = text.match(/^(\d+)\s+(.+)$/);
-        // Caso 3: "Nombre - X" (número después de guión)
-        const numberAfterDash = text.match(/^(.+?)\s*-\s*(\d+)$/);
-        // Caso 4: Solo nombre (asumir 1 venta)
-        const nameOnlyMatch = text.match(/^([a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+)$/);
+        // Patrones para detectar diferentes formatos
+        const patterns = [
+          // Formato: "Nombre X" (número al final)
+          /^(.+?)\s+(\d+)$/,
+          // Formato: "X Nombre" (número al inicio)
+          /^(\d+)\s+(.+)$/,
+          // Formato: "Nombre - X" (número después de guión)
+          /^(.+?)\s*[-–—]\s*(\d+)$/,
+          // Formato: "Nombre: X" (número después de dos puntos)
+          /^(.+?)\s*[:]\s*(\d+)$/,
+          // Formato: "Nombre (X)" (número entre paréntesis)
+          /^(.+?)\s*[\(]\s*(\d+)\s*[\)]$/,
+          // Solo nombre (asumir 1 venta)
+          /^([a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+)$/
+        ];
         
         let name, sales;
         
-        if (numberLastMatch) {
-          name = numberLastMatch[1].trim();
-          sales = parseInt(numberLastMatch[2]);
-        } else if (numberFirstMatch) {
-          name = numberFirstMatch[2].trim();
-          sales = parseInt(numberFirstMatch[1]);
-        } else if (numberAfterDash) {
-          name = numberAfterDash[1].trim();
-          sales = parseInt(numberAfterDash[2]);
-        } else if (nameOnlyMatch) {
-          name = nameOnlyMatch[1].trim();
-          sales = 1; // Valor por defecto cuando no se especifica
-        } else {
-          return null;
+        for (const pattern of patterns) {
+          const match = text.match(pattern);
+          if (match) {
+            if (pattern === /^([a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+)$/) {
+              // Solo nombre
+              name = match[1].trim();
+              sales = 1;
+            } else {
+              // Nombre y número
+              name = match[1].trim();
+              sales = parseInt(match[2]);
+            }
+            
+            // Validar resultados
+            if (name && name.length >= 2 && !isNaN(sales) && sales > 0) {
+              return {
+                displayName: cleanName(name), // Usar la función de limpieza
+                normalizedName: normalizeName(name),
+                sales
+              };
+            }
+          }
         }
         
-        if (!name || name.length < 2 || isNaN(sales) || sales <= 0) return null;
-        
-        return {
-          displayName: name,
-          normalizedName: normalizeName(name),
-          sales
-        };
+        return null;
       } catch (error) {
         console.error('Error parsing affiliate data:', text, error);
         return null;
@@ -448,12 +583,16 @@
                 if (affiliate) {
                   totalSales += affiliate.sales;
                   const key = affiliate.normalizedName;
+                  
                   if (affiliatesMap.has(key)) {
+                    // Si ya existe, sumar las ventas
                     affiliatesMap.get(key).sales += affiliate.sales;
                   } else {
+                    // Si no existe, agregar nuevo
                     affiliatesMap.set(key, {
                       name: affiliate.displayName,
-                      sales: affiliate.sales
+                      sales: affiliate.sales,
+                      normalizedName: affiliate.normalizedName
                     });
                   }
                 }
@@ -475,17 +614,40 @@
       }
     }
 
+    // Función para filtrar afiliados según la búsqueda
+    function filterAffiliates(searchTerm) {
+      if (!searchTerm) {
+        return allAffiliates;
+      }
+      
+      const normalizedSearch = normalizeName(searchTerm);
+      return allAffiliates.filter(affiliate => 
+        affiliate.normalizedName.includes(normalizedSearch)
+      );
+    }
+
     // Función para renderizar el ranking
-    function renderRanking(data) {
+    function renderRanking(affiliates) {
       rankingBody.innerHTML = '';
       
+      if (affiliates.length === 0) {
+        tableElement.style.display = 'none';
+        noResultsElement.style.display = 'block';
+        totalSalesElement.style.display = 'none';
+        return;
+      }
+      
+      tableElement.style.display = 'table';
+      noResultsElement.style.display = 'none';
+      totalSalesElement.style.display = 'block';
+      
       // Ordenar por ventas (descendente) y luego por nombre (ascendente)
-      data.affiliates.sort((a, b) => {
+      affiliates.sort((a, b) => {
         if (b.sales !== a.sales) return b.sales - a.sales;
         return a.name.localeCompare(b.name);
       });
       
-      data.affiliates.forEach((affiliate, index) => {
+      affiliates.forEach((affiliate, index) => {
         const row = document.createElement('tr');
         if (index < 3) row.classList.add('top-affiliate');
         
@@ -508,10 +670,11 @@
         row.append(rankCell, nameCell, salesCell);
         rankingBody.appendChild(row);
       });
+    }
 
-      // Actualizar el total de ventas
-      totalSalesCountElement.textContent = data.totalSales.toLocaleString('es-CO');
-      totalSalesElement.style.display = 'block';
+    // Función para actualizar las estadísticas
+    function updateStats(totalSales) {
+      totalSalesCountElement.textContent = totalSales.toLocaleString('es-CO');
     }
 
     // Función para cargar datos desde Google Sheets
@@ -521,16 +684,17 @@
         loadingElement.style.display = 'block';
         errorElement.style.display = 'none';
         tableElement.style.display = 'none';
+        noResultsElement.style.display = 'none';
         totalSalesElement.style.display = 'none';
         refreshBtn.disabled = true;
         refreshText.textContent = 'Actualizando...';
-        spinInterval = spinRefreshIcon();
+        spinRefreshIcon();
         
         const cacheBuster = new Date().getTime();
         const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&range=${RANGE}&t=${cacheBuster}`;
         
         const response = await fetch(url);
-        if (!response.ok) throw new Error(`Error ${response.status}`);
+        if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`);
         
         const text = await response.text();
         const json = JSON.parse(text.substring(47).slice(0, -2));
@@ -542,28 +706,34 @@
           throw new Error('No se encontraron datos válidos de afiliados');
         }
         
-        renderRanking(affiliateData);
+        // Guardar todos los afiliados para búsqueda
+        allAffiliates = affiliateData.affiliates;
+        
+        // Filtrar según búsqueda actual
+        const searchTerm = searchInput.value;
+        const filteredAffiliates = filterAffiliates(searchTerm);
+        
+        renderRanking(filteredAffiliates);
+        updateStats(affiliateData.totalSales);
         
         lastUpdatedElement.textContent = `Última actualización: ${formatDate(new Date())}`;
         loadingElement.style.display = 'none';
-        tableElement.style.display = 'table';
         
       } catch (error) {
         console.error('Error:', error);
         loadingElement.style.display = 'none';
-        errorElement.textContent = `Error al cargar datos: ${error.message}`;
+        errorTextElement.textContent = error.message;
         errorElement.style.display = 'block';
       } finally {
-        if (spinInterval) clearInterval(spinInterval);
+        stopSpinRefreshIcon();
         refreshBtn.disabled = false;
         refreshText.textContent = 'Actualizar ahora';
-        refreshIcon.style.transform = 'rotate(0deg)';
       }
     }
 
     // Inicia la actualización automática
     function startAutoRefresh() {
-      updateSeasonInfo(); // Actualizar la información de temporada
+      updateSeasonInfo();
       loadDataFromSheets();
       refreshInterval = setInterval(loadDataFromSheets, UPDATE_INTERVAL);
     }
@@ -572,7 +742,14 @@
     refreshBtn.addEventListener('click', () => {
       clearInterval(refreshInterval);
       loadDataFromSheets();
-      startAutoRefresh();
+      refreshInterval = setInterval(loadDataFromSheets, UPDATE_INTERVAL);
+    });
+
+    // Evento para búsqueda
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value;
+      const filteredAffiliates = filterAffiliates(searchTerm);
+      renderRanking(filteredAffiliates);
     });
 
     // Inicia al cargar la página

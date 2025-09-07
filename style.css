@@ -24,10 +24,13 @@ html, body {
     overflow-x: hidden; 
 }
 
-/* ===== HEADER ===== */ 
+/* ===== HEADER CON GLASSMORFISMO ===== */ 
 header { 
-    background-color: #fff; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     position: fixed; 
     width: 100%; 
     top: 0; 
@@ -36,6 +39,7 @@ header {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
+    transition: all 0.3s ease;
 }
 
 .logo-container { 
@@ -199,33 +203,12 @@ main {
     max-height: 500px; 
 }
 
-/* ===== NUEVO BOTÓN DE CONTACTO ===== */
-.contact-button { 
+/* ===== BOTÓN NK STUDIO (COLOR #6C91FF) ===== */
+.nk-studio-button { 
     background-color: #6c91ff; 
     color: white; 
     font-family: 'Comme', sans-serif; 
-    width: 280px; 
-    line-height: normal; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    text-align: center; 
-    text-decoration: none; 
-    transition: background-color 0.2s ease; 
-    padding: 20px 16px; /* AUMENTADO PARA MAYOR ALTURA */ 
-    font-weight: bold; 
-}
-
-.contact-button:hover { 
-    background-color: #5a7ed3; 
-}
-
-/* ===== BOTÓN NK-STUDIO - MODIFICADO (TEXTO MÁS GRANDE) ===== */
-.nk-studio-button { 
-    background-color: #080a33; 
-    color: white; 
-    font-family: 'Comme', sans-serif; 
-    width: 100%; /* Cambiado a 100% para ocupar todo el ancho del contenedor */
+    width: 100%;
     height: 120px; 
     line-height: normal; 
     border: none; 
@@ -235,17 +218,17 @@ main {
     text-decoration: none; 
     transition: all 0.3s ease; 
     font-weight: bold;
-    font-size: 1.5em; /* Tamaño de fuente aumentado */
+    font-size: 1.5em;
     display: flex; 
     justify-content: center; 
     align-items: center; 
     position: relative; 
     overflow: hidden; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    /* margin-left y margin-right eliminados para que ocupe todo el ancho */
 }
 
 .nk-studio-button:hover { 
+    background-color: #5a7ed9;
     transform: translateY(-2px); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
 }
@@ -264,6 +247,27 @@ main {
 
 .nk-studio-button:hover::before { 
     left: 125%; 
+}
+
+/* ===== BOTÓN CONTACTAR ASESORAS (COLOR #00128F) ===== */
+.contact-button { 
+    background-color: #00128f; 
+    color: white; 
+    font-family: 'Comme', sans-serif; 
+    width: 280px; 
+    line-height: normal; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    text-align: center; 
+    text-decoration: none; 
+    transition: background-color 0.2s ease; 
+    padding: 20px 16px;
+    font-weight: bold; 
+}
+
+.contact-button:hover { 
+    background-color: #001076; 
 }
 
 /* ===== COUNTERS SECTION ===== */ 
@@ -496,4 +500,3 @@ footer {
         font-size: 1.8rem; 
     } 
 }
-

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Descargar App | Novaklar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-blue: #00128f;
+      --secondary-blue: #6c91ff;
+      --light-blue: #eef5ff;
+      --primary-teal: #147a80;
+      --secondary-teal: #beff7d;
+      --light-teal: #e7fcfb;
+      --white: #ffffff;
+      --light-gray: #f9f9f9;
+      --medium-gray: #555;
+      --dark-gray: #333;
+      --shadow: 0 4px 15px rgba(0,0,0,0.08);
+      --transition: all 0.3s ease;
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: var(--dark-gray);
+      line-height: 1.6;
+      padding-bottom: 2rem;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header img {
+      height: 40px;
+      filter: brightness(0) invert(1);
+      transition: var(--transition);
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    header a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    header a:hover {
+      background-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+    
+    .app-container {
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+    }
+
+    .app-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .app-title {
+      font-family: 'Comme', sans-serif;
+      font-size: 2.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+    }
+
+    .app-version {
+      color: var(--medium-gray);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .app-image {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 1.5rem;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: var(--transition);
+    }
+
+    .app-image:hover {
+      transform: scale(1.05);
+    }
+
+    .app-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 15px rgba(0, 18, 143, 0.3);
+      transition: var(--transition);
+      margin: 1.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 18, 143, 0.4);
+    }
+
+    .download-btn:active {
+      transform: translateY(1px);
+    }
+
+    .download-btn i {
+      margin-right: 0.5rem;
+    }
+
+    .features-section {
+      margin: 2.5rem 0;
+    }
+
+    .section-title {
+      font-family: 'Comme', sans-serif;
+      font-size: 1.8rem;
+      color: var(--primary-blue);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-blue);
+    }
+
+    .feature-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary-blue);
+    }
+    
+    .content-paragraph {
+        color: var(--medium-gray);
+        line-height: 1.5;
+        text-align: justify;
+    }
+
+    .security-section,
+    .studio-section {
+      text-align: center;
+      padding: 2rem 1.5rem; /* Ajuste para coincidir con el app-container */
+      margin: 2rem auto;
+    }
+
+    .security-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.5rem auto;
+      max-width: 800px;
+    }
+
+    .badge {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 280px;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .badge:hover {
+      transform: scale(1.05);
+    }
+
+    .badge i {
+      font-size: 1.8rem;
+      color: var(--secondary-blue);
+      margin-right: 0.8rem;
+    }
+
+    .badge-text {
+      font-weight: 600;
+      color: var(--dark-gray);
+      flex: 1;
+    }
+    
+    .text-block {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      text-align: left;
+    }
+    
+    .text-block h3 {
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .text-block p {
+      margin-bottom: 1rem;
+      color: var(--medium-gray);
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .app-title {
+        font-size: 2rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .security-badges {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .badge {
+        width: 100%;
+      }
+      
+      .text-block p {
+          max-width: 100%; 
+          margin: 0 auto 1rem; 
+      }
+    }
+
+    @media (max-width: 600px) {
+      .app-title {
+        font-size: 1.8rem;
+      }
+      
+      .download-btn {
+        padding: 0.9rem 1.7rem;
+        font-size: 1.1rem;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      .app-title {
+        font-size: 1.6rem;
+      }
+      
+      .download-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg" alt="Novaklar Logo" />
+    <a href="https://novaklar.github.io/web/">Regresar</a>
+  </header>
+
+  <div class="app-container">
+    <div class="app-header">
+      <h1 class="app-title">App Novaklar</h1>
+      <p class="app-version">Versión 1.1</p>
+      <div class="app-image">
+        <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/logos/nkapp.png" alt="App Novaklar">
+      </div>
+      <a href="https://github.com/novaklar/web/releases/download/V1.1/app-release.apk" class="download-btn">
+        <i class="fas fa-download"></i> Descargar APK
+      </a>
+    </div>
+    
+    <div class="features-section">
+      <h2 class="section-title">Funcionalidades Principales</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <h3 class="feature-title">Administrador de Finanzas</h3>
+          <p class="content-paragraph">Controla tus ingresos y gastos personales con herramientas intuitivas para una mejor gestión financiera. Registra tus transacciones, establece presupuestos y visualiza gráficos detallados de tu situación económica.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sticky-note"></i>
+          </div>
+          <h3 class="feature-title">Sección de Notas</h3>
+          <p class="content-paragraph">Organiza tus ideas, recordatorios y tareas importantes con nuestro sistema de notas fácil de usar. Categoriza tus anotaciones, establece prioridades y sincroniza tu información entre dispositivos.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="feature-title">Acceso Directo</h3>
+          <p class="content-paragraph">Redirección inmediata a la página web de la empresa para mantenerte siempre conectado. Accede rápidamente a información actualizada, promociones exclusivas y todos los servicios que ofrece Novaklar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="security-section">
+    <h2 class="section-title">Seguridad Verificada</h2>
+    <p class="content-paragraph">Nuestra aplicación cuenta con el respaldo de los principales sistemas de seguridad móvil</p>
+    <div class="security-badges">
+      <div class="badge">
+        <i class="fab fa-google"></i>
+        <span class="badge-text">Google Play Protect</span>
+      </div>
+      <div class="badge">
+        <i class="fas fa-shield-alt"></i>
+        <span class="badge-text">Samsung Knox</span>
+      </div>
+      <div class="badge">
+        <i class="fas fa-mobile-alt"></i>
+        <span class="badge-text">Seguridad MIUI (Xiaomi)</span>
+      </div>
+    </div>
+    
+    <div class="text-block">
+      <h3>Protección de Nivel Empresarial</h3>
+      <p>Nuestra aplicación ha sido verificada por los principales sistemas de seguridad móvil, garantizando la protección de tus datos y la integridad de tu dispositivo.</p>
+      <p><strong>Google Play Protect</strong> es la capa de defensa oficial de Android que analiza automáticamente millones de aplicaciones y advierte sobre riesgos potenciales, proporcionando un escudo constante contra software malicioso.</p>
+      <p><strong>Samsung Knox</strong> es una solución de seguridad de nivel empresarial que protege tanto los datos como el sistema operativo desde el arranque, asegurando un entorno confiable frente a amenazas digitales mediante hardware y software especializado.</p>
+      <p>Los dispositivos <strong>Xiaomi</strong> incorporan la aplicación Seguridad de MIUI que ofrece funciones de escaneo antivirus, limpieza y optimización del dispositivo, garantizando un rendimiento seguro y eficiente en todo momento.</p>
+    </div>
+  </div>
+
+  <div class="studio-section">
+    <h2 class="section-title">Desarrollado por NK Studio</h2>
+    <div class="text-block">
+      <h3>El departamento creativo de Novaklar</h3>
+      <p>Esta aplicación ha sido diseñada y desarrollada por <strong>NK Studio</strong>, el departamento audiovisual y creativo de Novaklar, especializado en crear experiencias digitales innovadoras y funcionales.</p>
+      <p>NK Studio no solo se encarga de la producción audiovisual, sino que también lidera el diseño de páginas web, estrategias digitales y proyectos de marketing integrales para la empresa, combinando creatividad y tecnología para ofrecer soluciones completas.</p>
+      <p>Esta aplicación es un regalo para los desafiliados de Novaklar, una herramienta práctica y valiosa con la que pueden obtener beneficios directos y al mismo tiempo conocer el alcance de la capacidad creativa y técnica que distingue a este departamento.</p>
+      <p>NK Studio es el motor creativo que respalda todos los desarrollos de la compañía, ofreciendo soluciones de comunicación y marketing digital que agregan valor real, demostrando el compromiso de Novaklar con la innovación y la excelencia en todos sus productos y servicios.</p>
+    </div>
+  </div>
+</body>
+</html>

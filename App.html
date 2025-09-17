@@ -109,37 +109,46 @@
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       transition: var(--transition);
+      background-color: #080a33; /* Color del contenedor */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .app-image:hover {
       transform: scale(1.05);
     }
 
-    .app-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+    .animated-logo {
+      width: 80%;
+      height: 80%;
+      background-image: url("https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Novaklar.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: invert(30%) sepia(70%) saturate(2000%) hue-rotate(320deg) brightness(90%) contrast(90%);
     }
 
     .download-btn {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      display: block;
+      background: #c51e5d;
       color: white;
       padding: 1rem 2rem;
-      border-radius: 50px;
+      border-radius: 15px;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.2rem;
-      box-shadow: 0 5px 15px rgba(0, 18, 143, 0.3);
+      box-shadow: 0 5px 15px rgba(197, 30, 93, 0.3);
       transition: var(--transition);
-      margin: 1.5rem 0;
+      margin: 1.5rem auto 3rem; /* Aumenta el margen inferior */
       position: relative;
       overflow: hidden;
+      max-width: 250px; /* Ancho reducido */
     }
 
     .download-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 18, 143, 0.4);
+      box-shadow: 0 8px 20px rgba(197, 30, 93, 0.4);
     }
 
     .download-btn:active {
@@ -149,7 +158,7 @@
     .download-btn i {
       margin-right: 0.5rem;
     }
-
+    
     .features-section {
       margin: 2.5rem 0;
     }
@@ -305,6 +314,7 @@
       .download-btn {
         padding: 0.9rem 1.7rem;
         font-size: 1.1rem;
+        max-width: 250px;
       }
       
       .section-title {
@@ -318,7 +328,7 @@
       }
       
       .download-btn {
-        width: 100%;
+        max-width: 100%;
         text-align: center;
       }
     }
@@ -335,9 +345,9 @@
       <h1 class="app-title">App Novaklar</h1>
       <p class="app-version">Versión 1.1</p>
       <div class="app-image">
-        <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/logos/nkapp.png" alt="App Novaklar">
+        <div class="animated-logo"></div>
       </div>
-      <a href="https://github.com/novaklar/web/releases/download/V1.1/app-release.apk" class="download-btn">
+      <a href="https://github.com/novaklar/web/releases/download/V1.1/Novaklar" class="download-btn">
         <i class="fas fa-download"></i> Descargar APK
       </a>
     </div>

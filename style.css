@@ -687,8 +687,8 @@ footer {
     }
 
     .whatsapp-button { 
-        width: 60px;
-        height: 60px; 
+        width: 90px;
+        height: 90px; 
         bottom: 20px; 
         right: 20px; 
     }
@@ -723,3 +723,4 @@ footer {
         right: 15px; 
     }
 }
+

@@ -425,11 +425,11 @@ footer {
 /* ===== WHATSAPP BUTTON ===== */ 
 .whatsapp-button { 
     position: fixed; 
-    bottom: 25px; 
-    right: 25px; 
+    bottom: 15px; /* Más cerca del borde */
+    right: 15px; /* Más cerca del borde */
     background-color: transparent;
-    width: 90px; /* Más grande en desktop */
-    height: 90px; /* Más grande en desktop */
+    width: 90px;
+    height: 90px;
     border-radius: 0;
     display: flex; 
     justify-content: center; 
@@ -687,10 +687,10 @@ footer {
     }
 
     .whatsapp-button { 
-        width: 85px; /* 85px para tablet */
-        height: 85px; /* 85px para tablet */
-        bottom: 20px; 
-        right: 20px; 
+        width: 85px;
+        height: 85px;
+        bottom: 10px; /* Más cerca en tablet */
+        right: 10px; /* Más cerca en tablet */
     }
 }
 
@@ -717,9 +717,9 @@ footer {
     }
 
     .whatsapp-button { 
-        width: 85px; /* 85px para móviles */
-        height: 85px; /* 85px para móviles */
-        bottom: 15px; 
-        right: 15px; 
+        width: 85px;
+        height: 85px;
+        bottom: 8px; /* Aún más cerca en móvil */
+        right: 8px; /* Aún más cerca en móvil */
     }
 }

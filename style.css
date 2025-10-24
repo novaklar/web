@@ -7,13 +7,17 @@
 }
 
 @font-face { 
-    font-family: 'Waratah'; 
-    src: url('https://raw.githubusercontent.com/novaklar/web/main/waratah.ttf') format('truetype'); 
+    font-family: 'Novaklar'; 
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/novaklar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face { 
     font-family: 'Comme'; 
     src: url('https://raw.githubusercontent.com/novaklar/web/main/comme.ttf') format('truetype'); 
+    font-display: swap;
 }
 
 html, body { 
@@ -54,6 +58,12 @@ header {
 }
 
 /* ===== NAVIGATION ===== */ 
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 20px; 
+}
+
 .nav-links a { 
     color: #333; 
     font-size: 0.95rem; 
@@ -83,10 +93,19 @@ header {
     width: 100%; 
 }
 
-.social-links { 
-    display: flex; 
-    list-style: none; 
-    gap: 20px; 
+/* ===== BURGER MENU ===== */
+.burger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px;
+    transition: all 0.3s ease;
 }
 
 /* ===== MAIN CONTENT ===== */ 
@@ -95,7 +114,7 @@ main {
     padding: 1.5rem 5%; 
 }
 
-/* ===== HERO SECTION - AJUSTADO ===== */ 
+/* ===== HERO SECTION ===== */ 
 .hero { 
     text-align: center; 
     padding: 6rem 0 4rem; 
@@ -107,26 +126,26 @@ main {
     transition: padding-bottom 0.3s ease-out; 
 }
 
-.hero-title .logo-text { 
-    font-family: 'Waratah', sans-serif; 
-    font-size: 4.5rem; 
-    color: #6c91ff; 
-    line-height: 1; 
-    margin-bottom: 0 !important; 
-    display: inline-block; 
-    min-width: 400px; /* Ancho mínimo para que los botones coincidan */ 
+.logo-text {
+    font-family: 'Novaklar', sans-serif;
+    font-size: 4.5rem;
+    color: #6c91ff;
+    line-height: 1;
+    margin-bottom: 0;
+    display: inline-block;
+    min-width: 400px;
 }
 
 .hero p.slogan { 
     font-size: 1.3rem; 
-    margin: 30px 0 205px !important; /* Aumentado de 170px a 205px (35px más) */ 
+    margin: 30px 0 205px; 
     padding: 0 10%; 
     color: #fff; 
-    font-family: 'Comme', sans-serif !important; 
+    font-family: 'Comme', sans-serif; 
     font-weight: 400; 
 }
 
-/* ===== NUEVO PANEL DE BOTONES ===== */
+/* ===== BOTONES SECTION ===== */
 .botones-container { 
     display: flex; 
     flex-direction: column; 
@@ -135,7 +154,7 @@ main {
     margin-top: 2rem; 
     transform: translateY(-20px); 
     width: 100%; 
-    max-width: 400px; /* Mismo ancho que el título */ 
+    max-width: 400px;
     margin-left: auto; 
     margin-right: auto; 
 }
@@ -148,7 +167,7 @@ main {
     background-color: white; 
     color: black; 
     border: none; 
-    padding: 20px 24px; /* Aumentado el padding vertical para mayor altura */ 
+    padding: 20px 24px;
     font-size: 1em; 
     cursor: pointer; 
     border-radius: 5px; 
@@ -160,7 +179,7 @@ main {
     outline: none; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     height: auto; 
-    min-height: 60px; /* Altura mínima aumentada */ 
+    min-height: 60px;
     display: flex; 
     align-items: center; 
     justify-content: center; 
@@ -203,7 +222,7 @@ main {
     max-height: 500px; 
 }
 
-/* ===== BOTÓN NK STUDIO (COLOR #6C91FF) ===== */
+/* ===== NK STUDIO BUTTON ===== */
 .nk-studio-button { 
     background-color: #6c91ff; 
     color: white; 
@@ -249,7 +268,14 @@ main {
     left: 125%; 
 }
 
-/* ===== BOTÓN CONTACTAR ASESORAS (COLOR #00128F) ===== */
+/* ===== CONTACT BUTTON ===== */
+.contact-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
 .contact-button { 
     background-color: #00128f; 
     color: white; 
@@ -272,12 +298,13 @@ main {
 
 /* ===== COUNTERS SECTION ===== */ 
 .counters { 
-    display: flex; 
-    justify-content: space-around; 
+    background-color: rgba(108, 145, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
     flex-wrap: wrap; 
-    padding: 2.5rem 0; 
-    background-color: #f0f4ff; 
-    margin: 2rem 0; 
 }
 
 .counter-container { 
@@ -395,68 +422,234 @@ footer {
     margin-top: 3rem; 
 }
 
-/* ===== WHATSAPP BUTTON - ACTUALIZADO ===== */ 
+/* ===== WHATSAPP BUTTON ===== */ 
 .whatsapp-button { 
     position: fixed; 
     bottom: 25px; 
     right: 25px; 
-    background-color: transparent; /* Fondo transparente */
-    width: 70px; /* Más grande - aumentado de 60px */
-    height: 70px; /* Más grande - aumentado de 60px */
-    border-radius: 0; /* Sin bordes redondeados */
+    background-color: transparent;
+    width: 70px;
+    height: 70px;
+    border-radius: 0;
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    box-shadow: none; /* Sin sombra del contenedor */
+    box-shadow: none;
     cursor: pointer; 
     z-index: 1000; 
     text-decoration: none; 
     transition: all 0.3s ease; 
-    border: none; /* Elimina cualquier borde */
-    outline: none; /* Elimina el outline por defecto */
-    padding: 0; /* Elimina padding interno */
+    border: none;
+    outline: none;
+    padding: 0;
 }
 
 .whatsapp-button:hover { 
-    background-color: transparent; /* Mantiene fondo transparente en hover */
-    transform: scale(1.1); /* Efecto de escala al hover */
+    background-color: transparent;
+    transform: scale(1.1);
 }
 
 .whatsapp-button:active, 
 .whatsapp-button:focus { 
-    background-color: transparent; /* Fondo transparente al hacer clic */
-    outline: none; /* Elimina el outline azul por defecto */
-    box-shadow: none; /* Elimina cualquier sombra de focus */
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
 }
 
 .whatsapp-button img { 
-    width: 100%; /* El SVG ocupa todo el botón */
+    width: 100%;
     height: 100%; 
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)); /* Sombra solo al SVG */
-    transition: filter 0.3s ease; /* Transición suave para la sombra */
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: filter 0.3s ease;
 }
 
 .whatsapp-button:hover img { 
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)); /* Sombra más pronunciada en hover */
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
 }
 
-/* ===== RESPONSIVE DESIGN - AJUSTADO ===== */
+/* ===== POPUP STYLES ===== */
+.novaklar-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: none;
+}
+
+.novaklar-popup-container {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    animation: novaklar-popup-appear 0.5s ease-out;
+}
+
+@keyframes novaklar-popup-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.novaklar-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.novaklar-close-btn:hover {
+    color: #f0f0f0;
+}
+
+.novaklar-avatar-container {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.novaklar-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.novaklar-logo {
+    font-family: 'Novaklar', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.novaklar-welcome-text {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-family: 'Comme', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #fff;
+}
+
+.novaklar-tour-btn {
+    display: inline-block;
+    background-color: #00128f;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+    font-family: 'Comme', sans-serif;
+}
+
+.novaklar-tour-btn:hover {
+    background-color: #001066;
+    transform: translateY(-2px);
+}
+
+.novaklar-skip-link {
+    display: block;
+    margin-top: 15px;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: 'Comme', sans-serif;
+}
+
+.novaklar-skip-link:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
 @media screen and (min-width: 768px) { 
     .botones-container { 
         flex-direction: row; 
         justify-content: center; 
         gap: 30px; 
-        max-width: 600px; /* Ajuste para pantallas más grandes */ 
+        max-width: 600px;
     }
 
-    .hero-title .logo-text { 
-        min-width: 600px; /* Ajuste para pantallas más grandes */ 
+    .logo-text { 
+        min-width: 600px;
     } 
 }
 
 @media screen and (max-width: 768px) { 
     header { 
         padding: 0.8rem 3%; 
+    }
+
+    .burger {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        max-width: 300px;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+        z-index: 999;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .burger.active .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .burger.active .line2 {
+        opacity: 0;
+    }
+
+    .burger.active .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
     }
 
     main { 
@@ -469,18 +662,18 @@ footer {
         margin: 0 auto 2rem; 
     }
 
-    .hero-title .logo-text { 
+    .logo-text { 
         font-size: 3.5rem; 
-        min-width: 300px; /* Ajuste para tablet */ 
+        min-width: 300px;
     }
 
     .hero p.slogan { 
         font-size: 1.2rem; 
-        margin: 20px 0 155px !important; /* Ajuste proporcional (120px + 35px) */ 
+        margin: 20px 0 155px !important;
     }
 
     .botones-container { 
-        max-width: 300px; /* Ajuste para tablet */ 
+        max-width: 300px;
     }
 
     .counters { 
@@ -493,9 +686,8 @@ footer {
         font-size: 2.2rem; 
     }
 
-    /* WhatsApp button responsive */
     .whatsapp-button { 
-        width: 60px; /* Tamaño ligeramente menor en móviles */
+        width: 60px;
         height: 60px; 
         bottom: 20px; 
         right: 20px; 
@@ -507,24 +699,23 @@ footer {
         padding: 3rem 0 1rem !important; 
     }
 
-    .hero-title .logo-text { 
+    .logo-text { 
         font-size: 2.8rem; 
-        min-width: 250px; /* Ajuste para móvil */ 
+        min-width: 250px;
     }
 
     .hero p.slogan { 
-        margin: 15px 0 135px !important; /* Ajuste proporcional (100px + 35px) */ 
+        margin: 15px 0 135px !important;
     }
 
     .botones-container { 
-        max-width: 250px; /* Ajuste para móvil */ 
+        max-width: 250px;
     }
 
     .about-novaklar h2 { 
         font-size: 1.8rem; 
     }
 
-    /* WhatsApp button responsive para móviles pequeños */
     .whatsapp-button { 
         width: 55px; 
         height: 55px; 

@@ -1,308 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>novaklar</title>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Comme:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <link rel="icon" href="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/novaklar1.svg" type="image/svg+xml"/>
-    <style>
-        @font-face {
-            font-family: 'Waratah';
-            src: url('https://raw.githubusercontent.com/novaklar/web/main/novaklar.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        .logo-text {
-            font-family: 'Waratah', sans-serif;
-            font-size: 3rem;
-            color: #000;
-        }
-
-        /* Estilos mejorados para el menú hamburguesa */
-        .burger {
-            display: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .burger div {
-            width: 25px;
-            height: 3px;
-            background-color: #000;
-            margin: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links {
-            display: flex;
-        }
-
-        .social-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .social-links a {
-            text-decoration: none;
-            color: #000;
-        }
-
-        /* Estilo para la sección de contadores - MODIFICADO A 20% DE TRANSPARENCIA (80% opacidad) */
-        .counters {
-            background-color: rgba(108, 145, 255, 0.1); /* #6c91ff con 80% de opacidad (20% transparencia) */
-            padding: 30px;
-            border-radius: 15px;
-            display: flex;
-            justify-content: space-around;
-            margin-top: 50px;
-        }
-
-        .counter-container {
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .burger {
-                display: block;
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                z-index: 1000;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: 0;
-                height: 100vh;
-                width: 70%;
-                max-width: 300px;
-                background-color: #fff;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transform: translateX(100%);
-                transition: transform 0.5s ease-in-out;
-                z-index: 999;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.active {
-                transform: translateX(0);
-            }
-
-            .social-links {
-                flex-direction: column;
-                align-items: center;
-                padding: 0;
-                gap: 30px;
-            }
-
-            .counters {
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px;
-            }
-
-            .burger.active .line1 {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-
-            .burger.active .line2 {
-                opacity: 0;
-            }
-
-            .burger.active .line3 {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-        }
-
-        /* Estilos actualizados para centrar y agregar espacio */
-        .contact-button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 60px; /* Aumentado para más espacio */
-            margin-bottom: 40px;
-        }
-
-        /* ===== ESTILOS ENCAPSULADOS PARA EL POP-UP ===== */
-        .novaklar-popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            display: none; /* Oculto por defecto */
-        }
-
-        .novaklar-popup-container {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            width: 90%;
-            max-width: 500px;
-            padding: 30px;
-            text-align: center;
-            position: relative;
-            animation: novaklar-popup-appear 0.5s ease-out;
-        }
-
-        @keyframes novaklar-popup-appear {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .novaklar-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 32px; /* Más grande */
-            cursor: pointer;
-            color: #fff; /* Color blanco */
-            transition: color 0.3s;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .novaklar-close-btn:hover {
-            color: #f0f0f0; /* Un blanco ligeramente más oscuro al hacer hover */
-        }
-
-        .novaklar-avatar-container {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .novaklar-avatar {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .novaklar-logo {
-            font-family: 'Waratah', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #fff; /* Color blanco */
-        }
-
-        .novaklar-welcome-text {
-            margin-bottom: 20px;
-            line-height: 1.6;
-            font-family: 'Comme', sans-serif;
-            font-size: 1rem;
-            font-weight: 400;
-            color: #fff; /* Color blanco */
-        }
-
-        .novaklar-highlight {
-            font-weight: bold;
-            /* Se eliminó el color específico para usar el mismo del texto */
-        }
-
-        .novaklar-tour-btn {
-            display: inline-block;
-            background-color: #00128f;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.2s;
-            margin-top: 10px;
-            font-family: 'Comme', sans-serif;
-        }
-
-        .novaklar-tour-btn:hover {
-            background-color: #001066;
-            transform: translateY(-2px);
-        }
-
-        .novaklar-skip-link {
-            display: block;
-            margin-top: 15px;
-            color: #e0e0e0; /* Color más claro para mejor contraste */
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-family: 'Comme', sans-serif;
-        }
-
-        .novaklar-skip-link:hover {
-            text-decoration: underline;
-            color: #fff; /* Blanco al hacer hover */
-        }
-
-        /* Estilo mejorado para el botón de WhatsApp - vector completo como botón */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 5px;
-            right: 5px;
-            width: 80px;
-            height: 80px;
-            background-color: transparent; /* Fondo transparente */
-            border: none;
-            border-radius: 0; /* Sin bordes redondeados */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: none; /* Sin sombra del contenedor */
-            transition: transform 0.3s;
-            z-index: 1000;
-            padding: 0;
-        }
-
-        .whatsapp-button:hover {
-            transform: scale(1.1);
-        }
-
-        .whatsapp-button img {
-            width: 100%; /* El SVG ocupa todo el botón */
-            height: 100%;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); /* Sombra solo al SVG */
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comme:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/novaklar1.svg" type="image/svg+xml">
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/novaklar1.svg" alt="novaklar Logo" class="logo" />
+            <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/novaklar1.svg" alt="novaklar Logo" class="logo">
         </div>
         <nav>
             <ul class="nav-links">
-                <li class="social-links">
-                    <a href="https://www.tiktok.com/@novaklar?_t=ZS-8wYRHKIgAeP&_r=1" target="_blank">TikTok</a>
-                    <a href="https://youtube.com/@novaklar?si=l95-ZDJxJhrOwtOV" target="_blank">YouTube</a>
-                    <a href="https://www.instagram.com/novaklar.co?igsh=M2ZwOG91amJmamwx" target="_blank">Instagram</a>
-                    <a href="https://whatsapp.com/channel/0029VaMxlM0EVccFMEFw9u04" target="_blank">WhatsApp</a>
-                </li>
+                <li><a href="https://www.tiktok.com/@novaklar?_t=ZS-8wYRHKIgAeP&_r=1" target="_blank">TikTok</a></li>
+                <li><a href="https://youtube.com/@novaklar?si=l95-ZDJxJhrOwtOV" target="_blank">YouTube</a></li>
+                <li><a href="https://www.instagram.com/novaklar.co?igsh=M2ZwOG91amJmamwx" target="_blank">Instagram</a></li>
+                <li><a href="https://whatsapp.com/channel/0029VaMxlM0EVccFMEFw9u04" target="_blank">WhatsApp</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -398,7 +116,7 @@
                 <h3>Términos y condiciones generales</h3>
                 <ol>
                     <li><strong>Uso de los servicios:</strong> Novaklar actúa como intermediario entre el usuario y los proveedores de servicios digitales. Al utilizar nuestra plataforma, el usuario acepta los términos aquí descritos.</li>
-                    <li><strong>Responsabilidad del usuario:</strong> Cada usuario es responsable de utilizar de forma ética y legal los productos adquiridos. Cualquier intento de fraude o mal uso implicará la suspensión inmediata del acceso.</li>
+                    <li><strong>Responsabilidad del usuario:</strong> Cada usuario es responsable de utilizar de forma ética y legal los productos adquiridos. Cualquier intento de fraude o maluso implicará la suspensión inmediata del acceso.</li>
                     <li><strong>Pagos y reembolsos:</strong> Los pagos deben ser realizados a través de los canales oficiales. Una vez entregado un producto digital correctamente, no se realizan reembolsos, excepto en casos de errores comprobables.</li>
                     <li><strong>Protección de datos:</strong> Novaklar se compromete a proteger la privacidad de sus usuarios y no compartir datos personales con terceros sin consentimiento.</li>
                     <li><strong>Cambios en los términos:</strong> Nos reservamos el derecho de modificar estos términos en cualquier momento. Se recomienda revisar esta sección periódicamente.</li>
@@ -411,12 +129,10 @@
         <p>&copy; 2023 novaklar. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Botón de WhatsApp - vector completo como botón -->
     <a href="CR.html" target="_blank" class="whatsapp-button" aria-label="Chat WhatsApp">
         <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/whastapp.svg" alt="WhatsApp">
     </a>
 
-    <!-- ===== POP-UP DE BIENVENIDA ENCAPSULADO ===== -->
     <div class="novaklar-popup-overlay" id="novaklarWelcomePopup">
         <div class="novaklar-popup-container">
             <button class="novaklar-close-btn" id="novaklarClosePopup">&times;</button>
@@ -443,34 +159,26 @@
 
     <script src="script.js"></script>
     
-    <!-- ===== SCRIPT ENCAPSULADO PARA EL POP-UP ===== -->
     <script>
-        // Script para el pop-up de bienvenida - Encapsulado para evitar conflictos
         document.addEventListener('DOMContentLoaded', function() {
             const popup = document.getElementById('novaklarWelcomePopup');
             const closeBtn = document.getElementById('novaklarClosePopup');
             const skipLink = document.getElementById('novaklarSkipTour');
             
-            // Verificar si ya se ha mostrado el popup anteriormente
-            // Usamos una clave más específica para evitar conflictos
             if (!localStorage.getItem('novaklarWelcomePopupShown')) {
                 popup.style.display = 'flex';
-                // Marcar como mostrado inmediatamente para evitar múltiples aperturas
                 localStorage.setItem('novaklarWelcomePopupShown', 'true');
             }
             
-            // Cerrar popup al hacer clic en la X
             closeBtn.addEventListener('click', function() {
                 popup.style.display = 'none';
             });
             
-            // Cerrar popup al hacer clic en "Saltar por ahora"
             skipLink.addEventListener('click', function(e) {
                 e.preventDefault();
                 popup.style.display = 'none';
             });
             
-            // Cerrar popup al hacer clic fuera del contenido
             popup.addEventListener('click', function(e) {
                 if (e.target === popup) {
                     popup.style.display = 'none';

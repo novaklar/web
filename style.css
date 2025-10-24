@@ -395,33 +395,49 @@ footer {
     margin-top: 3rem; 
 }
 
-/* ===== WHATSAPP BUTTON ===== */ 
+/* ===== WHATSAPP BUTTON - ACTUALIZADO ===== */ 
 .whatsapp-button { 
     position: fixed; 
     bottom: 25px; 
     right: 25px; 
-    background-color: #25D366; 
-    width: 60px; 
-    height: 60px; 
-    border-radius: 16px; 
+    background-color: transparent; /* Fondo transparente */
+    width: 70px; /* Más grande - aumentado de 60px */
+    height: 70px; /* Más grande - aumentado de 60px */
+    border-radius: 0; /* Sin bordes redondeados */
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+    box-shadow: none; /* Sin sombra del contenedor */
     cursor: pointer; 
     z-index: 1000; 
     text-decoration: none; 
     transition: all 0.3s ease; 
+    border: none; /* Elimina cualquier borde */
+    outline: none; /* Elimina el outline por defecto */
+    padding: 0; /* Elimina padding interno */
 }
 
 .whatsapp-button:hover { 
-    background-color: #128C4A; 
-    transform: scale(1.05); 
+    background-color: transparent; /* Mantiene fondo transparente en hover */
+    transform: scale(1.1); /* Efecto de escala al hover */
 }
 
-.whatsapp-button svg { 
-    width: 30px; 
-    height: 30px; 
+.whatsapp-button:active, 
+.whatsapp-button:focus { 
+    background-color: transparent; /* Fondo transparente al hacer clic */
+    outline: none; /* Elimina el outline azul por defecto */
+    box-shadow: none; /* Elimina cualquier sombra de focus */
+}
+
+.whatsapp-button img { 
+    width: 100%; /* El SVG ocupa todo el botón */
+    height: 100%; 
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)); /* Sombra solo al SVG */
+    transition: filter 0.3s ease; /* Transición suave para la sombra */
+}
+
+.whatsapp-button:hover img { 
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)); /* Sombra más pronunciada en hover */
 }
 
 /* ===== RESPONSIVE DESIGN - AJUSTADO ===== */
@@ -475,7 +491,15 @@ footer {
 
     .counter { 
         font-size: 2.2rem; 
-    } 
+    }
+
+    /* WhatsApp button responsive */
+    .whatsapp-button { 
+        width: 60px; /* Tamaño ligeramente menor en móviles */
+        height: 60px; 
+        bottom: 20px; 
+        right: 20px; 
+    }
 }
 
 @media screen and (max-width: 480px) { 
@@ -498,5 +522,13 @@ footer {
 
     .about-novaklar h2 { 
         font-size: 1.8rem; 
-    } 
+    }
+
+    /* WhatsApp button responsive para móviles pequeños */
+    .whatsapp-button { 
+        width: 55px; 
+        height: 55px; 
+        bottom: 15px; 
+        right: 15px; 
+    }
 }

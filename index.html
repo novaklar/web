@@ -129,6 +129,155 @@
             margin-top: 60px; /* Aumentado para más espacio */
             margin-bottom: 40px;
         }
+
+        /* ===== ESTILOS ENCAPSULADOS PARA EL POP-UP ===== */
+        .novaklar-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .novaklar-popup-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            animation: novaklar-popup-appear 0.5s ease-out;
+        }
+
+        @keyframes novaklar-popup-appear {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .novaklar-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.3s;
+        }
+
+        .novaklar-close-btn:hover {
+            color: #333;
+        }
+
+        .novaklar-avatar-container {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .novaklar-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .novaklar-logo {
+            font-family: 'Waratah', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .novaklar-welcome-text {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-family: 'Comme', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #333; /* Color uniforme para todo el texto */
+        }
+
+        .novaklar-highlight {
+            font-weight: bold;
+            /* Se eliminó el color específico para usar el mismo del texto */
+        }
+
+        .novaklar-tour-btn {
+            display: inline-block;
+            background-color: #00128f;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 10px;
+            font-family: 'Comme', sans-serif;
+        }
+
+        .novaklar-tour-btn:hover {
+            background-color: #001066;
+            transform: translateY(-2px);
+        }
+
+        .novaklar-skip-link {
+            display: block;
+            margin-top: 15px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: 'Comme', sans-serif;
+        }
+
+        .novaklar-skip-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo mejorado para el botón de WhatsApp - vector completo como botón */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: transparent; /* Fondo transparente */
+            border: none;
+            border-radius: 0; /* Sin bordes redondeados */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: none; /* Sin sombra del contenedor */
+            transition: transform 0.3s;
+            z-index: 1000;
+            padding: 0;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-button img {
+            width: 100%; /* El SVG ocupa todo el botón */
+            height: 100%;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); /* Sombra solo al SVG */
+        }
     </style>
 </head>
 <body>
@@ -252,19 +401,72 @@
         <p>&copy; 2023 novaklar. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Botón de WhatsApp - vector completo como botón -->
     <a href="CR.html" target="_blank" class="whatsapp-button" aria-label="Chat WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
-            <path d="M20.52 3.48A11.91 11.91 0 0012 0C5.372 0 0 5.372 0 12a11.9 11.9 0 001.986 6.238L0 24l5.762-1.906A11.913 11.913 0 0012 24c6.627 0 12-5.372 12-12a11.91 11.91 0 00-3.48-8.52zm-8.52 18c-2.085 0-4.031-.676-5.618-1.812l-.4-.243-3.423 1.132 1.15-3.338-.26-.405A8.954 8.954 0 013 12c0-4.962 4.038-9 9-9 2.407 0 4.665.937 6.364 2.636a8.922 8.922 0 012.636 6.364c0 4.962-4.038 9-9 9zm5.375-7.625c-.296-.148-1.748-.863-2.02-.96-.273-.099-.472-.148-.672.149-.2.296-.77.96-.945 1.158-.174.198-.348.223-.644.074-.296-.148-1.248-.46-2.377-1.462-.88-.783-1.474-1.75-1.647-2.046-.174-.296-.019-.455.13-.602.134-.132.296-.347.444-.52.148-.174.198-.296.296-.494.099-.198.05-.371-.025-.52-.075-.148-.672-1.618-.92-2.214-.242-.582-.487-.503-.672-.512l-.574-.01c-.2 0-.52.074-.792.371s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.148.198 2.095 3.2 5.076 4.487.709.306 1.262.488 1.694.625.712.226 1.36.194 1.872.118.57-.085 1.748-.714 1.996-1.404.248-.69.248-1.28.174-1.404-.074-.123-.272-.198-.568-.347z"/>
-        </svg>
+        <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/whastapp.svg" alt="WhatsApp">
     </a>
 
+    <!-- ===== POP-UP DE BIENVENIDA ENCAPSULADO ===== -->
+    <div class="novaklar-popup-overlay" id="novaklarWelcomePopup">
+        <div class="novaklar-popup-container">
+            <button class="novaklar-close-btn" id="novaklarClosePopup">&times;</button>
+            
+            <div class="novaklar-avatar-container">
+                <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Avatar1.svg" alt="Avatar Novaklar" class="novaklar-avatar">
+            </div>
+            
+            <h1 class="novaklar-logo">novaklar</h1>
+            
+            <p class="novaklar-welcome-text">
+                ¡Bienvenido a <strong>novaklar</strong>! Si es tu primera vez aquí, 
+                te invitamos a ver nuestro <strong>tour virtual</strong> para que 
+                puedas usar nuestra página web como un experto.
+            </p>
+            
+            <a href="https://youtu.be/8GvK44JxUks?si=kJkWjbTPhoev7g0X" target="_blank" class="novaklar-tour-btn">
+                Ver Tour Virtual
+            </a>
+            
+            <a href="#" class="novaklar-skip-link" id="novaklarSkipTour">Saltar por ahora</a>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    
+    <!-- ===== SCRIPT ENCAPSULADO PARA EL POP-UP ===== -->
+    <script>
+        // Script para el pop-up de bienvenida - Encapsulado para evitar conflictos
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.getElementById('novaklarWelcomePopup');
+            const closeBtn = document.getElementById('novaklarClosePopup');
+            const skipLink = document.getElementById('novaklarSkipTour');
+            
+            // Verificar si ya se ha mostrado el popup anteriormente
+            if (!localStorage.getItem('novaklarPopupShown')) {
+                popup.style.display = 'flex';
+            }
+            
+            // Cerrar popup al hacer clic en la X
+            closeBtn.addEventListener('click', function() {
+                popup.style.display = 'none';
+                localStorage.setItem('novaklarPopupShown', 'true');
+            });
+            
+            // Cerrar popup al hacer clic en "Saltar por ahora"
+            skipLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                popup.style.display = 'none';
+                localStorage.setItem('novaklarPopupShown', 'true');
+            });
+            
+            // Cerrar popup al hacer clic fuera del contenido
+            popup.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    popup.style.display = 'none';
+                    localStorage.setItem('novaklarPopupShown', 'true');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-

@@ -142,6 +142,7 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
+            display: none; /* Oculto por defecto */
         }
 
         .novaklar-popup-container {
@@ -442,32 +443,31 @@
             const skipLink = document.getElementById('novaklarSkipTour');
             
             // Verificar si ya se ha mostrado el popup anteriormente
-            if (!localStorage.getItem('novaklarPopupShown')) {
+            // Usamos una clave más específica para evitar conflictos
+            if (!localStorage.getItem('novaklarWelcomePopupShown')) {
                 popup.style.display = 'flex';
+                // Marcar como mostrado inmediatamente para evitar múltiples aperturas
+                localStorage.setItem('novaklarWelcomePopupShown', 'true');
             }
             
             // Cerrar popup al hacer clic en la X
             closeBtn.addEventListener('click', function() {
                 popup.style.display = 'none';
-                localStorage.setItem('novaklarPopupShown', 'true');
             });
             
             // Cerrar popup al hacer clic en "Saltar por ahora"
             skipLink.addEventListener('click', function(e) {
                 e.preventDefault();
                 popup.style.display = 'none';
-                localStorage.setItem('novaklarPopupShown', 'true');
             });
             
             // Cerrar popup al hacer clic fuera del contenido
             popup.addEventListener('click', function(e) {
                 if (e.target === popup) {
                     popup.style.display = 'none';
-                    localStorage.setItem('novaklarPopupShown', 'true');
                 }
             });
         });
     </script>
 </body>
 </html>
-

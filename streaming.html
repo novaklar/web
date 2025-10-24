@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Streaming | Novaklar</title>
   <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
       margin: 0;
@@ -90,7 +91,6 @@
       display: none;
       margin-top: 0.8rem;
       background-color: #f8fafc;
-      padding: 0.5rem 0;
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -105,6 +105,20 @@
       font-size: 0.9rem;
     }
 
+    .table-container thead tr:first-child th {
+      padding-top: 0.6rem;
+      border-top-left-radius: 0.6rem;
+      border-top-right-radius: 0.6rem;
+      overflow: hidden;
+    }
+
+    .table-container th {
+      padding: 0.5rem 1rem;
+      text-align: center;
+      font-weight: 600;
+      color: white;
+    }
+
     .table-container td {
       padding: 0.5rem 1rem;
       border-bottom: 1px solid #e2e8f0;
@@ -112,6 +126,52 @@
 
     .table-container tr:last-child td {
       border-bottom: none;
+    }
+
+    .buy-section {
+      padding: 1rem;
+      border-top: 2px dashed #e2e8f0;
+      background-color: #f1f5f9;
+    }
+
+    .buy-text {
+      text-align: center;
+      margin-bottom: 0.8rem;
+      font-size: 0.85rem;
+      color: #475569;
+      font-weight: 500;
+    }
+
+    .whatsapp-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.6rem;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 0.4rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
+      transform: translateY(-1px);
+    }
+
+    .whatsapp-btn i {
+      font-size: 1.1rem;
     }
     
     .section-title {
@@ -175,38 +235,45 @@
 
   <script>
     const container = document.getElementById('cards-container');
-    let currentOpenTable = null;
+    let currentlyOpenCard = null;
 
-    const imagenesConValores = [
-      { img: 1, valores: [11500, 14000, 2500] },
-      { img: 2, valores: [5500, 10000, 4500] },
-      { img: "d1", valores: [7500, 11500, 4000] },
-      { img: "d2", valores: [10500, 14500, 4000] },
-      { img: 5, valores: [5500, 10000, 4500] },
-      { img: 6, valores: [5500, 10000, 4500] },
-      { img: 7, valores: [7500, 11500, 4000] },
-      { img: 8, valores: [11000, 15000, 4000] },
-      { img: 9, valores: [8500, 12500, 4000] },
-      { img: 10, valores: [8500, 12500, 4000] },
-      { img: 11, valores: [5500, 10000, 4500] },
-      { img: 12, valores: [5500, 9500, 4000] },
-      { img: 13, valores: [7000, 11000, 4000] },
-      { img: 14, valores: [5500, 10000, 4500] },
-      { img: 15, valores: [11000, 15000, 4000] },
-      { img: "16.6", valores: [8500, 12000, 3500] }
+    // Lista completa de servicios con sus nombres de imagen y valores
+    // [Precio Afiliado, Precio Sugerido, Ganancia]
+    const servicios = [
+      { nombre: "netflix", valores: [11500, 15000, 3500] },
+      { nombre: "hbo", valores: [6000, 10000, 4000] },
+      { nombre: "disneypremium", valores: [8000, 12000, 4000] },
+      { nombre: "prime", valores: [6000, 10000, 4000] },
+      { nombre: "paramount", valores: [5500, 9500, 4000] },
+      { nombre: "viki", valores: [5500, 9500, 4000] },
+      { nombre: "iptv", valores: [8500, 12500, 4000] },
+      { nombre: "youtube", valores: [8000, 12000, 4000] },
+      { nombre: "crunchyroll", valores: [5500, 9500, 4000] },
+      { nombre: "vix", valores: [5500, 9500, 4000] },
+      { nombre: "universal", valores: [8000, 12000, 4000] },
+      // DGO va aquí, después de Universal
+      { nombre: "plex", valores: [5500, 9500, 4000] },
+      { nombre: "apple", valores: [8000, 12000, 4000] },
+      { nombre: "spotify", valores: [11000, 15000, 4000] }
     ];
     
+    // Los combos no cambiaron de nombre
     const combos = [
-      { img: "combo1", valores: [15000, 20000, 5000] },
-      { img: "combo2", valores: [15000, 20000, 5000] }
+      { nombre: "combo1", valores: [15000, 20000, 5000] },
+      { nombre: "combo2", valores: [15000, 20000, 5000] }
     ];
 
-    // Renderizar imágenes normales
-    imagenesConValores.forEach(item => {
+    // Función para crear una tarjeta normal
+    function crearTarjeta(item, esCombo = false) {
       const card = document.createElement('div');
       card.className = 'card';
+      
+      const rutaImagen = `https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/${item.nombre}.png`;
+      
+      const servicioNombre = esCombo ? `Combo ${item.nombre}` : item.nombre.charAt(0).toUpperCase() + item.nombre.slice(1);
+      
       card.innerHTML = `
-        <img src="https://raw.githubusercontent.com/novaklar/web/main/nkc/${item.img}.png" alt="Streaming ${item.img}" />
+        <img src="${rutaImagen}" alt="${servicioNombre}" />
         <div class="table-container">
           <table>
             <tbody>
@@ -215,26 +282,124 @@
               <tr><td>Ganancia</td><td>$${item.valores[2].toLocaleString('es-CO')}</td></tr>
             </tbody>
           </table>
+          <div class="buy-section">
+            <div class="buy-text">¡Adquiere este servicio ahora!</div>
+            <div class="whatsapp-buttons">
+              <a href="https://wa.me/573127741655?text=Hola%20Tatiana,%20estoy%20interesado%20en%20el%20servicio%20${servicioNombre}" 
+                 class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Tatiana
+              </a>
+              <a href="https://wa.me/573018205460?text=Hola%20Alejandra,%20estoy%20interesado%20en%20el%20servicio%20${servicioNombre}" 
+                 class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Alejandra
+              </a>
+            </div>
+          </div>
         </div>
       `;
       
-      const table = card.querySelector('.table-container');
+      const tableContainer = card.querySelector('.table-container');
       
-      card.addEventListener('click', () => {
-        if (currentOpenTable && currentOpenTable !== table) {
-          currentOpenTable.style.display = 'none';
+      card.addEventListener('click', (e) => {
+        // Si el clic fue en la imagen y la tabla ya está abierta, no hacer nada
+        if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') {
+          return;
         }
         
-        if (table.style.display === 'block') {
-          table.style.display = 'none';
-          currentOpenTable = null;
-        } else {
-          table.style.display = 'block';
-          currentOpenTable = table;
+        // Si hay otra tarjeta abierta, la cerramos
+        if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
+          currentlyOpenCard.style.display = 'none';
         }
+        
+        // Alternar la visibilidad de la tabla actual
+        tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
+        
+        // Actualizar la referencia a la tarjeta abierta actualmente
+        currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
       });
       
-      container.appendChild(card);
+      return card;
+    }
+
+    // Función especial para crear la tarjeta de DGO con dos planes
+    function crearTarjetaDGO() {
+      const card = document.createElement('div');
+      card.className = 'card';
+      
+      const rutaImagen = `https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/dgo.png`;
+      
+      card.innerHTML = `
+        <img src="${rutaImagen}" alt="DirecTV Go" />
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th colspan="2" style="background: #021327">Plan Gold</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Precio Afiliado</td><td>$13.000</td></tr>
+              <tr><td>Precio Sugerido</td><td>$17.000</td></tr>
+              <tr><td>Ganancia</td><td>$4.000</td></tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th colspan="2" style="background: #021327; border-radius: 0;">Plan Win Sports</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Precio Afiliado</td><td>$25.000</td></tr>
+              <tr><td>Precio Sugerido</td><td>$29.000</td></tr>
+              <tr><td>Ganancia</td><td>$4.000</td></tr>
+            </tbody>
+          </table>
+          <div class="buy-section">
+            <div class="buy-text">¡Adquiere este servicio ahora!</div>
+            <div class="whatsapp-buttons">
+              <a href="https://wa.me/573127741655?text=Hola%20Tatiana,%20estoy%20interesado%20en%20DirecTV%20Go" 
+                 class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Tatiana
+              </a>
+              <a href="https://wa.me/573018205460?text=Hola%20Alejandra,%20estoy%20interesado%20en%20DirecTV%20Go" 
+                 class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Alejandra
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      const tableContainer = card.querySelector('.table-container');
+      
+      card.addEventListener('click', (e) => {
+        // Si el clic fue en la imagen y la tabla ya está abierta, no hacer nada
+        if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') {
+          return;
+        }
+        
+        // Si hay otra tarjeta abierta, la cerramos
+        if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
+          currentlyOpenCard.style.display = 'none';
+        }
+        
+        // Alternar la visibilidad de la tabla actual
+        tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
+        
+        // Actualizar la referencia a la tarjeta abierta actualmente
+        currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
+      });
+      
+      return card;
+    }
+
+    // Renderizar servicios normales
+    servicios.forEach((item, index) => {
+      container.appendChild(crearTarjeta(item));
+      
+      // Insertar DGO después de Universal (posición 10)
+      if (index === 10) { // Universal está en posición 10 (índice 10)
+        container.appendChild(crearTarjetaDGO());
+      }
     });
     
     // Agregar título de Combos
@@ -245,40 +410,8 @@
     
     // Renderizar combos
     combos.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <img src="https://raw.githubusercontent.com/novaklar/web/main/nkc/${item.img}.png" alt="Combo ${item.img}" />
-        <div class="table-container">
-          <table>
-            <tbody>
-              <tr><td>Precio Afiliado</td><td>$${item.valores[0].toLocaleString('es-CO')}</td></tr>
-              <tr><td>Precio Sugerido</td><td>$${item.valores[1].toLocaleString('es-CO')}</td></tr>
-              <tr><td>Ganancia</td><td>$${item.valores[2].toLocaleString('es-CO')}</td></tr>
-            </tbody>
-          </table>
-        </div>
-      `;
-      
-      const table = card.querySelector('.table-container');
-      
-      card.addEventListener('click', () => {
-        if (currentOpenTable && currentOpenTable !== table) {
-          currentOpenTable.style.display = 'none';
-        }
-        
-        if (table.style.display === 'block') {
-          table.style.display = 'none';
-          currentOpenTable = null;
-        } else {
-          table.style.display = 'block';
-          currentOpenTable = table;
-        }
-      });
-      
-      container.appendChild(card);
+      container.appendChild(crearTarjeta(item, true));
     });
   </script>
 </body>
 </html>
-

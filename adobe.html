@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adobe | Novaklar</title>
   <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
       margin: 0;
@@ -142,6 +143,53 @@
       margin-top: 0.5rem;
     }
 
+    /* Sección de compra con botones de WhatsApp */
+    .buy-section {
+      padding: 1rem;
+      border-top: 2px dashed #e2e8f0;
+      background-color: #f1f5f9;
+    }
+
+    .buy-text {
+      text-align: center;
+      margin-bottom: 0.8rem;
+      font-size: 0.85rem;
+      color: #475569;
+      font-weight: 500;
+    }
+
+    .whatsapp-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.6rem;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 0.4rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
+      transform: translateY(-1px);
+    }
+
+    .whatsapp-btn i {
+      font-size: 1.1rem;
+    }
+
     @media (max-width: 600px) {
       .container {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -250,6 +298,19 @@
               <tr><td colspan="2" class="note">Versión 2023. Se envía por correo electrónico junto con tutorial de descarga.</td></tr>
             </tbody>
           </table>
+          <div class="buy-section">
+            <div class="buy-text">¡Adquiere Adobe ${item.name} ahora!</div>
+            <div class="whatsapp-buttons">
+              <a href="https://wa.me/573127741655?text=Hola%20Tatiana,%20estoy%20interesado%20en%20Adobe%20${item.name}" 
+                 class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Tatiana
+              </a>
+              <a href="https://wa.me/573018205460?text=Hola%20Alejandra,%20estoy%20interesado%20en%20Adobe%20${item.name}" 
+                 class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Alejandra
+              </a>
+            </div>
+          </div>
         </div>
       `;
 
@@ -283,4 +344,3 @@
   </script>
 </body>
 </html>
-

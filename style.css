@@ -60,7 +60,7 @@
     --menu-bg: rgba(255, 255, 255, 0.15);
     /* CAMBIO 3: De #deffa9 a #57d9b6. Lo mantengo como variable primaria para futuras referencias aunque los usos directos se cambiarán */
     --primary-color: #57d9b6; 
-    --hero-bg: #3ca597;
+    --hero-bg: #3ca597; /* SE MANTIENE PARA CÓDIGOS EXTERNOS QUE PUEDAN USARLO, PERO EL USO DIRECTO SE REEMPLAZA */
 }
 
 html, body { 
@@ -321,7 +321,8 @@ h1{
 /* MODIFICACIÓN PRINCIPAL: Contenedor con degradado y altura adecuada */
 .main-container {
     width: 100%;
-    background: linear-gradient(to bottom, #3ca597, #00617a);
+    /* REEMPLAZO DE #3ca597 POR #00617a (COLOR SOLIDO) EN EL DEGRADADO SUPERIOR */
+    background: linear-gradient(to bottom, #00617a, #00617a);
     padding: 155px 0 180px 0; /* Padding por defecto para móviles */
     display: flex;
     justify-content: center;
@@ -429,7 +430,8 @@ h1{
 
 .menu-item.active{
     background: #fff;
-    color: var(--hero-bg);
+    /* REEMPLAZO DE var(--hero-bg) que era #3ca597, por #00617a */
+    color: #00617a; 
     transform: scale(1.05) translateY(0);
     z-index: 15;
 }
@@ -537,7 +539,8 @@ h1{
 }
 
 .contact-button { 
-    background-color: #3ca597; 
+    /* REEMPLAZO DE #3ca597 POR #00617a */
+    background-color: #00617a; 
     color: white; 
     font-family: 'Poppins-Bold', sans-serif; /* Botón usa Poppins-Bold */
     width: 280px; 
@@ -553,6 +556,7 @@ h1{
 }
 
 .contact-button:hover { 
+    /* El hover ya estaba con #00617a, se mantiene */
     background-color: #00617a; 
 }
 
@@ -580,7 +584,8 @@ h1{
 }
 
 .counter { 
-    color: #3ca597; 
+    /* REEMPLAZO DE #3ca597 POR #00617a */
+    color: #00617a; 
     font-size: 3rem; 
     font-weight: 700; 
     margin-bottom: 0.5rem; 
@@ -607,7 +612,8 @@ h1{
     text-align: center; 
     font-size: 2.5rem; 
     margin-bottom: 2rem; 
-    color: #3ca597; 
+    /* REEMPLAZO DE #3ca597 POR #00617a */
+    color: #00617a; 
     position: relative; 
     font-family: 'Poppins-Bold', sans-serif !important; 
 }
@@ -641,7 +647,8 @@ h1{
 
 /* H3 ya usa Poppins-Bold gracias a la regla general */
 .about-section h3 { 
-    color: #3ca597; 
+    /* REEMPLAZO DE #3ca597 POR #00617a */
+    color: #00617a; 
     margin-bottom: 1.2rem; 
     font-size: 1.6rem; 
     font-family: 'Poppins-Bold', sans-serif !important; 
@@ -668,7 +675,8 @@ h1{
 
 .terms { 
     background-color: #f8faff; 
-    border-left: 5px solid #3ca597; 
+    /* REEMPLAZO DE #3ca597 POR #00617a */
+    border-left: 5px solid #00617a; 
     border-top: 1px solid #e1e8ff;
 }
 
@@ -690,7 +698,8 @@ h1{
 footer { 
     text-align: center; 
     padding: 2rem; 
-    background-color: #3ca597; 
+    /* REEMPLAZO DE #3ca597 POR #00617a */
+    background-color: #00617a; 
     color: white; 
     margin-top: 4rem; 
     width: 100%;
@@ -772,12 +781,14 @@ footer {
     
     .main-container {
         padding: 145px 0 160px 0;
-        background: linear-gradient(to bottom, #3ca597, #00617a);
+        /* REEMPLAZO DE #3ca597 POR #00617a EN EL DEGRADADO SUPERIOR */
+        background: linear-gradient(to bottom, #00617a, #00617a);
     }
     
     .counter {
         font-size: 2.5rem;
-        color: #3ca597; 
+        /* REEMPLAZO DE #3ca597 POR #00617a */
+        color: #00617a; 
         font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
@@ -864,7 +875,8 @@ footer {
     
     .main-container {
         padding: 135px 0 300px 0; /* Padding inferior aumentado para móviles */
-        background: linear-gradient(to bottom, #3ca597, #00617a);
+        /* REEMPLAZO DE #3ca597 POR #00617a EN EL DEGRADADO SUPERIOR */
+        background: linear-gradient(to bottom, #00617a, #00617a);
     }
     
     /* Counters responsive */
@@ -882,13 +894,15 @@ footer {
     
     .counter {
         font-size: 2.8rem;
-        color: #3ca597; 
+        /* REEMPLAZO DE #3ca597 POR #00617a */
+        color: #00617a; 
         font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
     .about-novaklar h2 {
         font-size: 2rem;
-        color: #3ca597; 
+        /* REEMPLAZO DE #3ca597 POR #00617a */
+        color: #00617a; 
         font-family: 'Poppins-Bold', sans-serif !important; /* Poppins-Bold */
     }
     
@@ -899,7 +913,8 @@ footer {
     
     .about-section h3 {
         font-size: 1.4rem;
-        color: #3ca597; 
+        /* REEMPLAZO DE #3ca597 POR #00617a */
+        color: #00617a; 
         font-family: 'Poppins-Bold', sans-serif !important; /* Poppins-Bold */
     }
     
@@ -989,7 +1004,8 @@ footer {
     
     .main-container {
         padding: 125px 0 300px 0; /* Padding inferior aumentado para móviles */
-        background: linear-gradient(to bottom, #3ca597, #00617a);
+        /* REEMPLAZO DE #3ca597 POR #00617a EN EL DEGRADADO SUPERIOR */
+        background: linear-gradient(to bottom, #00617a, #00617a);
     }
     
     /* Counters mobile */
@@ -1000,7 +1016,8 @@ footer {
     
     .counter {
         font-size: 2.5rem;
-        color: #3ca597; 
+        /* REEMPLAZO DE #3ca597 POR #00617a */
+        color: #00617a; 
         font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
@@ -1018,7 +1035,8 @@ footer {
     
     .about-section h3 {
         font-size: 1.3rem;
-        color: #3ca597; 
+        /* REEMPLAZO DE #3ca597 POR #00617a */
+        color: #00617a; 
         font-family: 'Poppins-Bold', sans-serif !important; /* Poppins-Bold */
     }
     
@@ -1078,12 +1096,14 @@ footer {
     
     .main-container {
         padding: 115px 0 300px 0; /* Padding inferior aumentado para móviles */
-        background: linear-gradient(to bottom, #3ca597, #00617a);
+        /* REEMPLAZO DE #3ca597 POR #00617a EN EL DEGRADADO SUPERIOR */
+        background: linear-gradient(to bottom, #00617a, #00617a);
     }
     
     .counter {
         font-size: 2.2rem;
-        color: #3ca597; 
+        /* REEMPLAZO DE #3ca597 POR #00617a */
+        color: #00617a; 
         font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
@@ -1123,7 +1143,8 @@ footer {
         min-height: 100vh;
         /* CAMBIO 2: Mantener el padding inferior de 300px o ajustarlo */
         padding-bottom: 300px; 
-        background: linear-gradient(to bottom, #3ca597, #00617a);
+        /* REEMPLAZO DE #3ca597 POR #00617a EN EL DEGRADADO SUPERIOR */
+        background: linear-gradient(to bottom, #00617a, #00617a);
     }
     
     .slider-wrap {

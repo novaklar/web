@@ -28,14 +28,14 @@
 
 @font-face {
     font-family: 'Poppins-Italic';
-    src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Italic.ttf') format('truetype');
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/poppins-italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Poppins-Regular';
-    src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/poppins-regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -47,8 +47,8 @@
     --muted-white-2: rgba(255,255,255,0.18);
     --accent: #2f4df0;
     --menu-bg: rgba(255, 255, 255, 0.15);
-    --primary-color: #5170ff;
-    --hero-bg: #00128f;
+    --primary-color: #deffa9; /* Actualizado de 5170ff a deffa9 */
+    --hero-bg: #3ca597; /* Actualizado de 00128f a 3ca597 */
 }
 
 html, body { 
@@ -82,11 +82,12 @@ body, p, li, a, span, div {
     font-family: 'Poppins-Regular', sans-serif;
 }
 
-/* ===== HEADER SIN CONTORNO ===== */
+/* ===== HEADER CON EFECTO CRISTAL CLÁSICO ===== */
 .header {
     width: calc(100% - 40px);
     max-width: 1200px;
-    background: rgba(81, 112, 255, 0.25);
+    /* Efecto cristal clásico sin tono 5170ff */
+    background: rgba(255, 255, 255, 0.2); /* Fondo blanco transparente */
     padding: 14px 25px;
     position: fixed;
     top: 20px;
@@ -94,22 +95,22 @@ body, p, li, a, span, div {
     transform: translateX(-50%);
     z-index: 1000;
     border-radius: 16px;
-    backdrop-filter: blur(20px) saturate(120%);
-    -webkit-backdrop-filter: blur(20px) saturate(120%);
+    backdrop-filter: blur(15px) saturate(180%); /* Ajuste de blur y saturación */
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
     box-shadow: 
-      0 4px 24px rgba(81, 112, 255, 0.15);
+      0 4px 24px rgba(0, 0, 0, 0.1); /* Sombra más neutra */
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil para el efecto de cristal */
 }
 
 .header.scrolled {
     top: 15px;
-    background: rgba(81, 112, 255, 0.3);
-    backdrop-filter: blur(25px) saturate(130%);
-    -webkit-backdrop-filter: blur(25px) saturate(130%);
+    background: rgba(255, 255, 255, 0.3); /* Un poco más opaco al hacer scroll */
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
     box-shadow: 
-      0 6px 30px rgba(81, 112, 255, 0.2);
-    border: none;
+      0 6px 30px rgba(0, 0, 0, 0.15); /* Sombra ligeramente más pronunciada */
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .header-content {
@@ -142,8 +143,15 @@ body, p, li, a, span, div {
     font-family: 'Poppins-Regular', sans-serif;
 }
 
+/* Colores específicos para "catalogos", "elementos" y "studio" */
+.nav-links a[href*="catalogos"],
+.nav-links a[href*="elementos"],
+.nav-links a[href*="studio"] {
+    color: #1c8188; 
+}
+
 .nav-links a:hover {
-    color: #5170ff;
+    color: #deffa9; /* Actualizado de 5170ff a deffa9 */
 }
 
 .nav-links a::after {
@@ -153,7 +161,7 @@ body, p, li, a, span, div {
     left: 0;
     width: 0;
     height: 1.5px;
-    background: #5170ff;
+    background: #deffa9; /* Actualizado de 5170ff a deffa9 */
     transition: width 0.3s ease;
 }
 
@@ -237,7 +245,7 @@ body, p, li, a, span, div {
 }
 
 .drawer-menu a:hover {
-    background: rgba(81, 112, 255, 0.08);
+    background: rgba(222, 255, 169, 0.08); /* Actualizado de 5170ff a deffa9 */
     transform: translateX(4px);
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
 }
@@ -267,10 +275,10 @@ body, p, li, a, span, div {
     visibility: visible;
 }
 
-/* MODIFICACIÓN PRINCIPAL: Contenedor con color sólido y altura adecuada */
+/* MODIFICACIÓN PRINCIPAL: Contenedor con degradado y altura adecuada */
 .main-container {
     width: 100%;
-    background: #00128f;
+    background: linear-gradient(to bottom, #3ca597, #00617a);
     padding: 155px 0 180px 0;
     display: flex;
     justify-content: center;
@@ -300,7 +308,7 @@ body, p, li, a, span, div {
 h1{
     margin:0;
     font-size: 96px;
-    color: #5170ff;
+    color: #c7ffa9; 
     letter-spacing: 2px;
     font-family: 'DESA', sans-serif;
     font-weight: normal;
@@ -504,7 +512,7 @@ h1{
 }
 
 .contact-button { 
-    background-color: #00128f; 
+    background-color: #3ca597; /* Actualizado de 00128f a 3ca597 */
     color: white; 
     font-family: 'Comme', sans-serif; 
     width: 280px; 
@@ -521,12 +529,12 @@ h1{
 }
 
 .contact-button:hover { 
-    background-color: #001076; 
+    background-color: #00617a; /* Un tono un poco más oscuro para el hover */
 }
 
 /* ===== COUNTERS SECTION ===== */ 
 .counters { 
-    background-color: rgba(108, 145, 255, 0.1);
+    background-color: rgba(222, 255, 169, 0.1); /* Actualizado de 108, 145, 255, 0.1 a deffa9 */
     padding: 40px 30px;
     border-radius: 15px;
     display: flex;
@@ -547,9 +555,9 @@ h1{
 }
 
 .counter { 
+    color: #3ca597; /* Actualizado de 00128f a 3ca597 */
     font-size: 3rem; 
     font-weight: 700; 
-    color: #00128f; 
     margin-bottom: 0.5rem; 
     font-family: 'Comme', sans-serif; 
 }
@@ -573,7 +581,7 @@ h1{
     text-align: center; 
     font-size: 2.5rem; 
     margin-bottom: 2rem; 
-    color: #00128f; 
+    color: #3ca597; /* Actualizado de 00128f a 3ca597 */
     position: relative; 
     font-family: 'Poppins-Regular', sans-serif !important;
 }
@@ -583,7 +591,7 @@ h1{
     display: block; 
     width: 100px; 
     height: 4px; 
-    background-color: #5170ff;
+    background-color: #deffa9; /* Actualizado de 5170ff a deffa9 */
     margin: 1rem auto 0; 
     border-radius: 2px;
 }
@@ -595,7 +603,7 @@ h1{
     border-radius: 12px; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
     transition: transform 0.3s ease; 
-    border-left: 5px solid #5170ff;
+    border-left: 5px solid #deffa9; /* Actualizado de 5170ff a deffa9 */
 }
 
 .about-section:hover { 
@@ -604,7 +612,7 @@ h1{
 }
 
 .about-section h3 { 
-    color: #00128f; 
+    color: #3ca597; /* Actualizado de 00128f a 3ca597 */
     margin-bottom: 1.2rem; 
     font-size: 1.6rem; 
     font-family: 'Poppins-Regular', sans-serif !important;
@@ -631,7 +639,7 @@ h1{
 
 .terms { 
     background-color: #f8faff; 
-    border-left: 5px solid #00128f; 
+    border-left: 5px solid #3ca597; /* Actualizado de 00128f a 3ca597 */
     border-top: 1px solid #e1e8ff;
 }
 
@@ -653,7 +661,7 @@ h1{
 footer { 
     text-align: center; 
     padding: 2rem; 
-    background-color: #00128f; 
+    background-color: #3ca597; /* Actualizado de 00128f a 3ca597 */
     color: white; 
     margin-top: 4rem; 
     width: 100%;
@@ -709,7 +717,7 @@ footer {
 @media (max-width:1024px) {
     h1 {
         font-size: 82px;
-        color: #5170ff;
+        color: #c7ffa9;
     }
     
     .tagline {
@@ -723,15 +731,23 @@ footer {
     .header {
         width: calc(100% - 30px);
         padding: 12px 20px;
+        top: 15px;
+        /* Efecto cristal clásico sin tono 5170ff */
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(12px) saturate(160%);
+        -webkit-backdrop-filter: blur(12px) saturate(160%);
+        box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.35);
     }
     
     .main-container {
         padding: 145px 0 160px 0;
-        background: #00128f;
+        background: linear-gradient(to bottom, #3ca597, #00617a);
     }
     
     .counter {
         font-size: 2.5rem;
+        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
     }
     
     .counters p {
@@ -753,7 +769,7 @@ footer {
 @media (max-width:768px) {
     h1 {
         font-size: 68px;
-        color: #5170ff;
+        color: #c7ffa9;
     }
     
     .tagline {
@@ -787,6 +803,12 @@ footer {
         padding: 10px 15px;
         border-radius: 14px;
         top: 15px;
+        /* Efecto cristal clásico sin tono 5170ff */
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px) saturate(150%);
+        -webkit-backdrop-filter: blur(10px) saturate(150%);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.4);
     }
     
     .header.scrolled {
@@ -808,7 +830,7 @@ footer {
     
     .main-container {
         padding: 135px 0 300px 0;
-        background: #00128f;
+        background: linear-gradient(to bottom, #3ca597, #00617a);
     }
     
     /* Counters responsive */
@@ -826,10 +848,12 @@ footer {
     
     .counter {
         font-size: 2.8rem;
+        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
     }
     
     .about-novaklar h2 {
         font-size: 2rem;
+        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
     }
     
     .about-section {
@@ -839,6 +863,7 @@ footer {
     
     .about-section h3 {
         font-size: 1.4rem;
+        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
     }
     
     .terms ol li {
@@ -871,7 +896,7 @@ footer {
 @media (max-width:520px){
     h1{ 
         font-size: 52px;
-        color: #5170ff;
+        color: #c7ffa9;
     }
     
     .tagline {
@@ -924,7 +949,7 @@ footer {
     
     .main-container {
         padding: 125px 0 300px 0;
-        background: #00128f;
+        background: linear-gradient(to bottom, #3ca597, #00617a);
     }
     
     /* Counters mobile */
@@ -935,6 +960,7 @@ footer {
     
     .counter {
         font-size: 2.5rem;
+        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
     }
     
     .counters p {
@@ -951,6 +977,7 @@ footer {
     
     .about-section h3 {
         font-size: 1.3rem;
+        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
     }
     
     .terms ol li {
@@ -984,7 +1011,7 @@ footer {
 @media (max-width:380px){
     h1{ 
         font-size: 44px;
-        color: #5170ff;
+        color: #c7ffa9;
     }
     
     .tagline {
@@ -1007,11 +1034,12 @@ footer {
     
     .main-container {
         padding: 115px 0 300px 0;
-        background: #00128f;
+        background: linear-gradient(to bottom, #3ca597, #00617a);
     }
     
     .counter {
         font-size: 2.2rem;
+        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
     }
     
     .counters p {
@@ -1039,6 +1067,7 @@ footer {
     .main-container {
         min-height: 100vh;
         padding-bottom: 200px;
+        background: linear-gradient(to bottom, #3ca597, #00617a);
     }
     
     .slider-wrap {

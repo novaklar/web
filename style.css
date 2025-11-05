@@ -246,15 +246,16 @@ html, body {
     visibility: visible;
 }
 
-/* MODIFICACIÓN PRINCIPAL: Ajustar el padding del main-container para móviles */
+/* MODIFICACIÓN PRINCIPAL: Contenedor con color sólido y altura adecuada */
 .main-container {
     width: 100%;
-    background: linear-gradient(to bottom, #5170ff 0%, #5170ff 20%, #00128f 70%, #00128f 100%);
-    padding: 155px 0 180px 0; /* Reducido de 300px a 180px en desktop */
+    background: #00128f; /* Color sólido en lugar de degradado */
+    padding: 155px 0 180px 0;
     display: flex;
     justify-content: center;
-    min-height: auto; /* Cambiado de 100vh a auto */
+    min-height: auto;
     margin-top: 0;
+    position: relative;
 }
 
 .page {
@@ -278,7 +279,7 @@ html, body {
 h1{
     margin:0;
     font-size: 96px;
-    color: #ffffff;
+    color: #5170ff; /* Color cambiado a #5170ff */
     letter-spacing: 2px;
     font-family: 'DESA', sans-serif;
     font-weight: normal;
@@ -622,7 +623,7 @@ footer {
 @media (max-width:1024px) {
     h1 {
         font-size: 82px;
-        color: #ffffff;
+        color: #5170ff; /* Color cambiado a #5170ff */
     }
     
     .nav-links {
@@ -635,7 +636,8 @@ footer {
     }
     
     .main-container {
-        padding: 145px 0 160px 0; /* Reducido en tablet */
+        padding: 145px 0 160px 0;
+        background: #00128f; /* Color sólido en lugar de degradado */
     }
     
     .counter {
@@ -650,7 +652,7 @@ footer {
 @media (max-width:768px) {
     h1 {
         font-size: 68px;
-        color: #ffffff;
+        color: #5170ff; /* Color cambiado a #5170ff */
     }
     
     .tagline {
@@ -699,10 +701,10 @@ footer {
         display: none;
     }
     
-    /* MODIFICACIÓN IMPORTANTE: Reducir padding en móviles */
+    /* MODIFICACIÓN IMPORTANTE: Color sólido en móviles */
     .main-container {
-        padding: 135px 0 300px 0; /* Reducido significativamente en móviles */
-        background: linear-gradient(to bottom, #5170ff 0%, #5170ff 15%, #00128f 60%, #00128f 100%);
+        padding: 135px 0 300px 0;
+        background: #00128f; /* Color sólido en lugar de degradado */
     }
     
     /* Counters responsive */
@@ -750,7 +752,7 @@ footer {
 @media (max-width:520px){
     h1{ 
         font-size: 52px;
-        color: #ffffff;
+        color: #5170ff; /* Color cambiado a #5170ff */
     }
     
     .tagline {
@@ -797,10 +799,10 @@ footer {
         transform: translateY(-8px) rotate(-45deg);
     }
     
-    /* MODIFICACIÓN CRÍTICA: Aún menos padding en móviles pequeños */
+    /* MODIFICACIÓN CRÍTICA: Color sólido en móviles pequeños */
     .main-container {
-        padding: 125px 0 300px 0; /* Mínimo espacio necesario */
-        background: linear-gradient(to bottom, #5170ff 0%, #5170ff 12%, #00128f 55%, #00128f 100%);
+        padding: 125px 0 300px 0;
+        background: #00128f; /* Color sólido en lugar de degradado */
     }
     
     /* Counters mobile */
@@ -845,7 +847,7 @@ footer {
 @media (max-width:380px){
     h1{ 
         font-size: 44px;
-        color: #ffffff;
+        color: #5170ff; /* Color cambiado a #5170ff */
     }
     
     .tagline {
@@ -866,10 +868,10 @@ footer {
         height: 30px;
     }
     
-    /* MODIFICACIÓN FINAL: Padding mínimo para móviles muy pequeños */
+    /* MODIFICACIÓN FINAL: Color sólido en móviles muy pequeños */
     .main-container {
-        padding: 115px 0 300px 0; /* Espacio mínimo debajo del submenú */
-        background: linear-gradient(to bottom, #5170ff 0%, #5170ff 10%, #00128f 50%, #00128f 100%);
+        padding: 115px 0 300px 0;
+        background: #00128f; /* Color sólido en lugar de degradado */
     }
     
     .counter {
@@ -885,4 +887,15 @@ footer {
     }
 }
 
-
+/* NUEVO: Media query para pantallas grandes */
+@media (min-width: 1200px) {
+    .main-container {
+        min-height: 100vh; /* Asegura que cubra toda la altura en pantallas grandes */
+        padding-bottom: 200px; /* Espacio adicional para el submenú */
+    }
+    
+    .slider-wrap {
+        max-width: 1200px; /* Limita el ancho en pantallas grandes */
+        margin: 0 auto;
+    }
+}

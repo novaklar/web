@@ -24,8 +24,10 @@ const menus = {
     elementos: [
         { text: 'App', url: 'App.html', target: '_self' },
         { text: 'Ranking', url: 'ranking.html', target: '_self' },
-        { text: 'Publicidad', url: 'https://photos.app.goo.gl/5dSreR3BwDKUeaTHA', target: '_blank' },
-        { text: 'Catalogo Clientes', url: 'catalogo.html', target: '_self' }
+        // --- CAMBIO SOLICITADO APLICADO AQUÍ ---
+        { text: 'Catalogo', url: 'catalogo.html', target: '_self' }, // Renombrado y movido
+        { text: 'Publicidad', url: 'https://photos.app.goo.gl/5dSreR3BwDKUeaTHA', target: '_blank' }
+        // { text: 'Catalogo Clientes', url: 'catalogo.html', target: '_self' } <-- ELIMINADO/MOVIDO
     ]
 };
 

@@ -3,6 +3,7 @@
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
+    /* Eliminado font-family de aquí para aplicar Poppins-Regular de forma más específica */
 }
 
 @font-face { 
@@ -28,18 +29,28 @@
 
 @font-face {
     font-family: 'Poppins-Italic';
-    src: url('https://raw.githubusercontent.com/novaklar/web/main/poppins-italic.ttf') format('truetype');
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
 }
 
+/* --- NUEVAS TIPOGRAFÍAS --- */
 @font-face {
     font-family: 'Poppins-Regular';
-    src: url('https://raw.githubusercontent.com/novaklar/web/main/poppins-regular.ttf') format('truetype');
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Poppins-Bold'; /* Nueva tipografía para títulos y elementos clave */
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+/* ------------------------- */
 
 :root{
     --bg: #ffffff;
@@ -47,8 +58,8 @@
     --muted-white-2: rgba(255,255,255,0.18);
     --accent: #2f4df0;
     --menu-bg: rgba(255, 255, 255, 0.15);
-    --primary-color: #deffa9; /* Actualizado de 5170ff a deffa9 */
-    --hero-bg: #3ca597; /* Actualizado de 00128f a 3ca597 */
+    --primary-color: #deffa9;
+    --hero-bg: #3ca597;
 }
 
 html, body { 
@@ -58,7 +69,7 @@ html, body {
     line-height: 1.6; 
     overflow-x: hidden; 
     min-height:100vh;
-    font-family: 'Poppins-Regular', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-family: 'Poppins-Regular', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; /* Aplicación general de Poppins-Regular */
     background: #ffffff;
     display:flex;
     flex-direction: column;
@@ -67,20 +78,45 @@ html, body {
     margin:0;
 }
 
-/* ===== CORRECCIÓN DE TIPOGRAFÍAS ===== */
+/* ===== CORRECCIÓN Y ASIGNACIÓN DE TIPOGRAFÍAS ===== */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins-Regular', sans-serif;
+    font-family: 'Poppins-Bold', sans-serif; /* Títulos y Subtítulos usan Poppins-Bold */
 }
 
+/* h1 usa 'DESA' por defecto en el 'title-section', pero si estuviera en otro sitio usará 'Poppins-Bold' */
 .about-novaklar h2,
 .about-section h3,
 .terms h3 {
-    font-family: 'Poppins-Regular', sans-serif !important;
+    font-family: 'Poppins-Bold', sans-serif !important; /* Sobreescribir con Poppins-Bold */
 }
 
+/* Todo lo demás usa Poppins-Regular, menos 'Novaklar' y '.tagline' */
 body, p, li, a, span, div {
     font-family: 'Poppins-Regular', sans-serif;
 }
+
+/* Sobreescribir el título principal para mantener 'DESA' */
+h1{
+    margin:0;
+    font-size: 96px;
+    color: #c7ffa9; 
+    letter-spacing: 2px;
+    font-family: 'DESA', sans-serif; /* Mantiene la tipografía asignada (DESA) */
+    font-weight: normal;
+    text-transform: lowercase;
+    line-height: 1;
+}
+
+/* Slogan mantiene 'Poppins-Italic' */
+.tagline {
+    margin:0; 
+    color: white; 
+    font-style: italic;
+    font-family: 'Poppins-Italic', sans-serif; /* Mantiene la tipografía asignada (Poppins-Italic) */
+    font-size: 22px;
+    text-align: center;
+}
+/* ------------------------------------------------ */
 
 /* ===== HEADER CON EFECTO CRISTAL CLÁSICO ===== */
 .header {
@@ -140,18 +176,20 @@ body, p, li, a, span, div {
     font-size: 15px;
     transition: all 0.3s ease;
     position: relative;
-    font-family: 'Poppins-Regular', sans-serif;
+    font-family: 'Poppins-Regular', sans-serif; /* Base: Poppins-Regular */
 }
 
-/* Colores específicos para "catalogos", "elementos" y "studio" */
+/* Colores y tipografía específicos para "catalogos", "elementos" y "studio" */
 .nav-links a[href*="catalogos"],
 .nav-links a[href*="elementos"],
 .nav-links a[href*="studio"] {
     color: #1c8188; 
+    font-family: 'Poppins-Bold', sans-serif; /* Usar Poppins-Bold */
+    font-weight: bold; /* Asegurar el peso bold */
 }
 
 .nav-links a:hover {
-    color: #deffa9; /* Actualizado de 5170ff a deffa9 */
+    color: #deffa9; 
 }
 
 .nav-links a::after {
@@ -161,7 +199,7 @@ body, p, li, a, span, div {
     left: 0;
     width: 0;
     height: 1.5px;
-    background: #deffa9; /* Actualizado de 5170ff a deffa9 */
+    background: #deffa9; 
     transition: width 0.3s ease;
 }
 
@@ -245,7 +283,7 @@ body, p, li, a, span, div {
 }
 
 .drawer-menu a:hover {
-    background: rgba(222, 255, 169, 0.08); /* Actualizado de 5170ff a deffa9 */
+    background: rgba(222, 255, 169, 0.08);
     transform: translateX(4px);
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
 }
@@ -305,26 +343,8 @@ body, p, li, a, span, div {
     gap: 4px;
 }
 
-h1{
-    margin:0;
-    font-size: 96px;
-    color: #c7ffa9; 
-    letter-spacing: 2px;
-    font-family: 'DESA', sans-serif;
-    font-weight: normal;
-    text-transform: lowercase;
-    line-height: 1;
-}
-
-/* ===== SLOGAN MÁS GRANDE ===== */
-.tagline {
-    margin:0; 
-    color: white; 
-    font-style: italic;
-    font-family: 'Poppins-Italic', sans-serif;
-    font-size: 22px;
-    text-align: center;
-}
+/* h1 ya usa DESA, no necesita cambio de familia, solo se mantiene el color */
+/* .tagline ya usa Poppins-Italic, no necesita cambio de familia */
 
 .slider-wrap{
     width:100vw;
@@ -388,7 +408,7 @@ h1{
     position: relative;
     z-index: 10;
     margin: 0 -25px;
-    font-family: 'Poppins-Regular', sans-serif;
+    font-family: 'Poppins-Bold', sans-serif; /* Menu items (Botones) usan Poppins-Bold */
 }
 
 .menu-item:active{ cursor:grabbing }
@@ -486,7 +506,7 @@ h1{
     font-size: 20px;
     font-weight: bold;
     backdrop-filter: blur(10px);
-    font-family: 'Poppins-Regular', sans-serif;
+    font-family: 'Poppins-Bold', sans-serif; /* Flechas usan Poppins-Bold */
 }
 
 .arrow:hover {
@@ -512,9 +532,9 @@ h1{
 }
 
 .contact-button { 
-    background-color: #3ca597; /* Actualizado de 00128f a 3ca597 */
+    background-color: #3ca597; 
     color: white; 
-    font-family: 'Comme', sans-serif; 
+    font-family: 'Poppins-Bold', sans-serif; /* Botón usa Poppins-Bold */
     width: 280px; 
     line-height: normal; 
     border: none; 
@@ -525,16 +545,15 @@ h1{
     transition: background-color 0.2s ease; 
     padding: 20px 16px;
     font-weight: bold; 
-    font-family: 'Poppins-Regular', sans-serif;
 }
 
 .contact-button:hover { 
-    background-color: #00617a; /* Un tono un poco más oscuro para el hover */
+    background-color: #00617a; 
 }
 
 /* ===== COUNTERS SECTION ===== */ 
 .counters { 
-    background-color: rgba(222, 255, 169, 0.1); /* Actualizado de 108, 145, 255, 0.1 a deffa9 */
+    background-color: rgba(222, 255, 169, 0.1); 
     padding: 40px 30px;
     border-radius: 15px;
     display: flex;
@@ -555,11 +574,11 @@ h1{
 }
 
 .counter { 
-    color: #3ca597; /* Actualizado de 00128f a 3ca597 */
+    color: #3ca597; 
     font-size: 3rem; 
     font-weight: 700; 
     margin-bottom: 0.5rem; 
-    font-family: 'Comme', sans-serif; 
+    font-family: 'Poppins-Bold', sans-serif; /* Contador usa Poppins-Bold */
 }
 
 .counters p { 
@@ -577,13 +596,14 @@ h1{
     width: 100%;
 }
 
+/* H2 ya usa Poppins-Bold gracias a la regla general */
 .about-novaklar h2 { 
     text-align: center; 
     font-size: 2.5rem; 
     margin-bottom: 2rem; 
-    color: #3ca597; /* Actualizado de 00128f a 3ca597 */
+    color: #3ca597; 
     position: relative; 
-    font-family: 'Poppins-Regular', sans-serif !important;
+    font-family: 'Poppins-Bold', sans-serif !important; 
 }
 
 .about-novaklar h2::after { 
@@ -591,7 +611,7 @@ h1{
     display: block; 
     width: 100px; 
     height: 4px; 
-    background-color: #deffa9; /* Actualizado de 5170ff a deffa9 */
+    background-color: #deffa9; 
     margin: 1rem auto 0; 
     border-radius: 2px;
 }
@@ -603,7 +623,7 @@ h1{
     border-radius: 12px; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
     transition: transform 0.3s ease; 
-    border-left: 5px solid #deffa9; /* Actualizado de 5170ff a deffa9 */
+    border-left: 5px solid #deffa9; 
 }
 
 .about-section:hover { 
@@ -611,11 +631,12 @@ h1{
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
+/* H3 ya usa Poppins-Bold gracias a la regla general */
 .about-section h3 { 
-    color: #3ca597; /* Actualizado de 00128f a 3ca597 */
+    color: #3ca597; 
     margin-bottom: 1.2rem; 
     font-size: 1.6rem; 
-    font-family: 'Poppins-Regular', sans-serif !important;
+    font-family: 'Poppins-Bold', sans-serif !important; 
 }
 
 .about-section p { 
@@ -639,7 +660,7 @@ h1{
 
 .terms { 
     background-color: #f8faff; 
-    border-left: 5px solid #3ca597; /* Actualizado de 00128f a 3ca597 */
+    border-left: 5px solid #3ca597; 
     border-top: 1px solid #e1e8ff;
 }
 
@@ -661,7 +682,7 @@ h1{
 footer { 
     text-align: center; 
     padding: 2rem; 
-    background-color: #3ca597; /* Actualizado de 00128f a 3ca597 */
+    background-color: #3ca597; 
     color: white; 
     margin-top: 4rem; 
     width: 100%;
@@ -747,7 +768,8 @@ footer {
     
     .counter {
         font-size: 2.5rem;
-        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
+        color: #3ca597; 
+        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
     .counters p {
@@ -758,6 +780,7 @@ footer {
         width: 45px;
         height: 45px;
         font-size: 18px;
+        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
     .slider-track {
@@ -786,6 +809,7 @@ footer {
         padding:14px 16px;
         margin: 0 -20px;
         background: rgba(255, 255, 255, 0.3);
+        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     .menu-item.inactive {
         background: rgba(255, 255, 255, 0.15);
@@ -848,12 +872,14 @@ footer {
     
     .counter {
         font-size: 2.8rem;
-        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
+        color: #3ca597; 
+        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
     .about-novaklar h2 {
         font-size: 2rem;
-        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
+        color: #3ca597; 
+        font-family: 'Poppins-Bold', sans-serif !important; /* Poppins-Bold */
     }
     
     .about-section {
@@ -863,7 +889,8 @@ footer {
     
     .about-section h3 {
         font-size: 1.4rem;
-        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
+        color: #3ca597; 
+        font-family: 'Poppins-Bold', sans-serif !important; /* Poppins-Bold */
     }
     
     .terms ol li {
@@ -885,6 +912,7 @@ footer {
         width: 40px;
         height: 40px;
         font-size: 16px;
+        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
     .slider-track {
@@ -913,6 +941,7 @@ footer {
         padding:14px 16px;
         margin: 0 -20px;
         background: rgba(255, 255, 255, 0.3);
+        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     .menu-item.inactive {
         background: rgba(255, 255, 255, 0.15);
@@ -960,7 +989,8 @@ footer {
     
     .counter {
         font-size: 2.5rem;
-        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
+        color: #3ca597; 
+        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
     .counters p {
@@ -977,7 +1007,8 @@ footer {
     
     .about-section h3 {
         font-size: 1.3rem;
-        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
+        color: #3ca597; 
+        font-family: 'Poppins-Bold', sans-serif !important; /* Poppins-Bold */
     }
     
     .terms ol li {
@@ -1000,6 +1031,7 @@ footer {
         width: 35px;
         height: 35px;
         font-size: 14px;
+        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
     .slider-track {
@@ -1039,7 +1071,8 @@ footer {
     
     .counter {
         font-size: 2.2rem;
-        color: #3ca597; /* Actualizado de 00128f a 3ca597 */
+        color: #3ca597; 
+        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
     .counters p {
@@ -1054,6 +1087,7 @@ footer {
         width: 30px;
         height: 30px;
         font-size: 12px;
+        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
     .slider-track {

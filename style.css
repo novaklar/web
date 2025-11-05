@@ -246,14 +246,14 @@ html, body {
     visibility: visible;
 }
 
-/* Aumentar espacio entre header y título en 25px */
+/* MODIFICACIÓN PRINCIPAL: Ajustar el padding del main-container para móviles */
 .main-container {
     width: 100%;
-    background: linear-gradient(to bottom, #5170ff 0%, #5170ff 30%, #00128f 100%);
-    padding: 155px 0 300px 0;
+    background: linear-gradient(to bottom, #5170ff 0%, #5170ff 20%, #00128f 70%, #00128f 100%);
+    padding: 155px 0 180px 0; /* Reducido de 300px a 180px en desktop */
     display: flex;
     justify-content: center;
-    min-height: 100vh;
+    min-height: auto; /* Cambiado de 100vh a auto */
     margin-top: 0;
 }
 
@@ -263,7 +263,7 @@ html, body {
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap: 80px; /* Reducido de 120px a 80px */
+    gap: 80px;
     padding: 0;
     margin-top: 0;
 }
@@ -551,7 +551,7 @@ h1{
 }
 
 .terms ol { 
-    list-style-type: decimal; /* ESTILO CLÁSICO */
+    list-style-type: decimal;
     margin-left: 2rem; 
     margin-bottom: 1.5rem; 
 }
@@ -562,8 +562,6 @@ h1{
     font-size: 1.1rem;
     padding-left: 0.5rem;
 }
-
-/* ELIMINADO TODO EL CÓDIGO COMPLICADO DE ::before */
 
 /* ===== FOOTER ===== */ 
 footer { 
@@ -637,7 +635,7 @@ footer {
     }
     
     .main-container {
-        padding: 145px 0 300px 0;
+        padding: 145px 0 160px 0; /* Reducido en tablet */
     }
     
     .counter {
@@ -701,8 +699,10 @@ footer {
         display: none;
     }
     
+    /* MODIFICACIÓN IMPORTANTE: Reducir padding en móviles */
     .main-container {
-        padding: 135px 0 300px 0;
+        padding: 135px 0 120px 0; /* Reducido significativamente en móviles */
+        background: linear-gradient(to bottom, #5170ff 0%, #5170ff 15%, #00128f 60%, #00128f 100%);
     }
     
     /* Counters responsive */
@@ -736,11 +736,7 @@ footer {
     }
     
     .terms ol li {
-        padding-left: 3.5rem; /* AUMENTADO para móviles */
-    }
-    
-    .terms ol li::before {
-        left: 0.8rem; /* Ajustado para móviles */
+        padding-left: 3.5rem;
     }
     
     .whatsapp-button { 
@@ -801,8 +797,10 @@ footer {
         transform: translateY(-8px) rotate(-45deg);
     }
     
+    /* MODIFICACIÓN CRÍTICA: Aún menos padding en móviles pequeños */
     .main-container {
-        padding: 125px 0 300px 0;
+        padding: 125px 0 100px 0; /* Mínimo espacio necesario */
+        background: linear-gradient(to bottom, #5170ff 0%, #5170ff 12%, #00128f 55%, #00128f 100%);
     }
     
     /* Counters mobile */
@@ -832,15 +830,8 @@ footer {
     }
     
     .terms ol li {
-        padding-left: 3rem; /* AUMENTADO para móviles pequeños */
+        padding-left: 3rem;
         margin-bottom: 1.5rem;
-    }
-    
-    .terms ol li::before {
-        font-size: 1.1rem;
-        padding: 0.4rem 0.8rem;
-        min-width: 40px;
-        left: 0.5rem; /* Ajustado para móviles pequeños */
     }
     
     .whatsapp-button { 
@@ -875,8 +866,10 @@ footer {
         height: 30px;
     }
     
+    /* MODIFICACIÓN FINAL: Padding mínimo para móviles muy pequeños */
     .main-container {
-        padding: 115px 0 300px 0;
+        padding: 115px 0 80px 0; /* Espacio mínimo debajo del submenú */
+        background: linear-gradient(to bottom, #5170ff 0%, #5170ff 10%, #00128f 50%, #00128f 100%);
     }
     
     .counter {
@@ -888,10 +881,6 @@ footer {
     }
     
     .terms ol li {
-        padding-left: 2.8rem; /* Ajuste final para móviles muy pequeños */
-    }
-    
-    .terms ol li::before {
-        left: 0.4rem; /* Ajuste final para móviles muy pequeños */
+        padding-left: 2.8rem;
     }
 }

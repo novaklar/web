@@ -701,7 +701,7 @@ footer {
     
     /* MODIFICACIÓN IMPORTANTE: Reducir padding en móviles */
     .main-container {
-        padding: 135px 0 290px 0; /* Reducido significativamente en móviles */
+        padding: 135px 0 300px 0; /* Reducido significativamente en móviles */
         background: linear-gradient(to bottom, #5170ff 0%, #5170ff 15%, #00128f 60%, #00128f 100%);
     }
     
@@ -799,7 +799,7 @@ footer {
     
     /* MODIFICACIÓN CRÍTICA: Aún menos padding en móviles pequeños */
     .main-container {
-        padding: 125px 0 290px 0; /* Mínimo espacio necesario */
+        padding: 125px 0 300px 0; /* Mínimo espacio necesario */
         background: linear-gradient(to bottom, #5170ff 0%, #5170ff 12%, #00128f 55%, #00128f 100%);
     }
     
@@ -868,7 +868,7 @@ footer {
     
     /* MODIFICACIÓN FINAL: Padding mínimo para móviles muy pequeños */
     .main-container {
-        padding: 115px 0 290px 0; /* Espacio mínimo debajo del submenú */
+        padding: 115px 0 300px 0; /* Espacio mínimo debajo del submenú */
         background: linear-gradient(to bottom, #5170ff 0%, #5170ff 10%, #00128f 50%, #00128f 100%);
     }
     
@@ -884,4 +884,5 @@ footer {
         padding-left: 2.8rem;
     }
 }
+
 

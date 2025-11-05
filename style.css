@@ -3,9 +3,9 @@
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
-    /* Eliminado font-family de aquí para aplicar Poppins-Regular de forma más específica */
 }
 
+/* ===== FUENTES ===== */
 @font-face { 
     font-family: 'Novaklar'; 
     src: url('https://raw.githubusercontent.com/novaklar/web/main/novaklar.ttf') format('truetype');
@@ -34,7 +34,6 @@
     font-style: italic;
 }
 
-/* --- NUEVAS TIPOGRAFÍAS --- */
 @font-face {
     font-family: 'Poppins-Regular';
     src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
@@ -44,13 +43,12 @@
 }
 
 @font-face {
-    font-family: 'Poppins-Bold'; /* Nueva tipografía para títulos y elementos clave */
+    font-family: 'Poppins-Bold';
     src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
-/* ------------------------- */
 
 :root{
     --bg: #ffffff;
@@ -58,9 +56,8 @@
     --muted-white-2: rgba(255,255,255,0.18);
     --accent: #2f4df0;
     --menu-bg: rgba(255, 255, 255, 0.15);
-    /* CAMBIO 3: De #deffa9 a #57d9b6. Lo mantengo como variable primaria para futuras referencias aunque los usos directos se cambiarán */
     --primary-color: #57d9b6; 
-    --hero-bg: #3ca597; /* SE MANTIENE PARA CÓDIGOS EXTERNOS QUE PUEDAN USARLO, PERO EL USO DIRECTO SE REEMPLAZA */
+    --hero-bg: #3ca597;
 }
 
 html, body { 
@@ -70,7 +67,7 @@ html, body {
     line-height: 1.6; 
     overflow-x: hidden; 
     min-height:100vh;
-    font-family: 'Poppins-Regular', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; /* Aplicación general de Poppins-Regular */
+    font-family: 'Poppins-Regular', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     background: #ffffff;
     display:flex;
     flex-direction: column;
@@ -79,53 +76,46 @@ html, body {
     margin:0;
 }
 
-/* ===== CORRECCIÓN Y ASIGNACIÓN DE TIPOGRAFÍAS ===== */
+/* ===== TIPOGRAFÍAS ===== */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins-Bold', sans-serif; /* Títulos y Subtítulos usan Poppins-Bold */
+    font-family: 'Poppins-Bold', sans-serif;
 }
 
-/* h1 usa 'DESA' por defecto en el 'title-section', pero si estuviera en otro sitio usará 'Poppins-Bold' */
 .about-novaklar h2,
 .about-section h3,
 .terms h3 {
-    font-family: 'Poppins-Bold', sans-serif !important; /* Sobreescribir con Poppins-Bold */
+    font-family: 'Poppins-Bold', sans-serif !important;
 }
 
-/* Todo lo demás usa Poppins-Regular, menos 'Novaklar' y '.tagline' */
 body, p, li, a, span, div {
     font-family: 'Poppins-Regular', sans-serif;
 }
 
-/* Sobreescribir el título principal para mantener 'DESA' */
 h1{
     margin:0;
     font-size: 96px;
-    /* CAMBIO 1: Reemplazo de color del título de #c7ffa9 a #57d9b6 */
     color: #57d9b6; 
     letter-spacing: 2px;
-    font-family: 'DESA', sans-serif; /* Mantiene la tipografía asignada (DESA) */
+    font-family: 'DESA', sans-serif;
     font-weight: normal;
     text-transform: lowercase;
     line-height: 1;
 }
 
-/* Slogan mantiene 'Poppins-Italic' */
 .tagline {
     margin:0; 
     color: white; 
     font-style: italic;
-    font-family: 'Poppins-Italic', sans-serif; /* Mantiene la tipografía asignada (Poppins-Italic) */
+    font-family: 'Poppins-Italic', sans-serif;
     font-size: 22px;
     text-align: center;
 }
-/* ------------------------------------------------ */
 
-/* ===== HEADER CON EFECTO CRISTAL CLÁSICO ===== */
+/* ===== HEADER ===== */
 .header {
     width: calc(100% - 40px);
     max-width: 1200px;
-    /* Efecto cristal clásico sin tono 5170ff */
-    background: rgba(255, 255, 255, 0.2); /* Fondo blanco transparente */
+    background: rgba(255, 255, 255, 0.2);
     padding: 14px 25px;
     position: fixed;
     top: 20px;
@@ -133,21 +123,19 @@ h1{
     transform: translateX(-50%);
     z-index: 1000;
     border-radius: 16px;
-    backdrop-filter: blur(15px) saturate(180%); /* Ajuste de blur y saturación */
+    backdrop-filter: blur(15px) saturate(180%);
     -webkit-backdrop-filter: blur(15px) saturate(180%);
-    box-shadow: 
-      0 4px 24px rgba(0, 0, 0, 0.1); /* Sombra más neutra */
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil para el efecto de cristal */
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .header.scrolled {
     top: 15px;
-    background: rgba(255, 255, 255, 0.3); /* Un poco más opaco al hacer scroll */
+    background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(20px) saturate(150%);
     -webkit-backdrop-filter: blur(20px) saturate(150%);
-    box-shadow: 
-      0 6px 30px rgba(0, 0, 0, 0.15); /* Sombra ligeramente más pronunciada */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
@@ -165,6 +153,7 @@ h1{
     transition: all 0.3s ease;
 }
 
+/* ===== NAVEGACIÓN DESKTOP ===== */
 .nav-links {
     display: flex;
     gap: 28px;
@@ -178,20 +167,10 @@ h1{
     font-size: 15px;
     transition: all 0.3s ease;
     position: relative;
-    font-family: 'Poppins-Regular', sans-serif; /* Base: Poppins-Regular */
-}
-
-/* Colores y tipografía específicos para "catalogos", "elementos" y "studio" */
-.nav-links a[href*="catalogos"],
-.nav-links a[href*="elementos"],
-.nav-links a[href*="studio"] {
-    color: #1c8188; 
-    font-family: 'Poppins-Bold', sans-serif; /* Usar Poppins-Bold */
-    font-weight: bold; /* Asegurar el peso bold */
+    font-family: 'Poppins-Regular', sans-serif;
 }
 
 .nav-links a:hover {
-    /* CAMBIO 3: De #deffa9 a #57d9b6 */
     color: #57d9b6; 
 }
 
@@ -202,7 +181,6 @@ h1{
     left: 0;
     width: 0;
     height: 1.5px;
-    /* CAMBIO 3: De #deffa9 a #57d9b6 */
     background: #57d9b6; 
     transition: width 0.3s ease;
 }
@@ -211,13 +189,13 @@ h1{
     width: 100%;
 }
 
-/* Menú hamburguesa más grande y mejorado */
+/* ===== MENÚ HAMBURGUESA ===== */
 .hamburger-menu {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 28px;
-    height: 21px;
+    width: 30px;
+    height: 20px;
     cursor: pointer;
     z-index: 1002;
     padding: 2px;
@@ -225,16 +203,16 @@ h1{
 
 .hamburger-menu span {
     display: block;
-    height: 2.5px;
+    height: 3px;
     width: 100%;
     background-color: #000000;
-    border-radius: 2px;
+    border-radius: 3px;
     transition: all 0.3s ease;
     transform-origin: center;
 }
 
 .hamburger-menu.active span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(8.5px) rotate(45deg);
     background-color: #000000;
 }
 
@@ -244,60 +222,101 @@ h1{
 }
 
 .hamburger-menu.active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-8.5px) rotate(-45deg);
     background-color: #000000;
 }
 
-/* Drawer menu con z-index mayor */
+/* ===== DRAWER MENU - CORREGIDO Y MINIMALISTA 🚀 ===== */
 .drawer-menu {
     position: fixed;
     top: 0;
-    right: -100%;
-    width: 260px;
+    right: -280px;
+    width: 280px;
     height: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color: #ffffff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
     z-index: 1001;
-    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    padding: 80px 25px 30px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
+    align-items: center;
+    padding-top: 60px; /* Reducido para un mejor look */
 }
 
 .drawer-menu.active {
     right: 0;
 }
 
-.drawer-menu a {
-    color: #000000;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 12px 18px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.6);
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
     font-family: 'Poppins-Regular', sans-serif;
 }
 
-.drawer-menu a:hover {
-    /* CAMBIO 3: De rgba(222, 255, 169, 0.08) (color claro de #c7ffa9) a rgba(87, 217, 182, 0.08) */
-    background: rgba(87, 217, 182, 0.08); 
-    transform: translateX(4px);
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+.close-btn:hover {
+    background-color: #f0f0f0;
 }
 
-.drawer-menu a i {
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineación a la izquierda */
+    justify-content: flex-start; 
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+}
+
+/* Estilo específico para los enlaces del menú hamburguesa */
+.menu-items a.menu-item {
+    display: block; 
+    width: 100%; 
+    padding: 10px 0; 
+    margin: 5px 0; 
+    border-radius: 0; 
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+    text-decoration: none;
+    color: #000000; /* NEGRO SOLICITADO */
+    font-family: 'Poppins-Regular', sans-serif;
+    text-align: left; /* Alineación del texto a la izquierda */
+    
+    /* Reseteo de estilos que vienen del Slider */
+    min-height: auto;
+    transform: none; 
+    background: transparent;
+    filter: none;
+}
+
+/* Hover de los enlaces del menú hamburguesa */
+.menu-items a.menu-item:hover {
+    background-color: transparent; 
+    color: #57d9b6; 
+    transform: none;
+}
+
+/* Estilo de los iconos del menú hamburguesa */
+.menu-items a.menu-item i {
     font-size: 18px;
-    width: 20px;
-    text-align: center;
-    color: #000000;
+    margin-right: 10px;
+    width: auto;
+    text-align: left;
+    color: #000000; /* NEGRO SOLICITADO */
+}
+
+.menu-items a.menu-item:hover i {
+    color: #57d9b6;
 }
 
 .overlay {
@@ -306,11 +325,11 @@ h1{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
 .overlay.active {
@@ -318,12 +337,11 @@ h1{
     visibility: visible;
 }
 
-/* MODIFICACIÓN PRINCIPAL: Contenedor con degradado y altura adecuada */
+/* ===== CONTENIDO PRINCIPAL ===== */
 .main-container {
     width: 100%;
-    /* REEMPLAZO DE #3ca597 POR #00617a (COLOR SOLIDO) EN EL DEGRADADO SUPERIOR */
     background: linear-gradient(to bottom, #00617a, #00617a);
-    padding: 155px 0 180px 0; /* Padding por defecto para móviles */
+    padding: 155px 0 180px 0;
     display: flex;
     justify-content: center;
     min-height: auto;
@@ -349,9 +367,7 @@ h1{
     gap: 4px;
 }
 
-/* h1 ya usa DESA, no necesita cambio de familia, solo se mantiene el color */
-/* .tagline ya usa Poppins-Italic, no necesita cambio de familia */
-
+/* ===== SLIDER (NO MODIFICADO) ===== */
 .slider-wrap{
     width:100vw;
     position:relative;
@@ -380,7 +396,6 @@ h1{
     display:none;
 }
 
-/* Área de scroll/deslizamiento con 30% de transparencia */
 .slider-track {
     position: absolute;
     top: 50%;
@@ -395,6 +410,8 @@ h1{
     pointer-events: none;
 }
 
+/* Nota: La clase .menu-item aquí es la que causa conflicto, pero es necesaria para tu slider.
+   Los estilos del DRAWER MENU corrigieron esto con selectores más específicos. */
 .menu-item{
     flex:0 0 auto;
     scroll-snap-align:center;
@@ -414,7 +431,7 @@ h1{
     position: relative;
     z-index: 10;
     margin: 0 -25px;
-    font-family: 'Poppins-Bold', sans-serif; /* Menu items (Botones) usan Poppins-Bold */
+    font-family: 'Poppins-Bold', sans-serif;
 }
 
 .menu-item:active{ cursor:grabbing }
@@ -430,7 +447,6 @@ h1{
 
 .menu-item.active{
     background: #fff;
-    /* REEMPLAZO DE var(--hero-bg) que era #3ca597, por #00617a */
     color: #00617a; 
     transform: scale(1.05) translateY(0);
     z-index: 15;
@@ -444,7 +460,6 @@ h1{
     margin-right: 20px;
 }
 
-/* Submenu con fondo blanco al 30% de transparencia y sin contorno */
 .submenu-container{
     position:absolute;
     border-radius: 15px;
@@ -484,7 +499,6 @@ h1{
 
 .submenu a + a{ border-top: none; }
 
-/* ===== ALETAS/FLECHAS DE NAVEGACIÓN CON 30% DE TRANSPARENCIA ===== */
 .slider-arrows {
     position: absolute;
     top: 50%;
@@ -513,7 +527,7 @@ h1{
     font-size: 20px;
     font-weight: bold;
     backdrop-filter: blur(10px);
-    font-family: 'Poppins-Bold', sans-serif; /* Flechas usan Poppins-Bold */
+    font-family: 'Poppins-Bold', sans-serif;
 }
 
 .arrow:hover {
@@ -529,7 +543,7 @@ h1{
     content: '›';
 }
 
-/* ===== CONTACT BUTTON ===== */
+/* ===== BOTONES Y SECCIONES (NO MODIFICADO) ===== */
 .contact-button-container {
     display: flex;
     justify-content: center;
@@ -539,10 +553,9 @@ h1{
 }
 
 .contact-button { 
-    /* REEMPLAZO DE #3ca597 POR #00617a */
     background-color: #00617a; 
     color: white; 
-    font-family: 'Poppins-Bold', sans-serif; /* Botón usa Poppins-Bold */
+    font-family: 'Poppins-Bold', sans-serif;
     width: 280px; 
     line-height: normal; 
     border: none; 
@@ -556,13 +569,10 @@ h1{
 }
 
 .contact-button:hover { 
-    /* El hover ya estaba con #00617a, se mantiene */
     background-color: #00617a; 
 }
 
-/* ===== COUNTERS SECTION ===== */ 
 .counters { 
-    /* CAMBIO 3: De rgba(222, 255, 169, 0.1) (color claro de #c7ffa9) a rgba(87, 217, 182, 0.1) */
     background-color: rgba(87, 217, 182, 0.1); 
     padding: 40px 30px;
     border-radius: 15px;
@@ -584,12 +594,11 @@ h1{
 }
 
 .counter { 
-    /* REEMPLAZO DE #3ca597 POR #00617a */
     color: #00617a; 
     font-size: 3rem; 
     font-weight: 700; 
     margin-bottom: 0.5rem; 
-    font-family: 'Poppins-Bold', sans-serif; /* Contador usa Poppins-Bold */
+    font-family: 'Poppins-Bold', sans-serif;
 }
 
 .counters p { 
@@ -599,7 +608,6 @@ h1{
     font-family: 'Poppins-Regular', sans-serif;
 }
 
-/* ===== ABOUT SECTION ===== */ 
 .about-novaklar { 
     padding: 2.5rem 5%; 
     max-width: 1200px; 
@@ -607,12 +615,10 @@ h1{
     width: 100%;
 }
 
-/* H2 ya usa Poppins-Bold gracias a la regla general */
 .about-novaklar h2 { 
     text-align: center; 
     font-size: 2.5rem; 
     margin-bottom: 2rem; 
-    /* REEMPLAZO DE #3ca597 POR #00617a */
     color: #00617a; 
     position: relative; 
     font-family: 'Poppins-Bold', sans-serif !important; 
@@ -623,7 +629,6 @@ h1{
     display: block; 
     width: 100px; 
     height: 4px; 
-    /* CAMBIO 3: De #deffa9 a #57d9b6 */
     background-color: #57d9b6; 
     margin: 1rem auto 0; 
     border-radius: 2px;
@@ -636,7 +641,6 @@ h1{
     border-radius: 12px; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
     transition: transform 0.3s ease; 
-    /* CAMBIO 3: De #deffa9 a #57d9b6 */
     border-left: 5px solid #57d9b6; 
 }
 
@@ -645,9 +649,7 @@ h1{
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* H3 ya usa Poppins-Bold gracias a la regla general */
 .about-section h3 { 
-    /* REEMPLAZO DE #3ca597 POR #00617a */
     color: #00617a; 
     margin-bottom: 1.2rem; 
     font-size: 1.6rem; 
@@ -675,7 +677,6 @@ h1{
 
 .terms { 
     background-color: #f8faff; 
-    /* REEMPLAZO DE #3ca597 POR #00617a */
     border-left: 5px solid #00617a; 
     border-top: 1px solid #e1e8ff;
 }
@@ -694,11 +695,9 @@ h1{
     font-family: 'Poppins-Regular', sans-serif;
 }
 
-/* ===== FOOTER ===== */ 
 footer { 
     text-align: center; 
     padding: 2rem; 
-    /* REEMPLAZO DE #3ca597 POR #00617a */
     background-color: #00617a; 
     color: white; 
     margin-top: 4rem; 
@@ -706,7 +705,6 @@ footer {
     font-family: 'Poppins-Regular', sans-serif;
 }
 
-/* ===== WHATSAPP BUTTON ===== */ 
 .whatsapp-button { 
     position: fixed; 
     bottom: 20px; 
@@ -751,11 +749,10 @@ footer {
     filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+/* ===== RESPONSIVE DESIGN (NO MODIFICADO) ===== */
 @media (max-width:1024px) {
     h1 {
         font-size: 82px;
-        /* CAMBIO 1: Reemplazo de color del título de #c7ffa9 a #57d9b6 */
         color: #57d9b6;
     }
     
@@ -771,7 +768,6 @@ footer {
         width: calc(100% - 30px);
         padding: 12px 20px;
         top: 15px;
-        /* Efecto cristal clásico sin tono 5170ff */
         background: rgba(255, 255, 255, 0.25);
         backdrop-filter: blur(12px) saturate(160%);
         -webkit-backdrop-filter: blur(12px) saturate(160%);
@@ -781,15 +777,13 @@ footer {
     
     .main-container {
         padding: 145px 0 160px 0;
-        /* REEMPLAZO DE #3ca597 POR #00617a EN EL DEGRADADO SUPERIOR */
         background: linear-gradient(to bottom, #00617a, #00617a);
     }
     
     .counter {
         font-size: 2.5rem;
-        /* REEMPLAZO DE #3ca597 POR #00617a */
         color: #00617a; 
-        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif;
     }
     
     .counters p {
@@ -800,7 +794,7 @@ footer {
         width: 45px;
         height: 45px;
         font-size: 18px;
-        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif;
     }
     
     .slider-track {
@@ -812,7 +806,6 @@ footer {
 @media (max-width:768px) {
     h1 {
         font-size: 68px;
-        /* CAMBIO 1: Reemplazo de color del título de #c7ffa9 a #57d9b6 */
         color: #57d9b6;
     }
     
@@ -824,13 +817,14 @@ footer {
         gap: 60px;
     }
     
+    /* Nota: Esto afecta al slider, se mantiene. */
     .menu-item{ 
         font-size:18px; 
         min-height:72px; 
         padding:14px 16px;
         margin: 0 -20px;
         background: rgba(255, 255, 255, 0.3);
-        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif;
     }
     .menu-item.inactive {
         background: rgba(255, 255, 255, 0.15);
@@ -848,7 +842,6 @@ footer {
         padding: 10px 15px;
         border-radius: 14px;
         top: 15px;
-        /* Efecto cristal clásico sin tono 5170ff */
         background: rgba(255, 255, 255, 0.3);
         backdrop-filter: blur(10px) saturate(150%);
         -webkit-backdrop-filter: blur(10px) saturate(150%);
@@ -864,7 +857,7 @@ footer {
         height: 34px;
     }
     
-    /* Mostrar menú hamburguesa en pantallas pequeñas */
+    /* Mostrar menú hamburguesa en móviles */
     .hamburger-menu {
         display: flex;
     }
@@ -874,12 +867,10 @@ footer {
     }
     
     .main-container {
-        padding: 135px 0 300px 0; /* Padding inferior aumentado para móviles */
-        /* REEMPLAZO DE #3ca597 POR #00617a EN EL DEGRADADO SUPERIOR */
+        padding: 135px 0 300px 0;
         background: linear-gradient(to bottom, #00617a, #00617a);
     }
     
-    /* Counters responsive */
     .counters {
         flex-direction: column;
         align-items: center;
@@ -894,16 +885,14 @@ footer {
     
     .counter {
         font-size: 2.8rem;
-        /* REEMPLAZO DE #3ca597 POR #00617a */
         color: #00617a; 
-        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif;
     }
     
     .about-novaklar h2 {
         font-size: 2rem;
-        /* REEMPLAZO DE #3ca597 POR #00617a */
         color: #00617a; 
-        font-family: 'Poppins-Bold', sans-serif !important; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif !important;
     }
     
     .about-section {
@@ -913,9 +902,8 @@ footer {
     
     .about-section h3 {
         font-size: 1.4rem;
-        /* REEMPLAZO DE #3ca597 POR #00617a */
         color: #00617a; 
-        font-family: 'Poppins-Bold', sans-serif !important; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif !important;
     }
     
     .terms ol li {
@@ -937,7 +925,7 @@ footer {
         width: 45px;
         height: 45px;
         font-size: 18px;
-        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif;
     }
     
     .slider-track {
@@ -949,7 +937,6 @@ footer {
 @media (max-width:520px){
     h1{ 
         font-size: 52px;
-        /* CAMBIO 1: Reemplazo de color del título de #c7ffa9 a #57d9b6 */
         color: #57d9b6;
     }
     
@@ -961,13 +948,14 @@ footer {
         gap: 40px;
     }
     
+    /* Nota: Esto afecta al slider, se mantiene. */
     .menu-item{ 
         font-size:18px; 
         min-height:72px; 
         padding:14px 16px;
         margin: 0 -20px;
         background: rgba(255, 255, 255, 0.3);
-        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif;
     }
     .menu-item.inactive {
         background: rgba(255, 255, 255, 0.15);
@@ -1003,12 +991,10 @@ footer {
     }
     
     .main-container {
-        padding: 125px 0 300px 0; /* Padding inferior aumentado para móviles */
-        /* REEMPLAZO DE #3ca597 POR #00617a EN EL DEGRADADO SUPERIOR */
+        padding: 125px 0 300px 0;
         background: linear-gradient(to bottom, #00617a, #00617a);
     }
     
-    /* Counters mobile */
     .counters {
         padding: 25px 15px;
         width: 95%;
@@ -1016,9 +1002,8 @@ footer {
     
     .counter {
         font-size: 2.5rem;
-        /* REEMPLAZO DE #3ca597 POR #00617a */
         color: #00617a; 
-        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif;
     }
     
     .counters p {
@@ -1035,9 +1020,8 @@ footer {
     
     .about-section h3 {
         font-size: 1.3rem;
-        /* REEMPLAZO DE #3ca597 POR #00617a */
         color: #00617a; 
-        font-family: 'Poppins-Bold', sans-serif !important; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif !important;
     }
     
     .terms ol li {
@@ -1060,7 +1044,7 @@ footer {
         width: 35px;
         height: 35px;
         font-size: 14px;
-        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif;
     }
     
     .slider-track {
@@ -1072,7 +1056,6 @@ footer {
 @media (max-width:380px){
     h1{ 
         font-size: 44px;
-        /* CAMBIO 1: Reemplazo de color del título de #c7ffa9 a #57d9b6 */
         color: #57d9b6;
     }
     
@@ -1085,26 +1068,25 @@ footer {
         padding: 70px 15px 25px;
     }
     
+    /* Nota: Esto aplica a los enlaces del slider, NO a los del drawer. */
     .drawer-menu a {
         padding: 10px 15px;
         font-size: 15px;
-    }
+    } 
     
     .logo {
         height: 30px;
     }
     
     .main-container {
-        padding: 115px 0 300px 0; /* Padding inferior aumentado para móviles */
-        /* REEMPLAZO DE #3ca597 POR #00617a EN EL DEGRADADO SUPERIOR */
+        padding: 115px 0 300px 0;
         background: linear-gradient(to bottom, #00617a, #00617a);
     }
     
     .counter {
         font-size: 2.2rem;
-        /* REEMPLAZO DE #3ca597 POR #00617a */
         color: #00617a; 
-        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif;
     }
     
     .counters p {
@@ -1119,7 +1101,7 @@ footer {
         width: 30px;
         height: 30px;
         font-size: 12px;
-        font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
+        font-family: 'Poppins-Bold', sans-serif;
     }
     
     .slider-track {
@@ -1128,22 +1110,17 @@ footer {
     }
 }
 
-/* NUEVO: Media query para pantallas grandes (tablets, computadoras, etc.) */
-/* Aplicar el aumento del padding inferior para pantallas >= 769px */
+/* Pantallas grandes */
 @media (min-width: 769px) {
-    /* CAMBIO 2: Aumento del padding inferior para pantallas grandes */
     .main-container {
-        padding-bottom: 300px; /* Aumento a 300px para pantallas grandes */
+        padding-bottom: 300px;
     }
 }
 
-/* Media query para pantallas extra grandes (>= 1200px) */
 @media (min-width: 1200px) {
     .main-container {
         min-height: 100vh;
-        /* CAMBIO 2: Mantener el padding inferior de 300px o ajustarlo */
         padding-bottom: 300px; 
-        /* REEMPLAZO DE #3ca597 POR #00617a EN EL DEGRADADO SUPERIOR */
         background: linear-gradient(to bottom, #00617a, #00617a);
     }
     

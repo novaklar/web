@@ -58,7 +58,8 @@
     --muted-white-2: rgba(255,255,255,0.18);
     --accent: #2f4df0;
     --menu-bg: rgba(255, 255, 255, 0.15);
-    --primary-color: #deffa9;
+    /* CAMBIO 3: De #deffa9 a #57d9b6. Lo mantengo como variable primaria para futuras referencias aunque los usos directos se cambiarán */
+    --primary-color: #57d9b6; 
     --hero-bg: #3ca597;
 }
 
@@ -99,7 +100,8 @@ body, p, li, a, span, div {
 h1{
     margin:0;
     font-size: 96px;
-    color: #c7ffa9; 
+    /* CAMBIO 1: Reemplazo de color del título de #c7ffa9 a #57d9b6 */
+    color: #57d9b6; 
     letter-spacing: 2px;
     font-family: 'DESA', sans-serif; /* Mantiene la tipografía asignada (DESA) */
     font-weight: normal;
@@ -189,7 +191,8 @@ h1{
 }
 
 .nav-links a:hover {
-    color: #deffa9; 
+    /* CAMBIO 3: De #deffa9 a #57d9b6 */
+    color: #57d9b6; 
 }
 
 .nav-links a::after {
@@ -199,7 +202,8 @@ h1{
     left: 0;
     width: 0;
     height: 1.5px;
-    background: #deffa9; 
+    /* CAMBIO 3: De #deffa9 a #57d9b6 */
+    background: #57d9b6; 
     transition: width 0.3s ease;
 }
 
@@ -283,7 +287,8 @@ h1{
 }
 
 .drawer-menu a:hover {
-    background: rgba(222, 255, 169, 0.08);
+    /* CAMBIO 3: De rgba(222, 255, 169, 0.08) (color claro de #c7ffa9) a rgba(87, 217, 182, 0.08) */
+    background: rgba(87, 217, 182, 0.08); 
     transform: translateX(4px);
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
 }
@@ -317,7 +322,7 @@ h1{
 .main-container {
     width: 100%;
     background: linear-gradient(to bottom, #3ca597, #00617a);
-    padding: 155px 0 180px 0;
+    padding: 155px 0 180px 0; /* Padding por defecto para móviles */
     display: flex;
     justify-content: center;
     min-height: auto;
@@ -553,7 +558,8 @@ h1{
 
 /* ===== COUNTERS SECTION ===== */ 
 .counters { 
-    background-color: rgba(222, 255, 169, 0.1); 
+    /* CAMBIO 3: De rgba(222, 255, 169, 0.1) (color claro de #c7ffa9) a rgba(87, 217, 182, 0.1) */
+    background-color: rgba(87, 217, 182, 0.1); 
     padding: 40px 30px;
     border-radius: 15px;
     display: flex;
@@ -611,7 +617,8 @@ h1{
     display: block; 
     width: 100px; 
     height: 4px; 
-    background-color: #deffa9; 
+    /* CAMBIO 3: De #deffa9 a #57d9b6 */
+    background-color: #57d9b6; 
     margin: 1rem auto 0; 
     border-radius: 2px;
 }
@@ -623,7 +630,8 @@ h1{
     border-radius: 12px; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
     transition: transform 0.3s ease; 
-    border-left: 5px solid #deffa9; 
+    /* CAMBIO 3: De #deffa9 a #57d9b6 */
+    border-left: 5px solid #57d9b6; 
 }
 
 .about-section:hover { 
@@ -738,7 +746,8 @@ footer {
 @media (max-width:1024px) {
     h1 {
         font-size: 82px;
-        color: #c7ffa9;
+        /* CAMBIO 1: Reemplazo de color del título de #c7ffa9 a #57d9b6 */
+        color: #57d9b6;
     }
     
     .tagline {
@@ -792,7 +801,8 @@ footer {
 @media (max-width:768px) {
     h1 {
         font-size: 68px;
-        color: #c7ffa9;
+        /* CAMBIO 1: Reemplazo de color del título de #c7ffa9 a #57d9b6 */
+        color: #57d9b6;
     }
     
     .tagline {
@@ -853,7 +863,7 @@ footer {
     }
     
     .main-container {
-        padding: 135px 0 300px 0;
+        padding: 135px 0 300px 0; /* Padding inferior aumentado para móviles */
         background: linear-gradient(to bottom, #3ca597, #00617a);
     }
     
@@ -909,9 +919,9 @@ footer {
     }
     
     .arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
         font-family: 'Poppins-Bold', sans-serif; /* Poppins-Bold */
     }
     
@@ -924,7 +934,8 @@ footer {
 @media (max-width:520px){
     h1{ 
         font-size: 52px;
-        color: #c7ffa9;
+        /* CAMBIO 1: Reemplazo de color del título de #c7ffa9 a #57d9b6 */
+        color: #57d9b6;
     }
     
     .tagline {
@@ -977,7 +988,7 @@ footer {
     }
     
     .main-container {
-        padding: 125px 0 300px 0;
+        padding: 125px 0 300px 0; /* Padding inferior aumentado para móviles */
         background: linear-gradient(to bottom, #3ca597, #00617a);
     }
     
@@ -1043,7 +1054,8 @@ footer {
 @media (max-width:380px){
     h1{ 
         font-size: 44px;
-        color: #c7ffa9;
+        /* CAMBIO 1: Reemplazo de color del título de #c7ffa9 a #57d9b6 */
+        color: #57d9b6;
     }
     
     .tagline {
@@ -1065,7 +1077,7 @@ footer {
     }
     
     .main-container {
-        padding: 115px 0 300px 0;
+        padding: 115px 0 300px 0; /* Padding inferior aumentado para móviles */
         background: linear-gradient(to bottom, #3ca597, #00617a);
     }
     
@@ -1096,11 +1108,21 @@ footer {
     }
 }
 
-/* NUEVO: Media query para pantallas grandes */
+/* NUEVO: Media query para pantallas grandes (tablets, computadoras, etc.) */
+/* Aplicar el aumento del padding inferior para pantallas >= 769px */
+@media (min-width: 769px) {
+    /* CAMBIO 2: Aumento del padding inferior para pantallas grandes */
+    .main-container {
+        padding-bottom: 300px; /* Aumento a 300px para pantallas grandes */
+    }
+}
+
+/* Media query para pantallas extra grandes (>= 1200px) */
 @media (min-width: 1200px) {
     .main-container {
         min-height: 100vh;
-        padding-bottom: 200px;
+        /* CAMBIO 2: Mantener el padding inferior de 300px o ajustarlo */
+        padding-bottom: 300px; 
         background: linear-gradient(to bottom, #3ca597, #00617a);
     }
     

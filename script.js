@@ -8,11 +8,12 @@ const submenu = document.getElementById('submenu');
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const drawerMenu = document.querySelector('.drawer-menu');
 const overlay = document.querySelector('.overlay');
+const closeBtn = document.getElementById('closeBtn');
 const header = document.querySelector('.header');
 
-// Menús actualizados - CONECTADOS CORRECTAMENTE
+// Menús actualizados
 const menus = {
-    studio: [  // Cambiado de 'estudio' a 'studio'
+    studio: [
         { text: 'NK studio', url: 'https://www.novaklar.com', target: '_blank' }
     ],
     catalogos: [
@@ -24,17 +25,17 @@ const menus = {
     elementos: [
         { text: 'App', url: 'App.html', target: '_self' },
         { text: 'Ranking', url: 'ranking.html', target: '_self' },
-        // --- CAMBIO SOLICITADO APLICADO AQUÍ ---
-        { text: 'Catalogo', url: 'catalogo.html', target: '_self' }, // Renombrado y movido
+        { text: 'Catalogo', url: 'catalogo.html', target: '_self' },
         { text: 'Publicidad', url: 'https://photos.app.goo.gl/5dSreR3BwDKUeaTHA', target: '_blank' }
-        // { text: 'Catalogo Clientes', url: 'catalogo.html', target: '_self' } <-- ELIMINADO/MOVIDO
     ]
 };
 
 const ITEM_RATIO = 0.62;
 let isScrolling = false;
 let scrollTimeout;
+let lastActive = null;
 
+// ===== FUNCIONES DEL SLIDER =====
 function layoutItems(){
     const sliderW = slider.clientWidth;
     const itemW = Math.round(sliderW * ITEM_RATIO);
@@ -56,7 +57,6 @@ function nearestToCenter(){
     }, { el: null, dist: Infinity }).el;
 }
 
-let lastActive = null;
 function updateActive(){
     const active = nearestToCenter();
     if(!active || active === lastActive) return;
@@ -155,7 +155,7 @@ function debounce(fn, ms=80){
     let t; return (...args) => { clearTimeout(t); t=setTimeout(()=>fn(...args), ms); };
 }
 
-// ===== HAMBURGER MENU FUNCTIONALITY =====
+// ===== MENÚ HAMBURGUESA =====
 function toggleMenu() {
     hamburgerMenu.classList.toggle('active');
     drawerMenu.classList.toggle('active');
@@ -170,7 +170,7 @@ function closeMenu() {
     document.body.style.overflow = '';
 }
 
-// ===== HEADER SCROLL FUNCTIONALITY =====
+// ===== HEADER SCROLL =====
 function handleHeaderScroll() {
     if (window.scrollY > 50) {
         header.classList.add('scrolled');
@@ -179,7 +179,7 @@ function handleHeaderScroll() {
     }
 }
 
-// ===== COUNTER ANIMATION =====
+// ===== CONTADORES =====
 const counters = document.querySelectorAll('.counter');
 const counterSection = document.querySelector('.counters');
 
@@ -226,7 +226,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.5 });
 
-// ===== INITIALIZATION =====
+// ===== INICIALIZACIÓN =====
 function init(){
     // Slider initialization
     layoutItems();
@@ -236,10 +236,11 @@ function init(){
     
     // Event listeners para el menú hamburguesa
     hamburgerMenu.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', closeMenu);
     overlay.addEventListener('click', closeMenu);
     
     // Cerrar menú al hacer clic en un enlace
-    drawerMenu.querySelectorAll('a').forEach(link => {
+    document.querySelectorAll('.drawer-menu a').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
     

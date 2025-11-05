@@ -228,6 +228,7 @@ const observer = new IntersectionObserver((entries) => {
 function init(){
     // Slider initialization
     layoutItems();
+    // CAMBIO REALIZADO: 'catalogos' como elemento por defecto
     const def = items.find(it => it.dataset.menu === 'catalogos') || items[1];
     centerItem(def, 'auto');
     setTimeout(()=>updateActive(), 60);

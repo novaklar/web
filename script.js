@@ -75,6 +75,24 @@ function updateActive(){
     lastActive = active;
 }
 
+// Función para forzar un elemento específico como activo
+function setActiveItem(menuKey) {
+    const targetItem = items.find(it => it.dataset.menu === menuKey);
+    if (targetItem) {
+        items.forEach(it => {
+            it.classList.remove('active');
+            it.classList.add('inactive');
+        });
+        targetItem.classList.add('active');
+        targetItem.classList.remove('inactive');
+        
+        const key = targetItem.getAttribute('data-menu');
+        renderSubmenu(key);
+        animateSubmenuTo(targetItem);
+        lastActive = targetItem;
+    }
+}
+
 function renderSubmenu(key){
     const list = menus[key] || [];
     submenu.innerHTML = '<div class="submenu">' + 
@@ -228,10 +246,24 @@ const observer = new IntersectionObserver((entries) => {
 function init(){
     // Slider initialization
     layoutItems();
-    // CAMBIO REALIZADO: 'catalogos' como elemento por defecto
-    const def = items.find(it => it.dataset.menu === 'catalogos') || items[1];
-    centerItem(def, 'auto');
-    setTimeout(()=>updateActive(), 60);
+    
+    // FORZAR 'catalogos' como elemento activo permanente
+    const catalogosItem = items.find(it => it.dataset.menu === 'catalogos');
+    if (catalogosItem) {
+        // Centrar el elemento
+        centerItem(catalogosItem, 'auto');
+        
+        // Establecer como activo inmediatamente
+        setActiveItem('catalogos');
+        
+        // Actualizar posición del submenu
+        updateActivePosition(true);
+    } else {
+        // Fallback si no encuentra catalogos
+        const def = items[1];
+        centerItem(def, 'auto');
+        setTimeout(() => updateActive(), 60);
+    }
     
     // Event listeners para el menú hamburguesa
     hamburgerMenu.addEventListener('click', toggleMenu);
@@ -261,8 +293,16 @@ slider.addEventListener('click', e=>{
 
 window.addEventListener('resize', debounce(()=>{
     layoutItems();
-    const active = document.querySelector('.menu-item.active') || items[1];
-    if(active) centerItem(active, 'auto');
+    // Al redimensionar, mantener catalogos como activo
+    const catalogosItem = items.find(it => it.dataset.menu === 'catalogos');
+    if (catalogosItem) {
+        centerItem(catalogosItem, 'auto');
+        setActiveItem('catalogos');
+        updateActivePosition(true);
+    } else {
+        const active = document.querySelector('.menu-item.active') || items[1];
+        if(active) centerItem(active, 'auto');
+    }
 }, 120));
 
 new ResizeObserver(()=>layoutItems()).observe(slider);

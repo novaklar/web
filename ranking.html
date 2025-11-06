@@ -15,7 +15,8 @@
     }
 
     header {
-      background-color: #00128f;
+      /* Color solicitado: 147680 */
+      background-color: #147680;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -25,6 +26,7 @@
 
     header img {
       height: 40px;
+      /* Mantener el logo blanco */
       filter: brightness(0) invert(1);
     }
 
@@ -46,7 +48,8 @@
       font-family: 'Comme', sans-serif;
       font-size: 2.2rem;
       font-weight: 700;
-      color: #00128f;
+      /* Color principal */
+      color: #147680;
       text-align: center;
       margin: 2rem 0 0.5rem;
       padding: 0 1rem;
@@ -54,7 +57,8 @@
 
     .season-info {
       text-align: center;
-      color: #00128f;
+      /* Color principal */
+      color: #147680;
       font-size: 1.1rem;
       font-weight: 500;
       margin-bottom: 1.5rem;
@@ -83,8 +87,9 @@
 
     .search-input:focus {
       outline: none;
-      border-color: #6c91ff;
-      box-shadow: 0 0 0 3px rgba(108, 145, 255, 0.2);
+      /* Ajuste de color al enfocar */
+      border-color: #57d9b6;
+      box-shadow: 0 0 0 3px rgba(87, 217, 182, 0.4);
     }
 
     .search-icon {
@@ -106,7 +111,8 @@
     }
 
     .ranking-table thead {
-      background: linear-gradient(135deg, #6c91ff, #4a72da);
+      /* Gradiente solicitado: #147680 y #57d9b6 */
+      background: linear-gradient(135deg, #147680, #57d9b6);
       color: white;
     }
 
@@ -131,12 +137,14 @@
     }
 
     .ranking-table tbody tr:hover {
-      background-color: #f1f7ff;
+      /* Ajuste del hover */
+      background-color: #f7fffa;
     }
 
     .rank-number {
       font-weight: bold;
-      color: #6c91ff;
+      /* Color principal */
+      color: #147680;
       width: 50px;
       text-align: center;
     }
@@ -148,14 +156,19 @@
     .sales-count {
       text-align: right;
       font-weight: 600;
-      color: #4a72da;
+      /* Color secundario */
+      color: #57d9b6;
     }
 
     .top-affiliate {
-      background-color: #f0f7ff !important;
-      position: relative;
+      /* Fondo sutil del color secundario */
+      background-color: #f7fffb !important;
+      /* Se elimina la posición relativa ya que se elimina el ::after */
+      /* position: relative; */ 
     }
 
+    /* --- INICIO: CÓDIGO ELIMINADO --- */
+    /*
     .top-affiliate::after {
       content: '';
       position: absolute;
@@ -163,11 +176,14 @@
       top: 0;
       height: 100%;
       width: 4px;
-      background: linear-gradient(to bottom, #6c91ff, #4a72da);
+      background: linear-gradient(to bottom, #147680, #57d9b6);
     }
+    */
+    /* --- FIN: CÓDIGO ELIMINADO --- */
 
     .top-affiliate .rank-number {
-      color: #4a72da;
+      /* Color principal más oscuro */
+      color: #0d4a52;
       font-weight: 800;
     }
 
@@ -189,7 +205,8 @@
       display: block;
       font-size: 2rem;
       margin-bottom: 1rem;
-      color: #6c91ff;
+      /* Color principal */
+      color: #147680;
     }
 
     .error-message {
@@ -218,19 +235,22 @@
       display: block;
       margin: 1.5rem auto;
       padding: 0.8rem 1.5rem;
-      background: linear-gradient(135deg, #6c91ff, #4a72da);
+      /* Gradiente solicitado: #147680 y #57d9b6 */
+      background: linear-gradient(135deg, #147680, #57d9b6);
       color: white;
       border: none;
       border-radius: 0.6rem;
       cursor: pointer;
       transition: all 0.3s ease;
       font-weight: 600;
-      box-shadow: 0 4px 6px rgba(108, 145, 255, 0.2);
+      /* Sombra ajustada */
+      box-shadow: 0 4px 6px rgba(20, 118, 128, 0.3);
     }
 
     .refresh-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(108, 145, 255, 0.3);
+      /* Sombra ajustada */
+      box-shadow: 0 6px 12px rgba(20, 118, 128, 0.4);
     }
 
     .refresh-btn:active {
@@ -245,7 +265,8 @@
     }
 
     .total-sales {
-      background: linear-gradient(135deg, #6c91ff, #4a72da);
+      /* Gradiente solicitado: #147680 y #57d9b6 */
+      background: linear-gradient(135deg, #147680, #57d9b6);
       color: white;
       padding: 1.2rem;
       border-radius: 0.8rem;
@@ -253,7 +274,8 @@
       text-align: center;
       font-weight: 600;
       font-size: 1.2rem;
-      box-shadow: 0 4px 12px rgba(108, 145, 255, 0.3);
+      /* Sombra ajustada */
+      box-shadow: 0 4px 12px rgba(20, 118, 128, 0.3);
     }
 
     .total-sales span {
@@ -368,8 +390,7 @@
         </tr>
       </thead>
       <tbody id="ranking-body">
-        <!-- Los datos se cargarán aquí con JavaScript -->
-      </tbody>
+        </tbody>
     </table>
 
     <div id="no-results" class="no-results" style="display: none;">
@@ -385,6 +406,7 @@
   </div>
 
   <script>
+    // El script JS sigue siendo el mismo.
     // Configuración
     const SPREADSHEET_ID = '1D54c79yejujdFIJKVu4m3iM3ndUVnxP_fSgwSqGec5U';
     const SHEET_NAME = 'Form_Responses1';
@@ -757,4 +779,3 @@
   </script>
 </body>
 </html>
-

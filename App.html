@@ -7,13 +7,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    /* 1. Inclusión de Fuentes Personalizadas */
+    @font-face {
+      font-family: 'Poppins';
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    /* 2. Definición de Variables con Nuevos Colores */
     :root {
-      --primary-blue: #00128f;
-      --secondary-blue: #6c91ff;
-      --light-blue: #eef5ff;
-      --primary-teal: #147a80;
-      --secondary-teal: #beff7d;
-      --light-teal: #e7fcfb;
+      --primary-custom: #147680; /* Nuevo color principal (Header, Títulos) */
+      --secondary-custom: #57d9b6; /* Nuevo color secundario (Iconos) */
+      --logo-button-color: #c51e5d; /* Color para el Logo y el Botón de Descarga */
       --white: #ffffff;
       --light-gray: #f9f9f9;
       --medium-gray: #555;
@@ -31,7 +44,8 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* Aplicación de Poppins-Regular al cuerpo del texto */
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       color: var(--dark-gray);
       line-height: 1.6;
@@ -39,8 +53,9 @@
       min-height: 100vh;
     }
 
+    /* 3. Header con el color solicitado */
     header {
-      background-color: var(--primary-blue);
+      background-color: #147680; /* Color 147680 */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -64,7 +79,7 @@
     header a {
       text-decoration: none;
       color: var(--white);
-      font-weight: 600;
+      font-weight: 400; /* Regular */
       font-size: 1rem;
       padding: 0.5rem 1rem;
       border-radius: 4px;
@@ -88,10 +103,12 @@
       margin-top: 3rem;
     }
 
+    /* 4. Títulos con Poppins-Bold y color #147680 */
     .app-title {
-      font-family: 'Comme', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
       font-size: 2.5rem;
-      color: var(--primary-blue);
+      color: var(--primary-custom); /* Color #147680 */
       margin-bottom: 1rem;
     }
 
@@ -101,6 +118,7 @@
       margin-bottom: 1.5rem;
     }
 
+    /* 5. Cuadro del logo (sin cambio de color de fondo) */
     .app-image {
       width: 180px;
       height: 180px;
@@ -109,7 +127,7 @@
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       transition: var(--transition);
-      background-color: #080a33; /* Color del contenedor */
+      background-color: #080a33; /* Color mantenido */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -119,6 +137,7 @@
       transform: scale(1.05);
     }
 
+    /* 6. Logo del cuadro con tono #c51e5d */
     .animated-logo {
       width: 60%;
       height: 60%;
@@ -126,17 +145,19 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      filter: invert(30%) sepia(70%) saturate(2000%) hue-rotate(320deg) brightness(90%) contrast(90%);
+      /* Filtro ajustado para forzar el color #c51e5d (rojo/magenta oscuro) */
+      filter: invert(18%) sepia(85%) saturate(3000%) hue-rotate(320deg) brightness(100%) contrast(100%);
     }
 
+    /* 7. Botón de descarga con color #c51e5d */
     .download-btn {
       display: block;
-      background: #c51e5d;
+      background: var(--logo-button-color); /* Color #c51e5d */
       color: white;
       padding: 1rem 2rem;
       border-radius: 15px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
       font-size: 1.2rem;
       box-shadow: 0 5px 15px rgba(197, 30, 93, 0.3);
       transition: var(--transition);
@@ -164,10 +185,12 @@
       margin: 2.5rem 0;
     }
 
+    /* 8. Títulos de sección con Poppins-Bold y color #147680 */
     .section-title {
-      font-family: 'Comme', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
       font-size: 1.8rem;
-      color: var(--primary-blue);
+      color: var(--primary-custom); /* Color #147680 */
       margin-bottom: 1.5rem;
       text-align: center;
     }
@@ -197,16 +220,20 @@
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     }
 
+    /* 9. Iconos de funciones con color #57d9b6 */
     .feature-icon {
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: var(--primary-blue);
+      color: var(--secondary-custom); /* Color #57d9b6 */
     }
 
+    /* 10. Títulos de tarjeta con Poppins-Bold y color #147680 */
     .feature-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
       font-size: 1.3rem;
       margin-bottom: 0.8rem;
-      color: var(--primary-blue);
+      color: var(--primary-custom); /* Color #147680 */
     }
     
     .content-paragraph {
@@ -218,7 +245,7 @@
     .security-section,
     .studio-section {
       text-align: center;
-      padding: 2rem 1.5rem; /* Ajuste para coincidir con el app-container */
+      padding: 2rem 1.5rem;
       margin: 2rem auto;
     }
 
@@ -250,9 +277,10 @@
       transform: scale(1.05);
     }
 
+    /* 11. Iconos de seguridad con color #57d9b6 */
     .badge i {
       font-size: 1.8rem;
-      color: var(--secondary-blue);
+      color: var(--secondary-custom); /* Color #57d9b6 */
       margin-right: 0.8rem;
     }
 
@@ -269,8 +297,11 @@
       text-align: left;
     }
     
+    /* 12. Subtítulos de bloque de texto con Poppins-Bold y color #147680 */
     .text-block h3 {
-      color: var(--primary-blue);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: var(--primary-custom); /* Color #147680 */
       margin-bottom: 1rem;
       text-align: center;
     }
@@ -315,7 +346,7 @@
       .download-btn {
         padding: 0.9rem 1.7rem;
         font-size: 1.1rem;
-        max-width: 100px; /* Ancho para pantallas pequeñas */
+        max-width: 90%; /* Ancho para pantallas pequeñas */
       }
       
       .section-title {

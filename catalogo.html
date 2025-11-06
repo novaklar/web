@@ -4,17 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catálogo | Novaklar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
   <style>
+    /*
+     * ###############################
+     * # DEFINICIÓN DE FUENTES POPPINS
+     * ###############################
+     */
+    @font-face {
+      font-family: 'Poppins Regular';
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Poppins Bold';
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    /*
+     * ###############################
+     * # ESTILOS ACTUALIZADOS
+     * ###############################
+     */
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* Aplicar Poppins Regular a todo el cuerpo */
+      font-family: 'Poppins Regular', sans-serif;
       background-color: white;
       color: #333;
     }
 
     header {
-      background-color: #00128f;
+      /* Color actualizado: #147680 */
+      background-color: #147680;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -42,10 +68,12 @@
     }
 
     .page-title {
-      font-family: 'Comme', sans-serif;
+      /* Aplicar Poppins Bold */
+      font-family: 'Poppins Bold', sans-serif;
       font-size: 2.2rem;
       font-weight: 700;
-      color: #00128f;
+      /* Color actualizado: #147680 */
+      color: #147680;
       text-align: center;
       margin: 3rem 0 1.5rem;
       padding: 0 1rem;
@@ -76,8 +104,9 @@
       display: block;
       margin: 0 auto;
       padding: 0.8rem 1.5rem;
-      background-color: #6c91ff;
-      color: white;
+      /* Color actualizado: #57d9b6 */
+      background-color: #57d9b6;
+      color: #147680; /* Texto del botón con el color principal */
       border: none;
       border-radius: 4px;
       font-size: 1rem;
@@ -87,7 +116,8 @@
     }
 
     .copy-button:hover {
-      background-color: #5a7de6;
+      /* Color más oscuro para el hover */
+      background-color: #4cd6a9;
     }
 
     .copy-button:active {
@@ -96,7 +126,8 @@
 
     .success-message {
       text-align: center;
-      color: #16a34a;
+      /* Color actualizado: #147680 */
+      color: #147680;
       font-weight: 600;
       margin-top: 1rem;
       display: none;
@@ -104,6 +135,7 @@
 
     .error-message {
       text-align: center;
+      /* Color de error estándar */
       color: #dc2626;
       font-weight: 600;
       margin-top: 1rem;
@@ -111,9 +143,11 @@
     }
 
     .features-title {
-      font-family: 'Comme', sans-serif;
+      /* Aplicar Poppins Bold */
+      font-family: 'Poppins Bold', sans-serif;
       font-size: 1.8rem;
-      color: #00128f;
+      /* Color actualizado: #147680 */
+      color: #147680;
       margin: 3rem 0 1rem;
       text-align: center;
     }
@@ -129,7 +163,8 @@
     }
 
     .feature-section h3 {
-      color: #00128f;
+      /* Color actualizado: #147680 */
+      color: #147680;
       margin-bottom: 0.5rem;
     }
 

@@ -7,9 +7,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    /* Fuentes personalizadas */
+    @font-face {
+      font-family: 'Poppins';
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Poppins';
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+    }
+
     :root {
-      --primary-blue: #00128f;
-      --secondary-blue: #6c91ff;
+      --primary-blue: #006279;
+      --secondary-blue: #57d9b6;
       --light-blue: #eef5ff;
       --white: #ffffff;
       --light-gray: #f9f9f9;
@@ -28,7 +43,7 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--light-gray); 
       color: var(--dark-gray);
       line-height: 1.6;
@@ -61,11 +76,12 @@
     header a {
       text-decoration: none;
       color: var(--white);
-      font-weight: 600;
+      font-weight: normal;
       font-size: 1rem;
       padding: 0.5rem 1rem;
       border-radius: 4px;
       transition: var(--transition);
+      font-family: 'Poppins', sans-serif;
     }
 
     header a:hover {
@@ -99,16 +115,16 @@
 
     .contact-section:hover {
         transform: translateY(-5px); 
-        box-shadow: 0 15px 35px rgba(0, 18, 143, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 15px 35px rgba(0, 98, 121, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
     }
 
     /* Colores actualizados según solicitud */
     .sales-section {
-      border-top: 6px solid #6c91ff;
+      border-top: 6px solid #57d9b6;
     }
 
     .recruitment-section {
-      border-top: 6px solid #00128f;
+      border-top: 6px solid #006279;
     }
     
     /* Estilo de Gerencia */
@@ -122,9 +138,9 @@
     }
 
     .section-title {
-      font-family: 'Comme', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
       font-size: 2rem; 
-      font-weight: 700;
       margin-top: 0;
       margin-bottom: 1rem;
       position: relative;
@@ -132,11 +148,11 @@
 
     /* Colores de títulos actualizados */
     .sales-title {
-      color: #6c91ff;
+      color: #57d9b6;
     }
 
     .recruitment-title {
-      color: #00128f;
+      color: #006279;
     }
     
     .manager-title {
@@ -150,12 +166,13 @@
       color: var(--medium-gray);
       margin-bottom: 1.8rem;
       text-align: justify;
+      font-family: 'Poppins', sans-serif;
     }
     
     /* Para que el strong se vea más claro */
     .contact-info strong {
         color: var(--dark-gray);
-        font-weight: 700;
+        font-weight: bold;
     }
 
     .button-group {
@@ -180,7 +197,7 @@
       padding: 1.1rem 1.8rem; 
       border-radius: 30px; 
       text-decoration: none;
-      font-weight: 700; 
+      font-weight: bold; 
       font-size: 1.05rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
       transition: var(--transition);
@@ -190,6 +207,7 @@
       background-color: var(--whatsapp-green);
       color: var(--white);
       border: none;
+      font-family: 'Poppins', sans-serif;
     }
 
     .whatsapp-btn:hover {
@@ -209,7 +227,7 @@
     }
 
     .manager-btn:hover {
-        background-color: #000c6d;
+        background-color: #004a5c;
     }
 
     /* Responsive Design */

@@ -264,10 +264,12 @@
 
     // Lista completa de servicios con sus nombres de imagen y valores
     // [Precio Afiliado, Precio Sugerido, Ganancia]
+    // NOTA: Se eliminó "dgo" de esta lista para quitar la tarjeta duplicada
     const servicios = [
       { nombre: "netflix", valores: [11500, 15000, 3500] },
       { nombre: "hbo", valores: [6000, 10000, 4000] },
-      { nombre: "disneypremium", valores: [8000, 12000, 4000] },
+      { nombre: "estandardisney", valores: [7500, 10500, 4000] },
+      { nombre: "disneypremium", valores: [9000, 13000, 4000] },
       { nombre: "prime", valores: [6000, 10000, 4000] },
       { nombre: "paramount", valores: [5500, 9500, 4000] },
       { nombre: "viki", valores: [5500, 9500, 4000] },
@@ -276,9 +278,10 @@
       { nombre: "crunchyroll", valores: [5500, 9500, 4000] },
       { nombre: "vix", valores: [5500, 9500, 4000] },
       { nombre: "universal", valores: [8000, 12000, 4000] },
-      // DGO va aquí, después de Universal
+      // "dgo" se eliminó de esta lista para evitar la duplicación
       { nombre: "plex", valores: [5500, 9500, 4000] },
       { nombre: "apple", valores: [8000, 12000, 4000] },
+      { nombre: "tidal", valores: [6500, 10000, 3500] },
       { nombre: "spotify", valores: [9000, 13000, 4000] }
     ];
     
@@ -421,8 +424,9 @@
     servicios.forEach((item, index) => {
       container.appendChild(crearTarjeta(item));
       
-      // Insertar DGO después de Universal (posición 10)
-      if (index === 10) { // Universal está en posición 10 (índice 10)
+      // Insertar DGO especial DESPUÉS de Universal (posición 11)
+      // Universal está en el índice 11, así que insertamos DGO después de procesar Universal
+      if (index === 11) { // Cambiado de 10 a 11
         container.appendChild(crearTarjetaDGO());
       }
     });

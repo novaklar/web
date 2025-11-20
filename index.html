@@ -56,22 +56,29 @@
     <!-- Overlay para cerrar el menú -->
     <div class="overlay"></div>
 
-    <div class="main-container">
+    <div class="main-container" id="mainContainer">
         <div class="page">
             <div class="title-section">
                 <h1>novaklar</h1>
                 <p class="tagline">Innovación a tu alcance</p>
             </div>
 
-            <div class="slider-wrap">
-                <div class="menu-slider" id="slider">
-                    <!-- Botones reubicados según solicitud -->
-                    <div class="menu-item" data-menu="catalogos">Catalogos</div>
-                    <div class="menu-item" data-menu="elementos">Elementos</div>
-                    <div class="menu-item" data-menu="studio">Studio</div>
+            <div class="buttons-section">
+                <div class="buttons-container">
+                    <!-- Botones en el orden solicitado: studio, catalogos, elementos -->
+                    <div class="button-wrapper">
+                        <button class="menu-button" data-menu="studio">Studio</button>
+                        <div class="submenu-container" data-menu="studio"></div>
+                    </div>
+                    <div class="button-wrapper">
+                        <button class="menu-button" data-menu="catalogos">Catalogos</button>
+                        <div class="submenu-container" data-menu="catalogos"></div>
+                    </div>
+                    <div class="button-wrapper">
+                        <button class="menu-button" data-menu="elementos">Elementos</button>
+                        <div class="submenu-container" data-menu="elementos"></div>
+                    </div>
                 </div>
-
-                <div id="submenu" class="submenu-container"></div>
             </div>
         </div>
     </div>
@@ -148,4 +155,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

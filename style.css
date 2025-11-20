@@ -1,11 +1,9 @@
-/* ===== GLOBAL STYLES ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ===== FUENTES ===== */
 @font-face {
     font-family: 'Novaklar';
     src: url('https://raw.githubusercontent.com/novaklar/web/main/novaklar.ttf') format('truetype');
@@ -54,7 +52,7 @@
 html, body {
     width: 100%;
     background-color: #f9f9f9;
-    color: #333;
+    color: #080a33;
     line-height: 1.6;
     overflow-x: hidden;
     min-height:100vh;
@@ -101,7 +99,6 @@ h1{
     text-align: center;
 }
 
-/* === HEADER ORIGINAL (ISLA BLANCA) === */
 .header {
     width: calc(100% - 40px);
     max-width: 1200px;
@@ -118,46 +115,36 @@ h1{
     border: none;
 }
 
-/* === HEADER SCROLLED (ESTADO NEGRO) === */
 .header.scrolled {
-    top: 15px; /* Ligeramente más cerca del borde superior */
-    background: #000000; /* Fondo negro */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Añadir sombra para destacarse */
-    border: none;
+    top: 15px;
+    background: #080a33;
+    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.15);
 }
 
-/* === AJUSTES INTERNOS PARA EL ESTADO SCROLLED (LOGO Y MENÚ BLANCOS) === */
-
-/* Logo: Poner el logo blanco */
 .header.scrolled .logo {
-    filter: invert(1); /* CAMBIO: Invertir color para que el logo negro se vea blanco */
+    filter: invert(1);
 }
 
-/* Hamburger: Las líneas del hamburguer se vuelven blancas */
 .header.scrolled .hamburger-menu span {
-    background-color: #ffffff; /* Líneas blancas */
+    background-color: #ffffff;
 }
 
-/* Hamburger activo (para mantener la X blanca) */
 .hamburger-menu.active span:nth-child(1),
 .hamburger-menu.active span:nth-child(3) {
-    background-color: #ffffff; /* La X del hamburger se mantiene blanca */
+    background-color: #ffffff;
 }
 
-/* Enlaces de Navegación: Texto de enlace blanco */
 .header.scrolled .nav-links a {
-    color: #ffffff; /* Texto de enlace blanco */
+    color: #ffffff;
 }
 
 .header.scrolled .nav-links a:hover {
-    color: var(--primary-color); /* El hover sigue siendo tu primary-color */
+    color: var(--primary-color);
 }
 
 .header.scrolled .nav-links a::after {
-    background: var(--primary-color); /* Línea de hover con primary-color */
+    background: var(--primary-color);
 }
-
-/* Fin de los estilos del header SCROLLED */
 
 .header-content {
     width: 100%;
@@ -169,7 +156,7 @@ h1{
 .logo {
     height: 38px;
     width: auto;
-    filter: brightness(0); /* Logo negro por defecto */
+    filter: brightness(0);
     transition: all 0.3s ease;
 }
 
@@ -180,7 +167,7 @@ h1{
 }
 
 .nav-links a {
-    color: #000000; /* Enlaces negros por defecto */
+    color: #080a33;
     text-decoration: none;
     font-weight: 600;
     font-size: 15px;
@@ -223,7 +210,7 @@ h1{
     display: block;
     height: 3px;
     width: 100%;
-    background-color: #000000; /* Líneas hamburguesa negras por defecto */
+    background-color: #080a33;
     border-radius: 3px;
     transition: all 0.3s ease;
     transform-origin: center;
@@ -231,7 +218,7 @@ h1{
 
 .hamburger-menu.active span:nth-child(1) {
     transform: translateY(8.5px) rotate(45deg);
-    background-color: #000000;
+    background-color: #080a33;
 }
 
 .hamburger-menu.active span:nth-child(2) {
@@ -241,7 +228,7 @@ h1{
 
 .hamburger-menu.active span:nth-child(3) {
     transform: translateY(-8.5px) rotate(-45deg);
-    background-color: #000000;
+    background-color: #080a33;
 }
 
 .drawer-menu {
@@ -251,7 +238,7 @@ h1{
     width: 280px;
     height: 100%;
     background-color: #ffffff;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: -2px 0 10px rgba(8, 10, 51, 0.1);
     z-index: 1001;
     display: flex;
     flex-direction: column;
@@ -271,7 +258,7 @@ h1{
     right: 20px;
     font-size: 24px;
     cursor: pointer;
-    color: #333;
+    color: #080a33;
     width: 30px;
     height: 30px;
     display: flex;
@@ -306,7 +293,7 @@ h1{
     cursor: pointer;
     transition: color 0.3s, background-color 0.3s;
     text-decoration: none;
-    color: #000000;
+    color: #080a33;
     font-family: 'Poppins-Regular', sans-serif;
     text-align: left;
     min-height: auto;
@@ -326,7 +313,7 @@ h1{
     margin-right: 10px;
     width: auto;
     text-align: left;
-    color: #000000;
+    color: #080a33;
 }
 
 .menu-items a.menu-item:hover i {
@@ -339,7 +326,7 @@ h1{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(8, 10, 51, 0.5);
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
@@ -381,10 +368,6 @@ h1{
     gap: 4px;
 }
 
-/* ========================================================================= */
-/* === Sección de Botones (Studio, Catálogos, Elementos) - ACTUALIZADO === */
-/* ========================================================================= */
-
 .buttons-section {
     display: flex;
     flex-direction: column;
@@ -424,7 +407,7 @@ h1{
     text-align: center;
     backdrop-filter: blur(10px);
     position: relative;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
 }
 
 .menu-button:hover {
@@ -436,14 +419,14 @@ h1{
     background: #ffffff;
     color: #001499;
     transform: none;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(8, 10, 51, 0.2);
     border-radius: 15px 15px 0 0;
 }
 
 .submenu-container {
     width: 100%;
     border-radius: 0 0 15px 15px;
-    background: rgba(66, 112, 255, 0.4); /* CAMBIO AQUÍ: Transparencia aumentada a 40% */
+    background: rgba(66, 112, 255, 0.4);
     padding: 0 14px;
     transform-origin: top center;
     transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
@@ -452,7 +435,7 @@ h1{
     backdrop-filter: blur(10px);
     border: none;
     margin-top: -2px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(8, 10, 51, 0.1);
     max-height: 0;
     opacity: 0;
     overflow: hidden;
@@ -476,8 +459,8 @@ h1{
     display: block;
     text-decoration: none;
     color: #ffffff;
-    padding: 12px 8px;
-    font-size: 18px;
+    padding: 16px 12px;
+    font-size: 20px;
     font-weight: 500;
     border-radius: 8px;
     transition: background 0.2s ease, color 0.2s ease;
@@ -492,10 +475,6 @@ h1{
 .submenu a + a {
     border-top: none;
 }
-
-/* ========================================================================= */
-/* ===================== Resto de Estilos (Sin Cambios) ==================== */
-/* ========================================================================= */
 
 .contact-button-container {
     display: flex;
@@ -547,7 +526,7 @@ h1{
 }
 
 .counter {
-    color: #001499;
+    color: #080a33;
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -556,7 +535,7 @@ h1{
 
 .counters p {
     font-size: 1.2rem;
-    color: #333;
+    color: #080a33;
     font-weight: 500;
     font-family: 'Poppins-Regular', sans-serif;
 }
@@ -572,7 +551,7 @@ h1{
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #001499;
+    color: #080a33;
     position: relative;
     font-family: 'Poppins-Bold', sans-serif !important;
 }
@@ -592,18 +571,18 @@ h1{
     padding: 2rem;
     background-color: white;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(8, 10, 51, 0.08);
     transition: transform 0.3s ease;
     border-left: 5px solid #4270ff;
 }
 
 .about-section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 30px rgba(8, 10, 51, 0.12);
 }
 
 .about-section h3 {
-    color: #001499;
+    color: #080a33;
     margin-bottom: 1.2rem;
     font-size: 1.6rem;
     font-family: 'Poppins-Bold', sans-serif !important;
@@ -614,6 +593,7 @@ h1{
     line-height: 1.8;
     font-size: 1.1rem;
     font-family: 'Poppins-Regular', sans-serif;
+    color: #080a33;
 }
 
 .about-section ul, .about-section ol {
@@ -626,6 +606,7 @@ h1{
     line-height: 1.7;
     font-size: 1.1rem;
     font-family: 'Poppins-Regular', sans-serif;
+    color: #080a33;
 }
 
 .terms {
@@ -646,6 +627,7 @@ h1{
     font-size: 1.1rem;
     padding-left: 0.5rem;
     font-family: 'Poppins-Regular', sans-serif;
+    color: #080a33;
 }
 
 footer {
@@ -694,17 +676,13 @@ footer {
 .whatsapp-button img {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 4px 8px rgba(8, 10, 51, 0.3));
     transition: filter 0.3s ease;
 }
 
 .whatsapp-button:hover img {
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 6px 12px rgba(8, 10, 51, 0.4));
 }
-
-/* ========================================================================= */
-/* ======================== MEDIA QUERIES ACTUALIZADAS ======================= */
-/* ========================================================================= */
 
 @media (max-width:1024px) {
     h1 {
@@ -736,12 +714,13 @@ footer {
 
     .counter {
         font-size: 2.5rem;
-        color: #001499;
+        color: #080a33;
         font-family: 'Poppins-Bold', sans-serif;
     }
 
     .counters p {
         font-size: 1.1rem;
+        color: #080a33;
     }
 
     .buttons-container {
@@ -828,13 +807,13 @@ footer {
 
     .counter {
         font-size: 2.8rem;
-        color: #001499;
+        color: #080a33;
         font-family: 'Poppins-Bold', sans-serif;
     }
 
     .about-novaklar h2 {
         font-size: 2rem;
-        color: #001499;
+        color: #080a33;
         font-family: 'Poppins-Bold', sans-serif !important;
     }
 
@@ -845,7 +824,7 @@ footer {
 
     .about-section h3 {
         font-size: 1.4rem;
-        color: #001499;
+        color: #080a33;
         font-family: 'Poppins-Bold', sans-serif !important;
     }
 
@@ -861,8 +840,8 @@ footer {
     }
 
     .submenu a{
-        font-size:16px;
-        padding:10px 6px;
+        font-size:18px;
+        padding:14px 8px;
     }
 }
 
@@ -924,12 +903,13 @@ footer {
 
     .counter {
         font-size: 2.5rem;
-        color: #001499;
+        color: #080a33;
         font-family: 'Poppins-Bold', sans-serif;
     }
 
     .counters p {
         font-size: 1rem;
+        color: #080a33;
     }
 
     .about-novaklar {
@@ -942,7 +922,7 @@ footer {
 
     .about-section h3 {
         font-size: 1.3rem;
-        color: #001499;
+        color: #080a33;
         font-family: 'Poppins-Bold', sans-serif !important;
     }
 
@@ -959,8 +939,8 @@ footer {
     }
 
     .submenu a{
-        font-size:14px;
-        padding:8px 4px;
+        font-size:16px;
+        padding:12px 6px;
     }
 }
 
@@ -996,5 +976,5 @@ footer {
 
     .logo {
         height: 30px;
-    
-
+    }
+}

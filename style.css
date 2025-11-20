@@ -112,16 +112,16 @@ h1{
     transform: translateX(-50%);
     z-index: 1000;
     border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: none; 
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: none; /* CAMBIO AQUÍ: Eliminado el contorno del header */
+    border: none;
 }
 
 .header.scrolled {
     top: 15px;
     background: #ffffff;
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
-    border: none; /* CAMBIO AQUÍ: Eliminado el contorno del header al hacer scroll */
+    box-shadow: none; 
+    border: none;
 }
 
 .header-content {
@@ -356,14 +356,14 @@ h1{
     align-items: center;
     position: relative;
     width: 100%;
-    margin-top: 20px; 
+    margin-top: 30px; /* CAMBIO AQUÍ: Aumentado el margen a 30px para separar del .tagline */
 }
 
 .buttons-container {
     display: flex;
     flex-direction: column;
-    gap: 16px; /* Separación de 16px */
-    width: 360px; /* CAMBIO AQUÍ: Ancho de los botones aumentado */
+    gap: 16px; 
+    width: 360px; 
     align-items: center;
     position: relative;
     transition: width 0.3s ease;
@@ -408,7 +408,7 @@ h1{
 .submenu-container {
     width: 100%;
     border-radius: 0 0 15px 15px;
-    background: rgba(66, 112, 255, 0.3);
+    background: rgba(66, 112, 255, 0.4); /* CAMBIO AQUÍ: Transparencia aumentada a 40% */
     padding: 0 14px; 
     transform-origin: top center;
     transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out; 
@@ -690,8 +690,8 @@ footer {
         padding: 12px 20px;
         top: 15px;
         background: #ffffff;
-        box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
-        border: none; /* CAMBIO AQUÍ: Eliminado el contorno del header */
+        box-shadow: none; 
+        border: none;
     }
     
     .main-container {
@@ -710,13 +710,17 @@ footer {
     }
     
     .buttons-container {
-        width: 320px; /* CAMBIO AQUÍ: Ancho de los botones aumentado */
+        width: 320px; 
         gap: 16px; 
     }
     
     .menu-button {
         padding: 20px 25px;
         font-size: 18px;
+    }
+    
+    .submenu-container {
+        background: rgba(66, 112, 255, 0.4); /* Aplicar cambio en media query */
     }
 }
 
@@ -735,7 +739,7 @@ footer {
     }
     
     .buttons-container {
-        width: 280px; /* CAMBIO AQUÍ: Ancho de los botones aumentado */
+        width: 280px; 
         gap: 16px; 
     }
     
@@ -750,8 +754,8 @@ footer {
         border-radius: 14px;
         top: 15px;
         background: #ffffff;
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
-        border: none; /* CAMBIO AQUÍ: Eliminado el contorno del header */
+        box-shadow: none; 
+        border: none;
     }
     
     .header.scrolled {
@@ -842,7 +846,7 @@ footer {
     }
     
     .buttons-container {
-        width: 250px; /* CAMBIO AQUÍ: Ancho de los botones aumentado */
+        width: 250px; 
         gap: 16px; 
     }
     
@@ -936,7 +940,7 @@ footer {
     }
     
     .buttons-container {
-        width: 220px; /* CAMBIO AQUÍ: Ancho de los botones aumentado */
+        width: 220px; 
         gap: 16px; 
     }
     

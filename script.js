@@ -1,7 +1,6 @@
 // ===== BOTONES FUNCTIONALITY =====
 const buttons = document.querySelectorAll('.menu-button');
-// Ya no usamos el ID, pero mantenemos la variable si se usa en otros lados (aunque es mejor usar la clase '.main-container')
-const mainContainer = document.querySelector('.main-container'); 
+const mainContainer = document.querySelector('.main-container');
 
 // Elementos del menú hamburguesa
 const hamburgerMenu = document.querySelector('.hamburger-menu');
@@ -36,14 +35,13 @@ function updateActiveButton(button) {
     if (!button) return;
 
     const isSameButton = button === activeButton;
-    
+
     // Cerrar todos los submenús primero
     closeAllSubmenus();
-    
+
     // Si es el mismo botón, solo cerrar
     if (isSameButton) {
         activeButton = null;
-        // collapseMainContainer(); // Ya no es necesario
         return;
     }
 
@@ -54,14 +52,13 @@ function updateActiveButton(button) {
 
     // Agregar clase active al botón clickeado
     button.classList.add('active');
-    
+
     const key = button.getAttribute('data-menu');
     const submenu = button.parentNode.querySelector('.submenu-container');
-    
+
     renderSubmenu(key, submenu);
     showSubmenu(submenu);
-    // expandMainContainer(); // Ya no es necesario
-    
+
     activeButton = button;
 }
 
@@ -70,16 +67,16 @@ function renderSubmenu(key, submenu) {
     if (list.length === 0) {
         return;
     }
-    
+
     // Si la lista ya existe, la vaciamos
     if (submenu.querySelector('.submenu')) {
         submenu.querySelector('.submenu').innerHTML = '';
     } else {
         submenu.innerHTML = '<div class="submenu"></div>';
     }
-    
+
     const submenuList = submenu.querySelector('.submenu');
-    
+
     list.forEach(item => {
         const link = document.createElement('a');
         link.href = item.url;
@@ -98,20 +95,11 @@ function closeAllSubmenus() {
     allSubmenus.forEach(submenu => {
         submenu.classList.remove('show');
     });
-    
+
     buttons.forEach(btn => {
         btn.classList.remove('active');
     });
 }
-
-// FUNCIONES ELIMINADAS O SIMPLIFICADAS:
-// function expandMainContainer() {
-//     mainContainer.classList.add('expanded');
-// }
-
-// function collapseMainContainer() {
-//     mainContainer.classList.remove('expanded');
-// }
 
 // ===== MENÚ HAMBURGUESA =====
 function toggleMenu() {
@@ -128,9 +116,26 @@ function closeMenu() {
     document.body.style.overflow = '';
 }
 
-// ===== HEADER SCROLL =====
+// ===== HEADER SCROLL (FUNCIÓN ACTUALIZADA) =====
 function handleHeaderScroll() {
-    if (window.scrollY > 50) {
+    // Referencia al contenedor principal (sección azul)
+    const mainContainer = document.querySelector('.main-container');
+
+    if (!mainContainer) {
+        // Si no existe la sección azul, el header siempre debe estar 'scrolled'
+        header.classList.add('scrolled');
+        return;
+    }
+
+    // Cálculo del punto de cambio: Dónde termina la sección azul.
+    // Esto es la distancia desde el top del documento hasta el final del mainContainer.
+    const puntoDeCambio = mainContainer.offsetTop + mainContainer.offsetHeight;
+
+    // Usamos window.scrollY para ver la posición de desplazamiento actual.
+    // Margen de activación (para que el cambio ocurra 50px antes de que la sección azul desaparezca)
+    const margenDeActivacion = 50;
+
+    if (window.scrollY > puntoDeCambio - margenDeActivacion) {
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
@@ -146,14 +151,14 @@ function animateCounter(counter) {
     const duration = 2000;
     const start = 0;
     const startTime = performance.now();
-    
+
     function updateCounter(currentTime) {
         const elapsedTime = currentTime - startTime;
         const progress = Math.min(elapsedTime / duration, 1);
         const currentValue = Math.floor(progress * target);
-        
+
         counter.innerText = currentValue;
-        
+
         if (progress < 1) {
             requestAnimationFrame(updateCounter);
         } else {
@@ -167,7 +172,7 @@ function animateCounter(counter) {
             }
         }
     }
-    
+
     requestAnimationFrame(updateCounter);
 }
 
@@ -193,10 +198,9 @@ function init(){
             updateActiveButton(button);
         });
     });
-    
-    // **NUEVA FUNCIÓN DE CIERRE AL HACER CLIC FUERA**
+
+    // Función de cierre al hacer clic fuera
     document.addEventListener('click', (e) => {
-        // Si el clic no fue dentro del contenedor de botones...
         if (!e.target.closest('.buttons-section')) {
             closeAllSubmenus();
             activeButton = null;
@@ -207,15 +211,18 @@ function init(){
     hamburgerMenu.addEventListener('click', toggleMenu);
     closeBtn.addEventListener('click', closeMenu);
     overlay.addEventListener('click', closeMenu);
-    
+
     // Cerrar menú al hacer clic en un enlace
     document.querySelectorAll('.drawer-menu a').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
-    
+
     // Event listener para el scroll del header
     window.addEventListener('scroll', handleHeaderScroll);
-    
+
+    // Ejecutar la función una vez al cargar la página (para recargas o si la página ya está en scroll)
+    handleHeaderScroll();
+
     // Counter observer
     if (counterSection) {
         observer.observe(counterSection);

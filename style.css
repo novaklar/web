@@ -104,7 +104,7 @@ h1{
 .header {
     width: calc(100% - 40px);
     max-width: 1200px;
-    background: rgba(255, 255, 255, 0.2);
+    background: #ffffff;
     padding: 14px 25px;
     position: fixed;
     top: 20px;
@@ -112,20 +112,16 @@ h1{
     transform: translateX(-50%);
     z-index: 1000;
     border-radius: 16px;
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: none; /* CAMBIO AQUÍ: Eliminado el contorno del header */
 }
 
 .header.scrolled {
     top: 15px;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    background: #ffffff;
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: none; /* CAMBIO AQUÍ: Eliminado el contorno del header al hacer scroll */
 }
 
 .header-content {
@@ -367,7 +363,7 @@ h1{
     display: flex;
     flex-direction: column;
     gap: 16px; /* Separación de 16px */
-    width: 320px; 
+    width: 360px; /* CAMBIO AQUÍ: Ancho de los botones aumentado */
     align-items: center;
     position: relative;
     transition: width 0.3s ease;
@@ -412,7 +408,6 @@ h1{
 .submenu-container {
     width: 100%;
     border-radius: 0 0 15px 15px;
-    /* CAMBIO A 30% DE TRANSPARENCIA: rgba(66, 112, 255, 0.3) */
     background: rgba(66, 112, 255, 0.3);
     padding: 0 14px; 
     transform-origin: top center;
@@ -694,11 +689,9 @@ footer {
         width: calc(100% - 30px);
         padding: 12px 20px;
         top: 15px;
-        background: rgba(255, 255, 255, 0.25);
-        backdrop-filter: blur(12px) saturate(160%);
-        -webkit-backdrop-filter: blur(12px) saturate(160%);
+        background: #ffffff;
         box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.35);
+        border: none; /* CAMBIO AQUÍ: Eliminado el contorno del header */
     }
     
     .main-container {
@@ -717,7 +710,7 @@ footer {
     }
     
     .buttons-container {
-        width: 280px; 
+        width: 320px; /* CAMBIO AQUÍ: Ancho de los botones aumentado */
         gap: 16px; 
     }
     
@@ -742,7 +735,7 @@ footer {
     }
     
     .buttons-container {
-        width: 250px; 
+        width: 280px; /* CAMBIO AQUÍ: Ancho de los botones aumentado */
         gap: 16px; 
     }
     
@@ -756,11 +749,9 @@ footer {
         padding: 10px 15px;
         border-radius: 14px;
         top: 15px;
-        background: rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px) saturate(150%);
-        -webkit-backdrop-filter: blur(10px) saturate(150%);
+        background: #ffffff;
         box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        border: none; /* CAMBIO AQUÍ: Eliminado el contorno del header */
     }
     
     .header.scrolled {
@@ -851,7 +842,7 @@ footer {
     }
     
     .buttons-container {
-        width: 220px; 
+        width: 250px; /* CAMBIO AQUÍ: Ancho de los botones aumentado */
         gap: 16px; 
     }
     
@@ -945,7 +936,7 @@ footer {
     }
     
     .buttons-container {
-        width: 200px; 
+        width: 220px; /* CAMBIO AQUÍ: Ancho de los botones aumentado */
         gap: 16px; 
     }
     
@@ -975,34 +966,4 @@ footer {
     
     .counter {
         font-size: 2.2rem;
-        color: #001499; 
-        font-family: 'Poppins-Bold', sans-serif;
-    }
-    
-    .counters p {
-        font-size: 0.9rem;
-    }
-    
-    .terms ol li {
-        padding-left: 2.8rem;
-    }
-}
-
-@media (min-width: 769px) {
-    .main-container {
-        padding-bottom: 80px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .main-container {
-        min-height: 70vh;
-        padding-bottom: 80px; 
-        background: linear-gradient(to bottom, #001499, #001499);
-    }
-    
-    .buttons-container {
-        width: 320px;
-        gap: 16px;
-    }
-}
+        color: #00

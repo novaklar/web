@@ -65,10 +65,8 @@
 
             <div class="buttons-section">
                 <div class="buttons-container">
-                    <!-- Botones en el orden solicitado: studio, catalogos, elementos -->
                     <div class="button-wrapper">
-                        <button class="menu-button" data-menu="studio">Studio</button>
-                        <div class="submenu-container" data-menu="studio"></div>
+                        <button class="menu-button" data-menu="studio" id="studioButton">Studio</button>
                     </div>
                     <div class="button-wrapper">
                         <button class="menu-button" data-menu="catalogos">Catalogos</button>
@@ -152,6 +150,21 @@
         <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/whastapp.svg" alt="WhatsApp">
     </a>
 
+    <script>
+        // Código JavaScript para manejar el botón Studio directo
+        document.addEventListener('DOMContentLoaded', function() {
+            const studioButton = document.getElementById('studioButton');
+            
+            // Agregar acción directa al botón Studio
+            studioButton.addEventListener('click', function() {
+                // Aquí puedes cambiar la URL por la que desees
+                window.location.href = 'studio.html'; // Cambia esta URL
+            });
+            
+            // El resto de tu código JavaScript existente...
+        });
+    </script>
+    
     <script src="script.js"></script>
 </body>
 </html>

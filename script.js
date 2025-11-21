@@ -34,6 +34,22 @@ let activeButton = null;
 function updateActiveButton(button) {
     if (!button) return;
 
+    const menuType = button.getAttribute('data-menu');
+    
+    // CASO ESPECIAL: Si es el botón Studio, redirigir directamente
+    if (menuType === 'studio') {
+        // Redirigir a la URL del primer elemento del menú studio
+        const studioUrl = menus.studio[0].url;
+        const studioTarget = menus.studio[0].target;
+        
+        if (studioTarget === '_blank') {
+            window.open(studioUrl, '_blank');
+        } else {
+            window.location.href = studioUrl;
+        }
+        return; // Salir temprano, no procesar como submenú
+    }
+
     const isSameButton = button === activeButton;
 
     // Cerrar todos los submenús primero
@@ -87,13 +103,13 @@ function renderSubmenu(key, submenu) {
 }
 
 function showSubmenu(submenu) {
-    submenu.classList.add('show');
+    submenu.classList.add('active');
 }
 
 function closeAllSubmenus() {
     const allSubmenus = document.querySelectorAll('.submenu-container');
     allSubmenus.forEach(submenu => {
-        submenu.classList.remove('show');
+        submenu.classList.remove('active');
     });
 
     buttons.forEach(btn => {

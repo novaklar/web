@@ -380,6 +380,11 @@ h1{
     width: 100%;
 }
 
+/* Estilos específicos para el botón Studio (sin submenú) */
+.button-wrapper:first-child .menu-button {
+    /* El botón Studio mantiene los mismos estilos pero sin cambios para submenú */
+}
+
 .menu-button {
     width: 100%;
     padding: 22px 30px;
@@ -403,7 +408,8 @@ h1{
     transform: translateY(-1px);
 }
 
-.menu-button.active {
+/* Estado activo solo para botones con submenú */
+.button-wrapper:not(:first-child) .menu-button.active {
     background: #ffffff;
     color: #001499;
     transform: none;
@@ -431,7 +437,7 @@ h1{
     z-index: 5;
 }
 
-.submenu-container.show {
+.submenu-container.active {
     max-height: 500px;
     opacity: 1;
     padding: 18px 14px;

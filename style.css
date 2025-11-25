@@ -82,7 +82,7 @@ body, p, li, a, span, div {
 h1{
     margin:0;
     font-size: 96px;
-    color: #4270ff;
+    color: #ffffff;
     letter-spacing: 2px;
     font-family: 'DESA', sans-serif;
     font-weight: normal;
@@ -328,7 +328,7 @@ h1{
 
 .main-container {
     width: 100%;
-    background: linear-gradient(to bottom, #001499, #001499);
+    background: radial-gradient(circle at center, var(--primary-color) 0%, #001499 75%);
     padding: 155px 0 80px 0;
     display: flex;
     justify-content: center;
@@ -380,9 +380,7 @@ h1{
     width: 100%;
 }
 
-/* Estilos específicos para el botón Studio (sin submenú) */
 .button-wrapper:first-child .menu-button {
-    /* El botón Studio mantiene los mismos estilos pero sin cambios para submenú */
 }
 
 .menu-button {
@@ -408,7 +406,6 @@ h1{
     transform: translateY(-1px);
 }
 
-/* Estado activo solo para botones con submenú */
 .button-wrapper:not(:first-child) .menu-button.active {
     background: #ffffff;
     color: #001499;
@@ -681,7 +678,7 @@ footer {
 @media (max-width:1024px) {
     h1 {
         font-size: 82px;
-        color: #4270ff;
+        color: #ffffff;
     }
 
     .tagline {
@@ -703,7 +700,7 @@ footer {
 
     .main-container {
         padding: 145px 0 60px 0;
-        background: linear-gradient(to bottom, #001499, #001499);
+        background: radial-gradient(circle at center, var(--primary-color) 0%, #001499 75%);
     }
 
     .counter {
@@ -735,7 +732,7 @@ footer {
 @media (max-width:768px) {
     h1 {
         font-size: 68px;
-        color: #4270ff;
+        color: #ffffff;
     }
 
     .tagline {
@@ -784,7 +781,7 @@ footer {
 
     .main-container {
         padding: 135px 0 50px 0;
-        background: linear-gradient(to bottom, #001499, #001499);
+        background: radial-gradient(circle at center, var(--primary-color) 0%, #001499 75%);
     }
 
     .counters {
@@ -842,7 +839,7 @@ footer {
 @media (max-width:520px){
     h1{
         font-size: 52px;
-        color: #4270ff;
+        color: #ffffff;
     }
 
     .tagline {
@@ -887,7 +884,7 @@ footer {
 
     .main-container {
         padding: 125px 0 40px 0;
-        background: linear-gradient(to bottom, #001499, #001499);
+        background: radial-gradient(circle at center, var(--primary-color) 0%, #001499 75%);
     }
 
     .counters {
@@ -941,7 +938,7 @@ footer {
 @media (max-width:380px){
     h1{
         font-size: 44px;
-        color: #4270ff;
+        color: #ffffff;
     }
 
     .tagline {

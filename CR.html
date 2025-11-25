@@ -23,8 +23,8 @@
     }
 
     :root {
-      --primary-blue: #006279;
-      --secondary-blue: #57d9b6;
+      --primary-blue: #001499; /* REEMPLAZADO: #006279 por #001499 */
+      --secondary-blue: #4270ff; /* REEMPLAZADO: #57d9b6 por #4270ff */
       --light-blue: #eef5ff;
       --white: #ffffff;
       --light-gray: #f9f9f9;
@@ -52,7 +52,7 @@
 
     /* --- Header Styles --- */
     header {
-      background-color: var(--primary-blue);
+      background-color: var(--primary-blue); /* USA EL NUEVO COLOR #001499 */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -114,17 +114,18 @@
     }
 
     .contact-section:hover {
+        /* Se ajusta el color del hover para que coincida con el nuevo color primario */
         transform: translateY(-5px); 
-        box-shadow: 0 15px 35px rgba(0, 98, 121, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 15px 35px rgba(0, 20, 153, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
     }
 
     /* Colores actualizados según solicitud */
     .sales-section {
-      border-top: 6px solid #57d9b6;
+      border-top: 6px solid var(--secondary-blue); /* USA EL NUEVO COLOR #4270ff */
     }
 
     .recruitment-section {
-      border-top: 6px solid #006279;
+      border-top: 6px solid var(--primary-blue); /* USA EL NUEVO COLOR #001499 */
     }
     
     /* Estilo de Gerencia */
@@ -148,11 +149,11 @@
 
     /* Colores de títulos actualizados */
     .sales-title {
-      color: #57d9b6;
+      color: var(--secondary-blue); /* USA EL NUEVO COLOR #4270ff */
     }
 
     .recruitment-title {
-      color: #006279;
+      color: var(--primary-blue); /* USA EL NUEVO COLOR #001499 */
     }
     
     .manager-title {
@@ -222,12 +223,12 @@
     }
     
     .manager-btn {
-        background-color: var(--primary-blue);
+        background-color: var(--primary-blue); /* USA EL NUEVO COLOR #001499 */
         color: var(--white);
     }
 
     .manager-btn:hover {
-        background-color: #004a5c;
+        background-color: #000c4c; /* Oscurecimiento del nuevo azul primario */
     }
 
     /* Responsive Design */

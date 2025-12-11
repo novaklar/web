@@ -45,19 +45,19 @@
     --muted-white-2: rgba(255,255,255,0.18);
     --accent: #2f4df0;
     --menu-bg: rgba(255, 255, 255, 0.15);
-    --primary-color: #4270ff;
+    --primary-color: #7fcfda;
     --hero-bg: #3ca597;
 }
 
 html, body {
     width: 100%;
-    background-color: #f9f9f9;
+    background-color: #f1efee;
     color: #080a33;
     line-height: 1.6;
     overflow-x: hidden;
     min-height:100vh;
     font-family: 'Poppins-Regular', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background: #ffffff;
+    background: #f1efee;
     display:flex;
     flex-direction: column;
     align-items:center;
@@ -82,7 +82,7 @@ body, p, li, a, span, div {
 h1{
     margin:0;
     font-size: 96px;
-    color: #ffffff;
+    color: #f1efee;
     letter-spacing: 2px;
     font-family: 'DESA', sans-serif;
     font-weight: normal;
@@ -92,7 +92,7 @@ h1{
 
 .tagline {
     margin:0;
-    color: white;
+    color: #f1efee;
     font-style: italic;
     font-family: 'Poppins-Italic', sans-serif;
     font-size: 22px;
@@ -292,7 +292,7 @@ h1{
 
 .menu-items a.menu-item:hover {
     background-color: transparent;
-    color: #4270ff;
+    color: #7fcfda;
     transform: none;
 }
 
@@ -305,7 +305,7 @@ h1{
 }
 
 .menu-items a.menu-item:hover i {
-    color: #4270ff;
+    color: #7fcfda;
 }
 
 .overlay {
@@ -328,8 +328,7 @@ h1{
 
 .main-container {
     width: 100%;
-    /* 🎨 CAMBIO: Gradiente diagonal a bottom right */
-    background: linear-gradient(to bottom right, var(--primary-color) 0%, #001499 100%);
+    background: linear-gradient(to bottom right, var(--primary-color) 0%, #0d4c7f 100%);
     padding: 155px 0 80px 0;
     display: flex;
     justify-content: center;
@@ -381,54 +380,64 @@ h1{
     width: 100%;
 }
 
-.button-wrapper:first-child .menu-button {
-}
-
 .menu-button {
     width: 100%;
     padding: 22px 30px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(241, 239, 238, 0.5);
     border: none;
     border-radius: 15px;
-    color: #ffffff;
+    color: #f1efee;
     font-size: 20px;
     font-weight: 700;
     font-family: 'Poppins-Bold', sans-serif;
     cursor: pointer;
-    transition: all 0.3s ease, background 0.2s ease;
+    transition: all 0.3s ease;
     text-align: center;
     backdrop-filter: blur(10px);
     position: relative;
     box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
 }
 
+/* Eliminado completamente el hover effect */
 .menu-button:hover {
-    background: rgba(255, 255, 255, 0.45);
-    transform: translateY(-1px);
+    background: rgba(241, 239, 238, 0.5); /* Mismo color que el estado normal */
+    transform: none; /* Sin movimiento */
 }
 
-.button-wrapper:not(:first-child) .menu-button.active {
-    background: #ffffff;
-    color: #001499;
+/* SOLUCIÓN ACTUALIZADA: Solo cambia el color del texto cuando está activo, el fondo permanece igual */
+.menu-button.active {
+    background: rgba(241, 239, 238, 0.5); /* Mismo fondo que estado normal */
+    color: #0d4c7f; /* Solo cambia el color del texto */
     transform: none;
-    box-shadow: 0 6px 15px rgba(8, 10, 51, 0.2);
+    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra que estado normal */
     border-radius: 15px 15px 0 0;
+}
+
+/* El primer botón (Studio) mantiene siempre el mismo estilo y no cambia */
+.button-wrapper:first-child .menu-button {
+    background: rgba(241, 239, 238, 0.5);
+    color: #f1efee;
+}
+
+.button-wrapper:first-child .menu-button.active {
+    background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
+    color: #f1efee; /* Mismo color de texto (no cambia) */
+    border-radius: 15px; /* Mantiene todos los bordes redondeados */
 }
 
 .submenu-container {
     width: 100%;
     border-radius: 0 0 15px 15px;
-    /* 🔄 CAMBIO: Usar el color del header (#080a33) con transparencia 50% */
-    background: rgba(8, 10, 51, 0.5);
+    background: rgba(241, 239, 238, 0.5); /* Exactamente el mismo color que los botones */
     padding: 0 14px;
     transform-origin: top center;
     transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
-    color: #ffffff;
+    color: #f1efee;
     text-align: center;
     backdrop-filter: blur(10px);
     border: none;
     margin-top: -2px;
-    box-shadow: 0 8px 32px rgba(8, 10, 51, 0.1);
+    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra que los botones */
     max-height: 0;
     opacity: 0;
     overflow: hidden;
@@ -451,7 +460,7 @@ h1{
 .submenu a {
     display: block;
     text-decoration: none;
-    color: #ffffff;
+    color: #f1efee;
     padding: 16px 12px;
     font-size: 20px;
     font-weight: 500;
@@ -461,9 +470,8 @@ h1{
 }
 
 .submenu a:hover {
-    /* 🔄 CAMBIO: Fondo hover más oscuro con color del header y transparencia 65% */
-    background: rgba(8, 10, 51, 0.65);
-    color: #fff;
+    background: rgba(241, 239, 238, 0.7);
+    color: #080a33;
 }
 
 .submenu a + a {
@@ -479,7 +487,7 @@ h1{
 }
 
 .contact-button {
-    background-color: #001499;
+    background-color: #0d4c7f;
     color: white;
     font-family: 'Poppins-Bold', sans-serif;
     width: 280px;
@@ -495,11 +503,11 @@ h1{
 }
 
 .contact-button:hover {
-    background-color: #001499;
+    background-color: #0d4c7f;
 }
 
 .counters {
-    background-color: rgba(66, 112, 255, 0.1);
+    background-color: rgba(127, 207, 218, 0.1);
     padding: 40px 30px;
     border-radius: 15px;
     display: flex;
@@ -555,7 +563,7 @@ h1{
     display: block;
     width: 100px;
     height: 4px;
-    background-color: #4270ff;
+    background-color: #7fcfda;
     margin: 1rem auto 0;
     border-radius: 2px;
 }
@@ -567,7 +575,7 @@ h1{
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(8, 10, 51, 0.08);
     transition: transform 0.3s ease;
-    border-left: 5px solid #4270ff;
+    border-left: 5px solid #7fcfda;
 }
 
 .about-section:hover {
@@ -605,7 +613,7 @@ h1{
 
 .terms {
     background-color: #f8faff;
-    border-left: 5px solid #001499;
+    border-left: 5px solid #0d4c7f;
     border-top: 1px solid #e1e8ff;
 }
 
@@ -627,7 +635,7 @@ h1{
 footer {
     text-align: center;
     padding: 2rem;
-    background-color: #001499;
+    background-color: #0d4c7f;
     color: white;
     margin-top: 4rem;
     width: 100%;
@@ -681,11 +689,12 @@ footer {
 @media (max-width:1024px) {
     h1 {
         font-size: 82px;
-        color: #ffffff;
+        color: #f1efee;
     }
 
     .tagline {
         font-size: 20px;
+        color: #f1efee;
     }
 
     .nav-links {
@@ -703,8 +712,7 @@ footer {
 
     .main-container {
         padding: 145px 0 60px 0;
-        /* 🎨 Gradiente Diagonal */
-        background: linear-gradient(to bottom right, var(--primary-color) 0%, #001499 100%);
+        background: linear-gradient(to bottom right, var(--primary-color) 0%, #0d4c7f 100%);
     }
 
     .counter {
@@ -726,22 +734,53 @@ footer {
     .menu-button {
         padding: 20px 25px;
         font-size: 18px;
+        background: rgba(241, 239, 238, 0.5);
+        color: #f1efee;
+    }
+
+    .menu-button:hover {
+        background: rgba(241, 239, 238, 0.5); /* Mismo color */
+        transform: none; /* Sin movimiento */
+    }
+
+    .menu-button.active {
+        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
+        color: #0d4c7f; /* Solo cambia el color del texto */
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+    }
+
+    /* Primer botón (Studio) no cambia */
+    .button-wrapper:first-child .menu-button.active {
+        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
+        color: #f1efee; /* Mismo color de texto */
+        border-radius: 15px; /* Bordes completos */
     }
 
     .submenu-container {
-        /* 🔄 CAMBIO: Color del header con transparencia */
-        background: rgba(8, 10, 51, 0.5);
+        background: rgba(241, 239, 238, 0.5);
+        color: #f1efee;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+    }
+
+    .submenu a {
+        color: #f1efee;
+    }
+
+    .submenu a:hover {
+        background: rgba(241, 239, 238, 0.7);
+        color: #080a33;
     }
 }
 
 @media (max-width:768px) {
     h1 {
         font-size: 68px;
-        color: #ffffff;
+        color: #f1efee;
     }
 
     .tagline {
         font-size: 18px;
+        color: #f1efee;
     }
 
     .page {
@@ -756,6 +795,26 @@ footer {
     .menu-button {
         padding: 18px 20px;
         font-size: 18px;
+        background: rgba(241, 239, 238, 0.5);
+        color: #f1efee;
+    }
+
+    .menu-button:hover {
+        background: rgba(241, 239, 238, 0.5); /* Mismo color */
+        transform: none; /* Sin movimiento */
+    }
+
+    .menu-button.active {
+        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
+        color: #0d4c7f; /* Solo cambia el color del texto */
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+    }
+
+    /* Primer botón (Studio) no cambia */
+    .button-wrapper:first-child .menu-button.active {
+        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
+        color: #f1efee; /* Mismo color de texto */
+        border-radius: 15px; /* Bordes completos */
     }
 
     .header {
@@ -786,8 +845,7 @@ footer {
 
     .main-container {
         padding: 135px 0 50px 0;
-        /* 🎨 Gradiente Diagonal */
-        background: linear-gradient(to bottom right, var(--primary-color) 0%, #001499 100%);
+        background: linear-gradient(to bottom right, var(--primary-color) 0%, #0d4c7f 100%);
     }
 
     .counters {
@@ -836,20 +894,33 @@ footer {
         right: 15px;
     }
 
+    .submenu-container {
+        background: rgba(241, 239, 238, 0.5);
+        color: #f1efee;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+    }
+
     .submenu a{
         font-size:18px;
         padding:14px 8px;
+        color: #f1efee;
+    }
+
+    .submenu a:hover {
+        background: rgba(241, 239, 238, 0.7);
+        color: #080a33;
     }
 }
 
 @media (max-width:520px){
     h1{
         font-size: 52px;
-        color: #ffffff;
+        color: #f1efee;
     }
 
     .tagline {
         font-size: 16px;
+        color: #f1efee;
     }
 
     .page {
@@ -864,6 +935,26 @@ footer {
     .menu-button {
         padding: 16px 18px;
         font-size: 16px;
+        background: rgba(241, 239, 238, 0.5);
+        color: #f1efee;
+    }
+
+    .menu-button:hover {
+        background: rgba(241, 239, 238, 0.5); /* Mismo color */
+        transform: none; /* Sin movimiento */
+    }
+
+    .menu-button.active {
+        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
+        color: #0d4c7f; /* Solo cambia el color del texto */
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+    }
+
+    /* Primer botón (Studio) no cambia */
+    .button-wrapper:first-child .menu-button.active {
+        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
+        color: #f1efee; /* Mismo color de texto */
+        border-radius: 15px; /* Bordes completos */
     }
 
     .header-content {
@@ -890,8 +981,7 @@ footer {
 
     .main-container {
         padding: 125px 0 40px 0;
-        /* 🎨 Gradiente Diagonal */
-        background: linear-gradient(to bottom right, var(--primary-color) 0%, #001499 100%);
+        background: linear-gradient(to bottom right, var(--primary-color) 0%, #0d4c7f 100%);
     }
 
     .counters {
@@ -936,20 +1026,33 @@ footer {
         right: 10px;
     }
 
+    .submenu-container {
+        background: rgba(241, 239, 238, 0.5);
+        color: #f1efee;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+    }
+
     .submenu a{
         font-size:16px;
         padding:12px 6px;
+        color: #f1efee;
+    }
+
+    .submenu a:hover {
+        background: rgba(241, 239, 238, 0.7);
+        color: #080a33;
     }
 }
 
 @media (max-width:380px){
     h1{
         font-size: 44px;
-        color: #ffffff;
+        color: #f1efee;
     }
 
     .tagline {
         font-size: 15px;
+        color: #f1efee;
     }
 
     .buttons-container {
@@ -960,6 +1063,26 @@ footer {
     .menu-button {
         padding: 14px 16px;
         font-size: 15px;
+        background: rgba(241, 239, 238, 0.5);
+        color: #f1efee;
+    }
+
+    .menu-button:hover {
+        background: rgba(241, 239, 238, 0.5); /* Mismo color */
+        transform: none; /* Sin movimiento */
+    }
+
+    .menu-button.active {
+        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
+        color: #0d4c7f; /* Solo cambia el color del texto */
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+    }
+
+    /* Primer botón (Studio) no cambia */
+    .button-wrapper:first-child .menu-button.active {
+        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
+        color: #f1efee; /* Mismo color de texto */
+        border-radius: 15px; /* Bordes completos */
     }
 
     .drawer-menu {
@@ -974,5 +1097,20 @@ footer {
 
     .logo {
         height: 30px;
+    }
+
+    .submenu-container {
+        background: rgba(241, 239, 238, 0.5);
+        color: #f1efee;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+    }
+
+    .submenu a {
+        color: #f1efee;
+    }
+
+    .submenu a:hover {
+        background: rgba(241, 239, 238, 0.7);
+        color: #080a33;
     }
 }

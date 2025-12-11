@@ -67,6 +67,7 @@ function updateActiveButton(button) {
     });
 
     // Agregar clase active al botón clickeado
+    // Esto activará el CSS que cambia la opacidad a 100%
     button.classList.add('active');
 
     const key = button.getAttribute('data-menu');
@@ -114,6 +115,7 @@ function closeAllSubmenus() {
 
     buttons.forEach(btn => {
         btn.classList.remove('active');
+        // Esto restaurará automáticamente la opacidad al 50% por CSS
     });
 }
 

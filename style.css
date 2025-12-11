@@ -400,16 +400,16 @@ h1{
 
 /* Eliminado completamente el hover effect */
 .menu-button:hover {
-    background: rgba(241, 239, 238, 0.5); /* Mismo color que el estado normal */
-    transform: none; /* Sin movimiento */
+    background: rgba(241, 239, 238, 0.5);
+    transform: none;
 }
 
-/* SOLUCIÓN ACTUALIZADA: Solo cambia el color del texto cuando está activo, el fondo permanece igual */
+/* Estado activo con 100% de opacidad */
 .menu-button.active {
-    background: rgba(241, 239, 238, 0.5); /* Mismo fondo que estado normal */
-    color: #0d4c7f; /* Solo cambia el color del texto */
+    background: rgba(241, 239, 238, 1); /* 100% de opacidad */
+    color: #0d4c7f;
     transform: none;
-    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra que estado normal */
+    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     border-radius: 15px 15px 0 0;
 }
 
@@ -420,15 +420,16 @@ h1{
 }
 
 .button-wrapper:first-child .menu-button.active {
-    background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
-    color: #f1efee; /* Mismo color de texto (no cambia) */
-    border-radius: 15px; /* Mantiene todos los bordes redondeados */
+    background: rgba(241, 239, 238, 0.5);
+    color: #f1efee;
+    border-radius: 15px;
 }
 
+/* Submenú mantiene el 50% de transparencia */
 .submenu-container {
     width: 100%;
     border-radius: 0 0 15px 15px;
-    background: rgba(241, 239, 238, 0.5); /* Exactamente el mismo color que los botones */
+    background: rgba(241, 239, 238, 0.5); /* 50% de transparencia */
     padding: 0 14px;
     transform-origin: top center;
     transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
@@ -437,7 +438,7 @@ h1{
     backdrop-filter: blur(10px);
     border: none;
     margin-top: -2px;
-    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra que los botones */
+    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     max-height: 0;
     opacity: 0;
     overflow: hidden;
@@ -739,27 +740,27 @@ footer {
     }
 
     .menu-button:hover {
-        background: rgba(241, 239, 238, 0.5); /* Mismo color */
-        transform: none; /* Sin movimiento */
+        background: rgba(241, 239, 238, 0.5);
+        transform: none;
     }
 
     .menu-button.active {
-        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
-        color: #0d4c7f; /* Solo cambia el color del texto */
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+        background: rgba(241, 239, 238, 1); /* 100% de opacidad */
+        color: #0d4c7f;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
     /* Primer botón (Studio) no cambia */
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
-        color: #f1efee; /* Mismo color de texto */
-        border-radius: 15px; /* Bordes completos */
+        background: rgba(241, 239, 238, 0.5);
+        color: #f1efee;
+        border-radius: 15px;
     }
 
     .submenu-container {
-        background: rgba(241, 239, 238, 0.5);
+        background: rgba(241, 239, 238, 0.5); /* 50% de transparencia */
         color: #f1efee;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
     .submenu a {
@@ -800,21 +801,21 @@ footer {
     }
 
     .menu-button:hover {
-        background: rgba(241, 239, 238, 0.5); /* Mismo color */
-        transform: none; /* Sin movimiento */
+        background: rgba(241, 239, 238, 0.5);
+        transform: none;
     }
 
     .menu-button.active {
-        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
-        color: #0d4c7f; /* Solo cambia el color del texto */
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+        background: rgba(241, 239, 238, 1); /* 100% de opacidad */
+        color: #0d4c7f;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
     /* Primer botón (Studio) no cambia */
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
-        color: #f1efee; /* Mismo color de texto */
-        border-radius: 15px; /* Bordes completos */
+        background: rgba(241, 239, 238, 0.5);
+        color: #f1efee;
+        border-radius: 15px;
     }
 
     .header {
@@ -895,9 +896,9 @@ footer {
     }
 
     .submenu-container {
-        background: rgba(241, 239, 238, 0.5);
+        background: rgba(241, 239, 238, 0.5); /* 50% de transparencia */
         color: #f1efee;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
     .submenu a{
@@ -940,21 +941,21 @@ footer {
     }
 
     .menu-button:hover {
-        background: rgba(241, 239, 238, 0.5); /* Mismo color */
-        transform: none; /* Sin movimiento */
+        background: rgba(241, 239, 238, 0.5);
+        transform: none;
     }
 
     .menu-button.active {
-        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
-        color: #0d4c7f; /* Solo cambia el color del texto */
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+        background: rgba(241, 239, 238, 1); /* 100% de opacidad */
+        color: #0d4c7f;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
     /* Primer botón (Studio) no cambia */
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
-        color: #f1efee; /* Mismo color de texto */
-        border-radius: 15px; /* Bordes completos */
+        background: rgba(241, 239, 238, 0.5);
+        color: #f1efee;
+        border-radius: 15px;
     }
 
     .header-content {
@@ -1027,9 +1028,9 @@ footer {
     }
 
     .submenu-container {
-        background: rgba(241, 239, 238, 0.5);
+        background: rgba(241, 239, 238, 0.5); /* 50% de transparencia */
         color: #f1efee;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
     .submenu a{
@@ -1068,21 +1069,21 @@ footer {
     }
 
     .menu-button:hover {
-        background: rgba(241, 239, 238, 0.5); /* Mismo color */
-        transform: none; /* Sin movimiento */
+        background: rgba(241, 239, 238, 0.5);
+        transform: none;
     }
 
     .menu-button.active {
-        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
-        color: #0d4c7f; /* Solo cambia el color del texto */
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+        background: rgba(241, 239, 238, 1); /* 100% de opacidad */
+        color: #0d4c7f;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
     /* Primer botón (Studio) no cambia */
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(241, 239, 238, 0.5); /* Mismo fondo */
-        color: #f1efee; /* Mismo color de texto */
-        border-radius: 15px; /* Bordes completos */
+        background: rgba(241, 239, 238, 0.5);
+        color: #f1efee;
+        border-radius: 15px;
     }
 
     .drawer-menu {
@@ -1100,9 +1101,9 @@ footer {
     }
 
     .submenu-container {
-        background: rgba(241, 239, 238, 0.5);
+        background: rgba(241, 239, 238, 0.5); /* 50% de transparencia */
         color: #f1efee;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1); /* Misma sombra */
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
     .submenu a {

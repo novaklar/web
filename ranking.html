@@ -28,8 +28,8 @@
       margin: 0;
       /* Aplicar Poppins Regular a todo el cuerpo */
       font-family: 'Poppins Regular', sans-serif;
-      background-color: #f8fafc;
-      color: #333;
+      background-color: #f1efee;
+      color: #080a33; /* Cambiado de #333 a #080a33 */
     }
 
     header {
@@ -44,13 +44,13 @@
 
     header img {
       height: 40px;
-      /* Mantener el logo blanco */
-      filter: brightness(0) invert(1);
+      /* Mantenido el color del logo en #f1efee */
+      filter: invert(99%) sepia(3%) saturate(106%) hue-rotate(224deg) brightness(114%) contrast(92%);
     }
 
     header a {
       text-decoration: none;
-      color: #f1efee;
+      color: #f1efee; /* Mantenido para contraste con fondo azul */
       font-weight: 600;
       font-size: 1rem;
       padding: 0.5rem 1rem;
@@ -103,6 +103,13 @@
       font-size: 1rem;
       transition: all 0.3s ease;
       box-sizing: border-box;
+      /* >>> CAMBIO REVERTIDO: Vuelve a #f1efee (era 'white') */
+      background-color: #f1efee; 
+      color: #080a33; /* Mantenido para mejor contraste */
+    }
+
+    .search-input::placeholder {
+      color: #64748b; /* Color más suave para el placeholder */
     }
 
     .search-input:focus {
@@ -118,7 +125,7 @@
       left: 1rem;
       top: 50%;
       transform: translateY(-50%);
-      color: #94a3b8;
+      color: #64748b; /* Cambiado a color más oscuro */
     }
 
     .ranking-table {
@@ -133,9 +140,7 @@
 
     .ranking-table thead {
       /* REEMPLAZADO: #001499 por #0d4c7f */
-      /* *** CAMBIO A COLOR SÓLIDO *** */
       background-color: #0d4c7f;
-      /* background: linear-gradient(135deg, #0d4c7f, #7fcfda); */
       color: #f1efee;
     }
 
@@ -144,16 +149,18 @@
       text-align: left;
       font-weight: 600;
       font-size: 1.05rem;
+      color: #f1efee;
     }
 
     .ranking-table td {
       padding: 1rem;
-      border-bottom: 1px solid #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+      color: #080a33; /* Cambiado de negro a #080a33 */
     }
 
     /* TODAS las filas tendrán el mismo color de fondo */
     .ranking-table tbody tr {
-      background-color: #ffffff;
+      background-color: #f1efee;
     }
 
     .ranking-table tbody tr:last-child td {
@@ -162,7 +169,7 @@
 
     /* Hover para todas las filas */
     .ranking-table tbody tr:hover {
-      background-color: #f7fffa !important;
+      background-color: #e8e6e5 !important; /* Color más oscuro para hover */
     }
 
     .rank-number {
@@ -175,6 +182,7 @@
 
     .affiliate-name {
       font-weight: 500;
+      color: #080a33; /* Cambiado de negro a #080a33 */
     }
 
     .sales-count {
@@ -184,16 +192,8 @@
       color: #7fcfda;
     }
 
-    /* Estilo especial para las primeras 3 filas (top-affiliate) */
-    .top-affiliate {
-      background-color: #f7fffb !important;
-    }
-
-    .top-affiliate .rank-number {
-      /* Color principal más oscuro (Ajustado para el nuevo azul) */
-      color: #0d4c7f;
-      font-weight: 800;
-    }
+    /* Eliminado el estilo especial para las primeras 3 filas (top-affiliate) */
+    /* Todas las filas son iguales ahora */
 
     .medal {
       display: inline-block;
@@ -205,8 +205,9 @@
       text-align: center;
       padding: 3rem;
       font-style: italic;
-      color: #666;
+      color: #080a33; /* Cambiado de #666 a #080a33 */
       font-size: 1.1rem;
+      background-color: #f1efee;
     }
 
     .loading i {
@@ -219,12 +220,13 @@
 
     .error-message {
       color: #d32f2f;
-      background-color: #fde8e8;
+      background-color: #f1efee;
       padding: 1.2rem;
       border-radius: 0.6rem;
       margin: 1rem 0;
       text-align: center;
       border-left: 4px solid #d32f2f;
+      border: 1px solid #e2e8f0;
     }
 
     .error-message i {
@@ -234,7 +236,7 @@
     .last-updated {
       text-align: right;
       font-size: 0.85rem;
-      color: #64748b;
+      color: #64748b; /* Mantenido este color más suave */
       margin-top: 0.5rem;
       font-weight: 500;
     }
@@ -243,15 +245,21 @@
       display: block;
       margin: 1.5rem auto;
       padding: 0.8rem 1.5rem;
-      /* CAMBIADO: De gradiente a color sólido #7fcfda */
+      /* Mantenido el color de fondo */
       background-color: #7fcfda;
-      color: #f1efee;
+      /* Mantenido el color del texto del botón en #f1efee */
+      color: #f1efee; 
       border: none;
       border-radius: 0.6rem;
       cursor: pointer;
       transition: all 0.3s ease;
       font-weight: 600;
       box-shadow: 0 4px 6px rgba(127, 207, 218, 0.3);
+    }
+    
+    /* Mantenido el color del icono en #f1efee */
+    .refresh-btn #refresh-icon i {
+        color: #f1efee;
     }
 
     .refresh-btn:hover {
@@ -270,12 +278,13 @@
       cursor: not-allowed;
       transform: none;
       box-shadow: none;
+      color: #64748b;
     }
 
     .total-sales {
       /* REEMPLAZADO: #001499 y #4270ff por #0d4c7f y #7fcfda */
       background: linear-gradient(135deg, #0d4c7f, #7fcfda);
-      color: #f1efee;
+      color: #f1efee; /* Mantenido para contraste con fondo azul */
       padding: 1.2rem;
       border-radius: 0.8rem;
       margin-top: 2rem;
@@ -296,6 +305,9 @@
       padding: 2rem;
       color: #64748b;
       font-style: italic;
+      background-color: #f1efee;
+      border-radius: 0.8rem;
+      border: 1px solid #e2e8f0;
     }
 
     .no-results i {
@@ -678,7 +690,7 @@
       
       affiliates.forEach((affiliate, index) => {
         const row = document.createElement('tr');
-        if (index < 3) row.classList.add('top-affiliate');
+        // Eliminada la clase top-affiliate para que todas las filas sean iguales
         
         const rankCell = document.createElement('td');
         rankCell.className = 'rank-number';

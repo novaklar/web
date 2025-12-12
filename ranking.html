@@ -132,7 +132,7 @@
     }
 
     .ranking-table thead {
-      /* REEMPLAZADO: #001499 y #4270ff por #0d4c7f y #7fcfda */
+      /* REEMPLAZADO: #001499 por #0d4c7f */
       /* *** CAMBIO A COLOR SÓLIDO *** */
       background-color: #0d4c7f;
       /* background: linear-gradient(135deg, #0d4c7f, #7fcfda); */
@@ -151,17 +151,18 @@
       border-bottom: 1px solid #f1f5f9;
     }
 
-    .ranking-table tbody tr:nth-child(even) {
-      background-color: #f8fafc;
+    /* TODAS las filas tendrán el mismo color de fondo */
+    .ranking-table tbody tr {
+      background-color: #ffffff;
     }
 
     .ranking-table tbody tr:last-child td {
       border-bottom: none;
     }
 
+    /* Hover para todas las filas */
     .ranking-table tbody tr:hover {
-      /* Ajuste del hover */
-      background-color: #f7fffa;
+      background-color: #f7fffa !important;
     }
 
     .rank-number {
@@ -183,8 +184,8 @@
       color: #7fcfda;
     }
 
+    /* Estilo especial para las primeras 3 filas (top-affiliate) */
     .top-affiliate {
-      /* Fondo sutil del color secundario */
       background-color: #f7fffb !important;
     }
 
@@ -413,7 +414,6 @@
   </div>
 
   <script>
-    // El script JS sigue siendo el mismo.
     // Configuración
     const SPREADSHEET_ID = '1D54c79yejujdFIJKVu4m3iM3ndUVnxP_fSgwSqGec5U';
     const SHEET_NAME = 'Form_Responses1';

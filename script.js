@@ -9,7 +9,7 @@ const overlay = document.querySelector('.overlay');
 const closeBtn = document.getElementById('closeBtn');
 const header = document.querySelector('.header');
 
-// Menús actualizados
+// Menús actualizados (eliminado "App" del menú elementos)
 const menus = {
     studio: [
         { text: 'NK studio', url: 'https://www.novaklar.com', target: '_blank' }
@@ -21,7 +21,7 @@ const menus = {
         { text: 'Streaming', url: 'streaming.html', target: '_self' }
     ],
     elementos: [
-        { text: 'App', url: 'App.html', target: '_self' },
+        // Botón "App" eliminado de aquí
         { text: 'Ranking', url: 'ranking.html', target: '_self' },
         { text: 'Catalogo', url: 'catalogo.html', target: '_self' },
         { text: 'Publicidad', url: 'https://photos.app.goo.gl/5dSreR3BwDKUeaTHA', target: '_blank' }

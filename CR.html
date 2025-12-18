@@ -29,8 +29,8 @@
       --white: #f1efee; /* CAMBIADO: #ffffff por #f1efee */
       --light-gray: #f9f9f9;
       --medium-gray: #555;
-      --dark-gray: #333;
-      --shadow: 0 6px 20px rgba(0,0,0,0.1); 
+      --dark-gray: #080a33; /* CAMBIADO: #333 por #080a33 */
+      --shadow: 0 6px 20px rgba(8, 10, 51, 0.1); /* CAMBIADO: rgba(0,0,0,0.1) por rgba(8,10,51,0.1) */
       --transition: all 0.3s ease;
       --whatsapp-green: #25d366; 
       --whatsapp-hover: #1da851;
@@ -45,7 +45,7 @@
     body {
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--light-gray); 
-      color: var(--dark-gray);
+      color: var(--dark-gray); /* USA EL NUEVO COLOR #080a33 */
       line-height: 1.6;
       padding-bottom: 3rem;
     }
@@ -57,7 +57,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(8, 10, 51, 0.1); /* CAMBIADO: rgba(0,0,0,0.1) por rgba(8,10,51,0.1) */
       position: sticky;
       top: 0;
       z-index: 100;
@@ -115,7 +115,7 @@
 
     .contact-section:hover {
         transform: translateY(-5px); 
-        box-shadow: 0 15px 35px rgba(13, 76, 127, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 15px 35px rgba(13, 76, 127, 0.1), 0 5px 10px rgba(8, 10, 51, 0.05); /* CAMBIADO */
     }
 
     /* Colores actualizados según solicitud */
@@ -156,7 +156,7 @@
     }
     
     .manager-title {
-        color: var(--dark-gray);
+        color: var(--dark-gray); /* USA EL NUEVO COLOR #080a33 */
         font-size: 1.5rem; 
     }
 
@@ -171,7 +171,7 @@
     
     /* Para que el strong se vea más claro */
     .contact-info strong {
-        color: var(--dark-gray);
+        color: var(--dark-gray); /* USA EL NUEVO COLOR #080a33 */
         font-weight: bold;
     }
 
@@ -199,7 +199,7 @@
       text-decoration: none;
       font-weight: bold; 
       font-size: 1.05rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+      box-shadow: 0 4px 12px rgba(8, 10, 51, 0.2); /* CAMBIADO: rgba(0,0,0,0.2) por rgba(8,10,51,0.2) */
       transition: var(--transition);
       position: relative;
       overflow: hidden;
@@ -213,7 +213,7 @@
     .whatsapp-btn:hover {
       background-color: var(--whatsapp-hover);
       transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 20px rgba(8, 10, 51, 0.3); /* CAMBIADO: rgba(0,0,0,0.3) por rgba(8,10,51,0.3) */
     }
 
     .whatsapp-btn i {

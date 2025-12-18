@@ -23,10 +23,10 @@
     }
 
     :root {
-      --primary-blue: #001499; /* REEMPLAZADO: #006279 por #001499 */
-      --secondary-blue: #4270ff; /* REEMPLAZADO: #57d9b6 por #4270ff */
+      --primary-blue: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
+      --secondary-blue: #7fcfda; /* CAMBIADO: #4270ff por #7fcfda */
       --light-blue: #eef5ff;
-      --white: #ffffff;
+      --white: #f1efee; /* CAMBIADO: #ffffff por #f1efee */
       --light-gray: #f9f9f9;
       --medium-gray: #555;
       --dark-gray: #333;
@@ -52,7 +52,7 @@
 
     /* --- Header Styles --- */
     header {
-      background-color: var(--primary-blue); /* USA EL NUEVO COLOR #001499 */
+      background-color: var(--primary-blue); /* USA EL NUEVO COLOR #0d4c7f */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -109,29 +109,28 @@
       text-align: center;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       position: relative;
-      background-color: var(--white); 
+      background-color: var(--white); /* USA EL NUEVO COLOR #f1efee */
       border: 1px solid #ddd; 
     }
 
     .contact-section:hover {
-        /* Se ajusta el color del hover para que coincida con el nuevo color primario */
         transform: translateY(-5px); 
-        box-shadow: 0 15px 35px rgba(0, 20, 153, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 15px 35px rgba(13, 76, 127, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
     }
 
     /* Colores actualizados según solicitud */
     .sales-section {
-      border-top: 6px solid var(--secondary-blue); /* USA EL NUEVO COLOR #4270ff */
+      border-top: 6px solid var(--secondary-blue); /* USA EL NUEVO COLOR #7fcfda */
     }
 
     .recruitment-section {
-      border-top: 6px solid var(--primary-blue); /* USA EL NUEVO COLOR #001499 */
+      border-top: 6px solid var(--primary-blue); /* USA EL NUEVO COLOR #0d4c7f */
     }
     
     /* Estilo de Gerencia */
     .manager-section {
       border: 1px dashed var(--medium-gray);
-      background-color: var(--white);
+      background-color: var(--white); /* USA EL NUEVO COLOR #f1efee */
       max-width: 800px; 
       margin-top: 2rem;
       padding: 2rem;
@@ -149,11 +148,11 @@
 
     /* Colores de títulos actualizados */
     .sales-title {
-      color: var(--secondary-blue); /* USA EL NUEVO COLOR #4270ff */
+      color: var(--secondary-blue); /* USA EL NUEVO COLOR #7fcfda */
     }
 
     .recruitment-title {
-      color: var(--primary-blue); /* USA EL NUEVO COLOR #001499 */
+      color: var(--primary-blue); /* USA EL NUEVO COLOR #0d4c7f */
     }
     
     .manager-title {
@@ -223,12 +222,12 @@
     }
     
     .manager-btn {
-        background-color: var(--primary-blue); /* USA EL NUEVO COLOR #001499 */
+        background-color: var(--primary-blue); /* USA EL NUEVO COLOR #0d4c7f */
         color: var(--white);
     }
 
     .manager-btn:hover {
-        background-color: #000c4c; /* Oscurecimiento del nuevo azul primario */
+        background-color: #0a3d66; /* Oscurecimiento del nuevo azul primario */
     }
 
     /* Responsive Design */
@@ -291,6 +290,12 @@
         <div class="button-row">
           <a href="https://wa.me/573018205460?text=Hola%20Alejandra%2C%20te%20contacto%20desde%20la%20página%20web%20para%20una%20consulta%20comercial." class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Alejandra
+          </a>
+        </div>
+        <!-- NUEVO BOTÓN DANNA AGREGADO -->
+        <div class="button-row">
+          <a href="https://wa.me/573027069241?text=Hola%20Danna%2C%20te%20contacto%20desde%20la%20página%20web%20para%20una%20consulta%20comercial." class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Danna
           </a>
         </div>
       </div>

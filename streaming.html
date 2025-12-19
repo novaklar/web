@@ -18,7 +18,6 @@
       src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
       font-display: swap;
     }
-    /* El Poppins-Regular.ttf será el predeterminado para el cuerpo (font-weight: 400) */
   </style>
 
   <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
@@ -26,15 +25,13 @@
   <style>
     body {
       margin: 0;
-      /* MODIFICADO: Usar Poppins como fuente principal para todo el cuerpo */
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: white;
-      color: #333;
+      background-color: #f1efee; /* CAMBIADO: #ffffff por #f1efee */
+      color: #080a33; /* CAMBIADO: #333 por #080a33 */
     }
 
     header {
-      /* Color de fondo del header - CAMBIADO: #00617a por #001499 */
-      background-color: #001499; 
+      background-color: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -44,15 +41,15 @@
 
     header img {
       height: 40px;
-      filter: brightness(0) invert(1);
+      /* CAMBIADO: Removido filter: brightness(0) invert(1) para mantener el logo original */
+      /* En su lugar, si el logo original no es #f1efee, podemos usar un filtro para cambiarlo */
+      filter: brightness(0) saturate(100%) invert(93%) sepia(2%) saturate(294%) hue-rotate(315deg) brightness(99%) contrast(93%);
     }
 
     header a {
       text-decoration: none;
-      /* Enlace "Regresar" en blanco */
-      color: white; 
-      /* MODIFICADO: Font-weight 400 (Regular) para eliminar el bold */
-      font-weight: 400; 
+      color: #f1efee; /* CAMBIADO: white por #f1efee */
+      font-weight: 400;
       font-size: 1rem;
       padding: 0.5rem 1rem;
       border-radius: 4px;
@@ -60,16 +57,14 @@
     }
 
     header a:hover {
-      background-color: rgba(255,255,255,0.2);
+      background-color: rgba(241, 239, 238, 0.2); /* CAMBIADO: ajustado al nuevo color */
     }
 
     .page-title {
-      /* MODIFICADO: Usar Poppins (Bold) para el título */
-      font-family: 'Poppins', sans-serif; 
+      font-family: 'Poppins', sans-serif;
       font-size: 2.2rem;
-      font-weight: 700; /* Coincide con el Poppins-Bold.ttf */
-      /* MODIFICADO: Título "Streaming" - CAMBIADO: #00617a por #001499 */
-      color: #001499; 
+      font-weight: 700;
+      color: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
       text-align: center;
       margin: 3rem 0 2rem;
       padding: 0 1rem;
@@ -113,7 +108,7 @@
     .table-container {
       display: none;
       margin-top: 0.8rem;
-      background-color: #f8fafc;
+      background-color: #f1efee; /* CAMBIADO: #f8fafc por #f1efee */
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -123,7 +118,7 @@
 
     .table-container table {
       width: 100%;
-      color: #334155;
+      color: #080a33; /* CAMBIADO: #334155 por #080a33 */
       border-collapse: collapse;
       font-size: 0.9rem;
     }
@@ -139,12 +134,14 @@
       padding: 0.5rem 1rem;
       text-align: center;
       font-weight: 600;
-      color: white;
+      color: #f1efee; /* CAMBIADO: white por #f1efee */
+      background-color: #0d4c7f; /* CAMBIADO: ajustado al nuevo color */
     }
 
     .table-container td {
       padding: 0.5rem 1rem;
       border-bottom: 1px solid #e2e8f0;
+      color: #080a33; /* CAMBIADO: ajustado al nuevo color */
     }
 
     .table-container tr:last-child td {
@@ -154,14 +151,14 @@
     .buy-section {
       padding: 1rem;
       border-top: 2px dashed #e2e8f0;
-      background-color: #f1f5f9;
+      background-color: #f1efee; /* CAMBIADO: #f1f5f9 por #f1efee */
     }
 
     .buy-text {
       text-align: center;
       margin-bottom: 0.8rem;
       font-size: 0.85rem;
-      color: #475569;
+      color: #080a33; /* CAMBIADO: #475569 por #080a33 */
       font-weight: 500;
     }
 
@@ -178,11 +175,10 @@
       gap: 0.5rem;
       padding: 0.6rem;
       background-color: #25D366;
-      color: white;
+      color: #f1efee; /* CAMBIADO: white por #f1efee */
       text-decoration: none;
       border-radius: 0.4rem;
-      /* Mantenido en 600 para el botón */
-      font-weight: 600; 
+      font-weight: 600;
       font-size: 0.85rem;
       transition: all 0.2s ease;
       border: none;
@@ -196,18 +192,22 @@
 
     .whatsapp-btn i {
       font-size: 1.1rem;
+      color: #f1efee; /* Aseguramos que el ícono también sea #f1efee */
     }
     
     .section-title {
-      /* MODIFICADO: Usar Poppins (Bold) para el subtítulo */
-      font-family: 'Poppins', sans-serif; 
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
-      font-weight: 700; /* Coincide con el Poppins-Bold.ttf */
-      /* MODIFICADO: Subtítulo "Combos" - CAMBIADO: #00128f por #001499 */
-      color: #001499;
+      font-weight: 700;
+      color: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
       text-align: center;
       margin: 2rem 0;
       grid-column: 1 / -1;
+    }
+
+    /* Iconos de FontAwesome también en #f1efee */
+    .fab.fa-whatsapp {
+      color: #f1efee;
     }
 
     @media (max-width: 600px) {
@@ -251,6 +251,7 @@
 </head>
 <body>
   <header>
+    <!-- El logo ahora se mostrará en color #f1efee gracias al filtro CSS -->
     <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/novaklar1.svg" alt="Novaklar Logo" />
     <a href="https://novaklar.github.io/web/">Regresar</a>
   </header>
@@ -263,9 +264,6 @@
     const container = document.getElementById('cards-container');
     let currentlyOpenCard = null;
 
-    // Lista completa de servicios con sus nombres de imagen y valores
-    // [Precio Afiliado, Precio Sugerido, Ganancia]
-    // NOTA: Se eliminó "dgo" de esta lista para quitar la tarjeta duplicada
     const servicios = [
       { nombre: "netflix", valores: [11500, 15000, 3500] },
       { nombre: "hbo", valores: [6000, 10000, 4000] },
@@ -285,13 +283,11 @@
       { nombre: "spotify", valores: [9000, 13000, 4000] }
     ];
     
-    // Los combos no cambiaron de nombre
     const combos = [
       { nombre: "combo1", valores: [15000, 20000, 5000] },
       { nombre: "combo2", valores: [15000, 20000, 5000] }
     ];
 
-    // Función para crear una tarjeta normal
     function crearTarjeta(item, esCombo = false) {
       const card = document.createElement('div');
       card.className = 'card';
@@ -313,13 +309,17 @@
           <div class="buy-section">
             <div class="buy-text">¡Adquiere este servicio ahora!</div>
             <div class="whatsapp-buttons">
+              <a href="https://wa.me/573018205460?text=Hola%20Alejandra,%20estoy%20interesado%20en%20el%20servicio%20${servicioNombre}" 
+                 class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Alejandra
+              </a>
               <a href="https://wa.me/573127741655?text=Hola%20Tatiana,%20estoy%20interesado%20en%20el%20servicio%20${servicioNombre}" 
                  class="whatsapp-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i> Tatiana
               </a>
-              <a href="https://wa.me/573018205460?text=Hola%20Alejandra,%20estoy%20interesado%20en%20el%20servicio%20${servicioNombre}" 
+              <a href="https://wa.me/573027069241?text=Hola%20Danna,%20estoy%20interesado%20en%20el%20servicio%20${servicioNombre}" 
                  class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Alejandra
+                <i class="fab fa-whatsapp"></i> Danna
               </a>
             </div>
           </div>
@@ -329,27 +329,22 @@
       const tableContainer = card.querySelector('.table-container');
       
       card.addEventListener('click', (e) => {
-        // Si el clic fue en la imagen y la tabla ya está abierta, no hacer nada
         if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') {
           return;
         }
         
-        // Si hay otra tarjeta abierta, la cerramos
         if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
           currentlyOpenCard.style.display = 'none';
         }
         
-        // Alternar la visibilidad de la tabla actual
         tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
         
-        // Actualizar la referencia a la tarjeta abierta actualmente
         currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
       });
       
       return card;
     }
 
-    // Función especial para crear la tarjeta de DGO con dos planes
     function crearTarjetaDGO() {
       const card = document.createElement('div');
       card.className = 'card';
@@ -362,7 +357,7 @@
           <table>
             <thead>
               <tr>
-                <th colspan="2" style="background: #021327">Plan Gold</th>
+                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Gold</th>
               </tr>
             </thead>
             <tbody>
@@ -372,7 +367,7 @@
             </tbody>
             <thead>
               <tr>
-                <th colspan="2" style="background: #021327; border-radius: 0;">Plan Win Sports</th>
+                <th colspan="2" style="background: #0d4c7f; color: #f1efee; border-radius: 0;">Plan Win Sports</th>
               </tr>
             </thead>
             <tbody>
@@ -384,13 +379,17 @@
           <div class="buy-section">
             <div class="buy-text">¡Adquiere este servicio ahora!</div>
             <div class="whatsapp-buttons">
+              <a href="https://wa.me/573018205460?text=Hola%20Alejandra,%20estoy%20interesado%20en%20DirecTV%20Go" 
+                 class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Alejandra
+              </a>
               <a href="https://wa.me/573127741655?text=Hola%20Tatiana,%20estoy%20interesado%20en%20DirecTV%20Go" 
                  class="whatsapp-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i> Tatiana
               </a>
-              <a href="https://wa.me/573018205460?text=Hola%20Alejandra,%20estoy%20interesado%20en%20DirecTV%20Go" 
+              <a href="https://wa.me/573027069241?text=Hola%20Danna,%20estoy%20interesado%20en%20DirecTV%20Go" 
                  class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Alejandra
+                <i class="fab fa-whatsapp"></i> Danna
               </a>
             </div>
           </div>
@@ -400,44 +399,35 @@
       const tableContainer = card.querySelector('.table-container');
       
       card.addEventListener('click', (e) => {
-        // Si el clic fue en la imagen y la tabla ya está abierta, no hacer nada
         if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') {
           return;
         }
         
-        // Si hay otra tarjeta abierta, la cerramos
         if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
           currentlyOpenCard.style.display = 'none';
         }
         
-        // Alternar la visibilidad de la tabla actual
         tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
         
-        // Actualizar la referencia a la tarjeta abierta actualmente
         currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
       });
       
       return card;
     }
 
-    // Renderizar servicios normales
     servicios.forEach((item, index) => {
       container.appendChild(crearTarjeta(item));
       
-      // Insertar DGO especial DESPUÉS de Universal (posición 11)
-      // Universal está en el índice 11, así que insertamos DGO después de procesar Universal
-      if (index === 11) { // Cambiado de 10 a 11
+      if (index === 11) {
         container.appendChild(crearTarjetaDGO());
       }
     });
     
-    // Agregar título de Combos
     const combosTitle = document.createElement('h2');
     combosTitle.className = 'section-title';
     combosTitle.textContent = 'Combos';
     container.appendChild(combosTitle);
     
-    // Renderizar combos
     combos.forEach(item => {
       container.appendChild(crearTarjeta(item, true));
     });

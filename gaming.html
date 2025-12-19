@@ -24,15 +24,13 @@
   <style>
     body {
       margin: 0;
-      /* MODIFICADO: Usar Poppins como fuente principal para todo el cuerpo */
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: white;
-      color: #333;
+      background-color: #f1efee; /* CAMBIADO: white por #f1efee */
+      color: #080a33; /* CAMBIADO: #333 por #080a33 */
     }
 
     header {
-      /* Color de fondo CAMBIADO: #00617a por #001499 */
-      background-color: #001499;
+      background-color: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -42,16 +40,14 @@
 
     header img {
       height: 40px;
-      /* Se mantiene el filtro para que el logo se vea blanco sobre el fondo oscuro */
-      filter: brightness(0) invert(1);
+      /* CAMBIADO: Filtro para convertir el logo a #f1efee */
+      filter: brightness(0) saturate(100%) invert(93%) sepia(2%) saturate(294%) hue-rotate(315deg) brightness(99%) contrast(93%);
     }
 
     header a {
       text-decoration: none;
-      /* Enlace "Regresar" en blanco */
-      color: white;
-      /* MODIFICADO: Cambiado de 600 a 400 (Regular) para eliminar el bold */
-      font-weight: 400; 
+      color: #f1efee; /* CAMBIADO: white por #f1efee */
+      font-weight: 400;
       font-size: 1rem;
       padding: 0.5rem 1rem;
       border-radius: 4px;
@@ -59,16 +55,14 @@
     }
 
     header a:hover {
-      background-color: rgba(255,255,255,0.2);
+      background-color: rgba(241, 239, 238, 0.2); /* CAMBIADO: ajustado al nuevo color */
     }
 
     .page-title {
-      /* MODIFICADO: Usar Poppins (Bold) para el título */
       font-family: 'Poppins', sans-serif;
       font-size: 2.2rem;
       font-weight: 700;
-      /* MODIFICADO: Título en color CAMBIADO: #00617a por #001499 */
-      color: #001499;
+      color: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
       text-align: center;
       margin: 3rem 0 2rem;
       padding: 0 1rem;
@@ -123,7 +117,7 @@
     .table-container {
       display: none;
       margin-top: 0.8rem;
-      background-color: #f8fafc;
+      background-color: #f1efee; /* CAMBIADO: #f8fafc por #f1efee */
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -134,7 +128,7 @@
 
     .table-container table {
       width: 100%;
-      color: #334155;
+      color: #080a33; /* CAMBIADO: #334155 por #080a33 */
       border-collapse: collapse;
       font-size: 0.9rem;
     }
@@ -157,6 +151,7 @@
     .table-container td {
       padding: 0.5rem 1rem;
       border-bottom: 1px solid #e2e8f0;
+      color: #080a33; /* CAMBIADO: ajustado al nuevo color */
     }
 
     .table-container tr:last-child td {
@@ -164,13 +159,13 @@
     }
 
     .plan-header {
-      background-color: #3c5cf2 !important;
-      color: white !important;
+      background-color: #0d4c7f !important; /* CAMBIADO: #3c5cf2 por #0d4c7f */
+      color: #f1efee !important; /* CAMBIADO: white por #f1efee */
     }
 
     .plan-header-black {
-      background-color: #000000 !important;
-      color: white !important;
+      background-color: #080a33 !important; /* CAMBIADO: #000000 por #080a33 */
+      color: #f1efee !important; /* CAMBIADO: white por #f1efee */
     }
 
     @media (max-width: 768px) {

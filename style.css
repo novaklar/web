@@ -79,10 +79,11 @@ body, p, li, a, span, div {
     font-family: 'Poppins-Regular', sans-serif;
 }
 
+/* CAMBIO: Título cambiado a #7fcfda */
 h1{
     margin:0;
     font-size: 96px;
-    color: #f1efee;
+    color: #7fcfda; /* Cambiado de #f1efee a #7fcfda */
     letter-spacing: 2px;
     font-family: 'DESA', sans-serif;
     font-weight: normal;
@@ -326,9 +327,10 @@ h1{
     visibility: visible;
 }
 
+/* CAMBIO: Degradado reemplazado por color sólido #0d4c7f */
 .main-container {
     width: 100%;
-    background: linear-gradient(to bottom right, var(--primary-color) 0%, #0d4c7f 100%);
+    background: #0d4c7f; /* Cambiado de linear-gradient(to bottom right, var(--primary-color) 0%, #0d4c7f 100%) */
     padding: 155px 0 80px 0;
     display: flex;
     justify-content: center;
@@ -688,9 +690,10 @@ footer {
 }
 
 @media (max-width:1024px) {
+    /* CAMBIO: Título mantiene #7fcfda en tablet */
     h1 {
         font-size: 82px;
-        color: #f1efee;
+        color: #7fcfda; /* Cambiado de #f1efee a #7fcfda */
     }
 
     .tagline {
@@ -711,9 +714,10 @@ footer {
         border: none;
     }
 
+    /* CAMBIO: Main-container mantiene #0d4c7f en tablet */
     .main-container {
         padding: 145px 0 60px 0;
-        background: linear-gradient(to bottom right, var(--primary-color) 0%, #0d4c7f 100%);
+        background: #0d4c7f; /* Cambiado de linear-gradient(...) */
     }
 
     .counter {
@@ -774,9 +778,10 @@ footer {
 }
 
 @media (max-width:768px) {
+    /* CAMBIO: Título mantiene #7fcfda en móvil */
     h1 {
         font-size: 68px;
-        color: #f1efee;
+        color: #7fcfda; /* Cambiado de #f1efee a #7fcfda */
     }
 
     .tagline {
@@ -844,9 +849,10 @@ footer {
         display: none;
     }
 
+    /* CAMBIO: Main-container mantiene #0d4c7f en móvil */
     .main-container {
         padding: 135px 0 50px 0;
-        background: linear-gradient(to bottom right, var(--primary-color) 0%, #0d4c7f 100%);
+        background: #0d4c7f; /* Cambiado de linear-gradient(...) */
     }
 
     .counters {
@@ -914,9 +920,10 @@ footer {
 }
 
 @media (max-width:520px){
+    /* CAMBIO: Título mantiene #7fcfda en móvil pequeño */
     h1{
         font-size: 52px;
-        color: #f1efee;
+        color: #7fcfda; /* Cambiado de #f1efee a #7fcfda */
     }
 
     .tagline {
@@ -980,9 +987,10 @@ footer {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    /* CAMBIO: Main-container mantiene #0d4c7f en móvil pequeño */
     .main-container {
         padding: 125px 0 40px 0;
-        background: linear-gradient(to bottom right, var(--primary-color) 0%, #0d4c7f 100%);
+        background: #0d4c7f; /* Cambiado de linear-gradient(...) */
     }
 
     .counters {
@@ -1046,9 +1054,10 @@ footer {
 }
 
 @media (max-width:380px){
+    /* CAMBIO: Título mantiene #7fcfda en móvil muy pequeño */
     h1{
         font-size: 44px;
-        color: #f1efee;
+        color: #7fcfda; /* Cambiado de #f1efee a #7fcfda */
     }
 
     .tagline {

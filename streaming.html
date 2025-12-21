@@ -26,12 +26,12 @@
     body {
       margin: 0;
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f1efee; /* CAMBIADO: #ffffff por #f1efee */
-      color: #080a33; /* CAMBIADO: #333 por #080a33 */
+      background-color: #f1efee;
+      color: #080a33;
     }
 
     header {
-      background-color: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
+      background-color: #080a33; /* CAMBIADO: #0d4c7f por #080a33 */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -41,14 +41,12 @@
 
     header img {
       height: 40px;
-      /* CAMBIADO: Removido filter: brightness(0) invert(1) para mantener el logo original */
-      /* En su lugar, si el logo original no es #f1efee, podemos usar un filtro para cambiarlo */
-      filter: brightness(0) saturate(100%) invert(93%) sepia(2%) saturate(294%) hue-rotate(315deg) brightness(99%) contrast(93%);
+      /* ELIMINADO: filtro CSS ya que el nuevo logo es originalmente #f1efee */
     }
 
     header a {
       text-decoration: none;
-      color: #f1efee; /* CAMBIADO: white por #f1efee */
+      color: #f1efee;
       font-weight: 400;
       font-size: 1rem;
       padding: 0.5rem 1rem;
@@ -57,14 +55,14 @@
     }
 
     header a:hover {
-      background-color: rgba(241, 239, 238, 0.2); /* CAMBIADO: ajustado al nuevo color */
+      background-color: rgba(241, 239, 238, 0.2);
     }
 
     .page-title {
       font-family: 'Poppins', sans-serif;
       font-size: 2.2rem;
       font-weight: 700;
-      color: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
+      color: #080a33;
       text-align: center;
       margin: 3rem 0 2rem;
       padding: 0 1rem;
@@ -108,7 +106,7 @@
     .table-container {
       display: none;
       margin-top: 0.8rem;
-      background-color: #f1efee; /* CAMBIADO: #f8fafc por #f1efee */
+      background-color: #f1efee;
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -118,7 +116,7 @@
 
     .table-container table {
       width: 100%;
-      color: #080a33; /* CAMBIADO: #334155 por #080a33 */
+      color: #080a33;
       border-collapse: collapse;
       font-size: 0.9rem;
     }
@@ -134,14 +132,14 @@
       padding: 0.5rem 1rem;
       text-align: center;
       font-weight: 600;
-      color: #f1efee; /* CAMBIADO: white por #f1efee */
-      background-color: #0d4c7f; /* CAMBIADO: ajustado al nuevo color */
+      color: #f1efee;
+      background-color: #0d4c7f;
     }
 
     .table-container td {
       padding: 0.5rem 1rem;
       border-bottom: 1px solid #e2e8f0;
-      color: #080a33; /* CAMBIADO: ajustado al nuevo color */
+      color: #080a33;
     }
 
     .table-container tr:last-child td {
@@ -151,14 +149,14 @@
     .buy-section {
       padding: 1rem;
       border-top: 2px dashed #e2e8f0;
-      background-color: #f1efee; /* CAMBIADO: #f1f5f9 por #f1efee */
+      background-color: #f1efee;
     }
 
     .buy-text {
       text-align: center;
       margin-bottom: 0.8rem;
       font-size: 0.85rem;
-      color: #080a33; /* CAMBIADO: #475569 por #080a33 */
+      color: #080a33;
       font-weight: 500;
     }
 
@@ -175,7 +173,7 @@
       gap: 0.5rem;
       padding: 0.6rem;
       background-color: #25D366;
-      color: #f1efee; /* CAMBIADO: white por #f1efee */
+      color: #f1efee;
       text-decoration: none;
       border-radius: 0.4rem;
       font-weight: 600;
@@ -192,20 +190,19 @@
 
     .whatsapp-btn i {
       font-size: 1.1rem;
-      color: #f1efee; /* Aseguramos que el ícono también sea #f1efee */
+      color: #f1efee;
     }
     
     .section-title {
       font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
-      color: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
+      color: #080a33;
       text-align: center;
       margin: 2rem 0;
       grid-column: 1 / -1;
     }
 
-    /* Iconos de FontAwesome también en #f1efee */
     .fab.fa-whatsapp {
       color: #f1efee;
     }
@@ -251,8 +248,7 @@
 </head>
 <body>
   <header>
-    <!-- El logo ahora se mostrará en color #f1efee gracias al filtro CSS -->
-    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/novaklar1.svg" alt="Novaklar Logo" />
+    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/cloud.svg" alt="Novaklar Logo" />
     <a href="https://novaklar.github.io/web/">Regresar</a>
   </header>
 

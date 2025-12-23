@@ -382,14 +382,14 @@ h1{
     width: 100%;
 }
 
-/* CAMBIO: Botones en color sólido #f1efee sin transparencia */
+/* CAMBIO: Botones con transparencia del 70% y texto en color #080a33 */
 .menu-button {
     width: 100%;
     padding: 22px 30px;
-    background: #f1efee; /* Cambiado de rgba(241, 239, 238, 0.5) a sólido */
+    background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
     border: none;
     border-radius: 15px;
-    color: #0d4c7f; /* Cambiado de #f1efee a #0d4c7f */
+    color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
     font-size: 20px;
     font-weight: 700;
     font-family: 'Poppins-Bold', sans-serif;
@@ -401,42 +401,42 @@ h1{
     box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
 }
 
-/* Eliminado completamente el hover effect */
+/* Hover effect reducido */
 .menu-button:hover {
-    background: #f1efee; /* Mantiene sólido en hover */
-    transform: none;
+    background: rgba(241, 239, 238, 0.8);
+    transform: translateY(-2px);
 }
 
-/* Estado activo mantiene color sólido */
+/* Estado activo */
 .menu-button.active {
-    background: #f1efee; /* Mantiene sólido */
-    color: #0d4c7f;
+    background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+    color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
     transform: none;
     box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     border-radius: 15px 15px 0 0;
 }
 
-/* El primer botón (Studio) también tiene estilo sólido */
+/* El primer botón (Studio) también tiene transparencia del 70% y texto #080a33 */
 .button-wrapper:first-child .menu-button {
-    background: #f1efee; /* Sólido igual que los demás */
-    color: #0d4c7f; /* Color del texto igual que los demás */
+    background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+    color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
 }
 
 .button-wrapper:first-child .menu-button.active {
-    background: #f1efee; /* Sólido igual que los demás */
-    color: #0d4c7f; /* Color del texto igual que los demás */
+    background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+    color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
     border-radius: 15px;
 }
 
-/* CAMBIO: Submenú con transparencia 18% */
+/* CAMBIO: Submenú con transparencia del 15% */
 .submenu-container {
     width: 100%;
     border-radius: 0 0 15px 15px;
-    background: rgba(241, 239, 238, 0.18); /* 18% de transparencia */
+    background: rgba(241, 239, 238, 0.15); /* 15% de transparencia */
     padding: 0 14px;
     transform-origin: top center;
     transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
-    color: #0d4c7f;
+    color: #f1efee; /* Mantenido como #f1efee */
     text-align: center;
     backdrop-filter: blur(10px);
     border: none;
@@ -461,11 +461,11 @@ h1{
     margin: 0;
 }
 
-/* CORRECCIÓN: Opciones del menú desplegable en color #f1efee */
+/* Opciones del menú desplegable en color #f1efee (NO cambiar) */
 .submenu a {
     display: block;
     text-decoration: none;
-    color: #f1efee; /* Cambiado de #0d4c7f a #f1efee */
+    color: #f1efee; /* Mantenido como #f1efee */
     padding: 16px 12px;
     font-size: 20px;
     font-weight: 500;
@@ -475,8 +475,8 @@ h1{
 }
 
 .submenu a:hover {
-    background: rgba(241, 239, 238, 0.7);
-    color: #080a33;
+    background: rgba(241, 239, 238, 0.3);
+    color: #080a33; /* Color cambia al hacer hover */
 }
 
 .submenu a + a {
@@ -508,7 +508,7 @@ h1{
 }
 
 .contact-button:hover {
-    background-color: #0d4c7f;
+    background-color: #0a3d66;
 }
 
 .counters {
@@ -738,46 +738,46 @@ footer {
         gap: 16px;
     }
 
-    /* CAMBIO: Botones mantienen color sólido en tablet */
+    /* CAMBIO: Botones mantienen transparencia del 70% y texto #080a33 en tablet */
     .menu-button {
         padding: 20px 25px;
         font-size: 18px;
-        background: #f1efee; /* Sólido */
-        color: #0d4c7f; /* Color del texto */
+        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
     }
 
     .menu-button:hover {
-        background: #f1efee; /* Sólido */
-        transform: none;
+        background: rgba(241, 239, 238, 0.8);
+        transform: translateY(-2px);
     }
 
     .menu-button.active {
-        background: #f1efee; /* Sólido */
-        color: #0d4c7f;
+        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Primer botón (Studio) también sólido */
+    /* Primer botón (Studio) también 70% transparencia y texto #080a33 */
     .button-wrapper:first-child .menu-button.active {
-        background: #f1efee; /* Sólido */
-        color: #0d4c7f;
+        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
         border-radius: 15px;
     }
 
-    /* CAMBIO: Submenú mantiene 18% transparencia en tablet */
+    /* CAMBIO: Submenú mantiene 15% transparencia en tablet */
     .submenu-container {
-        background: rgba(241, 239, 238, 0.18); /* 18% de transparencia */
-        color: #0d4c7f;
+        background: rgba(241, 239, 238, 0.15); /* 15% de transparencia */
+        color: #f1efee; /* Mantenido como #f1efee */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* CORRECCIÓN: Opciones del menú desplegable en color #f1efee en tablet */
+    /* Opciones del menú desplegable en color #f1efee en tablet (NO cambiar) */
     .submenu a {
-        color: #f1efee; /* Cambiado de #0d4c7f a #f1efee */
+        color: #f1efee; /* Mantenido como #f1efee */
     }
 
     .submenu a:hover {
-        background: rgba(241, 239, 238, 0.7);
+        background: rgba(241, 239, 238, 0.3);
         color: #080a33;
     }
 }
@@ -803,29 +803,29 @@ footer {
         gap: 16px;
     }
 
-    /* CAMBIO: Botones mantienen color sólido en móvil */
+    /* CAMBIO: Botones mantienen transparencia del 70% y texto #080a33 en móvil */
     .menu-button {
         padding: 18px 20px;
         font-size: 18px;
-        background: #f1efee; /* Sólido */
-        color: #0d4c7f; /* Color del texto */
+        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
     }
 
     .menu-button:hover {
-        background: #f1efee; /* Sólido */
-        transform: none;
+        background: rgba(241, 239, 238, 0.8);
+        transform: translateY(-2px);
     }
 
     .menu-button.active {
-        background: #f1efee; /* Sólido */
-        color: #0d4c7f;
+        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Primer botón (Studio) también sólido */
+    /* Primer botón (Studio) también 70% transparencia y texto #080a33 */
     .button-wrapper:first-child .menu-button.active {
-        background: #f1efee; /* Sólido */
-        color: #0d4c7f;
+        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
         border-radius: 15px;
     }
 
@@ -907,22 +907,22 @@ footer {
         right: 15px;
     }
 
-    /* CAMBIO: Submenú mantiene 18% transparencia en móvil */
+    /* CAMBIO: Submenú mantiene 15% transparencia en móvil */
     .submenu-container {
-        background: rgba(241, 239, 238, 0.18); /* 18% de transparencia */
-        color: #0d4c7f;
+        background: rgba(241, 239, 238, 0.15); /* 15% de transparencia */
+        color: #f1efee; /* Mantenido como #f1efee */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* CORRECCIÓN: Opciones del menú desplegable en color #f1efee en móvil */
+    /* Opciones del menú desplegable en color #f1efee en móvil (NO cambiar) */
     .submenu a{
         font-size:18px;
         padding:14px 8px;
-        color: #f1efee; /* Cambiado de #0d4c7f a #f1efee */
+        color: #f1efee; /* Mantenido como #f1efee */
     }
 
     .submenu a:hover {
-        background: rgba(241, 239, 238, 0.7);
+        background: rgba(241, 239, 238, 0.3);
         color: #080a33;
     }
 }
@@ -948,29 +948,29 @@ footer {
         gap: 16px;
     }
 
-    /* CAMBIO: Botones mantienen color sólido en móvil pequeño */
+    /* CAMBIO: Botones mantienen transparencia del 70% y texto #080a33 en móvil pequeño */
     .menu-button {
         padding: 16px 18px;
         font-size: 16px;
-        background: #f1efee; /* Sólido */
-        color: #0d4c7f; /* Color del texto */
+        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
     }
 
     .menu-button:hover {
-        background: #f1efee; /* Sólido */
-        transform: none;
+        background: rgba(241, 239, 238, 0.8);
+        transform: translateY(-2px);
     }
 
     .menu-button.active {
-        background: #f1efee; /* Sólido */
-        color: #0d4c7f;
+        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Primer botón (Studio) también sólido */
+    /* Primer botón (Studio) también 70% transparencia y texto #080a33 */
     .button-wrapper:first-child .menu-button.active {
-        background: #f1efee; /* Sólido */
-        color: #0d4c7f;
+        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
         border-radius: 15px;
     }
 
@@ -1044,22 +1044,22 @@ footer {
         right: 10px;
     }
 
-    /* CAMBIO: Submenú mantiene 18% transparencia en móvil pequeño */
+    /* CAMBIO: Submenú mantiene 15% transparencia en móvil pequeño */
     .submenu-container {
-        background: rgba(241, 239, 238, 0.18); /* 18% de transparencia */
-        color: #0d4c7f;
+        background: rgba(241, 239, 238, 0.15); /* 15% de transparencia */
+        color: #f1efee; /* Mantenido como #f1efee */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* CORRECCIÓN: Opciones del menú desplegable en color #f1efee en móvil pequeño */
+    /* Opciones del menú desplegable en color #f1efee en móvil pequeño (NO cambiar) */
     .submenu a{
         font-size:16px;
         padding:12px 6px;
-        color: #f1efee; /* Cambiado de #0d4c7f a #f1efee */
+        color: #f1efee; /* Mantenido como #f1efee */
     }
 
     .submenu a:hover {
-        background: rgba(241, 239, 238, 0.7);
+        background: rgba(241, 239, 238, 0.3);
         color: #080a33;
     }
 }
@@ -1081,29 +1081,29 @@ footer {
         gap: 16px;
     }
 
-    /* CAMBIO: Botones mantienen color sólido en móvil muy pequeño */
+    /* CAMBIO: Botones mantienen transparencia del 70% y texto #080a33 en móvil muy pequeño */
     .menu-button {
         padding: 14px 16px;
         font-size: 15px;
-        background: #f1efee; /* Sólido */
-        color: #0d4c7f; /* Color del texto */
+        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
     }
 
     .menu-button:hover {
-        background: #f1efee; /* Sólido */
-        transform: none;
+        background: rgba(241, 239, 238, 0.8);
+        transform: translateY(-2px);
     }
 
     .menu-button.active {
-        background: #f1efee; /* Sólido */
-        color: #0d4c7f;
+        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Primer botón (Studio) también sólido */
+    /* Primer botón (Studio) también 70% transparencia y texto #080a33 */
     .button-wrapper:first-child .menu-button.active {
-        background: #f1efee; /* Sólido */
-        color: #0d4c7f;
+        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
         border-radius: 15px;
     }
 
@@ -1121,20 +1121,20 @@ footer {
         height: 30px;
     }
 
-    /* CAMBIO: Submenú mantiene 18% transparencia en móvil muy pequeño */
+    /* CAMBIO: Submenú mantiene 15% transparencia en móvil muy pequeño */
     .submenu-container {
-        background: rgba(241, 239, 238, 0.18); /* 18% de transparencia */
-        color: #0d4c7f;
+        background: rgba(241, 239, 238, 0.15); /* 15% de transparencia */
+        color: #f1efee; /* Mantenido como #f1efee */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* CORRECCIÓN: Opciones del menú desplegable en color #f1efee en móvil muy pequeño */
+    /* Opciones del menú desplegable en color #f1efee en móvil muy pequeño (NO cambiar) */
     .submenu a {
-        color: #f1efee; /* Cambiado de #0d4c7f a #f1efee */
+        color: #f1efee; /* Mantenido como #f1efee */
     }
 
     .submenu a:hover {
-        background: rgba(241, 239, 238, 0.7);
+        background: rgba(241, 239, 238, 0.3);
         color: #080a33;
     }
 }

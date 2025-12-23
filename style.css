@@ -382,14 +382,14 @@ h1{
     width: 100%;
 }
 
-/* CAMBIO: Botones con transparencia del 70% y texto en color #080a33 */
+/* NUEVO CAMBIO: Botones con transparencia del 35% y texto #f1efee */
 .menu-button {
     width: 100%;
     padding: 22px 30px;
-    background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
+    background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
     border: none;
     border-radius: 15px;
-    color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+    color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
     font-size: 20px;
     font-weight: 700;
     font-family: 'Poppins-Bold', sans-serif;
@@ -403,36 +403,36 @@ h1{
 
 /* Hover effect reducido */
 .menu-button:hover {
-    background: rgba(241, 239, 238, 0.8);
+    background: rgba(241, 239, 238, 0.45);
     transform: translateY(-2px);
 }
 
 /* Estado activo */
 .menu-button.active {
-    background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-    color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+    background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+    color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
     transform: none;
     box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     border-radius: 15px 15px 0 0;
 }
 
-/* El primer botón (Studio) también tiene transparencia del 70% y texto #080a33 */
+/* El primer botón (Studio) también tiene transparencia del 35% y texto #f1efee */
 .button-wrapper:first-child .menu-button {
-    background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-    color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+    background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+    color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
 }
 
 .button-wrapper:first-child .menu-button.active {
-    background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-    color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+    background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+    color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
     border-radius: 15px;
 }
 
-/* CAMBIO: Submenú con transparencia del 15% */
+/* NUEVO CAMBIO: Submenú con transparencia del 10% */
 .submenu-container {
     width: 100%;
     border-radius: 0 0 15px 15px;
-    background: rgba(241, 239, 238, 0.15); /* 15% de transparencia */
+    background: rgba(241, 239, 238, 0.10); /* 10% de transparencia (NUEVO) */
     padding: 0 14px;
     transform-origin: top center;
     transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
@@ -738,35 +738,35 @@ footer {
         gap: 16px;
     }
 
-    /* CAMBIO: Botones mantienen transparencia del 70% y texto #080a33 en tablet */
+    /* NUEVO CAMBIO: Botones mantienen transparencia del 35% y texto #f1efee en tablet */
     .menu-button {
         padding: 20px 25px;
         font-size: 18px;
-        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
     }
 
     .menu-button:hover {
-        background: rgba(241, 239, 238, 0.8);
+        background: rgba(241, 239, 238, 0.45);
         transform: translateY(-2px);
     }
 
     .menu-button.active {
-        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Primer botón (Studio) también 70% transparencia y texto #080a33 */
+    /* Primer botón (Studio) también 35% transparencia y texto #f1efee */
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
         border-radius: 15px;
     }
 
-    /* CAMBIO: Submenú mantiene 15% transparencia en tablet */
+    /* NUEVO CAMBIO: Submenú mantiene 10% transparencia en tablet */
     .submenu-container {
-        background: rgba(241, 239, 238, 0.15); /* 15% de transparencia */
+        background: rgba(241, 239, 238, 0.10); /* 10% de transparencia (NUEVO) */
         color: #f1efee; /* Mantenido como #f1efee */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
@@ -803,29 +803,29 @@ footer {
         gap: 16px;
     }
 
-    /* CAMBIO: Botones mantienen transparencia del 70% y texto #080a33 en móvil */
+    /* NUEVO CAMBIO: Botones mantienen transparencia del 35% y texto #f1efee en móvil */
     .menu-button {
         padding: 18px 20px;
         font-size: 18px;
-        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
     }
 
     .menu-button:hover {
-        background: rgba(241, 239, 238, 0.8);
+        background: rgba(241, 239, 238, 0.45);
         transform: translateY(-2px);
     }
 
     .menu-button.active {
-        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Primer botón (Studio) también 70% transparencia y texto #080a33 */
+    /* Primer botón (Studio) también 35% transparencia y texto #f1efee */
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
         border-radius: 15px;
     }
 
@@ -907,9 +907,9 @@ footer {
         right: 15px;
     }
 
-    /* CAMBIO: Submenú mantiene 15% transparencia en móvil */
+    /* NUEVO CAMBIO: Submenú mantiene 10% transparencia en móvil */
     .submenu-container {
-        background: rgba(241, 239, 238, 0.15); /* 15% de transparencia */
+        background: rgba(241, 239, 238, 0.10); /* 10% de transparencia (NUEVO) */
         color: #f1efee; /* Mantenido como #f1efee */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
@@ -948,29 +948,29 @@ footer {
         gap: 16px;
     }
 
-    /* CAMBIO: Botones mantienen transparencia del 70% y texto #080a33 en móvil pequeño */
+    /* NUEVO CAMBIO: Botones mantienen transparencia del 35% y texto #f1efee en móvil pequeño */
     .menu-button {
         padding: 16px 18px;
         font-size: 16px;
-        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
     }
 
     .menu-button:hover {
-        background: rgba(241, 239, 238, 0.8);
+        background: rgba(241, 239, 238, 0.45);
         transform: translateY(-2px);
     }
 
     .menu-button.active {
-        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Primer botón (Studio) también 70% transparencia y texto #080a33 */
+    /* Primer botón (Studio) también 35% transparencia y texto #f1efee */
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
         border-radius: 15px;
     }
 
@@ -1044,9 +1044,9 @@ footer {
         right: 10px;
     }
 
-    /* CAMBIO: Submenú mantiene 15% transparencia en móvil pequeño */
+    /* NUEVO CAMBIO: Submenú mantiene 10% transparencia en móvil pequeño */
     .submenu-container {
-        background: rgba(241, 239, 238, 0.15); /* 15% de transparencia */
+        background: rgba(241, 239, 238, 0.10); /* 10% de transparencia (NUEVO) */
         color: #f1efee; /* Mantenido como #f1efee */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
@@ -1081,29 +1081,29 @@ footer {
         gap: 16px;
     }
 
-    /* CAMBIO: Botones mantienen transparencia del 70% y texto #080a33 en móvil muy pequeño */
+    /* NUEVO CAMBIO: Botones mantienen transparencia del 35% y texto #f1efee en móvil muy pequeño */
     .menu-button {
         padding: 14px 16px;
         font-size: 15px;
-        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
     }
 
     .menu-button:hover {
-        background: rgba(241, 239, 238, 0.8);
+        background: rgba(241, 239, 238, 0.45);
         transform: translateY(-2px);
     }
 
     .menu-button.active {
-        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Primer botón (Studio) también 70% transparencia y texto #080a33 */
+    /* Primer botón (Studio) también 35% transparencia y texto #f1efee */
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(241, 239, 238, 0.7); /* 70% de transparencia */
-        color: #080a33; /* CAMBIADO: De #0d4c7f a #080a33 */
+        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
         border-radius: 15px;
     }
 
@@ -1121,9 +1121,9 @@ footer {
         height: 30px;
     }
 
-    /* CAMBIO: Submenú mantiene 15% transparencia en móvil muy pequeño */
+    /* NUEVO CAMBIO: Submenú mantiene 10% transparencia en móvil muy pequeño */
     .submenu-container {
-        background: rgba(241, 239, 238, 0.15); /* 15% de transparencia */
+        background: rgba(241, 239, 238, 0.10); /* 10% de transparencia (NUEVO) */
         color: #f1efee; /* Mantenido como #f1efee */
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }

@@ -14,7 +14,7 @@
     }
     @font-face {
       font-family: 'Poppins';
-      font-weight: 400; /* Regular */
+      font-weight: 400;
       src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
       font-display: swap;
     }
@@ -25,12 +25,12 @@
     body {
       margin: 0;
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f1efee; /* CAMBIADO: white por #f1efee */
-      color: #080a33; /* CAMBIADO: #333 por #080a33 */
+      background-color: #f1efee;
+      color: #080a33;
     }
 
     header {
-      background-color: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
+      background-color: #0d4c7f;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -40,13 +40,11 @@
 
     header img {
       height: 40px;
-      /* CAMBIADO: Filtro para convertir el logo a #f1efee */
-      filter: brightness(0) saturate(100%) invert(93%) sepia(2%) saturate(294%) hue-rotate(315deg) brightness(99%) contrast(93%);
     }
 
     header a {
       text-decoration: none;
-      color: #f1efee; /* CAMBIADO: white por #f1efee */
+      color: #f1efee;
       font-weight: 400;
       font-size: 1rem;
       padding: 0.5rem 1rem;
@@ -55,14 +53,14 @@
     }
 
     header a:hover {
-      background-color: rgba(241, 239, 238, 0.2); /* CAMBIADO: ajustado al nuevo color */
+      background-color: rgba(241, 239, 238, 0.2);
     }
 
     .page-title {
       font-family: 'Poppins', sans-serif;
       font-size: 2.2rem;
       font-weight: 700;
-      color: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
+      color: #080a33;
       text-align: center;
       margin: 3rem 0 2rem;
       padding: 0 1rem;
@@ -117,7 +115,7 @@
     .table-container {
       display: none;
       margin-top: 0.8rem;
-      background-color: #f1efee; /* CAMBIADO: #f8fafc por #f1efee */
+      background-color: #f1efee;
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -128,20 +126,11 @@
 
     .table-container table {
       width: 100%;
-      color: #080a33; /* CAMBIADO: #334155 por #080a33 */
+      color: #080a33;
       border-collapse: collapse;
       font-size: 0.9rem;
     }
 
-    /* Estilo solo para el PRIMER encabezado de cada tarjeta */
-    .table-container table > thead:first-child tr:first-child th:first-child,
-    .table-container table > tbody:first-child tr:first-child th:first-child {
-      border-top-left-radius: 0.6rem;
-      border-top-right-radius: 0.6rem;
-      padding-top: 0.6rem;
-    }
-
-    /* Estilo base para TODOS los encabezados */
     .table-container th {
       padding: 0.5rem 1rem;
       text-align: center;
@@ -151,58 +140,37 @@
     .table-container td {
       padding: 0.5rem 1rem;
       border-bottom: 1px solid #e2e8f0;
-      color: #080a33; /* CAMBIADO: ajustado al nuevo color */
+      color: #080a33;
     }
 
     .table-container tr:last-child td {
       border-bottom: none;
     }
 
-    .plan-header {
-      background-color: #0d4c7f !important; /* CAMBIADO: #3c5cf2 por #0d4c7f */
-      color: #f1efee !important; /* CAMBIADO: white por #f1efee */
+    .plan-header-roblox {
+      background-color: #3c5cf2 !important;
+      color: #f1efee !important;
     }
 
-    .plan-header-black {
-      background-color: #080a33 !important; /* CAMBIADO: #000000 por #080a33 */
-      color: #f1efee !important; /* CAMBIADO: white por #f1efee */
+    /* ACTUALIZADO: Tono Negro Puro */
+    .plan-header-freefire {
+      background-color: #000000 !important;
+      color: #f1efee !important;
     }
 
     @media (max-width: 768px) {
-      .container {
-        padding: 1rem;
-      }
-      .card-img-container, .table-container {
-        max-width: 600px;
-      }
+      .card-img-container, .table-container { max-width: 600px; }
     }
 
     @media (max-width: 600px) {
-      .card-img-container, .table-container {
-        max-width: 300px;
-      }
-      .page-title {
-        font-size: 1.8rem;
-        margin: 2rem 0 1.5rem;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .card-img-container, .table-container {
-        max-width: 280px;
-      }
-      header {
-        padding: 0.8rem 1rem;
-      }
-      header img {
-        height: 35px;
-      }
+      .card-img-container, .table-container { max-width: 300px; }
+      .page-title { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/novaklar1.svg" alt="Novaklar Logo" />
+    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/cloud.svg" alt="Novaklar Logo" />
     <a href="https://novaklar.github.io/web/">Regresar</a>
   </header>
 
@@ -214,233 +182,70 @@
     const container = document.getElementById('cards-container');
     let currentOpenTable = null;
 
-    // Roblox Plans (actualizados según la nueva lista)
     const robloxPlans = [
-      { 
-        robux: "Premium 450 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 27500,
-        sugerido: 29500,
-        ganancia: 2000
-      },
-      { 
-        robux: "Premium 1000 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 52500,
-        sugerido: 54500,
-        ganancia: 2000
-      },
-      { 
-        robux: "Premium 2200 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 102500,
-        sugerido: 105500,
-        ganancia: 3000
-      },
-      { 
-        robux: "80 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 7800,
-        sugerido: 8800,
-        ganancia: 1000
-      },
-      { 
-        robux: "160 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 12500,
-        sugerido: 14500,
-        ganancia: 2000
-      },
-      { 
-        robux: "240 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 17500,
-        sugerido: 19500,
-        ganancia: 2000
-      },
-      { 
-        robux: "400 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 27500,
-        sugerido: 29500,
-        ganancia: 2000
-      },
-      { 
-        robux: "480 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 32500,
-        sugerido: 35500,
-        ganancia: 3000
-      },
-      { 
-        robux: "800 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 52500,
-        sugerido: 55500,
-        ganancia: 3000
-      },
-      { 
-        robux: "1200 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 77500,
-        sugerido: 80500,
-        ganancia: 3000
-      },
-      { 
-        robux: "1700 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 102500,
-        sugerido: 107500,
-        ganancia: 5000
-      },
-      { 
-        robux: "2100 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 127500,
-        sugerido: 132500,
-        ganancia: 5000
-      },
-      { 
-        robux: "4500 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 252500,
-        sugerido: 257500,
-        ganancia: 5000
-      },
-      { 
-        robux: "10000 Robux",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/9x3.png",
-        afiliado: 502500,
-        sugerido: 507500,
-        ganancia: 5000
-      }
+      { robux: "Premium 450 Robux", afiliado: 27500, sugerido: 29500, ganancia: 2000 },
+      { robux: "Premium 1000 Robux", afiliado: 52500, sugerido: 54500, ganancia: 2000 },
+      { robux: "Premium 2200 Robux", afiliado: 102500, sugerido: 105500, ganancia: 3000 },
+      { robux: "80 Robux", afiliado: 7800, sugerido: 8800, ganancia: 1000 },
+      { robux: "160 Robux", afiliado: 12500, sugerido: 14500, ganancia: 2000 },
+      { robux: "240 Robux", afiliado: 17500, sugerido: 19500, ganancia: 2000 },
+      { robux: "400 Robux", afiliado: 27500, sugerido: 29500, ganancia: 2000 },
+      { robux: "480 Robux", afiliado: 32500, sugerido: 35500, ganancia: 3000 },
+      { robux: "800 Robux", afiliado: 52500, sugerido: 55500, ganancia: 3000 },
+      { robux: "1200 Robux", afiliado: 77500, sugerido: 80500, ganancia: 3000 },
+      { robux: "1700 Robux", afiliado: 102500, sugerido: 107500, ganancia: 5000 },
+      { robux: "2100 Robux", afiliado: 127500, sugerido: 132500, ganancia: 5000 },
+      { robux: "4500 Robux", afiliado: 252500, sugerido: 257500, ganancia: 5000 },
+      { robux: "10000 Robux", afiliado: 502500, sugerido: 507500, ganancia: 5000 }
     ];
 
-    // Free Fire Plans (se mantienen igual)
     const freeFirePlans = [
-      { 
-        diamantes: "110 Diamantes",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
-        afiliado: 7500,
-        sugerido: 8500,
-        ganancia: 1000
-      },
-      { 
-        diamantes: "341 Diamantes",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
-        afiliado: 15500,
-        sugerido: 16500,
-        ganancia: 1000
-      },
-      { 
-        diamantes: "451 Diamantes",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
-        afiliado: 20500,
-        sugerido: 22500,
-        ganancia: 2000
-      },
-      { 
-        diamantes: "572 Diamantes",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
-        afiliado: 22500,
-        sugerido: 24500,
-        ganancia: 2000
-      },
-      { 
-        diamantes: "1166 Diamantes",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
-        afiliado: 41500,
-        sugerido: 43500,
-        ganancia: 2000
-      },
-      { 
-        diamantes: "2398 Diamantes",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
-        afiliado: 80500,
-        sugerido: 85500,
-        ganancia: 5000
-      },
-      { 
-        diamantes: "6160 Diamantes",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
-        afiliado: 190500,
-        sugerido: 200500,
-        ganancia: 10000
-      },
-      { 
-        diamantes: "Tarjeta Semanal",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
-        afiliado: 11500,
-        sugerido: 12500,
-        ganancia: 1000
-      },
-      { 
-        diamantes: "Tarjeta Mensual",
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/free%20(1).png",
-        afiliado: 49000,
-        sugerido: 53000,
-        ganancia: 4000
-      }
+      { diamantes: "110 Diamantes", afiliado: 7500, sugerido: 8500, ganancia: 1000 },
+      { diamantes: "341 Diamantes", afiliado: 15500, sugerido: 16500, ganancia: 1000 },
+      { diamantes: "451 Diamantes", afiliado: 20500, sugerido: 22500, ganancia: 2000 },
+      { diamantes: "572 Diamantes", afiliado: 22500, sugerido: 24500, ganancia: 2000 },
+      { diamantes: "1166 Diamantes", afiliado: 41500, sugerido: 43500, ganancia: 2000 },
+      { diamantes: "2398 Diamantes", afiliado: 80500, sugerido: 85500, ganancia: 5000 },
+      { diamantes: "6160 Diamantes", afiliado: 190500, sugerido: 200500, ganancia: 10000 },
+      { diamantes: "Tarjeta Semanal", afiliado: 11500, sugerido: 12500, ganancia: 1000 },
+      { diamantes: "Tarjeta Mensual", afiliado: 49000, sugerido: 53000, ganancia: 4000 }
     ];
 
-    // Function to create a card
     function createCard(plans, titleKey, imgSrc, headerClass) {
       const card = document.createElement('div');
       card.className = 'card';
-      
       card.innerHTML = `
         <div class="card-img-container">
           <img src="${imgSrc}" alt="${titleKey}">
         </div>
         <div class="table-container">
-          <table>
+          <table><tbody></tbody></table>
+        </div>
       `;
       
-      const table = card.querySelector('table');
-      
-      plans.forEach((plan, index) => {
-        table.innerHTML += `
-          <tr>
-            <th colspan="2" class="${headerClass}">
-              ${plan[titleKey]}
-            </th>
-          </tr>
+      const tbody = card.querySelector('tbody');
+      plans.forEach((plan) => {
+        tbody.innerHTML += `
+          <tr><th colspan="2" class="${headerClass}">${plan[titleKey]}</th></tr>
           <tr><td>Precio Afiliado</td><td>$${plan.afiliado.toLocaleString('es-CO')}</td></tr>
           <tr><td>Precio Sugerido</td><td>$${plan.sugerido.toLocaleString('es-CO')}</td></tr>
           <tr><td>Ganancia</td><td>$${plan.ganancia.toLocaleString('es-CO')}</td></tr>
         `;
       });
       
-      table.innerHTML += `</table></div>`;
-      
       const tableContainer = card.querySelector('.table-container');
-      
       card.addEventListener('click', (e) => {
-        // Evitar que se cierre si se hace clic en la tabla
         if (e.target.closest('.table-container')) return;
-        
-        // Cerrar la tabla actualmente abierta si es diferente a esta
-        if (currentOpenTable && currentOpenTable !== tableContainer) {
-          currentOpenTable.style.display = 'none';
-        }
-        
-        // Alternar la tabla actual
+        if (currentOpenTable && currentOpenTable !== tableContainer) currentOpenTable.style.display = 'none';
         tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
-        
-        // Actualizar la referencia a la tabla abierta
         currentOpenTable = tableContainer.style.display === 'block' ? tableContainer : null;
       });
-      
       return card;
     }
 
-    // Add Roblox card (blue header)
-    const robloxCard = createCard(robloxPlans, 'robux', robloxPlans[0].img, 'plan-header');
-    container.appendChild(robloxCard);
-
-    // Add Free Fire card (black header)
-    const freeFireCard = createCard(freeFirePlans, 'diamantes', freeFirePlans[0].img, 'plan-header-black');
-    container.appendChild(freeFireCard);
+    container.appendChild(createCard(robloxPlans, 'robux', 'https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/roblox.png', 'plan-header-roblox'));
+    container.appendChild(createCard(freeFirePlans, 'diamantes', 'https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/freefire.png', 'plan-header-freefire'));
   </script>
 </body>
 </html>
+

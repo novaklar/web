@@ -26,12 +26,12 @@
     body {
       margin: 0;
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f1efee; /* CAMBIADO: white por #f1efee */
-      color: #080a33; /* CAMBIADO: #333 por #080a33 */
+      background-color: #f1efee;
+      color: #080a33;
     }
 
     header {
-      background-color: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
+      background-color: #0d4c7f;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -41,13 +41,12 @@
 
     header img {
       height: 40px;
-      /* CAMBIADO: Filtro para convertir el logo a #f1efee */
-      filter: brightness(0) saturate(100%) invert(93%) sepia(2%) saturate(294%) hue-rotate(315deg) brightness(99%) contrast(93%);
+      /* Filtro eliminado: Usando el logo original */
     }
 
     header a {
       text-decoration: none;
-      color: #f1efee; /* CAMBIADO: white por #f1efee */
+      color: #f1efee;
       font-weight: 400;
       font-size: 1rem;
       padding: 0.5rem 1rem;
@@ -56,14 +55,14 @@
     }
 
     header a:hover {
-      background-color: rgba(241, 239, 238, 0.2); /* CAMBIADO: ajustado al nuevo color */
+      background-color: rgba(241, 239, 238, 0.2);
     }
 
     .page-title {
       font-family: 'Poppins', sans-serif;
       font-size: 2.2rem;
       font-weight: 700;
-      color: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
+      color: #080a33; /* ACTUALIZADO: Tono solicitado */
       text-align: center;
       margin: 3rem 0 2rem;
       padding: 0 1rem;
@@ -106,7 +105,7 @@
     .table-container {
       display: none;
       margin-top: 0.8rem;
-      background-color: #f1efee; /* CAMBIADO: #f8fafc por #f1efee */
+      background-color: #f1efee;
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -116,16 +115,9 @@
 
     .table-container table {
       width: 100%;
-      color: #080a33; /* CAMBIADO: #334155 por #080a33 */
+      color: #080a33;
       border-collapse: collapse;
       font-size: 0.9rem;
-    }
-
-    .table-container thead tr:first-child th {
-      padding-top: 0.6rem;
-      border-top-left-radius: 0.6rem;
-      border-top-right-radius: 0.6rem;
-      overflow: hidden;
     }
 
     .table-container th {
@@ -137,42 +129,24 @@
     .table-container td {
       padding: 0.5rem 1rem;
       border-bottom: 1px solid #e2e8f0;
-      color: #080a33; /* CAMBIADO: ajustado al nuevo color */
+      color: #080a33;
     }
 
     .table-container tr:last-child td {
       border-bottom: none;
     }
 
-    .no-stock {
-      color: #dc2626;
-      font-weight: 600;
-      text-align: center;
-      padding: 1rem;
-    }
-    
-    .note {
-      font-size: 0.8rem;
-      color: #64748b; /* Este color es gris, lo dejamos para contraste */
-      padding: 0.5rem 1rem;
-      text-align: center;
-      font-style: italic;
-      border-top: 1px dashed #e2e8f0;
-      margin-top: 0.5rem;
-    }
-
-    /* Sección de compra con botones de WhatsApp */
     .buy-section {
       padding: 1rem;
       border-top: 2px dashed #e2e8f0;
-      background-color: #f1efee; /* CAMBIADO: #f1f5f9 por #f1efee */
+      background-color: #f1efee;
     }
 
     .buy-text {
       text-align: center;
       margin-bottom: 0.8rem;
       font-size: 0.85rem;
-      color: #080a33; /* CAMBIADO: #475569 por #080a33 */
+      color: #080a33;
       font-weight: 500;
     }
 
@@ -190,7 +164,7 @@
       gap: 0.5rem;
       padding: 0.6rem;
       background-color: #25D366;
-      color: #f1efee; /* CAMBIADO: white por #f1efee */
+      color: #f1efee;
       text-decoration: none;
       border-radius: 0.4rem;
       font-weight: 600;
@@ -205,56 +179,30 @@
       transform: translateY(-1px);
     }
 
-    .whatsapp-btn i {
-      font-size: 1.1rem;
-      color: #f1efee; /* Aseguramos que el ícono también sea #f1efee */
-    }
-
-    /* Iconos de FontAwesome también en #f1efee */
-    .fab.fa-whatsapp {
-      color: #f1efee;
+    .note {
+      font-size: 0.8rem;
+      color: #64748b;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      font-style: italic;
+      border-top: 1px dashed #e2e8f0;
+      margin-top: 0.5rem;
     }
 
     @media (max-width: 600px) {
-      .container {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1.5rem;
-        padding: 1rem;
-      }
-      .card {
-        width: 300px;
-      }
-      .card img {
-        width: 300px;
-        height: 130px;
-        object-fit: cover;
-      }
+      .container { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+      .card { width: 300px; }
+      .card img { height: 130px; object-fit: cover; }
     }
 
     @media (max-width: 400px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
-      .card {
-        width: 100%;
-        max-width: 300px;
-      }
-      .page-title {
-        font-size: 1.8rem;
-        margin: 2rem 0 1.5rem;
-      }
-      header {
-        padding: 0.8rem 1rem;
-      }
-      header img {
-        height: 35px;
-      }
+      .page-title { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/novaklar1.svg" alt="Novaklar Logo" />
+    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/cloud.svg" alt="Novaklar Logo" />
     <a href="https://novaklar.github.io/web/">Regresar</a>
   </header>
 
@@ -267,41 +215,11 @@
     let currentlyOpenCard = null;
 
     const imagenesConValores = [
-      { 
-        img: "https://raw.githubusercontent.com/novaklar/web/main/logos/ps1.png", 
-        name: "Photoshop",
-        valores: [7000, 12000, 5000],
-        headerBg: "#001e36",
-        titleColor: "#2faaff"
-      },
-      { 
-        img: "https://raw.githubusercontent.com/novaklar/web/main/logos/ai1.png", 
-        name: "Illustrator",
-        valores: [7000, 12000, 5000],
-        headerBg: "#330000",
-        titleColor: "#ff9a00"
-      },
-      { 
-        img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/logos/pr2.png", 
-        name: "Premiere Pro",
-        valores: [7000, 12000, 5000],
-        headerBg: "#00005b",
-        titleColor: "#9999ff"
-      },
-      { 
-        img: "https://raw.githubusercontent.com/novaklar/web/main/logos/ae1.png", 
-        name: "After Effects",
-        valores: [7000, 12000, 5000],
-        headerBg: "#00005b",
-        titleColor: "#9999ff"
-      },
-      { 
-        img: "https://raw.githubusercontent.com/novaklar/web/main/logos/an1.png", 
-        name: "Animate",
-        valores: [7000, 12000, 5000],
-        headerBg: "#00005b",
-        titleColor: "#9999ff"
-      }
+      { img: "https://raw.githubusercontent.com/novaklar/web/main/logos/ps1.png", name: "Photoshop", valores: [7000, 12000, 5000], headerBg: "#001e36", titleColor: "#2faaff" },
+      { img: "https://raw.githubusercontent.com/novaklar/web/main/logos/ai1.png", name: "Illustrator", valores: [7000, 12000, 5000], headerBg: "#330000", titleColor: "#ff9a00" },
+      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/logos/pr2.png", name: "Premiere Pro", valores: [7000, 12000, 5000], headerBg: "#00005b", titleColor: "#9999ff" },
+      { img: "https://raw.githubusercontent.com/novaklar/web/main/logos/ae1.png", name: "After Effects", valores: [7000, 12000, 5000], headerBg: "#00005b", titleColor: "#9999ff" },
+      { img: "https://raw.githubusercontent.com/novaklar/web/main/logos/an1.png", name: "Animate", valores: [7000, 12000, 5000], headerBg: "#00005b", titleColor: "#9999ff" }
     ];
 
     imagenesConValores.forEach(item => {
@@ -312,9 +230,7 @@
         <div class="table-container">
           <table>
             <thead>
-              <tr>
-                <th colspan="2" style="background: ${item.headerBg}; color: ${item.titleColor}">${item.name}</th>
-              </tr>
+              <tr><th colspan="2" style="background: ${item.headerBg}; color: ${item.titleColor}">${item.name}</th></tr>
             </thead>
             <tbody>
               <tr><td>Precio Afiliado</td><td>$${item.valores[0].toLocaleString('es-CO')}</td></tr>
@@ -325,51 +241,27 @@
           <div class="buy-section">
             <div class="buy-text">¡Adquiere Adobe ${item.name} ahora!</div>
             <div class="whatsapp-buttons">
-              <a href="https://wa.me/573018205460?text=Hola%20Alejandra,%20estoy%20interesado%20en%20Adobe%20${item.name}" 
-                 class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Alejandra
-              </a>
-              <a href="https://wa.me/573127741655?text=Hola%20Tatiana,%20estoy%20interesado%20en%20Adobe%20${item.name}" 
-                 class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Tatiana
-              </a>
-              <a href="https://wa.me/573027069241?text=Hola%20Danna,%20estoy%20interesado%20en%20Adobe%20${item.name}" 
-                 class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Danna
-              </a>
+              <a href="https://wa.me/573018205460?text=Hola%20Alejandra,%20estoy%20interesado%20en%20Adobe%20${item.name}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Alejandra</a>
+              <a href="https://wa.me/573127741655?text=Hola%20Tatiana,%20estoy%20interesado%20en%20Adobe%20${item.name}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Tatiana</a>
+              <a href="https://wa.me/573027069241?text=Hola%20Danna,%20estoy%20interesado%20en%20Adobe%20${item.name}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Danna</a>
             </div>
             <div class="note">Versión 2023. Se envía por correo electrónico junto con tutorial de descarga.</div>
           </div>
         </div>
       `;
 
-      card.innerHTML = `
-        <img src="${item.img}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/250x150/EFEFEF/666666?text=${item.name.replace(' ', '+')}'" />
-        ${tableContent}
-      `;
+      card.innerHTML = `<img src="${item.img}" alt="${item.name}" />${tableContent}`;
       
       const tableContainer = card.querySelector('.table-container');
-      
       card.addEventListener('click', (e) => {
-        // Si el clic fue en la imagen y la tabla ya está abierta, no hacer nada
-        if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') {
-          return;
-        }
-        
-        // Si hay otra tarjeta abierta, la cerramos
-        if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
-          currentlyOpenCard.style.display = 'none';
-        }
-        
-        // Alternar la visibilidad de la tabla actual
+        if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') return;
+        if (currentlyOpenCard && currentlyOpenCard !== tableContainer) currentlyOpenCard.style.display = 'none';
         tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
-        
-        // Actualizar la referencia a la tarjeta abierta actualmente
         currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
       });
-      
       container.appendChild(card);
     });
   </script>
 </body>
 </html>
+

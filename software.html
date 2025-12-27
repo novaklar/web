@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software | Novaklar</title>
+  
+  <style>
+    @font-face {
+      font-family: 'Poppins';
+      font-weight: 700;
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      font-weight: 400;
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1efee;
+      color: #080a33;
+    }
+
+    header {
+      background-color: #0d4c7f;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header img { height: 40px; }
+
+    header a {
+      text-decoration: none;
+      color: #f1efee;
+      font-weight: 400;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    header a:hover { background-color: rgba(241, 239, 238, 0.2); }
+
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #080a33;
+      text-align: center;
+      margin: 2.5rem 0 0.5rem; /* Ajustado: Menos espacio inferior */
+    }
+
+    .section-subtitle {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0d4c7f;
+      text-align: center;
+      margin: 1rem 0 1.5rem; /* Ajustado: Más cerca del título principal */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    /* Ajuste específico para el subtítulo de Adobe para que no esté tan lejos de CapCut */
+    #adobe-title {
+      margin-top: 1rem; 
+    }
+
+    .section-subtitle::before, .section-subtitle::after {
+      content: "";
+      height: 2px;
+      width: 50px;
+      background-color: #0d4c7f;
+      opacity: 0.3;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.8rem;
+      padding: 0 1.5rem 2rem; /* Reducido padding inferior */
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      width: 250px;
+      margin: 0 auto;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 0.6rem;
+      transition: transform 0.3s ease;
+      display: block;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+
+    .card:hover img { transform: scale(1.05); }
+
+    .table-container {
+      display: none;
+      margin-top: 0.8rem;
+      background-color: #f1efee;
+      border-radius: 0.6rem;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      border: 1px solid #e2e8f0;
+    }
+
+    .table-container table {
+      width: 100%;
+      color: #080a33;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .table-container th { padding: 0.5rem 1rem; text-align: center; }
+    .table-container td { padding: 0.5rem 1rem; border-bottom: 1px solid #e2e8f0; }
+
+    .buy-section { padding: 1rem; border-top: 2px dashed #e2e8f0; }
+    .buy-text { text-align: center; margin-bottom: 0.8rem; font-size: 0.85rem; font-weight: 500; }
+
+    .whatsapp-buttons { display: flex; flex-direction: column; gap: 0.5rem; }
+    .whatsapp-btn {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.6rem; background-color: #25D366; color: #f1efee;
+      text-decoration: none; border-radius: 0.4rem; font-weight: 600; font-size: 0.85rem;
+    }
+
+    .note { font-size: 0.75rem; color: #64748b; text-align: center; font-style: italic; margin-top: 0.5rem; }
+
+    @media (max-width: 600px) {
+      .card { width: 300px; }
+      .container { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  <header>
+    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/cloud.svg" alt="Novaklar Logo" />
+    <a href="https://novaklar.github.io/web/">Regresar</a>
+  </header>
+
+  <h1 class="page-title">Software</h1>
+
+  <div class="section-subtitle">Apps</div>
+  <div class="container" id="apps-container"></div>
+
+  <div class="section-subtitle" id="adobe-title">Adobe</div>
+  <div class="container" id="adobe-container"></div>
+
+  <script>
+    let currentlyOpenCard = null;
+
+    const appsData = [
+      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/gpt.png", valores: [16500, 20500, 4000], tipo: "simple", headerBg: "none", nombre: "Chat GPT" },
+      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/duo.png", valores: "Sin stock", tipo: "sin-stock", nombre: "Duolingo" },
+      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/canva.png", valores: { mensual: [10500, 12500, 2000], anual: [28500, 36500, 8000] }, tipo: "doble", headerBg: "linear-gradient(135deg, #03bfcd, #7a2ee7)", nombre: "Canva" },
+      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/capcut.png", valores: { mensual: [19500, 21500, 2000], trimestral: [55500, 60500, 5000] }, tipo: "doble", headerBg: "#000000", nombre: "CapCut" }
+    ];
+
+    const adobeData = [
+      { img: "https://raw.githubusercontent.com/novaklar/web/main/logos/ps1.png", name: "Photoshop", valores: [7000, 12000, 5000], headerBg: "#001e36", titleColor: "#2faaff" },
+      { img: "https://raw.githubusercontent.com/novaklar/web/main/logos/ai1.png", name: "Illustrator", valores: [7000, 12000, 5000], headerBg: "#330000", titleColor: "#ff9a00" },
+      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/logos/pr2.png", name: "Premiere Pro", valores: [7000, 12000, 5000], headerBg: "#00005b", titleColor: "#9999ff" },
+      { img: "https://raw.githubusercontent.com/novaklar/web/main/logos/ae1.png", name: "After Effects", valores: [7000, 12000, 5000], headerBg: "#00005b", titleColor: "#9999ff" },
+      { img: "https://raw.githubusercontent.com/novaklar/web/main/logos/an1.png", name: "Animate", valores: [7000, 12000, 5000], headerBg: "#00005b", titleColor: "#9999ff" }
+    ];
+
+    function createCard(item, isAdobe = false) {
+      const card = document.createElement('div');
+      card.className = 'card';
+      let tableContent = '';
+
+      if (!isAdobe) {
+        if (item.tipo === "sin-stock") {
+          tableContent = `<div class="table-container"><table><tbody><tr><td colspan="2" style="color:#dc2626; font-weight:600; text-align:center; padding:1rem;">${item.valores}</td></tr></tbody></table></div>`;
+        } else {
+          const isDoble = item.tipo === "doble";
+          const isSimpleSinHeader = item.tipo === "simple" && item.headerBg === "none";
+          const plansHtml = isDoble 
+            ? Object.entries(item.valores).map(([name, vals]) => `
+                <thead><tr><th colspan="2" style="background: ${item.headerBg}; color: #f1efee">Plan ${name.charAt(0).toUpperCase() + name.slice(1)}</th></tr></thead>
+                <tbody><tr><td>Precio Afiliado</td><td>$${vals[0].toLocaleString('es-CO')}</td></tr><tr><td>Precio Sugerido</td><td>$${vals[1].toLocaleString('es-CO')}</td></tr><tr><td>Ganancia</td><td>$${vals[2].toLocaleString('es-CO')}</td></tr></tbody>`).join('')
+            : `${isSimpleSinHeader ? '' : `<thead><tr><th colspan="2" style="background: ${item.headerBg}; color: #f1efee">${item.nombre}</th></tr></thead>`}
+               <tbody><tr><td>Precio Afiliado</td><td>$${item.valores[0].toLocaleString('es-CO')}</td></tr><tr><td>Precio Sugerido</td><td>$${item.valores[1].toLocaleString('es-CO')}</td></tr><tr><td>Ganancia</td><td>$${item.valores[2].toLocaleString('es-CO')}</td></tr></tbody>`;
+
+          tableContent = `<div class="table-container"><table>${plansHtml}</table><div class="buy-section"><div class="buy-text">¡Adquiere ${item.nombre} ahora!</div><div class="whatsapp-buttons">
+            <a href="https://wa.me/573018205460?text=Hola,%20busco%20${item.nombre}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Alejandra</a>
+            <a href="https://wa.me/573127741655?text=Hola,%20busco%20${item.nombre}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Tatiana</a>
+            <a href="https://wa.me/573027069241?text=Hola,%20busco%20${item.nombre}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Danna</a>
+          </div></div></div>`;
+        }
+      } else {
+        tableContent = `<div class="table-container"><table><thead><tr><th colspan="2" style="background: ${item.headerBg}; color: ${item.titleColor}">${item.name}</th></tr></thead>
+          <tbody><tr><td>Precio Afiliado</td><td>$${item.valores[0].toLocaleString('es-CO')}</td></tr><tr><td>Precio Sugerido</td><td>$${item.valores[1].toLocaleString('es-CO')}</td></tr><tr><td>Ganancia</td><td>$${item.valores[2].toLocaleString('es-CO')}</td></tr></tbody></table>
+          <div class="buy-section"><div class="buy-text">¡Adquiere Adobe ${item.name}!</div><div class="whatsapp-buttons">
+            <a href="https://wa.me/573018205460?text=Adobe%20${item.name}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Alejandra</a>
+            <a href="https://wa.me/573127741655?text=Adobe%20${item.name}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Tatiana</a>
+            <a href="https://wa.me/573027069241?text=Adobe%20${item.name}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Danna</a>
+          </div><div class="note">Versión 2023 + Tutorial de descarga.</div></div></div>`;
+      }
+
+      card.innerHTML = `<img src="${item.img}" alt="${isAdobe ? item.name : item.nombre}" />${tableContent}`;
+      const tableContainer = card.querySelector('.table-container');
+      
+      card.addEventListener('click', (e) => {
+        if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') return;
+        if (currentlyOpenCard && currentlyOpenCard !== tableContainer) currentlyOpenCard.style.display = 'none';
+        tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
+        currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
+      });
+      return card;
+    }
+
+    appsData.forEach(item => document.getElementById('apps-container').appendChild(createCard(item, false)));
+    adobeData.forEach(item => document.getElementById('adobe-container').appendChild(createCard(item, true)));
+  </script>
+</body>
+</html>
+

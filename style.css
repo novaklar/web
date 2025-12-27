@@ -79,11 +79,10 @@ body, p, li, a, span, div {
     font-family: 'Poppins-Regular', sans-serif;
 }
 
-/* CAMBIO: Título cambiado a #7fcfda */
 h1{
     margin:0;
     font-size: 96px;
-    color: #7fcfda; /* Cambiado de #f1efee a #7fcfda */
+    color: #7fcfda;
     letter-spacing: 2px;
     font-family: 'DESA', sans-serif;
     font-weight: normal;
@@ -120,10 +119,6 @@ h1{
     top: 15px;
     background: #080a33;
     box-shadow: 0 4px 10px rgba(8, 10, 51, 0.15);
-}
-
-.header .logo {
-    filter: invert(1);
 }
 
 .header .hamburger-menu span {
@@ -174,7 +169,6 @@ h1{
 .logo {
     height: 38px;
     width: auto;
-    filter: brightness(0) invert(1);
     transition: all 0.3s ease;
 }
 
@@ -327,10 +321,9 @@ h1{
     visibility: visible;
 }
 
-/* CAMBIO: Degradado reemplazado por color sólido #0d4c7f */
 .main-container {
     width: 100%;
-    background: #0d4c7f; /* Cambiado de linear-gradient(to bottom right, var(--primary-color) 0%, #0d4c7f 100%) */
+    background: #0d4c7f;
     padding: 155px 0 80px 0;
     display: flex;
     justify-content: center;
@@ -382,14 +375,13 @@ h1{
     width: 100%;
 }
 
-/* NUEVO CAMBIO: Botones con transparencia del 35% y texto #f1efee */
 .menu-button {
     width: 100%;
     padding: 22px 30px;
-    background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
+    background: rgba(241, 239, 238, 0.35);
     border: none;
     border-radius: 15px;
-    color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+    color: #f1efee;
     font-size: 20px;
     font-weight: 700;
     font-family: 'Poppins-Bold', sans-serif;
@@ -401,42 +393,38 @@ h1{
     box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
 }
 
-/* Hover effect reducido */
 .menu-button:hover {
     background: rgba(241, 239, 238, 0.45);
     transform: translateY(-2px);
 }
 
-/* Estado activo */
 .menu-button.active {
-    background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-    color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+    background: rgba(241, 239, 238, 0.35);
+    color: #f1efee;
     transform: none;
     box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     border-radius: 15px 15px 0 0;
 }
 
-/* El primer botón (Studio) también tiene transparencia del 35% y texto #f1efee */
 .button-wrapper:first-child .menu-button {
-    background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-    color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+    background: rgba(241, 239, 238, 0.35);
+    color: #f1efee;
 }
 
 .button-wrapper:first-child .menu-button.active {
-    background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-    color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+    background: rgba(241, 239, 238, 0.35);
+    color: #f1efee;
     border-radius: 15px;
 }
 
-/* NUEVO CAMBIO: Submenú con transparencia del 10% */
 .submenu-container {
     width: 100%;
     border-radius: 0 0 15px 15px;
-    background: rgba(241, 239, 238, 0.10); /* 10% de transparencia (NUEVO) */
+    background: rgba(8, 10, 51, 0.3);
     padding: 0 14px;
     transform-origin: top center;
     transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
-    color: #f1efee; /* Mantenido como #f1efee */
+    color: #f1efee;
     text-align: center;
     backdrop-filter: blur(10px);
     border: none;
@@ -461,11 +449,10 @@ h1{
     margin: 0;
 }
 
-/* Opciones del menú desplegable en color #f1efee (NO cambiar) */
 .submenu a {
     display: block;
     text-decoration: none;
-    color: #f1efee; /* Mantenido como #f1efee */
+    color: #f1efee;
     padding: 16px 12px;
     font-size: 20px;
     font-weight: 500;
@@ -476,7 +463,7 @@ h1{
 
 .submenu a:hover {
     background: rgba(241, 239, 238, 0.3);
-    color: #080a33; /* Color cambia al hacer hover */
+    color: #080a33;
 }
 
 .submenu a + a {
@@ -692,10 +679,9 @@ footer {
 }
 
 @media (max-width:1024px) {
-    /* CAMBIO: Título mantiene #7fcfda en tablet */
     h1 {
         font-size: 82px;
-        color: #7fcfda; /* Cambiado de #f1efee a #7fcfda */
+        color: #7fcfda;
     }
 
     .tagline {
@@ -716,10 +702,9 @@ footer {
         border: none;
     }
 
-    /* CAMBIO: Main-container mantiene #0d4c7f en tablet */
     .main-container {
         padding: 145px 0 60px 0;
-        background: #0d4c7f; /* Cambiado de linear-gradient(...) */
+        background: #0d4c7f;
     }
 
     .counter {
@@ -738,12 +723,11 @@ footer {
         gap: 16px;
     }
 
-    /* NUEVO CAMBIO: Botones mantienen transparencia del 35% y texto #f1efee en tablet */
     .menu-button {
         padding: 20px 25px;
         font-size: 18px;
-        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
     }
 
     .menu-button:hover {
@@ -752,28 +736,25 @@ footer {
     }
 
     .menu-button.active {
-        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Primer botón (Studio) también 35% transparencia y texto #f1efee */
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
         border-radius: 15px;
     }
 
-    /* NUEVO CAMBIO: Submenú mantiene 10% transparencia en tablet */
     .submenu-container {
-        background: rgba(241, 239, 238, 0.10); /* 10% de transparencia (NUEVO) */
-        color: #f1efee; /* Mantenido como #f1efee */
+        background: rgba(8, 10, 51, 0.3);
+        color: #f1efee;
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Opciones del menú desplegable en color #f1efee en tablet (NO cambiar) */
     .submenu a {
-        color: #f1efee; /* Mantenido como #f1efee */
+        color: #f1efee;
     }
 
     .submenu a:hover {
@@ -783,10 +764,9 @@ footer {
 }
 
 @media (max-width:768px) {
-    /* CAMBIO: Título mantiene #7fcfda en móvil */
     h1 {
         font-size: 68px;
-        color: #7fcfda; /* Cambiado de #f1efee a #7fcfda */
+        color: #7fcfda;
     }
 
     .tagline {
@@ -803,12 +783,11 @@ footer {
         gap: 16px;
     }
 
-    /* NUEVO CAMBIO: Botones mantienen transparencia del 35% y texto #f1efee en móvil */
     .menu-button {
         padding: 18px 20px;
         font-size: 18px;
-        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
     }
 
     .menu-button:hover {
@@ -817,15 +796,14 @@ footer {
     }
 
     .menu-button.active {
-        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Primer botón (Studio) también 35% transparencia y texto #f1efee */
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
         border-radius: 15px;
     }
 
@@ -855,10 +833,9 @@ footer {
         display: none;
     }
 
-    /* CAMBIO: Main-container mantiene #0d4c7f en móvil */
     .main-container {
         padding: 135px 0 50px 0;
-        background: #0d4c7f; /* Cambiado de linear-gradient(...) */
+        background: #0d4c7f;
     }
 
     .counters {
@@ -907,18 +884,16 @@ footer {
         right: 15px;
     }
 
-    /* NUEVO CAMBIO: Submenú mantiene 10% transparencia en móvil */
     .submenu-container {
-        background: rgba(241, 239, 238, 0.10); /* 10% de transparencia (NUEVO) */
-        color: #f1efee; /* Mantenido como #f1efee */
+        background: rgba(8, 10, 51, 0.3);
+        color: #f1efee;
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Opciones del menú desplegable en color #f1efee en móvil (NO cambiar) */
     .submenu a{
         font-size:18px;
         padding:14px 8px;
-        color: #f1efee; /* Mantenido como #f1efee */
+        color: #f1efee;
     }
 
     .submenu a:hover {
@@ -928,10 +903,9 @@ footer {
 }
 
 @media (max-width:520px){
-    /* CAMBIO: Título mantiene #7fcfda en móvil pequeño */
     h1{
         font-size: 52px;
-        color: #7fcfda; /* Cambiado de #f1efee a #7fcfda */
+        color: #7fcfda;
     }
 
     .tagline {
@@ -948,12 +922,11 @@ footer {
         gap: 16px;
     }
 
-    /* NUEVO CAMBIO: Botones mantienen transparencia del 35% y texto #f1efee en móvil pequeño */
     .menu-button {
         padding: 16px 18px;
         font-size: 16px;
-        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
     }
 
     .menu-button:hover {
@@ -962,15 +935,14 @@ footer {
     }
 
     .menu-button.active {
-        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Primer botón (Studio) también 35% transparencia y texto #f1efee */
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
         border-radius: 15px;
     }
 
@@ -996,10 +968,9 @@ footer {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* CAMBIO: Main-container mantiene #0d4c7f en móvil pequeño */
     .main-container {
         padding: 125px 0 40px 0;
-        background: #0d4c7f; /* Cambiado de linear-gradient(...) */
+        background: #0d4c7f;
     }
 
     .counters {
@@ -1044,18 +1015,16 @@ footer {
         right: 10px;
     }
 
-    /* NUEVO CAMBIO: Submenú mantiene 10% transparencia en móvil pequeño */
     .submenu-container {
-        background: rgba(241, 239, 238, 0.10); /* 10% de transparencia (NUEVO) */
-        color: #f1efee; /* Mantenido como #f1efee */
+        background: rgba(8, 10, 51, 0.3);
+        color: #f1efee;
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Opciones del menú desplegable en color #f1efee en móvil pequeño (NO cambiar) */
     .submenu a{
         font-size:16px;
         padding:12px 6px;
-        color: #f1efee; /* Mantenido como #f1efee */
+        color: #f1efee;
     }
 
     .submenu a:hover {
@@ -1065,10 +1034,9 @@ footer {
 }
 
 @media (max-width:380px){
-    /* CAMBIO: Título mantiene #7fcfda en móvil muy pequeño */
     h1{
         font-size: 44px;
-        color: #7fcfda; /* Cambiado de #f1efee a #7fcfda */
+        color: #7fcfda;
     }
 
     .tagline {
@@ -1081,12 +1049,11 @@ footer {
         gap: 16px;
     }
 
-    /* NUEVO CAMBIO: Botones mantienen transparencia del 35% y texto #f1efee en móvil muy pequeño */
     .menu-button {
         padding: 14px 16px;
         font-size: 15px;
-        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
     }
 
     .menu-button:hover {
@@ -1095,15 +1062,14 @@ footer {
     }
 
     .menu-button.active {
-        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Primer botón (Studio) también 35% transparencia y texto #f1efee */
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(241, 239, 238, 0.35); /* 35% de transparencia (NUEVO) */
-        color: #f1efee; /* CAMBIADO: De #080a33 a #f1efee (NUEVO) */
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
         border-radius: 15px;
     }
 
@@ -1121,16 +1087,14 @@ footer {
         height: 30px;
     }
 
-    /* NUEVO CAMBIO: Submenú mantiene 10% transparencia en móvil muy pequeño */
     .submenu-container {
-        background: rgba(241, 239, 238, 0.10); /* 10% de transparencia (NUEVO) */
-        color: #f1efee; /* Mantenido como #f1efee */
+        background: rgba(8, 10, 51, 0.3);
+        color: #f1efee;
         box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
     }
 
-    /* Opciones del menú desplegable en color #f1efee en móvil muy pequeño (NO cambiar) */
     .submenu a {
-        color: #f1efee; /* Mantenido como #f1efee */
+        color: #f1efee;
     }
 
     .submenu a:hover {

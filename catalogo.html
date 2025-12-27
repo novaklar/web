@@ -5,11 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catálogo | Novaklar</title>
   <style>
-    /*
-     * ###############################
-     * # DEFINICIÓN DE FUENTES POPPINS
-     * ###############################
-     */
     @font-face {
       font-family: 'Poppins Regular';
       src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
@@ -24,38 +19,29 @@
       font-style: normal;
     }
 
-    /*
-     * ###############################
-     * # ESTILOS ACTUALIZADOS
-     * ###############################
-     */
-
     body {
       margin: 0;
-      /* Aplicar Poppins Regular a todo el cuerpo */
       font-family: 'Poppins Regular', sans-serif;
-      background-color: white;
-      color: #333;
+      background-color: #f1efee;
+      color: #080a33;
     }
 
     header {
-      /* REEMPLAZADO #00617a por #001499 */
-      background-color: #001499;
+      background-color: #0d4c7f;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(8,10,51,0.1);
     }
 
     header img {
       height: 40px;
-      filter: brightness(0) invert(1);
     }
 
     header a {
       text-decoration: none;
-      color: white;
+      color: #f1efee;
       font-weight: 600;
       font-size: 1rem;
       padding: 0.5rem 1rem;
@@ -64,16 +50,14 @@
     }
 
     header a:hover {
-      background-color: rgba(255,255,255,0.2);
+      background-color: rgba(241,239,238,0.2);
     }
 
     .page-title {
-      /* Aplicar Poppins Bold */
       font-family: 'Poppins Bold', sans-serif;
       font-size: 2.2rem;
       font-weight: 700;
-      /* REEMPLAZADO #00617a por #001499 */
-      color: #001499;
+      color: #0d4c7f;
       text-align: center;
       margin: 3rem 0 1.5rem;
       padding: 0 1rem;
@@ -104,10 +88,8 @@
       display: block;
       margin: 0 auto;
       padding: 0.8rem 1.5rem;
-      /* REEMPLAZADO #57d9b6 por #4270ff */
-      background-color: #4270ff;
-      /* REEMPLAZADO #00617a por #001499 */
-      color: #001499; 
+      background-color: #7fcfda;
+      color: #0d4c7f;
       border: none;
       border-radius: 4px;
       font-size: 1rem;
@@ -117,8 +99,7 @@
     }
 
     .copy-button:hover {
-      /* Color más oscuro para el hover (Ajustado para el nuevo azul secundario) */
-      background-color: #2e59e5;
+      background-color: #6ab9c4;
     }
 
     .copy-button:active {
@@ -127,8 +108,7 @@
 
     .success-message {
       text-align: center;
-      /* REEMPLAZADO #00617a por #001499 */
-      color: #001499;
+      color: #0d4c7f;
       font-weight: 600;
       margin-top: 1rem;
       display: none;
@@ -136,7 +116,6 @@
 
     .error-message {
       text-align: center;
-      /* Color de error estándar */
       color: #dc2626;
       font-weight: 600;
       margin-top: 1rem;
@@ -144,11 +123,9 @@
     }
 
     .features-title {
-      /* Aplicar Poppins Bold */
       font-family: 'Poppins Bold', sans-serif;
       font-size: 1.8rem;
-      /* REEMPLAZADO #00617a por #001499 */
-      color: #001499;
+      color: #0d4c7f;
       margin: 3rem 0 1rem;
       text-align: center;
     }
@@ -164,8 +141,7 @@
     }
 
     .feature-section h3 {
-      /* REEMPLAZADO #00617a por #001499 */
-      color: #001499;
+      color: #0d4c7f;
       margin-bottom: 0.5rem;
     }
 
@@ -197,7 +173,7 @@
 </head>
 <body>
   <header>
-    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/novaklar1.svg" alt="Novaklar Logo" />
+    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/cloud.svg" alt="Novaklar Logo" />
     <a href="https://novaklar.github.io/web/">Regresar</a>
   </header>
 
@@ -247,29 +223,21 @@
 
     copyButton.addEventListener('click', async () => {
       try {
-        // Método moderno usando Clipboard API
         await navigator.clipboard.writeText(linkToCopy);
-        
-        // Mostrar mensaje de éxito
         successMessage.style.display = 'block';
         errorMessage.style.display = 'none';
-        
-        // Ocultar mensaje después de 3 segundos
         setTimeout(() => {
           successMessage.style.display = 'none';
         }, 3000);
       } catch (err) {
-        // Fallback para navegadores más antiguos
         try {
           const textarea = document.createElement('textarea');
           textarea.value = linkToCopy;
-          textarea.style.position = 'fixed';  // Evitar desplazamiento
+          textarea.style.position = 'fixed';
           document.body.appendChild(textarea);
           textarea.select();
-          
           const successful = document.execCommand('copy');
           document.body.removeChild(textarea);
-          
           if(successful) {
             successMessage.style.display = 'block';
             errorMessage.style.display = 'none';
@@ -280,7 +248,6 @@
             throw new Error('Falló el método alternativo');
           }
         } catch (err) {
-          // Mostrar mensaje de error con el enlace visible
           errorMessage.style.display = 'block';
           successMessage.style.display = 'none';
           linkText.textContent = linkToCopy;

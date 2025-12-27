@@ -1,27 +1,22 @@
-// ===== BOTONES FUNCTIONALITY =====
 const buttons = document.querySelectorAll('.menu-button');
 const mainContainer = document.querySelector('.main-container');
 
-// Elementos del menú hamburguesa
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const drawerMenu = document.querySelector('.drawer-menu');
 const overlay = document.querySelector('.overlay');
 const closeBtn = document.getElementById('closeBtn');
 const header = document.querySelector('.header');
 
-// Menús actualizados (eliminado "App" del menú elementos)
 const menus = {
     studio: [
         { text: 'NK studio', url: 'https://www.novaklar.com', target: '_blank' }
     ],
     catalogos: [
-        { text: 'Apps', url: 'apps.html', target: '_self' },
-        { text: 'Adobe', url: 'adobe.html', target: '_self' },
         { text: 'Gaming', url: 'gaming.html', target: '_self' },
+        { text: 'Software', url: 'software.html', target: '_self' },
         { text: 'Streaming', url: 'streaming.html', target: '_self' }
     ],
     elementos: [
-        // Botón "App" eliminado de aquí
         { text: 'Ranking', url: 'ranking.html', target: '_self' },
         { text: 'Catalogo', url: 'catalogo.html', target: '_self' },
         { text: 'Publicidad', url: 'https://photos.app.goo.gl/5dSreR3BwDKUeaTHA', target: '_blank' }
@@ -30,15 +25,12 @@ const menus = {
 
 let activeButton = null;
 
-// ===== FUNCIONES DE LOS BOTONES =====
 function updateActiveButton(button) {
     if (!button) return;
 
     const menuType = button.getAttribute('data-menu');
     
-    // CASO ESPECIAL: Si es el botón Studio, redirigir directamente
     if (menuType === 'studio') {
-        // Redirigir a la URL del primer elemento del menú studio
         const studioUrl = menus.studio[0].url;
         const studioTarget = menus.studio[0].target;
         
@@ -47,27 +39,22 @@ function updateActiveButton(button) {
         } else {
             window.location.href = studioUrl;
         }
-        return; // Salir temprano, no procesar como submenú
+        return;
     }
 
     const isSameButton = button === activeButton;
 
-    // Cerrar todos los submenús primero
     closeAllSubmenus();
 
-    // Si es el mismo botón, solo cerrar
     if (isSameButton) {
         activeButton = null;
         return;
     }
 
-    // Remover clase active de todos los botones
     buttons.forEach(btn => {
         btn.classList.remove('active');
     });
 
-    // Agregar clase active al botón clickeado
-    // Esto activará el CSS que cambia la opacidad a 100%
     button.classList.add('active');
 
     const key = button.getAttribute('data-menu');
@@ -85,7 +72,6 @@ function renderSubmenu(key, submenu) {
         return;
     }
 
-    // Si la lista ya existe, la vaciamos
     if (submenu.querySelector('.submenu')) {
         submenu.querySelector('.submenu').innerHTML = '';
     } else {
@@ -115,11 +101,9 @@ function closeAllSubmenus() {
 
     buttons.forEach(btn => {
         btn.classList.remove('active');
-        // Esto restaurará automáticamente la opacidad al 50% por CSS
     });
 }
 
-// ===== MENÚ HAMBURGUESA =====
 function toggleMenu() {
     hamburgerMenu.classList.toggle('active');
     drawerMenu.classList.toggle('active');
@@ -134,23 +118,15 @@ function closeMenu() {
     document.body.style.overflow = '';
 }
 
-// ===== HEADER SCROLL (FUNCIÓN ACTUALIZADA) =====
 function handleHeaderScroll() {
-    // Referencia al contenedor principal (sección azul)
     const mainContainer = document.querySelector('.main-container');
 
     if (!mainContainer) {
-        // Si no existe la sección azul, el header siempre debe estar 'scrolled'
         header.classList.add('scrolled');
         return;
     }
 
-    // Cálculo del punto de cambio: Dónde termina la sección azul.
-    // Esto es la distancia desde el top del documento hasta el final del mainContainer.
     const puntoDeCambio = mainContainer.offsetTop + mainContainer.offsetHeight;
-
-    // Usamos window.scrollY para ver la posición de desplazamiento actual.
-    // Margen de activación (para que el cambio ocurra 50px antes de que la sección azul desaparezca)
     const margenDeActivacion = 50;
 
     if (window.scrollY > puntoDeCambio - margenDeActivacion) {
@@ -160,7 +136,6 @@ function handleHeaderScroll() {
     }
 }
 
-// ===== CONTADORES =====
 const counters = document.querySelectorAll('.counter');
 const counterSection = document.querySelector('.counters');
 
@@ -180,7 +155,6 @@ function animateCounter(counter) {
         if (progress < 1) {
             requestAnimationFrame(updateCounter);
         } else {
-            // Formateo final para valores especiales
             if (target === 5000) {
                 counter.innerText = '+' + target;
             } else if (target === 95) {
@@ -194,7 +168,6 @@ function animateCounter(counter) {
     requestAnimationFrame(updateCounter);
 }
 
-// Observador de intersección para activar contadores
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -207,9 +180,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.5 });
 
-// ===== INICIALIZACIÓN =====
 function init(){
-    // Event listeners para los botones
     buttons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -217,7 +188,6 @@ function init(){
         });
     });
 
-    // Función de cierre al hacer clic fuera
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.buttons-section')) {
             closeAllSubmenus();
@@ -225,27 +195,20 @@ function init(){
         }
     });
 
-    // Event listeners para el menú hamburguesa
     hamburgerMenu.addEventListener('click', toggleMenu);
     closeBtn.addEventListener('click', closeMenu);
     overlay.addEventListener('click', closeMenu);
 
-    // Cerrar menú al hacer clic en un enlace
     document.querySelectorAll('.drawer-menu a').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
 
-    // Event listener para el scroll del header
     window.addEventListener('scroll', handleHeaderScroll);
-
-    // Ejecutar la función una vez al cargar la página (para recargas o si la página ya está en scroll)
     handleHeaderScroll();
 
-    // Counter observer
     if (counterSection) {
         observer.observe(counterSection);
     }
 }
 
-// Initialize everything
 init();

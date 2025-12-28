@@ -1,173 +1,1159 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novaklar</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comme:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Favicon actualizado -->
-    <link rel="icon" href="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/cloud.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <!-- Floating Header con Glassmorfismo Mejorado -->
-    <header class="header">
-        <div class="header-content">
-            <!-- Logo actualizado -->
-            <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/cloud.svg" alt="Novaklar" class="logo">
-            
-            <!-- Menú para pantallas grandes -->
-            <nav class="nav-links">
-                <a href="https://www.tiktok.com/@novaklar?_r=1&_t=ZS-919oaIUdgCQ" target="_blank">TikTok</a>
-                <a href="https://youtube.com/@novaklar?si=rvWZdTtdbzl_iHqY" target="_blank">YouTube</a>
-                <a href="https://www.instagram.com/novaklarr?igsh=b2hvaWxsbjRiMGs2" target="_blank">Instagram</a>
-                <a href="https://whatsapp.com/channel/0029VaMxlM0EVccFMEFw9u04" target="_blank">WhatsApp</a>
-            </nav>
-            
-            <!-- Menú hamburguesa para móviles -->
-            <div class="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </header>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- Drawer Menu para móviles -->
-<div class="drawer-menu">
-    <div class="close-btn" id="closeBtn">×</div>
-    <div class="menu-items">
-        <a href="https://www.tiktok.com/@novaklar?_r=1&_t=ZS-919oaIUdgCQ" target="_blank" class="menu-item">
-            <span>TikTok</span>
-        </a>
-        <a href="https://youtube.com/@novaklar?si=rvWZdTtdbzl_iHqY" target="_blank" class="menu-item">
-            <span>YouTube</span>
-        </a>
-        <a href="https://www.instagram.com/novaklarr?igsh=b2hvaWxsbjRiMGs2" target="_blank" class="menu-item">
-            <span>Instagram</span>
-        </a>
-        <a href="https://whatsapp.com/channel/0029VaMxlM0EVccFMEFw9u04" target="_blank" class="menu-item">
-            <span>WhatsApp</span>
-        </a>
-    </div>
-</div>
-    
-    <!-- Overlay para cerrar el menú -->
-    <div class="overlay"></div>
+@font-face {
+    font-family: 'Novaklar';
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/novaklar.ttf') format('truetype');
+    font-display: swap;
+}
 
-    <div class="main-container" id="mainContainer">
-        <div class="page">
-            <div class="title-section">
-                <h1>novaklar</h1>
-                <p class="tagline">Innovación a tu alcance</p>
-            </div>
+@font-face {
+    font-family: 'Comme';
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/comme.ttf') format('truetype');
+    font-display: swap;
+}
 
-            <div class="buttons-section">
-                <div class="buttons-container">
-                    <div class="button-wrapper">
-                        <button class="menu-button" data-menu="studio" id="studioButton">Studio</button>
-                    </div>
-                    <div class="button-wrapper">
-                        <button class="menu-button" data-menu="catalogos">Catalogos</button>
-                        <div class="submenu-container" data-menu="catalogos"></div>
-                    </div>
-                    <div class="button-wrapper">
-                        <button class="menu-button" data-menu="elementos">Elementos</button>
-                        <div class="submenu-container" data-menu="elementos"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+@font-face {
+    font-family: 'DESA';
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/DESA.ttf') format('truetype');
+}
 
-    <!-- Secciones adicionales -->
-    <section class="counters">
-        <div class="counter-container">
-            <div class="counter" data-target="95">0</div>
-            <p>% Clientes satisfechos</p>
-        </div>
-        <div class="counter-container">
-            <div class="counter" data-target="330">0</div>
-            <p>Afiliados activos</p>
-        </div>
-        <div class="counter-container">
-            <div class="counter" data-target="5000">0</div>
-            <p>Ventas realizadas</p>
-        </div>
-    </section>
-    
-    <div class="contact-button-container">
-        <a href="CR.html" class="contact-button">Contactar asesoras</a>
-    </div>
+@font-face {
+    font-family: 'Poppins-Italic';
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Italic.ttf') format('truetype');
+    font-style: italic;
+}
 
-    <section class="about-novaklar">
-        <h2>Acerca de novaklar</h2>
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
+    font-display: swap;
+}
 
-        <div class="about-section">
-            <h3>¿Quiénes somos?</h3>
-            <p>Novaklar es una empresa digital fundada el 20 de agosto de 2023 con la misión de ofrecer soluciones accesibles, innovadoras y rentables en el mundo digital. Nació como un proyecto estudiantil con visión empresarial, y hoy cuenta con más de 160 colaboradores y un modelo de crecimiento colaborativo único.</p>
-        </div>
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf') format('truetype');
+    font-display: swap;
+}
 
-        <div class="about-section">
-            <h3>¿Qué ofrecemos?</h3>
-            <p>Brindamos acceso a productos digitales como plataformas de streaming, recargas de juegos, suscripciones premium (ChatGPT Pro, Canva Pro, CapCut Pro), servicios de seguidores y cursos especializados. Todo desde un sistema de afiliación práctico y sin inversión inicial.</p>
-        </div>
+:root{
+    --bg: #ffffff;
+    --muted-white: rgba(255,255,255,0.25);
+    --muted-white-2: rgba(255,255,255,0.18);
+    --accent: #2f4df0;
+    --menu-bg: rgba(255, 255, 255, 0.15);
+    --primary-color: #7fcfda;
+    --hero-bg: #3ca597;
+}
 
-        <div class="about-section">
-            <h3>Nuestra visión</h3>
-            <p>Queremos ser una empresa líder en la distribución de servicios digitales en Latinoamérica, democratizando el acceso a herramientas tecnológicas mientras generamos oportunidades de ingresos para todos.</p>
-        </div>
+html, body {
+    width: 100%;
+    background-color: #f1efee;
+    color: #080a33;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height:100vh;
+    font-family: 'Poppins-Regular', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: #f1efee;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    padding:0;
+    margin:0;
+}
 
-        <div class="about-section">
-            <h3>Modelo de negocio</h3>
-            <p>Nos basamos en tres roles fundamentales:</p>
-            <ul>
-                <li><strong>Revendedores:</strong> Venden sin necesidad de inversión previa.</li>
-                <li><strong>Promotores:</strong> Recomiendan y ganan por comisión tras cada venta.</li>
-                <li><strong>Reclutadores:</strong> Expanden el equipo y reciben comisiones por nuevos afiliados.</li>
-            </ul>
-            <p>Creemos en la innovación, la flexibilidad y el trabajo en red como motor de crecimiento real.</p>
-        </div>
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins-Bold', sans-serif;
+}
 
-        <div class="about-section terms">
-            <h3>Términos y condiciones generales</h3>
-            <ol>
-                <li><strong>Uso de los servicios:</strong> Novaklar actúa como intermediario entre el usuario y los proveedores de servicios digitales. Al utilizar nuestra plataforma, el usuario acepta los términos aquí descritos.</li>
-                <li><strong>Responsabilidad del usuario:</strong> Cada usuario es responsable de utilizar de forma ética y legal los productos adquiridos. Cualquier intento de fraude o maluso implicará la suspensión inmediata del acceso.</li>
-                <li><strong>Pagos y reembolsos:</strong> Los pagos deben ser realizados a través de los canales oficiales. Una vez entregado un producto digital correctamente, no se realizan reembolsos, excepto en casos de errores comprobables.</li>
-                <li><strong>Protección de datos:</strong> Novaklar se compromete a proteger la privacidad de sus usuarios y no compartir datos personales con terceros sin consentimiento.</li>
-                <li><strong>Cambios en los términos:</strong> Nos reservamos el derecho de modificar estos términos en cualquier momento. Se recomienda revisar esta sección periódicamente.</li>
-            </ol>
-        </div>
-    </section>
+.about-novaklar h2,
+.about-section h3,
+.terms h3 {
+    font-family: 'Poppins-Bold', sans-serif !important;
+}
 
-    <footer>
-        <p>&copy; 2023 novaklar. Todos los derechos reservados.</p>
-    </footer>
+body, p, li, a, span, div {
+    font-family: 'Poppins-Regular', sans-serif;
+}
 
-    <a href="CR.html" target="_blank" class="whatsapp-button" aria-label="Chat WhatsApp">
-        <div class="whatsapp-icon-container">
-            <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/extra/whatsapp.svg" alt="WhatsApp">
-        </div>
-    </a>
+h1{
+    margin:0;
+    font-size: 96px;
+    color: #7fcfda;
+    letter-spacing: 2px;
+    font-family: 'DESA', sans-serif;
+    font-weight: normal;
+    text-transform: lowercase;
+    line-height: 1;
+}
 
-    <script>
-        // Código JavaScript para manejar el botón Studio directo
-        document.addEventListener('DOMContentLoaded', function() {
-            const studioButton = document.getElementById('studioButton');
-            
-            // Agregar acción directa al botón Studio - VINCULADO EXCLUSIVAMENTE A NOVAKLAR.COM
-            studioButton.addEventListener('click', function() {
-                window.location.href = 'https://novaklar.com';
-            });
-            
-            // El resto de tu código JavaScript existente...
-        });
-    </script>
-    
-    <script src="script.js"></script>
-</body>
-</html>
+.tagline {
+    margin:0;
+    color: #f1efee;
+    font-style: italic;
+    font-family: 'Poppins-Italic', sans-serif;
+    font-size: 22px;
+    text-align: center;
+}
+
+.header {
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: #080a33;
+    padding: 14px 25px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: none;
+}
+
+.header.scrolled {
+    top: 15px;
+    background: #080a33;
+    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.15);
+}
+
+.header .hamburger-menu span {
+    background-color: #ffffff;
+}
+
+.hamburger-menu.active span:nth-child(1),
+.hamburger-menu.active span:nth-child(3) {
+    background-color: #ffffff;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'Poppins-Regular', sans-serif;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 38px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 2px;
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+    background-color: #ffffff;
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+    background-color: #ffffff;
+}
+
+.drawer-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -2px 0 10px rgba(8, 10, 51, 0.1);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.drawer-menu.active {
+    transform: translateX(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #080a33;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    font-family: 'Poppins-Regular', sans-serif;
+    z-index: 1002;
+}
+
+.close-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+}
+
+.menu-items a.menu-item {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-radius: 0;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+    text-decoration: none;
+    color: #080a33;
+    font-family: 'Poppins-Regular', sans-serif;
+    text-align: left;
+    min-height: auto;
+    transform: none;
+    background: transparent;
+    filter: none;
+}
+
+.menu-items a.menu-item:hover {
+    background-color: transparent;
+    color: #7fcfda;
+    transform: none;
+}
+
+.menu-items a.menu-item i {
+    font-size: 18px;
+    margin-right: 10px;
+    width: auto;
+    text-align: left;
+    color: #080a33;
+}
+
+.menu-items a.menu-item:hover i {
+    color: #7fcfda;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(8, 10, 51, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.main-container {
+    width: 100%;
+    background: #0d4c7f;
+    padding: 155px 0 80px 0;
+    display: flex;
+    justify-content: center;
+    min-height: auto;
+    margin-top: 0;
+    position: relative;
+    transition: padding-bottom 0.4s ease;
+}
+
+.page {
+    width:100%;
+    max-width:none;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 60px;
+    padding: 0;
+    margin-top: 0;
+}
+
+.title-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.buttons-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 360px;
+    align-items: center;
+    position: relative;
+    transition: width 0.3s ease;
+}
+
+.button-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.menu-button {
+    width: 100%;
+    padding: 22px 30px;
+    background: rgba(241, 239, 238, 0.35);
+    border: none;
+    border-radius: 15px;
+    color: #f1efee;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Poppins-Bold', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    position: relative;
+    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+}
+
+.menu-button:hover {
+    background: rgba(241, 239, 238, 0.45);
+    transform: translateY(-2px);
+}
+
+.menu-button.active {
+    background: rgba(241, 239, 238, 0.35);
+    color: #f1efee;
+    transform: none;
+    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    border-radius: 15px 15px 0 0;
+}
+
+.button-wrapper:first-child .menu-button {
+    background: rgba(241, 239, 238, 0.35);
+    color: #f1efee;
+}
+
+.button-wrapper:first-child .menu-button.active {
+    background: rgba(241, 239, 238, 0.35);
+    color: #f1efee;
+    border-radius: 15px;
+}
+
+.submenu-container {
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+    background: rgba(8, 10, 51, 0.3);
+    padding: 0 14px;
+    transform-origin: top center;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
+    color: #f1efee;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: none;
+    margin-top: -2px;
+    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: scaleY(1);
+    z-index: 5;
+}
+
+.submenu-container.active {
+    max-height: 500px;
+    opacity: 1;
+    padding: 18px 14px;
+}
+
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.submenu a {
+    display: block;
+    text-decoration: none;
+    color: #f1efee;
+    padding: 16px 12px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease;
+    font-family: 'Poppins-Regular', sans-serif;
+}
+
+.submenu a:hover {
+    background: rgba(241, 239, 238, 0.3);
+    color: #080a33;
+}
+
+.submenu a + a {
+    border-top: none;
+}
+
+.contact-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.contact-button {
+    background-color: #0d4c7f;
+    color: white;
+    font-family: 'Poppins-Bold', sans-serif;
+    width: 280px;
+    line-height: normal;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    padding: 20px 16px;
+    font-weight: bold;
+}
+
+.contact-button:hover {
+    background-color: #0a3d66;
+}
+
+.counters {
+    background-color: rgba(127, 207, 218, 0.1);
+    padding: 40px 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.counter-container {
+    text-align: center;
+    margin: 0.5rem 2rem;
+    min-width: 150px;
+    flex: 1;
+}
+
+.counter {
+    color: #080a33;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins-Bold', sans-serif;
+}
+
+.counters p {
+    font-size: 1.2rem;
+    color: #080a33;
+    font-weight: 500;
+    font-family: 'Poppins-Regular', sans-serif;
+}
+
+.about-novaklar {
+    padding: 2.5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.about-novaklar h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #080a33;
+    position: relative;
+    font-family: 'Poppins-Bold', sans-serif !important;
+}
+
+.about-novaklar h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: #7fcfda;
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.about-section {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(8, 10, 51, 0.08);
+    transition: transform 0.3s ease;
+    border-left: 5px solid #7fcfda;
+}
+
+.about-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(8, 10, 51, 0.12);
+}
+
+.about-section h3 {
+    color: #080a33;
+    margin-bottom: 1.2rem;
+    font-size: 1.6rem;
+    font-family: 'Poppins-Bold', sans-serif !important;
+}
+
+.about-section p {
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    font-family: 'Poppins-Regular', sans-serif;
+    color: #080a33;
+}
+
+.about-section ul, .about-section ol {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-section li {
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    font-family: 'Poppins-Regular', sans-serif;
+    color: #080a33;
+}
+
+.terms {
+    background-color: #f8faff;
+    border-left: 5px solid #0d4c7f;
+    border-top: 1px solid #e1e8ff;
+}
+
+.terms ol {
+    list-style-type: decimal;
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.terms ol li {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    padding-left: 0.5rem;
+    font-family: 'Poppins-Regular', sans-serif;
+    color: #080a33;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #0d4c7f;
+    color: white;
+    margin-top: 4rem;
+    width: 100%;
+    font-family: 'Poppins-Regular', sans-serif;
+}
+
+/* WhatsApp Button Styles */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
+    width: 60px;
+    height: 60px;
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+    padding: 0;
+    box-shadow: none !important;
+}
+
+.whatsapp-button:hover {
+    background-color: transparent;
+    transform: scale(1.1);
+}
+
+.whatsapp-button:active,
+.whatsapp-button:focus {
+    background-color: transparent;
+    outline: none;
+    box-shadow: none !important;
+}
+
+/* Contenedor cuadrado con bordes redondeados y color de fondo */
+.whatsapp-icon-container {
+    width: 100%;
+    height: 100%;
+    background-color: #04d749;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    transition: all 0.3s ease;
+    box-shadow: none !important;
+}
+
+.whatsapp-button:hover .whatsapp-icon-container {
+    background-color: #04c043;
+    box-shadow: none !important;
+}
+
+.whatsapp-icon-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+    filter: brightness(0) invert(1); /* Esto convierte el logo a blanco */
+}
+
+.whatsapp-button:hover .whatsapp-icon-container img {
+    filter: brightness(0) invert(1); /* Mantiene el logo blanco en hover */
+}
+
+@media (max-width:1024px) {
+    h1 {
+        font-size: 82px;
+        color: #7fcfda;
+    }
+
+    .tagline {
+        font-size: 20px;
+        color: #f1efee;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .header {
+        width: calc(100% - 30px);
+        padding: 12px 20px;
+        top: 15px;
+        background: #080a33;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.15);
+        border: none;
+    }
+
+    .main-container {
+        padding: 145px 0 60px 0;
+        background: #0d4c7f;
+    }
+
+    .counter {
+        color: #080a33;
+        font-size: 2.5rem;
+        font-family: 'Poppins-Bold', sans-serif;
+    }
+
+    .counters p {
+        color: #080a33;
+        font-size: 1.1rem;
+    }
+
+    .buttons-container {
+        width: 320px;
+        gap: 16px;
+    }
+
+    .menu-button {
+        padding: 20px 25px;
+        font-size: 18px;
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
+    }
+
+    .menu-button:hover {
+        background: rgba(241, 239, 238, 0.45);
+        transform: translateY(-2px);
+    }
+
+    .menu-button.active {
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    }
+
+    .button-wrapper:first-child .menu-button.active {
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
+        border-radius: 15px;
+    }
+
+    .submenu-container {
+        background: rgba(8, 10, 51, 0.3);
+        color: #f1efee;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    }
+
+    .submenu a {
+        color: #f1efee;
+    }
+
+    .submenu a:hover {
+        background: rgba(241, 239, 238, 0.3);
+        color: #080a33;
+    }
+
+    .whatsapp-button {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-icon-container {
+        border-radius: 13px;
+        padding: 10px;
+    }
+}
+
+@media (max-width:768px) {
+    h1 {
+        font-size: 68px;
+        color: #7fcfda;
+    }
+
+    .tagline {
+        font-size: 18px;
+        color: #f1efee;
+    }
+
+    .page {
+        gap: 50px;
+    }
+
+    .buttons-container {
+        width: 280px;
+        gap: 16px;
+    }
+
+    .menu-button {
+        padding: 18px 20px;
+        font-size: 18px;
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
+    }
+
+    .menu-button:hover {
+        background: rgba(241, 239, 238, 0.45);
+        transform: translateY(-2px);
+    }
+
+    .menu-button.active {
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    }
+
+    .button-wrapper:first-child .menu-button.active {
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
+        border-radius: 15px;
+    }
+
+    .header {
+        width: calc(100% - 20px);
+        padding: 10px 15px;
+        border-radius: 14px;
+        top: 15px;
+        background: #080a33;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.15);
+        border: none;
+    }
+
+    .header.scrolled {
+        top: 10px;
+    }
+
+    .logo {
+        height: 34px;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .main-container {
+        padding: 135px 0 50px 0;
+        background: #0d4c7f;
+    }
+
+    .counters {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        width: 95%;
+    }
+
+    .counter-container {
+        margin: 1rem 0;
+        min-width: 200px;
+    }
+
+    .counter {
+        color: #080a33;
+        font-size: 2.8rem;
+        font-family: 'Poppins-Bold', sans-serif;
+    }
+
+    .about-novaklar h2 {
+        color: #080a33;
+        font-size: 2rem;
+        font-family: 'Poppins-Bold', sans-serif !important;
+    }
+
+    .about-section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-section h3 {
+        color: #080a33;
+        font-size: 1.4rem;
+        font-family: 'Poppins-Bold', sans-serif !important;
+    }
+
+    .terms ol li {
+        padding-left: 3.5rem;
+    }
+
+    .whatsapp-button {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .whatsapp-icon-container {
+        border-radius: 12px;
+        padding: 9px;
+    }
+
+    .submenu-container {
+        background: rgba(8, 10, 51, 0.3);
+        color: #f1efee;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    }
+
+    .submenu a{
+        font-size:18px;
+        padding:14px 8px;
+        color: #f1efee;
+    }
+
+    .submenu a:hover {
+        background: rgba(241, 239, 238, 0.3);
+        color: #080a33;
+    }
+}
+
+@media (max-width:520px){
+    h1{
+        font-size: 52px;
+        color: #7fcfda;
+    }
+
+    .tagline {
+        font-size: 16px;
+        color: #f1efee;
+    }
+
+    .page {
+        gap: 40px;
+    }
+
+    .buttons-container {
+        width: 250px;
+        gap: 16px;
+    }
+
+    .menu-button {
+        padding: 16px 18px;
+        font-size: 16px;
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
+    }
+
+    .menu-button:hover {
+        background: rgba(241, 239, 238, 0.45);
+        transform: translateY(-2px);
+    }
+
+    .menu-button.active {
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    }
+
+    .button-wrapper:first-child .menu-button.active {
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
+        border-radius: 15px;
+    }
+
+    .header-content {
+        padding: 0;
+    }
+
+    .drawer-menu {
+        width: 85%;
+        padding: 80px 20px 30px;
+    }
+
+    .hamburger-menu {
+        width: 26px;
+        height: 19px;
+    }
+
+    .hamburger-menu.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger-menu.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .main-container {
+        padding: 125px 0 40px 0;
+        background: #0d4c7f;
+    }
+
+    .counters {
+        padding: 25px 15px;
+        width: 95%;
+    }
+
+    .counter {
+        color: #080a33;
+        font-size: 2.5rem;
+        font-family: 'Poppins-Bold', sans-serif;
+    }
+
+    .counters p {
+        color: #080a33;
+        font-size: 1rem;
+    }
+
+    .about-novaklar {
+        padding: 1.5rem 3%;
+    }
+
+    .about-section {
+        padding: 1.2rem;
+    }
+
+    .about-section h3 {
+        color: #080a33;
+        font-size: 1.3rem;
+        font-family: 'Poppins-Bold', sans-serif !important;
+    }
+
+    .terms ol li {
+        padding-left: 3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .whatsapp-button {
+        width: 45px;
+        height: 45px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .whatsapp-icon-container {
+        border-radius: 11px;
+        padding: 8px;
+    }
+
+    .submenu-container {
+        background: rgba(8, 10, 51, 0.3);
+        color: #f1efee;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    }
+
+    .submenu a{
+        font-size:16px;
+        padding:12px 6px;
+        color: #f1efee;
+    }
+
+    .submenu a:hover {
+        background: rgba(241, 239, 238, 0.3);
+        color: #080a33;
+    }
+}
+
+@media (max-width:380px){
+    h1{
+        font-size: 44px;
+        color: #7fcfda;
+    }
+
+    .tagline {
+        font-size: 15px;
+        color: #f1efee;
+    }
+
+    .buttons-container {
+        width: 220px;
+        gap: 16px;
+    }
+
+    .menu-button {
+        padding: 14px 16px;
+        font-size: 15px;
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
+    }
+
+    .menu-button:hover {
+        background: rgba(241, 239, 238, 0.45);
+        transform: translateY(-2px);
+    }
+
+    .menu-button.active {
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    }
+
+    .button-wrapper:first-child .menu-button.active {
+        background: rgba(241, 239, 238, 0.35);
+        color: #f1efee;
+        border-radius: 15px;
+    }
+
+    .drawer-menu {
+        width: 90%;
+        padding: 70px 15px 25px;
+    }
+
+    .drawer-menu a {
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+
+    .logo {
+        height: 30px;
+    }
+
+    .whatsapp-button {
+        width: 40px;
+        height: 40px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .whatsapp-icon-container {
+        border-radius: 10px;
+        padding: 7px;
+    }
+
+    .submenu-container {
+        background: rgba(8, 10, 51, 0.3);
+        color: #f1efee;
+        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    }
+
+    .submenu a {
+        color: #f1efee;
+    }
+
+    .submenu a:hover {
+        background: rgba(241, 239, 238, 0.3);
+        color: #080a33;
+    }
+}

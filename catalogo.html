@@ -19,11 +19,18 @@
       font-style: normal;
     }
 
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Poppins Regular', sans-serif;
       background-color: #f1efee;
       color: #080a33;
+      line-height: 1.6;
+      min-height: 100vh;
     }
 
     header {
@@ -67,35 +74,81 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 0 1.5rem 2rem;
-      text-align: justify;
-      line-height: 1.6;
+    }
+
+    /* Contenedor principal unificado */
+    .main-container {
+      background-color: #f1efee;
+      border: 1px solid rgba(13, 76, 127, 0.2);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(8,10,51,0.05);
     }
 
     .description {
-      margin-bottom: 2rem;
+      color: #080a33;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      text-align: justify;
     }
 
+    .description:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-box {
+      background-color: rgba(127, 207, 218, 0.15);
+      border-left: 3px solid #7fcfda;
+      padding: 1.2rem;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      color: #0d4c7f;
+      font-weight: 600;
+    }
+
+    /* Video dentro del contenedor principal */
     .video-container {
       margin: 2rem 0;
     }
 
     .video-container video {
       width: 100%;
+      border-radius: 4px;
       display: block;
     }
 
+    /* Sección del botón dentro del contenedor principal */
+    .link-section {
+      text-align: center;
+      margin: 2rem 0 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(13, 76, 127, 0.2);
+    }
+
+    .link-section p {
+      color: #080a33;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
     .copy-button {
-      display: block;
-      margin: 0 auto;
+      display: inline-block;
       padding: 0.8rem 1.5rem;
       background-color: #7fcfda;
       color: #0d4c7f;
       border: none;
       border-radius: 4px;
+      font-family: 'Poppins Bold', sans-serif;
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.2s;
+      box-shadow: 0 2px 4px rgba(127, 207, 218, 0.3);
     }
 
     .copy-button:hover {
@@ -111,6 +164,9 @@
       color: #0d4c7f;
       font-weight: 600;
       margin-top: 1rem;
+      padding: 0.8rem;
+      background-color: rgba(127, 207, 218, 0.2);
+      border-radius: 4px;
       display: none;
     }
 
@@ -119,7 +175,21 @@
       color: #dc2626;
       font-weight: 600;
       margin-top: 1rem;
+      padding: 0.8rem;
+      background-color: rgba(220, 38, 38, 0.1);
+      border-radius: 4px;
       display: none;
+    }
+
+    #linkText {
+      font-family: monospace;
+      background-color: #e8e6e5;
+      padding: 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 0.5rem;
+      word-break: break-all;
+      color: #080a33;
     }
 
     .features-title {
@@ -131,42 +201,75 @@
     }
 
     .feature-section {
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .feature-section:last-child {
-      border-bottom: none;
+      background-color: #f1efee;
+      border: 1px solid rgba(13, 76, 127, 0.2);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(8,10,51,0.05);
     }
 
     .feature-section h3 {
       color: #0d4c7f;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
     }
 
-    @media (max-width: 600px) {
+    .feature-section p {
+      color: #080a33;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    @media (max-width: 768px) {
       .page-title {
         font-size: 1.8rem;
         margin: 2rem 0 1rem;
       }
+      
       .content-container {
         padding: 0 1rem 1.5rem;
       }
+      
+      .main-container,
+      .feature-section {
+        padding: 1.2rem;
+      }
+      
       .features-title {
         font-size: 1.5rem;
       }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
       .page-title {
         font-size: 1.6rem;
       }
+      
+      .content-container {
+        padding: 0 0.8rem 1rem;
+      }
+      
+      .main-container,
+      .feature-section {
+        padding: 1rem;
+      }
+      
       header {
         padding: 0.8rem 1rem;
       }
+      
       header img {
         height: 35px;
+      }
+      
+      .copy-button {
+        width: 100%;
+        padding: 0.8rem;
+      }
+      
+      .features-title {
+        font-size: 1.3rem;
       }
     }
   </style>
@@ -177,40 +280,62 @@
     <a href="https://novaklar.github.io/web/">Regresar</a>
   </header>
 
-  <h1 class="page-title">Catálogo</h1>
+  <h1 class="page-title">Catálogo Digital</h1>
 
   <div class="content-container">
-    <div class="description">
-      <p>El Catálogo para Clientes es una herramienta práctica y efectiva que te permite promocionar los productos y servicios de Novaklar de forma ordenada y profesional. Es ideal tanto para revendedores como para promotores, ya que facilita las ventas y mejora la experiencia del cliente.</p>
-      <p>Haz clic en el botón a continuación para copiar el enlace directamente al portapapeles y poder usarlo cuando lo necesites.</p>
+    <!-- Contenedor principal unificado -->
+    <div class="main-container">
+      <!-- Descripción -->
+      <div class="description">
+        <p>El <strong>Catálogo para Clientes</strong> es una herramienta práctica y efectiva diseñada para optimizar tu estrategia de ventas. Con un diseño intuitivo y profesional, te permite promocionar todos los productos y servicios de Novaklar de manera organizada y atractiva.</p>
+      </div>
+      
+      <div class="description">
+        <p>Ideal tanto para <strong>revendedores</strong> como para <strong>promotores</strong>, facilita el proceso de ventas y mejora significativamente la experiencia del cliente final, aumentando tu conversión y profesionalismo.</p>
+      </div>
+      
+      <div class="highlight-box">
+        <p>Haz clic en el botón inferior para copiar el enlace directamente al portapapeles y compartirlo instantáneamente.</p>
+      </div>
+
+      <!-- Video -->
+      <div class="video-container">
+        <video controls autoplay muted>
+          <source src="https://novaklar.github.io/web/extra/video1.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
+
+      <!-- Botón de copiar -->
+      <div class="link-section">
+        <p>Comparte este enlace con tus clientes para mostrarles nuestro catálogo completo:</p>
+        <button class="copy-button" id="copyButton">📋 Copiar Enlace del Catálogo</button>
+        <div class="success-message" id="successMessage">
+          ¡Enlace copiado al portapapeles! Listo para compartir.
+        </div>
+        <div class="error-message" id="errorMessage">
+          No se pudo copiar automáticamente. Por favor, selecciona y copia manualmente:<br>
+          <span id="linkText">https://novaklar.github.io/catalogo/</span>
+        </div>
+      </div>
     </div>
+
+    <!-- Características (se mantienen igual) -->
+    <h2 class="features-title">Características Principales</h2>
     
-    <button class="copy-button" id="copyButton">Obtener Link</button>
-    <div class="success-message" id="successMessage">¡Enlace copiado al portapapeles!</div>
-    <div class="error-message" id="errorMessage">No se pudo copiar automáticamente. Por favor, selecciona y copia manualmente: <span id="linkText">https://novaklar.github.io/catalogo/</span></div>
-
-    <div class="video-container">
-      <video controls autoplay muted>
-        <source src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/publicidadnk.mp4" type="video/mp4">
-        Tu navegador no soporta el elemento de video.
-      </video>
-    </div>
-
-    <h2 class="features-title">Detalles</h2>
-    
     <div class="feature-section">
-      <h3>Búsqueda rápida</h3>
-      <p>El catálogo incluye una barra de búsqueda que permite encontrar de forma ágil cualquier servicio disponible, optimizando el tiempo de navegación y selección.</p>
+      <h3>Búsqueda Inteligente</h3>
+      <p>Incluye una barra de búsqueda avanzada que permite encontrar cualquier servicio en segundos. Optimiza el tiempo de navegación y garantiza que tus clientes encuentren exactamente lo que necesitan.</p>
     </div>
 
     <div class="feature-section">
-      <h3>Navegación por categorías</h3>
-      <p>Debajo de la búsqueda, se encuentra una sección de categorías desde la cual se pueden filtrar los productos por tipo o visualizar todos en una única vista general, según la preferencia del usuario.</p>
+      <h3>Categorías Organizadas</h3>
+      <p>Navegación intuitiva por categorías específicas. Los clientes pueden filtrar productos por tipo o explorar la vista general completa, adaptándose a sus preferencias de búsqueda.</p>
     </div>
 
     <div class="feature-section">
-      <h3>Información del producto</h3>
-      <p>Cada servicio tiene su propia tarjeta informativa. Al hacer clic sobre ella, se despliega una breve descripción con detalles clave que ayudan a comprender el producto y facilitar su promoción o venta.</p>
+      <h3>Información Detallada</h3>
+      <p>Cada servicio cuenta con una tarjeta informativa interactiva. Al hacer clic, se despliega una descripción completa con todos los detalles necesarios para una decisión informada y una venta exitosa.</p>
     </div>
   </div>
 
@@ -226,8 +351,15 @@
         await navigator.clipboard.writeText(linkToCopy);
         successMessage.style.display = 'block';
         errorMessage.style.display = 'none';
+        copyButton.textContent = '✅ ¡Copiado!';
+        copyButton.style.backgroundColor = '#0d4c7f';
+        copyButton.style.color = '#f1efee';
+        
         setTimeout(() => {
           successMessage.style.display = 'none';
+          copyButton.textContent = '📋 Copiar Enlace del Catálogo';
+          copyButton.style.backgroundColor = '#7fcfda';
+          copyButton.style.color = '#0d4c7f';
         }, 3000);
       } catch (err) {
         try {
@@ -238,11 +370,19 @@
           textarea.select();
           const successful = document.execCommand('copy');
           document.body.removeChild(textarea);
+          
           if(successful) {
             successMessage.style.display = 'block';
             errorMessage.style.display = 'none';
+            copyButton.textContent = '✅ ¡Copiado!';
+            copyButton.style.backgroundColor = '#0d4c7f';
+            copyButton.style.color = '#f1efee';
+            
             setTimeout(() => {
               successMessage.style.display = 'none';
+              copyButton.textContent = '📋 Copiar Enlace del Catálogo';
+              copyButton.style.backgroundColor = '#7fcfda';
+              copyButton.style.color = '#0d4c7f';
             }, 3000);
           } else {
             throw new Error('Falló el método alternativo');

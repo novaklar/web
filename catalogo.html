@@ -97,29 +97,30 @@
       margin-bottom: 0;
     }
 
-    .highlight-box {
-      background-color: rgba(127, 207, 218, 0.15);
-      border-left: 3px solid #7fcfda;
-      padding: 1.2rem;
-      border-radius: 6px;
-      margin: 1.5rem 0;
-    }
-
-    .highlight-box p {
-      margin: 0;
-      color: #0d4c7f;
-      font-weight: 600;
-    }
-
-    /* Video dentro del contenedor principal */
+    /* Video sin controles */
     .video-container {
       margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
     }
 
     .video-container video {
       width: 100%;
       border-radius: 4px;
       display: block;
+      /* Desactiva cualquier interacción con el video */
+      pointer-events: none;
+    }
+
+    /* Overlay para bloquear completamente el video */
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: 10;
     }
 
     /* Sección del botón dentro del contenedor principal */
@@ -285,25 +286,22 @@
   <div class="content-container">
     <!-- Contenedor principal unificado -->
     <div class="main-container">
-      <!-- Descripción -->
+      <!-- Descripción reducida -->
       <div class="description">
-        <p>El <strong>Catálogo para Clientes</strong> es una herramienta práctica y efectiva diseñada para optimizar tu estrategia de ventas. Con un diseño intuitivo y profesional, te permite promocionar todos los productos y servicios de Novaklar de manera organizada y atractiva.</p>
+        <p>El <strong>Catálogo para Clientes</strong> es una herramienta práctica diseñada para optimizar tu estrategia de ventas. Con un diseño intuitivo y profesional, te permite promocionar todos los productos y servicios de Novaklar de manera organizada.</p>
       </div>
       
       <div class="description">
-        <p>Ideal tanto para <strong>revendedores</strong> como para <strong>promotores</strong>, facilita el proceso de ventas y mejora significativamente la experiencia del cliente final, aumentando tu conversión y profesionalismo.</p>
-      </div>
-      
-      <div class="highlight-box">
-        <p>Haz clic en el botón inferior para copiar el enlace directamente al portapapeles y compartirlo instantáneamente.</p>
+        <p>Ideal tanto para <strong>revendedores</strong> como para <strong>promotores</strong>, facilita el proceso de ventas y mejora significativamente la experiencia del cliente final.</p>
       </div>
 
-      <!-- Video -->
+      <!-- Video bloqueado -->
       <div class="video-container">
-        <video controls autoplay muted>
+        <video autoplay muted loop playsinline>
           <source src="https://novaklar.github.io/web/extra/video1.mp4" type="video/mp4">
           Tu navegador no soporta el elemento de video.
         </video>
+        <div class="video-overlay"></div>
       </div>
 
       <!-- Botón de copiar -->
@@ -346,6 +344,37 @@
     const linkText = document.getElementById('linkText');
     const linkToCopy = 'https://novaklar.github.io/catalogo/';
 
+    // Configurar el video para que se reproduzca automáticamente sin controles
+    const video = document.querySelector('video');
+    
+    // Asegurar que el video se reproduzca automáticamente
+    video.play().catch(error => {
+      console.log('Reproducción automática bloqueada:', error);
+      // Intentar reproducir con interacción del usuario
+      document.addEventListener('click', function playVideoOnce() {
+        video.play();
+        document.removeEventListener('click', playVideoOnce);
+      }, { once: true });
+    });
+
+    // Bloquear clics en el video
+    video.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    // Bloquear clics en el overlay del video
+    document.querySelector('.video-overlay').addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    // Desactivar menú contextual en el video
+    video.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+    });
+
+    // Función para copiar el enlace
     copyButton.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(linkToCopy);

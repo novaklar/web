@@ -76,7 +76,7 @@ body, p, li, a, span, div {
 h1{
     margin:0;
     font-size: 96px;
-    color: #7fcfda;
+    color: #f1efee; /* Cambiado a #f1efee como solicitado */
     letter-spacing: 2px;
     font-family: 'DESA', sans-serif;
     font-weight: normal;
@@ -317,7 +317,7 @@ h1{
 
 .main-container {
     width: 100%;
-    background: #0d4c7f;
+    background: linear-gradient(135deg, #7fcfda 0%, #0d4c7f 100%); /* Degradado diagonal agregado */
     padding: 155px 0 80px 0;
     display: flex;
     justify-content: center;
@@ -694,7 +694,7 @@ footer {
 @media (max-width:1024px) {
     h1 {
         font-size: 82px;
-        color: #7fcfda;
+        color: #f1efee; /* Mantenido #f1efee */
     }
 
     .tagline {
@@ -717,7 +717,7 @@ footer {
 
     .main-container {
         padding: 145px 0 60px 0;
-        background: #0d4c7f;
+        background: linear-gradient(135deg, #7fcfda 0%, #0d4c7f 100%); /* Degradado mantiene en responsive */
     }
 
     .counter {
@@ -791,7 +791,7 @@ footer {
 @media (max-width:768px) {
     h1 {
         font-size: 68px;
-        color: #7fcfda;
+        color: #f1efee; /* Mantenido #f1efee */
     }
 
     .tagline {
@@ -860,7 +860,7 @@ footer {
 
     .main-container {
         padding: 135px 0 50px 0;
-        background: #0d4c7f;
+        background: linear-gradient(135deg, #7fcfda 0%, #0d4c7f 100%); /* Degradado mantiene en responsive */
     }
 
     .counters {
@@ -935,7 +935,7 @@ footer {
 @media (max-width:520px){
     h1{
         font-size: 52px;
-        color: #7fcfda;
+        color: #f1efee; /* Mantenido #f1efee */
     }
 
     .tagline {
@@ -1000,7 +1000,7 @@ footer {
 
     .main-container {
         padding: 125px 0 40px 0;
-        background: #0d4c7f;
+        background: linear-gradient(135deg, #7fcfda 0%, #0d4c7f 100%); /* Degradado mantiene en responsive */
     }
 
     .counters {
@@ -1071,7 +1071,7 @@ footer {
 @media (max-width:380px){
     h1{
         font-size: 44px;
-        color: #7fcfda;
+        color: #f1efee; /* Mantenido #f1efee */
     }
 
     .tagline {

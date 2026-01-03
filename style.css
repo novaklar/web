@@ -588,18 +588,37 @@ h1{
     background-color: #0d4c7f;
 }
 
-/* JUSTIFICACIÓN MEJORADA - SIN GUIONES */
+/* JUSTIFICACIÓN MEJORADA - SIN GUIONES (alineado derecho limpio) */
 .about-section p {
     margin-bottom: 1.5rem;
     line-height: 1.8;
     font-size: 1.1rem;
     font-family: 'Poppins-Regular', sans-serif;
     color: #080a33;
+
+    /* Justificar y forzar alineación también en la última línea */
     text-align: justify;
-    text-align-last: left; /* Última línea alineada a la izquierda */
+    text-align-last: justify;
+    -webkit-text-align-last: justify;
+    -moz-text-align-last: justify;
+
+    /* Control de algoritmo de justificación */
+    text-justify: inter-word;
+    -ms-text-justify: inter-word;
+
+    /* Evitar guiones automáticos y separación silábica */
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+
+    /* Evitar cortes agresivos; permitir quiebre seguro cuando sea necesario */
+    word-break: normal;
+    overflow-wrap: break-word;
+
     max-width: 100%;
     word-spacing: 0.05em; /* Espaciado entre palabras más controlado */
     letter-spacing: 0.01em; /* Espaciado entre letras sutil */
+    white-space: normal;
 }
 
 .about-section ul, .about-section ol {
@@ -649,12 +668,30 @@ h1{
     font-size: 1.1rem;
     font-family: 'Poppins-Regular', sans-serif;
     color: #080a33;
+
+    /* Justificar y forzar alineación también en la última línea */
     text-align: justify;
-    text-align-last: left; /* Última línea alineada a la izquierda */
+    text-align-last: justify;
+    -webkit-text-align-last: justify;
+    -moz-text-align-last: justify;
+
+    /* Control de algoritmo de justificación */
+    text-justify: inter-word;
+    -ms-text-justify: inter-word;
+
+    /* Evitar guiones automáticos y separación silábica */
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+
+    word-break: normal;
+    overflow-wrap: break-word;
+
     padding-left: 0;
     position: relative;
     word-spacing: 0.05em;
     letter-spacing: 0.01em;
+    white-space: normal;
 }
 
 /* SUBTÍTULOS EN TÉRMINOS - REDUCIDOS DE TAMAÑO */
@@ -838,8 +875,18 @@ footer {
     .about-section p, 
     .about-section li,
     .terms p {
-        text-align: left; /* En móviles, mejor alinear a la izquierda */
-        text-align-last: left;
+        /* Mantener justificación limpia en pantallas <= 1024px */
+        text-align: justify;
+        text-align-last: justify;
+        -webkit-text-align-last: justify;
+        -moz-text-align-last: justify;
+
+        -webkit-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+        word-break: normal;
+        overflow-wrap: break-word;
+
         font-size: 1rem;
     }
     
@@ -985,10 +1032,20 @@ footer {
     .about-section p, 
     .about-section li,
     .terms p {
+        /* Mantener justificación limpia en pantallas <= 768px */
+        text-align: justify;
+        text-align-last: justify;
+        -webkit-text-align-last: justify;
+        -moz-text-align-last: justify;
+
+        -webkit-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+        word-break: normal;
+        overflow-wrap: break-word;
+
         font-size: 0.95rem;
         line-height: 1.65;
-        text-align: left; /* En móviles, mejor alinear a la izquierda */
-        text-align-last: left;
     }
     
     .about-section h3 {
@@ -1135,10 +1192,20 @@ footer {
     .about-section p, 
     .about-section li,
     .terms p {
+        /* Mantener justificación limpia en pantallas <= 520px */
+        text-align: justify;
+        text-align-last: justify;
+        -webkit-text-align-last: justify;
+        -moz-text-align-last: justify;
+
+        -webkit-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+        word-break: normal;
+        overflow-wrap: break-word;
+
         font-size: 0.9rem;
         line-height: 1.6;
-        text-align: left; /* En móviles, mejor alinear a la izquierda */
-        text-align-last: left;
     }
     
     .about-section h3 {

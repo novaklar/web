@@ -28,44 +28,117 @@
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f1efee;
       color: #080a33;
+      padding-top: 2rem;
+      cursor: default;
     }
 
-    header {
-      background-color: #0d4c7f; /* ACTUALIZADO: Color solicitado */
+    .top-controls {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 0 1.5rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    header img {
-      height: 40px;
-      /* FILTROS ELIMINADOS para mostrar el logo original */
-    }
-
-    header a {
-      text-decoration: none;
-      color: #f1efee;
-      font-weight: 400;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: background-color 0.2s;
-    }
-
-    header a:hover {
-      background-color: rgba(241, 239, 238, 0.2);
-    }
-
-    .page-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #080a33;
+    .logo-container {
+      margin-bottom: 2rem;
       text-align: center;
-      margin: 3rem 0 2rem;
-      padding: 0 1rem;
+    }
+
+    .logo-container img {
+      height: 80px; /* Reducido de 140px */
+      width: auto;
+      /* Filtro eliminado para mostrar el logo original */
+    }
+
+    .controls-buttons {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .controls-btn {
+      flex: 1;
+      padding: 0.7rem 1.2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s ease;
+      font-family: 'Poppins', sans-serif;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #080a33;
+      border: 2px solid #080a33;
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(8, 10, 51, 0.08);
+    }
+
+    .btn-filled {
+      background-color: #080a33;
+      color: #f1efee;
+      border: 2px solid #080a33;
+    }
+
+    .btn-filled:hover {
+      background-color: #06082a;
+      border-color: #06082a;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      flex: 1;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1efee;
+      min-width: 100%;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1000;
+      border-radius: 0.4rem;
+      overflow: hidden;
+      top: 100%;
+      left: 0;
+      margin-top: 0.3rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .dropdown-content a {
+      color: #080a33;
+      padding: 0.8rem 1rem;
+      text-decoration: none;
+      display: block;
+      font-size: 0.9rem;
+      transition: background-color 0.2s;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #e2e8f0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
 
     .container {
@@ -112,6 +185,8 @@
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       border: 1px solid #e2e8f0;
       width: 100%;
+      position: relative;
+      z-index: 10;
     }
 
     .table-container table {
@@ -121,6 +196,13 @@
       font-size: 0.9rem;
     }
 
+    .table-container thead tr th {
+      padding: 0.5rem 1rem;
+      text-align: center;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
     .table-container thead tr:first-child th {
       padding-top: 0.6rem;
       border-top-left-radius: 0.6rem;
@@ -128,12 +210,16 @@
       overflow: hidden;
     }
 
-    .table-container th {
-      padding: 0.5rem 1rem;
-      text-align: center;
-      font-weight: 600;
-      color: #f1efee;
-      background-color: #0d4c7f;
+    .table-container thead:not(:first-child) tr th {
+      border-radius: 0 !important;
+    }
+
+    .table-container thead.netflix-header th {
+      background-color: #e50914;
+    }
+
+    .table-container thead.disney-header th {
+      background: linear-gradient(to right, #022336, #19bac6);
     }
 
     .table-container td {
@@ -146,286 +232,549 @@
       border-bottom: none;
     }
 
-    .buy-section {
-      padding: 1rem;
-      border-top: 2px dashed #e2e8f0;
-      background-color: #f1efee;
-    }
-
-    .buy-text {
-      text-align: center;
-      margin-bottom: 0.8rem;
-      font-size: 0.85rem;
-      color: #080a33;
-      font-weight: 500;
-    }
-
-    .whatsapp-buttons {
+    /* WhatsApp Button Styles - COMPLETAMENTE CORREGIDO */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px; 
+      height: 60px;
+      border-radius: 15px;
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .whatsapp-btn {
-      display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      padding: 0.6rem;
-      background-color: #25D366;
-      color: #f1efee;
-      text-decoration: none;
-      border-radius: 0.4rem;
-      font-weight: 600;
-      font-size: 0.85rem;
-      transition: all 0.2s ease;
-      border: none;
+      align-items: center;
       cursor: pointer;
+      z-index: 1000;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      background-color: #04d749;
+      border: none;
+      outline: none;
+      padding: 0;
+      box-shadow: 0 4px 12px rgba(4, 215, 73, 0.3);
     }
 
-    .whatsapp-btn:hover {
-      background-color: #128C7E;
-      transform: translateY(-1px);
+    .whatsapp-button:hover {
+      background-color: #04c043;
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(4, 215, 73, 0.4);
     }
 
-    .whatsapp-btn i {
-      font-size: 1.1rem;
-      color: #f1efee;
-    }
-    
-    .section-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #080a33;
-      text-align: center;
-      margin: 2rem 0;
-      grid-column: 1 / -1;
+    .whatsapp-button:active,
+    .whatsapp-button:focus {
+      background-color: #04c043;
+      outline: none;
+      box-shadow: 0 4px 12px rgba(4, 215, 73, 0.3);
     }
 
-    .fab.fa-whatsapp {
-      color: #f1efee;
+    .whatsapp-icon-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px;
+    }
+
+    .whatsapp-icon-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 1.5rem;
+      }
+      
+      .top-controls {
+        padding: 0 1rem 1.5rem;
+      }
+      
+      .logo-container {
+        margin-bottom: 1.5rem;
+      }
+      
+      .logo-container img {
+        height: 70px; /* Reducido proporcionalmente */
+      }
+      
+      .controls-buttons {
+        max-width: 320px;
+      }
+      
+      .controls-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+        min-height: 46px;
+      }
+
+      /* WhatsApp responsive */
+      .whatsapp-button {
+        width: 55px;
+        height: 55px;
+        border-radius: 14px;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .whatsapp-icon-container {
+        padding: 13px;
+      }
     }
 
     @media (max-width: 600px) {
+      .top-controls {
+        flex-direction: column;
+      }
+      
+      .logo-container {
+        order: 1;
+        margin-bottom: 1.5rem;
+      }
+      
+      .logo-container img {
+        height: 65px; /* Reducido proporcionalmente */
+      }
+      
+      .controls-buttons {
+        order: 2;
+        flex-direction: column;
+        gap: 0.8rem;
+        max-width: 280px;
+        margin-top: 0.5rem;
+      }
+      
+      .controls-btn {
+        width: 100%;
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+        min-height: 44px;
+      }
+      
       .container {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 1.5rem;
         padding: 1rem;
       }
+      
       .card {
         width: 280px;
       }
+      
       .card img {
         width: 280px;
+      }
+
+      /* WhatsApp responsive */
+      .whatsapp-button {
+        width: 50px;
+        height: 50px;
+        border-radius: 13px;
+        bottom: 15px;
+        right: 15px;
+      }
+
+      .whatsapp-icon-container {
+        padding: 12px;
       }
     }
 
     @media (max-width: 400px) {
+      body {
+        padding-top: 1rem;
+      }
+      
+      .top-controls {
+        padding: 0 1rem 1rem;
+      }
+      
+      .logo-container img {
+        height: 60px; /* Reducido proporcionalmente */
+      }
+      
+      .controls-buttons {
+        max-width: 260px;
+        gap: 0.7rem;
+      }
+      
+      .controls-btn {
+        padding: 0.55rem 0.9rem;
+        font-size: 0.9rem;
+        min-height: 42px;
+      }
+      
       .container {
         grid-template-columns: 1fr;
       }
+      
       .card {
         width: 100%;
         max-width: 300px;
       }
+      
       .card img {
         width: 100%;
         max-width: 300px;
       }
-      .page-title {
-        font-size: 1.8rem;
-        margin: 2rem 0 1.5rem;
+
+      /* WhatsApp responsive */
+      .whatsapp-button {
+        width: 45px;
+        height: 45px;
+        border-radius: 11px;
+        bottom: 10px;
+        right: 10px;
       }
-      header {
-        padding: 0.8rem 1rem;
-      }
-      header img {
-        height: 35px;
+
+      .whatsapp-icon-container {
+        padding: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/cloud.svg" alt="Novaklar Logo" />
-    <a href="https://novaklar.github.io/web/">Regresar</a>
-  </header>
-
-  <h1 class="page-title">Streaming</h1>
+  <div class="top-controls">
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/deepblue.svg" alt="Novaklar Logo" />
+    </div>
+    
+    <div class="controls-buttons">
+      <a href="https://novaklar.github.io/web/" class="controls-btn btn-outline">Regresar</a>
+      <div class="dropdown">
+        <button class="controls-btn btn-filled">Ordenar</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="sortByGanancia('desc')">+ Ganancia</a>
+          <a href="#" onclick="sortByPopularity()">+ Popularidad</a>
+          <a href="#" onclick="sortDefault()">Defecto</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="container" id="cards-container"></div>
+
+  <!-- WhatsApp Button - SIMPLIFICADO -->
+  <a href="CR.html" target="_blank" class="whatsapp-button" aria-label="Chat WhatsApp">
+    <div class="whatsapp-icon-container">
+      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/extra/whatsapp.svg" alt="WhatsApp">
+    </div>
+  </a>
 
   <script>
     const container = document.getElementById('cards-container');
     let currentlyOpenCard = null;
 
+    // Orden de popularidad
+    const popularityOrder = [
+      "netflix.png",
+      "spotify.png",
+      "youtube.png",
+      "disney+.png",
+      "prime.png",
+      "hbo.png",
+      "spotify.png",
+      "nehbo.png",
+      "nepri.png",
+      "crunchyroll.png",
+      "iptv.png",
+      "apple.png",
+      "paramount.png",
+      "dgo.png",
+      "plex.png",
+      "viki.png",
+      "tidal.png",
+      "vix.png"
+    ];
+
+    // Orden por defecto
     const servicios = [
-      { nombre: "netflix", valores: [11500, 15000, 3500] },
-      { nombre: "hbo", valores: [6000, 10000, 4000] },
-      { nombre: "estandardisney", valores: [7500, 10500, 4000] },
-      { nombre: "disneypremium", valores: [9000, 13000, 4000] },
-      { nombre: "prime", valores: [6000, 10000, 4000] },
-      { nombre: "paramount", valores: [5500, 9500, 4000] },
-      { nombre: "viki", valores: [5500, 9500, 4000] },
-      { nombre: "iptv", valores: [8500, 12500, 4000] },
-      { nombre: "youtube", valores: [8500, 12500, 4000] },
-      { nombre: "crunchyroll", valores: [5500, 9500, 4000] },
-      { nombre: "vix", valores: [5500, 9500, 4000] },
-      { nombre: "universal", valores: [8000, 12000, 4000] },
-      { nombre: "plex", valores: [5500, 9500, 4000] },
-      { nombre: "apple", valores: [8500, 12500, 4000] },
-      { nombre: "tidal", valores: [6500, 10000, 3500] },
-      { nombre: "spotify", valores: [9000, 13000, 4000] }
+      { 
+        nombre: "netflix", 
+        displayName: "Netflix",
+        imageName: "netflix.png",
+        valores: [
+          { tipo: "Perfil genérico", afiliado: 11500, sugerido: 15000, ganancia: 3500 },
+          { tipo: "Perfil original", afiliado: 15000, sugerido: 18000, ganancia: 3000 }
+        ]
+      },
+      { 
+        nombre: "hbo", 
+        displayName: "HBO Max",
+        imageName: "hbo.png",
+        valores: [{ afiliado: 6000, sugerido: 10000, ganancia: 4000 }]
+      },
+      { 
+        nombre: "disney", 
+        displayName: "Disney+",
+        imageName: "disney+.png",
+        valores: [
+          { tipo: "Plan Estándar", afiliado: 7500, sugerido: 10500, ganancia: 4000 },
+          { tipo: "Plan Premium", afiliado: 9000, sugerido: 13000, ganancia: 4000 }
+        ]
+      },
+      { 
+        nombre: "prime", 
+        displayName: "Prime Video",
+        imageName: "prime.png",
+        valores: [{ afiliado: 6000, sugerido: 10000, ganancia: 4000 }]
+      },
+      { 
+        nombre: "paramount", 
+        displayName: "Paramount+",
+        imageName: "paramount.png",
+        valores: [{ afiliado: 5500, sugerido: 9500, ganancia: 4000 }]
+      },
+      { 
+        nombre: "viki", 
+        displayName: "Viki",
+        imageName: "viki.png",
+        valores: [{ afiliado: 5500, sugerido: 9500, ganancia: 4000 }]
+      },
+      { 
+        nombre: "iptv", 
+        displayName: "IPTV",
+        imageName: "iptv.png",
+        valores: [{ afiliado: 8500, sugerido: 12500, ganancia: 4000 }]
+      },
+      { 
+        nombre: "youtube", 
+        displayName: "YouTube",
+        imageName: "youtube.png",
+        valores: [{ afiliado: 8500, sugerido: 12500, ganancia: 4000 }]
+      },
+      { 
+        nombre: "crunchyroll", 
+        displayName: "Crunchyroll",
+        imageName: "crunchyroll.png",
+        valores: [{ afiliado: 5500, sugerido: 9500, ganancia: 4000 }]
+      },
+      { 
+        nombre: "vix", 
+        displayName: "Vix",
+        imageName: "vix.png",
+        valores: [{ afiliado: 5500, sugerido: 9500, ganancia: 4000 }]
+      },
+      { 
+        nombre: "dgo", 
+        displayName: "DirecTV Go",
+        imageName: "dgo.png",
+        valores: [{ afiliado: 8500, sugerido: 12500, ganancia: 4000 }]
+      },
+      { 
+        nombre: "plex", 
+        displayName: "Plex",
+        imageName: "plex.png",
+        valores: [{ afiliado: 5500, sugerido: 9500, ganancia: 4000 }]
+      },
+      { 
+        nombre: "apple", 
+        displayName: "Apple TV+",
+        imageName: "apple.png",
+        valores: [{ afiliado: 8500, sugerido: 12500, ganancia: 4000 }]
+      },
+      { 
+        nombre: "tidal", 
+        displayName: "Tidal",
+        imageName: "tidal.png",
+        valores: [{ afiliado: 6500, sugerido: 10000, ganancia: 3500 }]
+      },
+      { 
+        nombre: "spotify", 
+        displayName: "Spotify",
+        imageName: "spotify.png",
+        valores: [{ afiliado: 11000, sugerido: 14500, ganancia: 3500 }]
+      }
     ];
     
     const combos = [
-      { nombre: "nehbo", valores: [15000, 20000, 5000] },  /* CAMBIADO: combo1 → nehbo */
-      { nombre: "nepri", valores: [15000, 20000, 5000] }   /* CAMBIADO: combo2 → nepri */
+      { 
+        nombre: "nehbo", 
+        displayName: "Combo Netflix + HBO",
+        imageName: "nehbo.png",
+        valores: [{ afiliado: 15000, sugerido: 20000, ganancia: 5000 }]
+      },
+      { 
+        nombre: "nepri", 
+        displayName: "Combo Netflix + Prime",
+        imageName: "nepri.png",
+        valores: [{ afiliado: 15000, sugerido: 20000, ganancia: 5000 }]
+      }
     ];
 
-    function crearTarjeta(item, esCombo = false) {
+    function crearTarjeta(servicio, esCombo = false) {
       const card = document.createElement('div');
       card.className = 'card';
+      card.dataset.nombre = servicio.nombre;
+      card.dataset.ganancia = servicio.valores[0].ganancia;
+      card.dataset.popularity = popularityOrder.indexOf(servicio.imageName);
       
-      const rutaImagen = `https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/${item.nombre}.png`;
+      const rutaImagen = `https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/${servicio.imageName}`;
       
-      const servicioNombre = esCombo ? `Combo ${item.nombre}` : item.nombre.charAt(0).toUpperCase() + item.nombre.slice(1);
-      
-      card.innerHTML = `
-        <img src="${rutaImagen}" alt="${servicioNombre}" />
+      let tableHTML = `
         <div class="table-container">
-          <table>
-            <tbody>
-              <tr><td>Precio Afiliado</td><td>$${item.valores[0].toLocaleString('es-CO')}</td></tr>
-              <tr><td>Precio Sugerido</td><td>$${item.valores[1].toLocaleString('es-CO')}</td></tr>
-              <tr><td>Ganancia</td><td>$${item.valores[2].toLocaleString('es-CO')}</td></tr>
-            </tbody>
-          </table>
-          <div class="buy-section">
-            <div class="buy-text">¡Adquiere este servicio ahora!</div>
-            <div class="whatsapp-buttons">
-              <a href="https://wa.me/573018205460?text=Hola%20Alejandra,%20estoy%20interesado%20en%20el%20servicio%20${servicioNombre}" 
-                 class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Alejandra
-              </a>
-              <a href="https://wa.me/573127741655?text=Hola%20Tatiana,%20estoy%20interesado%20en%20el%20servicio%20${servicioNombre}" 
-                 class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Tatiana
-              </a>
-              <a href="https://wa.me/573027069241?text=Hola%20Danna,%20estoy%20interesado%20en%20el%20servicio%20${servicioNombre}" 
-                 class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Danna
-              </a>
-            </div>
-          </div>
-        </div>
-      `;
+          <table>`;
       
-      const tableContainer = card.querySelector('.table-container');
+      const isNetflix = servicio.nombre === "netflix";
+      const isDisney = servicio.nombre === "disney";
+      const isDGO = servicio.nombre === "dgo";
       
-      card.addEventListener('click', (e) => {
-        if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') {
-          return;
-        }
-        
-        if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
-          currentlyOpenCard.style.display = 'none';
-        }
-        
-        tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
-        
-        currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
-      });
-      
-      return card;
-    }
-
-    function crearTarjetaDGO() {
-      const card = document.createElement('div');
-      card.className = 'card';
-      
-      const rutaImagen = `https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/dgo.png`;
-      
-      card.innerHTML = `
-        <img src="${rutaImagen}" alt="DirecTV Go" />
-        <div class="table-container">
-          <table>
-            <thead>
+      if (isDGO) {
+        // Tabla especial para DGO
+        tableHTML += `
+          <thead>
+            <tr>
+              <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Gold</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Precio Afiliado</td><td>$13.000</td></tr>
+            <tr><td>Precio Sugerido</td><td>$17.000</td></tr>
+            <tr><td>Ganancia</td><td>$4.000</td></tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Win Sports</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Precio Afiliado</td><td>$25.000</td></tr>
+            <tr><td>Precio Sugerido</td><td>$29.000</td></tr>
+            <tr><td>Ganancia</td><td>$4.000</td></tr>
+          </tbody>`;
+      } else if (isNetflix || isDisney) {
+        // Para Netflix y Disney: mostrar encabezados para cada plan
+        servicio.valores.forEach((valor, index) => {
+          const headerClass = isNetflix ? 'netflix-header' : 'disney-header';
+          
+          tableHTML += `
+            <thead class="${headerClass}">
               <tr>
-                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Gold</th>
+                <th colspan="2">${valor.tipo}</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>Precio Afiliado</td><td>$13.000</td></tr>
-              <tr><td>Precio Sugerido</td><td>$17.000</td></tr>
-              <tr><td>Ganancia</td><td>$4.000</td></tr>
-            </tbody>
-            <thead>
-              <tr>
-                <th colspan="2" style="background: #0d4c7f; color: #f1efee; border-radius: 0;">Plan Win Sports</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Precio Afiliado</td><td>$25.000</td></tr>
-              <tr><td>Precio Sugerido</td><td>$29.000</td></tr>
-              <tr><td>Ganancia</td><td>$4.000</td></tr>
-            </tbody>
-          </table>
-          <div class="buy-section">
-            <div class="buy-text">¡Adquiere este servicio ahora!</div>
-            <div class="whatsapp-buttons">
-              <a href="https://wa.me/573018205460?text=Hola%20Alejandra,%20estoy%20interesado%20en%20DirecTV%20Go" 
-                 class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Alejandra
-              </a>
-              <a href="https://wa.me/573127741655?text=Hola%20Tatiana,%20estoy%20interesado%20en%20DirecTV%20Go" 
-                 class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Tatiana
-              </a>
-              <a href="https://wa.me/573027069241?text=Hola%20Danna,%20estoy%20interesado%20en%20DirecTV%20Go" 
-                 class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Danna
-              </a>
-            </div>
-          </div>
-        </div>
-      `;
-      
-      const tableContainer = card.querySelector('.table-container');
-      
-      card.addEventListener('click', (e) => {
-        if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') {
-          return;
-        }
-        
-        if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
-          currentlyOpenCard.style.display = 'none';
-        }
-        
-        tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
-        
-        currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
-      });
-      
-      return card;
-    }
-
-    servicios.forEach((item, index) => {
-      container.appendChild(crearTarjeta(item));
-      
-      if (index === 11) {
-        container.appendChild(crearTarjetaDGO());
+              <tr><td>Precio Afiliado</td><td>$${valor.afiliado.toLocaleString('es-CO')}</td></tr>
+              <tr><td>Precio Sugerido</td><td>$${valor.sugerido.toLocaleString('es-CO')}</td></tr>
+              <tr><td>Ganancia</td><td>$${valor.ganancia.toLocaleString('es-CO')}</td></tr>
+            </tbody>`;
+        });
+      } else {
+        // Para otros servicios: sin encabezado, solo la tabla
+        tableHTML += `
+          <tbody>
+            <tr><td>Precio Afiliado</td><td>$${servicio.valores[0].afiliado.toLocaleString('es-CO')}</td></tr>
+            <tr><td>Precio Sugerido</td><td>$${servicio.valores[0].sugerido.toLocaleString('es-CO')}</td></tr>
+            <tr><td>Ganancia</td><td>$${servicio.valores[0].ganancia.toLocaleString('es-CO')}</td></tr>
+          </tbody>`;
       }
+      
+      tableHTML += `</table></div>`;
+      
+      card.innerHTML = `
+        <img src="${rutaImagen}" alt="${servicio.displayName}" />
+        ${tableHTML}
+      `;
+      
+      const tableContainer = card.querySelector('.table-container');
+      
+      card.addEventListener('click', (e) => {
+        // Solo manejar clics en la imagen de la tarjeta
+        if (e.target.tagName === 'IMG') {
+          if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
+            currentlyOpenCard.style.display = 'none';
+          }
+          
+          tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
+          
+          currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
+        }
+      });
+      
+      return card;
+    }
+
+    // Función para cerrar tarjetas al hacer clic fuera
+    function setupClickOutsideListener() {
+      document.addEventListener('click', function(e) {
+        // Si hay una tarjeta abierta y el clic no fue en la tarjeta ni en su contenido
+        if (currentlyOpenCard) {
+          const card = currentlyOpenCard.closest('.card');
+          if (!card.contains(e.target)) {
+            currentlyOpenCard.style.display = 'none';
+            currentlyOpenCard = null;
+          }
+        }
+      });
+    }
+
+    // Función para ordenar por ganancia
+    function sortByGanancia(order = 'desc') {
+      const cards = Array.from(container.querySelectorAll('.card'));
+      
+      cards.sort((a, b) => {
+        const gananciaA = parseInt(a.dataset.ganancia);
+        const gananciaB = parseInt(b.dataset.ganancia);
+        
+        if (order === 'desc') {
+          return gananciaB - gananciaA;
+        } else {
+          return gananciaA - gananciaB;
+        }
+      });
+      
+      container.innerHTML = '';
+      cards.forEach(card => container.appendChild(card));
+    }
+
+    // Función para ordenar por popularidad
+    function sortByPopularity() {
+      const cards = Array.from(container.querySelectorAll('.card'));
+      
+      cards.sort((a, b) => {
+        const popA = parseInt(a.dataset.popularity);
+        const popB = parseInt(b.dataset.popularity);
+        return popA - popB;
+      });
+      
+      container.innerHTML = '';
+      cards.forEach(card => container.appendChild(card));
+    }
+
+    // Función para orden por defecto
+    function sortDefault() {
+      container.innerHTML = '';
+      // Renderizar servicios en orden por defecto
+      servicios.forEach((servicio) => {
+        container.appendChild(crearTarjeta(servicio));
+      });
+      
+      // Agregar combos sin título
+      combos.forEach(item => {
+        container.appendChild(crearTarjeta(item, true));
+      });
+    }
+
+    // Renderizar las tarjetas inicialmente en orden por defecto
+    servicios.forEach((servicio) => {
+      container.appendChild(crearTarjeta(servicio));
     });
     
-    const combosTitle = document.createElement('h2');
-    combosTitle.className = 'section-title';
-    combosTitle.textContent = 'Combos';
-    container.appendChild(combosTitle);
-    
+    // Agregar combos sin título
     combos.forEach(item => {
       container.appendChild(crearTarjeta(item, true));
+    });
+
+    // Configurar el listener para cerrar tarjetas al hacer clic fuera
+    setupClickOutsideListener();
+
+    // Event listeners para los botones de ordenar
+    document.querySelectorAll('.dropdown-content a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+      });
     });
   </script>
 </body>

@@ -14,8 +14,14 @@
     }
     @font-face {
       font-family: 'Poppins';
-      font-weight: 400; /* Regular */
+      font-weight: 400;
       src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      font-weight: 500;
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Medium.ttf') format('truetype');
       font-display: swap;
     }
   </style>
@@ -47,23 +53,25 @@
     }
 
     .logo-container img {
-      height: 80px; /* Reducido de 140px */
+      height: 80px;
       width: auto;
-      /* Filtro eliminado para mostrar el logo original */
     }
 
-    .controls-buttons {
+    .controls-row {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 1rem;
       width: 100%;
-      max-width: 350px;
+      max-width: 550px;
+      margin: 0 auto;
     }
 
-    .controls-btn {
-      flex: 1;
-      padding: 0.7rem 1.2rem;
+    /* Botón Regresar - peso medium */
+    .btn-back {
+      padding: 0.7rem 2rem;
       border-radius: 0.5rem;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 1rem;
       cursor: pointer;
       text-decoration: none;
@@ -71,74 +79,114 @@
       transition: all 0.2s ease;
       font-family: 'Poppins', sans-serif;
       min-height: 48px;
+      height: 52px;
       display: flex;
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
-    }
-
-    .btn-outline {
       background-color: transparent;
       color: #080a33;
       border: 2px solid #080a33;
+      width: 140px;
     }
 
-    .btn-outline:hover {
+    .btn-back:hover {
       background-color: rgba(8, 10, 51, 0.08);
     }
 
-    .btn-filled {
-      background-color: #080a33;
-      color: #f1efee;
+    /* Botones segmentados - peso regular/medium */
+    .mode-segmented {
+      display: flex;
+      gap: 0;
+      width: 280px;
+      height: 52px;
       border: 2px solid #080a33;
-    }
-
-    .btn-filled:hover {
-      background-color: #06082a;
-      border-color: #06082a;
-    }
-
-    .dropdown {
-      position: relative;
-      display: inline-block;
-      flex: 1;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f1efee;
-      min-width: 100%;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1000;
-      border-radius: 0.4rem;
+      border-radius: 0.5rem;
       overflow: hidden;
-      top: 100%;
-      left: 0;
-      margin-top: 0.3rem;
-      border: 1px solid #e2e8f0;
+      background-color: transparent;
     }
 
-    .dropdown-content a {
+    .mode-segmented-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
       color: #080a33;
-      padding: 0.8rem 1rem;
-      text-decoration: none;
-      display: block;
-      font-size: 0.9rem;
-      transition: background-color 0.2s;
-      border-bottom: 1px solid #e2e8f0;
+      background-color: transparent;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      height: 100%;
+      padding: 0;
+      border-right: 2px solid #080a33;
     }
 
-    .dropdown-content a:last-child {
+    .mode-segmented-btn:last-child {
+      border-right: none;
+    }
+
+    .mode-segmented-btn.active {
+      background-color: #080a33;
+      color: white;
+      font-weight: 500;
+    }
+
+    /* Cabeceras de las tablas - peso semibold */
+    .table-container thead tr th {
+      padding: 0.5rem 1rem;
+      text-align: center;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .table-container thead tr:first-child th {
+      padding-top: 0.6rem;
+      border-top-left-radius: 0.6rem;
+      border-top-right-radius: 0.6rem;
+      overflow: hidden;
+    }
+
+    .table-container thead:not(:first-child) tr th {
+      border-radius: 0 !important;
+    }
+
+    .table-container thead.netflix-header th {
+      background-color: #e50914;
+    }
+
+    .table-container thead.disney-header th {
+      background: linear-gradient(to right, #022336, #19bac6);
+    }
+
+    /* Filas de las tablas - peso regular */
+    .table-container td {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      color: #080a33;
+      font-weight: 400;
+    }
+
+    .table-container tr:last-child td {
       border-bottom: none;
     }
 
-    .dropdown-content a:hover {
-      background-color: #e2e8f0;
+    /* Estilo para el modo promotor */
+    .promotor-highlight {
+      background-color: #f0f7ff;
+    }
+    
+    .promotor-highlight td:first-child {
+      color: #080a33;
+      font-weight: 500;
     }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
+    .promotor-highlight td:last-child {
+      color: #080a33;
+      font-size: 1.1rem;
+      font-weight: 600;
     }
 
     .container {
@@ -196,43 +244,7 @@
       font-size: 0.9rem;
     }
 
-    .table-container thead tr th {
-      padding: 0.5rem 1rem;
-      text-align: center;
-      font-weight: 600;
-      color: #ffffff;
-    }
-
-    .table-container thead tr:first-child th {
-      padding-top: 0.6rem;
-      border-top-left-radius: 0.6rem;
-      border-top-right-radius: 0.6rem;
-      overflow: hidden;
-    }
-
-    .table-container thead:not(:first-child) tr th {
-      border-radius: 0 !important;
-    }
-
-    .table-container thead.netflix-header th {
-      background-color: #e50914;
-    }
-
-    .table-container thead.disney-header th {
-      background: linear-gradient(to right, #022336, #19bac6);
-    }
-
-    .table-container td {
-      padding: 0.5rem 1rem;
-      border-bottom: 1px solid #e2e8f0;
-      color: #080a33;
-    }
-
-    .table-container tr:last-child td {
-      border-bottom: none;
-    }
-
-    /* WhatsApp Button Styles - COMPLETAMENTE CORREGIDO */
+    /* WhatsApp Button Styles */
     .whatsapp-button {
       position: fixed;
       bottom: 20px;
@@ -298,20 +310,25 @@
       }
       
       .logo-container img {
-        height: 70px; /* Reducido proporcionalmente */
+        height: 70px;
       }
       
-      .controls-buttons {
-        max-width: 320px;
+      .controls-row {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
       }
       
-      .controls-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.95rem;
-        min-height: 46px;
+      .btn-back {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .mode-segmented {
+        width: 100%;
+        max-width: 300px;
       }
 
-      /* WhatsApp responsive */
       .whatsapp-button {
         width: 55px;
         height: 55px;
@@ -326,32 +343,12 @@
     }
 
     @media (max-width: 600px) {
-      .top-controls {
-        flex-direction: column;
-      }
-      
-      .logo-container {
-        order: 1;
-        margin-bottom: 1.5rem;
-      }
-      
       .logo-container img {
-        height: 65px; /* Reducido proporcionalmente */
+        height: 65px;
       }
       
-      .controls-buttons {
-        order: 2;
-        flex-direction: column;
-        gap: 0.8rem;
+      .btn-back, .mode-segmented {
         max-width: 280px;
-        margin-top: 0.5rem;
-      }
-      
-      .controls-btn {
-        width: 100%;
-        padding: 0.6rem 1rem;
-        font-size: 0.95rem;
-        min-height: 44px;
       }
       
       .container {
@@ -368,7 +365,6 @@
         width: 280px;
       }
 
-      /* WhatsApp responsive */
       .whatsapp-button {
         width: 50px;
         height: 50px;
@@ -392,18 +388,11 @@
       }
       
       .logo-container img {
-        height: 60px; /* Reducido proporcionalmente */
+        height: 60px;
       }
       
-      .controls-buttons {
+      .btn-back, .mode-segmented {
         max-width: 260px;
-        gap: 0.7rem;
-      }
-      
-      .controls-btn {
-        padding: 0.55rem 0.9rem;
-        font-size: 0.9rem;
-        min-height: 42px;
       }
       
       .container {
@@ -420,7 +409,6 @@
         max-width: 300px;
       }
 
-      /* WhatsApp responsive */
       .whatsapp-button {
         width: 45px;
         height: 45px;
@@ -441,22 +429,19 @@
       <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/deepblue.svg" alt="Novaklar Logo" />
     </div>
     
-    <div class="controls-buttons">
-      <a href="https://novaklar.github.io/web/" class="controls-btn btn-outline">Regresar</a>
-      <div class="dropdown">
-        <button class="controls-btn btn-filled">Ordenar</button>
-        <div class="dropdown-content">
-          <a href="#" onclick="sortByGanancia('desc')">+ Ganancia</a>
-          <a href="#" onclick="sortByPopularity()">+ Popularidad</a>
-          <a href="#" onclick="sortDefault()">Defecto</a>
-        </div>
+    <div class="controls-row">
+      <a href="https://novaklar.github.io/web/" class="btn-back">Regresar</a>
+      
+      <div class="mode-segmented" id="modeSegmented">
+        <button class="mode-segmented-btn active" id="segmentedRevendedor">Revendedor</button>
+        <button class="mode-segmented-btn" id="segmentedPromotor">Promotor</button>
       </div>
     </div>
   </div>
 
   <div class="container" id="cards-container"></div>
 
-  <!-- WhatsApp Button - SIMPLIFICADO -->
+  <!-- WhatsApp Button -->
   <a href="CR.html" target="_blank" class="whatsapp-button" aria-label="Chat WhatsApp">
     <div class="whatsapp-icon-container">
       <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/extra/whatsapp.svg" alt="WhatsApp">
@@ -466,6 +451,7 @@
   <script>
     const container = document.getElementById('cards-container');
     let currentlyOpenCard = null;
+    let currentMode = 'revendedor';
 
     // Orden de popularidad
     const popularityOrder = [
@@ -604,11 +590,61 @@
       }
     ];
 
-    function crearTarjeta(servicio, esCombo = false) {
+    // Función para obtener el precio real de los productos
+    function obtenerPrecioReal(servicio, index = 0) {
+      if (servicio.nombre === 'netflix') {
+        return index === 0 ? 9000 : 12500;
+      } else if (servicio.nombre === 'disney') {
+        return index === 0 ? 5000 : 9000;
+      } else {
+        switch(servicio.nombre) {
+          case 'hbo': 
+          case 'prime': 
+            return 3500;
+          case 'paramount': 
+          case 'viki': 
+          case 'crunchyroll': 
+          case 'vix': 
+          case 'plex': 
+            return 3000;
+          case 'iptv':
+          case 'youtube':
+          case 'apple':
+            return 6000;
+          case 'dgo':
+            return 7000; // Precio real para DGO
+          case 'spotify':
+            return 8500;
+          case 'tidal':
+            return 5000;
+          // Combos
+          case 'nehbo':
+          case 'nepri':
+            return 12500; // Precio real para combos
+          default:
+            return servicio.valores[0].afiliado - 2500;
+        }
+      }
+    }
+
+    // Función para calcular la ganancia del promotor (55% de la diferencia)
+    function calcularGananciaPromotor(precioReal, precioSugerido) {
+      const diferencia = precioSugerido - precioReal;
+      return Math.round(diferencia * 0.55);
+    }
+
+    function crearTarjeta(servicio, esCombo = false, modo = 'revendedor') {
       const card = document.createElement('div');
       card.className = 'card';
       card.dataset.nombre = servicio.nombre;
-      card.dataset.ganancia = servicio.valores[0].ganancia;
+      
+      if (modo === 'promotor') {
+        const precioReal = obtenerPrecioReal(servicio, 0);
+        card.dataset.ganancia = calcularGananciaPromotor(precioReal, servicio.valores[0].sugerido);
+      } else {
+        card.dataset.ganancia = servicio.valores[0].ganancia;
+      }
+      
       card.dataset.popularity = popularityOrder.indexOf(servicio.imageName);
       
       const rutaImagen = `https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/${servicio.imageName}`;
@@ -621,54 +657,117 @@
       const isDisney = servicio.nombre === "disney";
       const isDGO = servicio.nombre === "dgo";
       
-      if (isDGO) {
-        // Tabla especial para DGO
-        tableHTML += `
-          <thead>
-            <tr>
-              <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Gold</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Precio Afiliado</td><td>$13.000</td></tr>
-            <tr><td>Precio Sugerido</td><td>$17.000</td></tr>
-            <tr><td>Ganancia</td><td>$4.000</td></tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Win Sports</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Precio Afiliado</td><td>$25.000</td></tr>
-            <tr><td>Precio Sugerido</td><td>$29.000</td></tr>
-            <tr><td>Ganancia</td><td>$4.000</td></tr>
-          </tbody>`;
-      } else if (isNetflix || isDisney) {
-        // Para Netflix y Disney: mostrar encabezados para cada plan
-        servicio.valores.forEach((valor, index) => {
-          const headerClass = isNetflix ? 'netflix-header' : 'disney-header';
-          
+      if (modo === 'revendedor') {
+        if (isDGO) {
+          // Tabla especial para DGO en modo revendedor
           tableHTML += `
-            <thead class="${headerClass}">
+            <thead>
               <tr>
-                <th colspan="2">${valor.tipo}</th>
+                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Gold</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>Precio Afiliado</td><td>$${valor.afiliado.toLocaleString('es-CO')}</td></tr>
-              <tr><td>Precio Sugerido</td><td>$${valor.sugerido.toLocaleString('es-CO')}</td></tr>
-              <tr><td>Ganancia</td><td>$${valor.ganancia.toLocaleString('es-CO')}</td></tr>
+              <tr><td>Precio Afiliado</td><td>$13.000</td></tr>
+              <tr><td>Precio Sugerido</td><td>$17.000</td></tr>
+              <tr><td>Ganancia</td><td>$4.000</td></tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Win Sports</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Precio Afiliado</td><td>$25.000</td></tr>
+              <tr><td>Precio Sugerido</td><td>$29.000</td></tr>
+              <tr><td>Ganancia</td><td>$4.000</td></tr>
             </tbody>`;
-        });
+        } else if (isNetflix || isDisney) {
+          // Para Netflix y Disney: mostrar encabezados para cada plan
+          servicio.valores.forEach((valor, index) => {
+            const headerClass = isNetflix ? 'netflix-header' : 'disney-header';
+            
+            tableHTML += `
+              <thead class="${headerClass}">
+                <tr>
+                  <th colspan="2">${valor.tipo}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Precio Afiliado</td><td>$${valor.afiliado.toLocaleString('es-CO')}</td></tr>
+                <tr><td>Precio Sugerido</td><td>$${valor.sugerido.toLocaleString('es-CO')}</td></tr>
+                <tr><td>Ganancia</td><td>$${valor.ganancia.toLocaleString('es-CO')}</td></tr>
+              </tbody>`;
+          });
+        } else {
+          // Para otros servicios: sin encabezado, solo la tabla
+          tableHTML += `
+            <tbody>
+              <tr><td>Precio Afiliado</td><td>$${servicio.valores[0].afiliado.toLocaleString('es-CO')}</td></tr>
+              <tr><td>Precio Sugerido</td><td>$${servicio.valores[0].sugerido.toLocaleString('es-CO')}</td></tr>
+              <tr><td>Ganancia</td><td>$${servicio.valores[0].ganancia.toLocaleString('es-CO')}</td></tr>
+            </tbody>`;
+        }
       } else {
-        // Para otros servicios: sin encabezado, solo la tabla
-        tableHTML += `
-          <tbody>
-            <tr><td>Precio Afiliado</td><td>$${servicio.valores[0].afiliado.toLocaleString('es-CO')}</td></tr>
-            <tr><td>Precio Sugerido</td><td>$${servicio.valores[0].sugerido.toLocaleString('es-CO')}</td></tr>
-            <tr><td>Ganancia</td><td>$${servicio.valores[0].ganancia.toLocaleString('es-CO')}</td></tr>
-          </tbody>`;
+        // Modo PROMOTOR
+        if (isDGO) {
+          // Tabla especial para DGO en modo promotor
+          const precioRealGold = obtenerPrecioReal(servicio, 0);
+          const gananciaGold = calcularGananciaPromotor(precioRealGold, 17000);
+          
+          tableHTML += `
+            <thead>
+              <tr>
+                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Gold</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="promotor-highlight">
+                <td>Ganancia Promotor (55%)</td>
+                <td>$${gananciaGold.toLocaleString('es-CO')}</td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Win Sports</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="promotor-highlight">
+                <td>Ganancia Promotor (55%)</td>
+                <td>$2.200</td>
+              </tr>
+            </tbody>`;
+        } else if (isNetflix || isDisney) {
+          servicio.valores.forEach((valor, index) => {
+            const precioReal = obtenerPrecioReal(servicio, index);
+            const gananciaPromotor = calcularGananciaPromotor(precioReal, valor.sugerido);
+            const headerClass = isNetflix ? 'netflix-header' : 'disney-header';
+            
+            tableHTML += `
+              <thead class="${headerClass}">
+                <tr>
+                  <th colspan="2">${valor.tipo}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="promotor-highlight">
+                  <td>Ganancia Promotor (55%)</td>
+                  <td>$${gananciaPromotor.toLocaleString('es-CO')}</td>
+                </tr>
+              </tbody>`;
+          });
+        } else {
+          const precioReal = obtenerPrecioReal(servicio);
+          const gananciaPromotor = calcularGananciaPromotor(precioReal, servicio.valores[0].sugerido);
+          
+          tableHTML += `
+            <tbody>
+              <tr class="promotor-highlight">
+                <td>Ganancia Promotor (55%)</td>
+                <td>$${gananciaPromotor.toLocaleString('es-CO')}</td>
+              </tr>
+            </tbody>`;
+        }
       }
       
       tableHTML += `</table></div>`;
@@ -681,16 +780,15 @@
       const tableContainer = card.querySelector('.table-container');
       
       card.addEventListener('click', (e) => {
-        // Solo manejar clics en la imagen de la tarjeta
-        if (e.target.tagName === 'IMG') {
-          if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
-            currentlyOpenCard.style.display = 'none';
-          }
-          
-          tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
-          
-          currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
+        if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') return;
+        
+        if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
+          currentlyOpenCard.style.display = 'none';
         }
+        
+        tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
+        
+        currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
       });
       
       return card;
@@ -699,7 +797,6 @@
     // Función para cerrar tarjetas al hacer clic fuera
     function setupClickOutsideListener() {
       document.addEventListener('click', function(e) {
-        // Si hay una tarjeta abierta y el clic no fue en la tarjeta ni en su contenido
         if (currentlyOpenCard) {
           const card = currentlyOpenCard.closest('.card');
           if (!card.contains(e.target)) {
@@ -710,72 +807,42 @@
       });
     }
 
-    // Función para ordenar por ganancia
-    function sortByGanancia(order = 'desc') {
-      const cards = Array.from(container.querySelectorAll('.card'));
-      
-      cards.sort((a, b) => {
-        const gananciaA = parseInt(a.dataset.ganancia);
-        const gananciaB = parseInt(b.dataset.ganancia);
-        
-        if (order === 'desc') {
-          return gananciaB - gananciaA;
-        } else {
-          return gananciaA - gananciaB;
-        }
-      });
-      
+    function renderAllCards(modo) {
       container.innerHTML = '';
-      cards.forEach(card => container.appendChild(card));
-    }
-
-    // Función para ordenar por popularidad
-    function sortByPopularity() {
-      const cards = Array.from(container.querySelectorAll('.card'));
       
-      cards.sort((a, b) => {
-        const popA = parseInt(a.dataset.popularity);
-        const popB = parseInt(b.dataset.popularity);
-        return popA - popB;
-      });
-      
-      container.innerHTML = '';
-      cards.forEach(card => container.appendChild(card));
-    }
-
-    // Función para orden por defecto
-    function sortDefault() {
-      container.innerHTML = '';
-      // Renderizar servicios en orden por defecto
       servicios.forEach((servicio) => {
-        container.appendChild(crearTarjeta(servicio));
+        container.appendChild(crearTarjeta(servicio, false, modo));
       });
       
-      // Agregar combos sin título
       combos.forEach(item => {
-        container.appendChild(crearTarjeta(item, true));
+        container.appendChild(crearTarjeta(item, true, modo));
       });
     }
-
-    // Renderizar las tarjetas inicialmente en orden por defecto
-    servicios.forEach((servicio) => {
-      container.appendChild(crearTarjeta(servicio));
-    });
-    
-    // Agregar combos sin título
-    combos.forEach(item => {
-      container.appendChild(crearTarjeta(item, true));
-    });
 
     // Configurar el listener para cerrar tarjetas al hacer clic fuera
     setupClickOutsideListener();
 
-    // Event listeners para los botones de ordenar
-    document.querySelectorAll('.dropdown-content a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-      });
-    });
+    // Manejo de los botones segmentados
+    const revendedorBtn = document.getElementById('segmentedRevendedor');
+    const promotorBtn = document.getElementById('segmentedPromotor');
+
+    function setMode(mode) {
+      currentMode = mode;
+      if (mode === 'revendedor') {
+        revendedorBtn.classList.add('active');
+        promotorBtn.classList.remove('active');
+      } else {
+        revendedorBtn.classList.remove('active');
+        promotorBtn.classList.add('active');
+      }
+      renderAllCards(mode);
+    }
+
+    revendedorBtn.addEventListener('click', () => setMode('revendedor'));
+    promotorBtn.addEventListener('click', () => setMode('promotor'));
+
+    // Renderizar las tarjetas inicialmente en modo revendedor
+    renderAllCards('revendedor');
   </script>
 </body>
 </html>

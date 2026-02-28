@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Streaming | Novaklar</title>
+  <title>Streaming | Hanabi</title>
   
   <style>
     @font-face {
@@ -32,10 +32,9 @@
     body {
       margin: 0;
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f1efee;
+      background-color: #ffffff;
       color: #080a33;
       padding-top: 2rem;
-      cursor: default;
     }
 
     .top-controls {
@@ -53,8 +52,9 @@
     }
 
     .logo-container img {
-      height: 80px;
+      height: 140px;
       width: auto;
+      filter: brightness(0) saturate(100%) invert(14%) sepia(97%) saturate(2475%) hue-rotate(230deg) brightness(89%) contrast(101%);
     }
 
     .controls-row {
@@ -94,7 +94,7 @@
       background-color: rgba(8, 10, 51, 0.08);
     }
 
-    /* Botones segmentados - peso regular/medium */
+    /* ===== BOTONES SEGMENTADOS - peso regular/medium ===== */
     .mode-segmented {
       display: flex;
       gap: 0;
@@ -131,34 +131,16 @@
     .mode-segmented-btn.active {
       background-color: #080a33;
       color: white;
-      font-weight: 500;
+      font-weight: 500; /* Mantenemos medium incluso cuando está activo */
     }
 
-    /* Cabeceras de las tablas - peso semibold */
+    /* Cabeceras de las tablas - peso semibold (solo para títulos importantes) */
     .table-container thead tr th {
       padding: 0.5rem 1rem;
       text-align: center;
       font-weight: 600;
       color: #ffffff;
-    }
-
-    .table-container thead tr:first-child th {
-      padding-top: 0.6rem;
-      border-top-left-radius: 0.6rem;
-      border-top-right-radius: 0.6rem;
-      overflow: hidden;
-    }
-
-    .table-container thead:not(:first-child) tr th {
-      border-radius: 0 !important;
-    }
-
-    .table-container thead.netflix-header th {
-      background-color: #e50914;
-    }
-
-    .table-container thead.disney-header th {
-      background: linear-gradient(to right, #022336, #19bac6);
+      background-color: #080a33;
     }
 
     /* Filas de las tablas - peso regular */
@@ -169,11 +151,7 @@
       font-weight: 400;
     }
 
-    .table-container tr:last-child td {
-      border-bottom: none;
-    }
-
-    /* Estilo para el modo promotor */
+    /* Estilo para el modo promotor - un poco más destacado pero no tanto */
     .promotor-highlight {
       background-color: #f0f7ff;
     }
@@ -186,7 +164,7 @@
     .promotor-highlight td:last-child {
       color: #080a33;
       font-size: 1.1rem;
-      font-weight: 600;
+      font-weight: 600; /* Solo el número de ganancia en promotor se destaca */
     }
 
     .container {
@@ -227,14 +205,12 @@
     .table-container {
       display: none;
       margin-top: 0.8rem;
-      background-color: #f1efee;
+      background-color: #ffffff;
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       border: 1px solid #e2e8f0;
       width: 100%;
-      position: relative;
-      z-index: 10;
     }
 
     .table-container table {
@@ -244,65 +220,32 @@
       font-size: 0.9rem;
     }
 
-    /* WhatsApp Button Styles */
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px; 
-      height: 60px;
-      border-radius: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      z-index: 1000;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      background-color: #04d749;
-      border: none;
-      outline: none;
-      padding: 0;
-      box-shadow: 0 4px 12px rgba(4, 215, 73, 0.3);
+    .table-container thead tr:first-child th {
+      padding-top: 0.6rem;
+      border-top-left-radius: 0.6rem;
+      border-top-right-radius: 0.6rem;
+      overflow: hidden;
     }
 
-    .whatsapp-button:hover {
-      background-color: #04c043;
-      transform: scale(1.1);
-      box-shadow: 0 6px 16px rgba(4, 215, 73, 0.4);
+    .table-container thead:not(:first-child) tr th {
+      border-radius: 0 !important;
     }
 
-    .whatsapp-button:active,
-    .whatsapp-button:focus {
-      background-color: #04c043;
-      outline: none;
-      box-shadow: 0 4px 12px rgba(4, 215, 73, 0.3);
+    .table-container thead.netflix-header th {
+      background-color: #e50914;
     }
 
-    .whatsapp-icon-container {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 14px;
+    .table-container thead.disney-header th {
+      background: linear-gradient(to right, #022336, #19bac6);
     }
 
-    .whatsapp-icon-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
+    .table-container tr:last-child td {
+      border-bottom: none;
     }
 
-    /* Responsive styles */
     @media (max-width: 768px) {
       body {
         padding-top: 1.5rem;
-      }
-      
-      .top-controls {
-        padding: 0 1rem 1.5rem;
       }
       
       .logo-container {
@@ -310,7 +253,7 @@
       }
       
       .logo-container img {
-        height: 70px;
+        height: 120px;
       }
       
       .controls-row {
@@ -328,26 +271,15 @@
         width: 100%;
         max-width: 300px;
       }
-
-      .whatsapp-button {
-        width: 55px;
-        height: 55px;
-        border-radius: 14px;
-        bottom: 20px;
-        right: 20px;
-      }
-
-      .whatsapp-icon-container {
-        padding: 13px;
-      }
     }
 
     @media (max-width: 600px) {
       .logo-container img {
-        height: 65px;
+        height: 110px;
       }
       
-      .btn-back, .mode-segmented {
+      .btn-back,
+      .mode-segmented {
         max-width: 280px;
       }
       
@@ -364,34 +296,15 @@
       .card img {
         width: 280px;
       }
-
-      .whatsapp-button {
-        width: 50px;
-        height: 50px;
-        border-radius: 13px;
-        bottom: 15px;
-        right: 15px;
-      }
-
-      .whatsapp-icon-container {
-        padding: 12px;
-      }
     }
 
     @media (max-width: 400px) {
-      body {
-        padding-top: 1rem;
-      }
-      
-      .top-controls {
-        padding: 0 1rem 1rem;
-      }
-      
       .logo-container img {
-        height: 60px;
+        height: 100px;
       }
       
-      .btn-back, .mode-segmented {
+      .btn-back,
+      .mode-segmented {
         max-width: 260px;
       }
       
@@ -408,30 +321,20 @@
         width: 100%;
         max-width: 300px;
       }
-
-      .whatsapp-button {
-        width: 45px;
-        height: 45px;
-        border-radius: 11px;
-        bottom: 10px;
-        right: 10px;
-      }
-
-      .whatsapp-icon-container {
-        padding: 10px;
-      }
     }
   </style>
 </head>
 <body>
   <div class="top-controls">
     <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/deepblue.svg" alt="Novaklar Logo" />
+      <img src="https://raw.githubusercontent.com/hhanabi/web/refs/heads/main/hanabi.svg" alt="Hanabi Logo" />
     </div>
     
     <div class="controls-row">
-      <a href="https://novaklar.github.io/web/" class="btn-back">Regresar</a>
+      <!-- Botón Regresar - peso medium -->
+      <a href="index.html" class="btn-back">Regresar</a>
       
+      <!-- Botones segmentados - peso medium -->
       <div class="mode-segmented" id="modeSegmented">
         <button class="mode-segmented-btn active" id="segmentedRevendedor">Revendedor</button>
         <button class="mode-segmented-btn" id="segmentedPromotor">Promotor</button>
@@ -441,41 +344,24 @@
 
   <div class="container" id="cards-container"></div>
 
-  <!-- WhatsApp Button -->
-  <a href="CR.html" target="_blank" class="whatsapp-button" aria-label="Chat WhatsApp">
-    <div class="whatsapp-icon-container">
-      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/extra/whatsapp.svg" alt="WhatsApp">
-    </div>
-  </a>
-
   <script>
     const container = document.getElementById('cards-container');
     let currentlyOpenCard = null;
     let currentMode = 'revendedor';
-
-    // Orden de popularidad
+    
     const popularityOrder = [
-      "netflix.png",
-      "spotify.png",
       "youtube.png",
-      "disney+.png",
-      "prime.png",
-      "hbo.png",
+      "netflix.png", 
       "spotify.png",
-      "nehbo.png",
-      "nepri.png",
+      "prime.png",
+      "disney.png",
+      "hbo.png",
       "crunchyroll.png",
-      "iptv.png",
-      "apple.png",
       "paramount.png",
-      "dgo.png",
-      "plex.png",
       "viki.png",
-      "tidal.png",
       "vix.png"
     ];
 
-    // Orden por defecto
     const servicios = [
       { 
         nombre: "netflix", 
@@ -495,17 +381,11 @@
       { 
         nombre: "disney", 
         displayName: "Disney+",
-        imageName: "disney+.png",
+        imageName: "disney.png",
         valores: [
-          { tipo: "Plan Estándar", afiliado: 7500, sugerido: 10500, ganancia: 4000 },
+          { tipo: "Plan Estándar", afiliado: 7500, sugerido: 10500, ganancia: 3000 },
           { tipo: "Plan Premium", afiliado: 11500, sugerido: 15500, ganancia: 4000 }
         ]
-      },
-      { 
-        nombre: "prime", 
-        displayName: "Prime Video",
-        imageName: "prime.png",
-        valores: [{ afiliado: 6000, sugerido: 10000, ganancia: 4000 }]
       },
       { 
         nombre: "paramount", 
@@ -514,16 +394,16 @@
         valores: [{ afiliado: 5500, sugerido: 9500, ganancia: 4000 }]
       },
       { 
+        nombre: "prime", 
+        displayName: "Prime Video",
+        imageName: "prime.png",
+        valores: [{ afiliado: 6000, sugerido: 10000, ganancia: 4000 }]
+      },
+      { 
         nombre: "viki", 
         displayName: "Viki",
         imageName: "viki.png",
         valores: [{ afiliado: 5500, sugerido: 9500, ganancia: 4000 }]
-      },
-      { 
-        nombre: "iptv", 
-        displayName: "IPTV",
-        imageName: "iptv.png",
-        valores: [{ afiliado: 8500, sugerido: 12500, ganancia: 4000 }]
       },
       { 
         nombre: "youtube", 
@@ -544,53 +424,13 @@
         valores: [{ afiliado: 5500, sugerido: 9500, ganancia: 4000 }]
       },
       { 
-        nombre: "dgo", 
-        displayName: "DirecTV Go",
-        imageName: "dgo.png",
-        valores: [{ afiliado: 8500, sugerido: 12500, ganancia: 4000 }]
-      },
-      { 
-        nombre: "plex", 
-        displayName: "Plex",
-        imageName: "plex.png",
-        valores: [{ afiliado: 5500, sugerido: 9500, ganancia: 4000 }]
-      },
-      { 
-        nombre: "apple", 
-        displayName: "Apple TV+",
-        imageName: "apple.png",
-        valores: [{ afiliado: 8500, sugerido: 12500, ganancia: 4000 }]
-      },
-      { 
-        nombre: "tidal", 
-        displayName: "Tidal",
-        imageName: "tidal.png",
-        valores: [{ afiliado: 6500, sugerido: 10000, ganancia: 3500 }]
-      },
-      { 
         nombre: "spotify", 
         displayName: "Spotify",
         imageName: "spotify.png",
         valores: [{ afiliado: 11000, sugerido: 14500, ganancia: 3500 }]
       }
     ];
-    
-    const combos = [
-      { 
-        nombre: "nehbo", 
-        displayName: "Combo Netflix + HBO",
-        imageName: "nehbo.png",
-        valores: [{ afiliado: 15000, sugerido: 20000, ganancia: 5000 }]
-      },
-      { 
-        nombre: "nepri", 
-        displayName: "Combo Netflix + Prime",
-        imageName: "nepri.png",
-        valores: [{ afiliado: 15000, sugerido: 20000, ganancia: 5000 }]
-      }
-    ];
 
-    // Función para obtener el precio real de los productos
     function obtenerPrecioReal(servicio, index = 0) {
       if (servicio.nombre === 'netflix') {
         return index === 0 ? 9000 : 12500;
@@ -598,42 +438,31 @@
         return index === 0 ? 5000 : 9000;
       } else {
         switch(servicio.nombre) {
-          case 'hbo': 
-          case 'prime': 
+          case 'hbo':
+          case 'prime':
             return 3500;
-          case 'paramount': 
-          case 'viki': 
-          case 'crunchyroll': 
-          case 'vix': 
-          case 'plex': 
+          case 'paramount':
+          case 'viki':
+          case 'crunchyroll':
+          case 'vix':
             return 3000;
-          case 'iptv':
           case 'youtube':
-          case 'apple':
             return 6000;
-          case 'dgo':
-            return 7000; // Precio real para DGO
           case 'spotify':
             return 8500;
-          case 'tidal':
-            return 5000;
-          // Combos
-          case 'nehbo':
-          case 'nepri':
-            return 12500; // Precio real para combos
           default:
             return servicio.valores[0].afiliado - 2500;
         }
       }
     }
 
-    // Función para calcular la ganancia del promotor (55% de la diferencia)
+    // Función para calcular ganancia en modo promotor - ACTUALIZADA AL 60%
     function calcularGananciaPromotor(precioReal, precioSugerido) {
       const diferencia = precioSugerido - precioReal;
-      return Math.round(diferencia * 0.55);
+      return Math.round(diferencia * 0.6); // 60% de la diferencia (actualizado de 50%)
     }
 
-    function crearTarjeta(servicio, esCombo = false, modo = 'revendedor') {
+    function crearTarjeta(servicio, modo) {
       const card = document.createElement('div');
       card.className = 'card';
       card.dataset.nombre = servicio.nombre;
@@ -647,50 +476,30 @@
       
       card.dataset.popularity = popularityOrder.indexOf(servicio.imageName);
       
-      const rutaImagen = `https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/${servicio.imageName}`;
+      const rutaImagen = `https://raw.githubusercontent.com/hhanabi/web/refs/heads/main/hanabifile/${servicio.imageName}`;
       
-      let tableHTML = `
-        <div class="table-container">
-          <table>`;
-      
+      let tableHTML = `<div class="table-container"><table>`;
       const isNetflix = servicio.nombre === "netflix";
       const isDisney = servicio.nombre === "disney";
-      const isDGO = servicio.nombre === "dgo";
       
       if (modo === 'revendedor') {
-        if (isDGO) {
-          // Tabla especial para DGO en modo revendedor
-          tableHTML += `
-            <thead>
-              <tr>
-                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Gold</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Precio Afiliado</td><td>$13.000</td></tr>
-              <tr><td>Precio Sugerido</td><td>$17.000</td></tr>
-              <tr><td>Ganancia</td><td>$4.000</td></tr>
-            </tbody>
-            <thead>
-              <tr>
-                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Win Sports</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Precio Afiliado</td><td>$25.000</td></tr>
-              <tr><td>Precio Sugerido</td><td>$29.000</td></tr>
-              <tr><td>Ganancia</td><td>$4.000</td></tr>
-            </tbody>`;
-        } else if (isNetflix || isDisney) {
-          // Para Netflix y Disney: mostrar encabezados para cada plan
-          servicio.valores.forEach((valor, index) => {
-            const headerClass = isNetflix ? 'netflix-header' : 'disney-header';
-            
+        if (isNetflix) {
+          servicio.valores.forEach((valor) => {
             tableHTML += `
-              <thead class="${headerClass}">
-                <tr>
-                  <th colspan="2">${valor.tipo}</th>
-                </tr>
+              <thead class="netflix-header">
+                <tr><th colspan="2">${valor.tipo}</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Precio Afiliado</td><td>$${valor.afiliado.toLocaleString('es-CO')}</td></tr>
+                <tr><td>Precio Sugerido</td><td>$${valor.sugerido.toLocaleString('es-CO')}</td></tr>
+                <tr><td>Ganancia</td><td>$${valor.ganancia.toLocaleString('es-CO')}</td></tr>
+              </tbody>`;
+          });
+        } else if (isDisney) {
+          servicio.valores.forEach((valor) => {
+            tableHTML += `
+              <thead class="disney-header">
+                <tr><th colspan="2">${valor.tipo}</th></tr>
               </thead>
               <tbody>
                 <tr><td>Precio Afiliado</td><td>$${valor.afiliado.toLocaleString('es-CO')}</td></tr>
@@ -699,7 +508,6 @@
               </tbody>`;
           });
         } else {
-          // Para otros servicios: sin encabezado, solo la tabla
           tableHTML += `
             <tbody>
               <tr><td>Precio Afiliado</td><td>$${servicio.valores[0].afiliado.toLocaleString('es-CO')}</td></tr>
@@ -708,36 +516,7 @@
             </tbody>`;
         }
       } else {
-        // Modo PROMOTOR
-        if (isDGO) {
-          // Tabla especial para DGO en modo promotor
-          const precioRealGold = obtenerPrecioReal(servicio, 0);
-          const gananciaGold = calcularGananciaPromotor(precioRealGold, 17000);
-          
-          tableHTML += `
-            <thead>
-              <tr>
-                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Gold</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="promotor-highlight">
-                <td>Ganancia Promotor (55%)</td>
-                <td>$${gananciaGold.toLocaleString('es-CO')}</td>
-              </tr>
-            </tbody>
-            <thead>
-              <tr>
-                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Win Sports</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="promotor-highlight">
-                <td>Ganancia Promotor (55%)</td>
-                <td>$2.200</td>
-              </tr>
-            </tbody>`;
-        } else if (isNetflix || isDisney) {
+        if (isNetflix || isDisney) {
           servicio.valores.forEach((valor, index) => {
             const precioReal = obtenerPrecioReal(servicio, index);
             const gananciaPromotor = calcularGananciaPromotor(precioReal, valor.sugerido);
@@ -745,13 +524,11 @@
             
             tableHTML += `
               <thead class="${headerClass}">
-                <tr>
-                  <th colspan="2">${valor.tipo}</th>
-                </tr>
+                <tr><th colspan="2">${valor.tipo}</th></tr>
               </thead>
               <tbody>
                 <tr class="promotor-highlight">
-                  <td>Ganancia Promotor (55%)</td>
+                  <td>Ganancia Promotor (60%)</td>
                   <td>$${gananciaPromotor.toLocaleString('es-CO')}</td>
                 </tr>
               </tbody>`;
@@ -763,7 +540,7 @@
           tableHTML += `
             <tbody>
               <tr class="promotor-highlight">
-                <td>Ganancia Promotor (55%)</td>
+                <td>Ganancia Promotor (60%)</td>
                 <td>$${gananciaPromotor.toLocaleString('es-CO')}</td>
               </tr>
             </tbody>`;
@@ -771,58 +548,27 @@
       }
       
       tableHTML += `</table></div>`;
-      
-      card.innerHTML = `
-        <img src="${rutaImagen}" alt="${servicio.displayName}" />
-        ${tableHTML}
-      `;
+      card.innerHTML = `<img src="${rutaImagen}" alt="${servicio.displayName}" />${tableHTML}`;
       
       const tableContainer = card.querySelector('.table-container');
-      
       card.addEventListener('click', (e) => {
         if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') return;
-        
         if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
           currentlyOpenCard.style.display = 'none';
         }
-        
         tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
-        
         currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
       });
       
       return card;
     }
 
-    // Función para cerrar tarjetas al hacer clic fuera
-    function setupClickOutsideListener() {
-      document.addEventListener('click', function(e) {
-        if (currentlyOpenCard) {
-          const card = currentlyOpenCard.closest('.card');
-          if (!card.contains(e.target)) {
-            currentlyOpenCard.style.display = 'none';
-            currentlyOpenCard = null;
-          }
-        }
-      });
-    }
-
     function renderAllCards(modo) {
       container.innerHTML = '';
-      
-      servicios.forEach((servicio) => {
-        container.appendChild(crearTarjeta(servicio, false, modo));
-      });
-      
-      combos.forEach(item => {
-        container.appendChild(crearTarjeta(item, true, modo));
-      });
+      servicios.forEach(servicio => container.appendChild(crearTarjeta(servicio, modo)));
     }
 
-    // Configurar el listener para cerrar tarjetas al hacer clic fuera
-    setupClickOutsideListener();
-
-    // Manejo de los botones segmentados
+    // Inicializar botones segmentados
     const revendedorBtn = document.getElementById('segmentedRevendedor');
     const promotorBtn = document.getElementById('segmentedPromotor');
 
@@ -841,7 +587,7 @@
     revendedorBtn.addEventListener('click', () => setMode('revendedor'));
     promotorBtn.addEventListener('click', () => setMode('promotor'));
 
-    // Renderizar las tarjetas inicialmente en modo revendedor
+    // Render inicial
     renderAllCards('revendedor');
   </script>
 </body>

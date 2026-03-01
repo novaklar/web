@@ -161,6 +161,11 @@
       background: linear-gradient(to right, #022336, #19bac6);
     }
 
+    /* Estilo para encabezados de DGO */
+    .table-container thead.dgo-header th {
+      background-color: #021327;
+    }
+
     /* Filas de las tablas - peso regular */
     .table-container td {
       padding: 0.5rem 1rem;
@@ -547,7 +552,10 @@
         nombre: "dgo", 
         displayName: "DirecTV Go",
         imageName: "dgo.png",
-        valores: [{ afiliado: 8500, sugerido: 12500, ganancia: 4000 }]
+        valores: [
+          { tipo: "Plan Gold", afiliado: 24500, sugerido: 29000, ganancia: 4500 },
+          { tipo: "Plan Gold + Win play", afiliado: 32000, sugerido: 37000, ganancia: 5000 }
+        ]
       },
       { 
         nombre: "plex", 
@@ -596,6 +604,8 @@
         return index === 0 ? 9000 : 12500;
       } else if (servicio.nombre === 'disney') {
         return index === 0 ? 5000 : 9000;
+      } else if (servicio.nombre === 'dgo') {
+        return index === 0 ? 20000 : 27000; // Precios reales para DGO
       } else {
         switch(servicio.nombre) {
           case 'hbo': 
@@ -611,8 +621,6 @@
           case 'youtube':
           case 'apple':
             return 6000;
-          case 'dgo':
-            return 7000; // Precio real para DGO
           case 'spotify':
             return 8500;
           case 'tidal':
@@ -620,7 +628,7 @@
           // Combos
           case 'nehbo':
           case 'nepri':
-            return 12500; // Precio real para combos
+            return 12500;
           default:
             return servicio.valores[0].afiliado - 2500;
         }
@@ -630,7 +638,7 @@
     // Función para calcular la ganancia del promotor (60% de la diferencia)
     function calcularGananciaPromotor(precioReal, precioSugerido) {
       const diferencia = precioSugerido - precioReal;
-      return Math.round(diferencia * 0.60); // 60% de ganancia
+      return Math.round(diferencia * 0.60);
     }
 
     function crearTarjeta(servicio, esCombo = false, modo = 'revendedor') {
@@ -659,28 +667,20 @@
       
       if (modo === 'revendedor') {
         if (isDGO) {
-          // Tabla especial para DGO en modo revendedor
-          tableHTML += `
-            <thead>
-              <tr>
-                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Gold</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Precio Afiliado</td><td>$13.000</td></tr>
-              <tr><td>Precio Sugerido</td><td>$17.000</td></tr>
-              <tr><td>Ganancia</td><td>$4.000</td></tr>
-            </tbody>
-            <thead>
-              <tr>
-                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Win Sports</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Precio Afiliado</td><td>$25.000</td></tr>
-              <tr><td>Precio Sugerido</td><td>$29.000</td></tr>
-              <tr><td>Ganancia</td><td>$4.000</td></tr>
-            </tbody>`;
+          // Tabla especial para DGO en modo revendedor con nuevos valores
+          servicio.valores.forEach((valor) => {
+            tableHTML += `
+              <thead class="dgo-header">
+                <tr>
+                  <th colspan="2">${valor.tipo}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Precio Afiliado</td><td>$${valor.afiliado.toLocaleString('es-CO')}</td></tr>
+                <tr><td>Precio Sugerido</td><td>$${valor.sugerido.toLocaleString('es-CO')}</td></tr>
+                <tr><td>Ganancia</td><td>$${valor.ganancia.toLocaleString('es-CO')}</td></tr>
+              </tbody>`;
+          });
         } else if (isNetflix || isDisney) {
           // Para Netflix y Disney: mostrar encabezados para cada plan
           servicio.valores.forEach((valor, index) => {
@@ -711,33 +711,23 @@
         // Modo PROMOTOR con 60% de ganancia
         if (isDGO) {
           // Tabla especial para DGO en modo promotor
-          const precioRealGold = obtenerPrecioReal(servicio, 0);
-          const gananciaGold = calcularGananciaPromotor(precioRealGold, 17000);
-          const gananciaWinSports = calcularGananciaPromotor(20000, 29000); // Precio real estimado para Win Sports
-          
-          tableHTML += `
-            <thead>
-              <tr>
-                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Gold</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="promotor-highlight">
-                <td>Ganancia Promotor (60%)</td>
-                <td>$${gananciaGold.toLocaleString('es-CO')}</td>
-              </tr>
-            </tbody>
-            <thead>
-              <tr>
-                <th colspan="2" style="background: #0d4c7f; color: #f1efee;">Plan Win Sports</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="promotor-highlight">
-                <td>Ganancia Promotor (60%)</td>
-                <td>$${gananciaWinSports.toLocaleString('es-CO')}</td>
-              </tr>
-            </tbody>`;
+          servicio.valores.forEach((valor, index) => {
+            const precioReal = obtenerPrecioReal(servicio, index);
+            const gananciaPromotor = calcularGananciaPromotor(precioReal, valor.sugerido);
+            
+            tableHTML += `
+              <thead class="dgo-header">
+                <tr>
+                  <th colspan="2">${valor.tipo}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="promotor-highlight">
+                  <td>Ganancia Promotor (60%)</td>
+                  <td>$${gananciaPromotor.toLocaleString('es-CO')}</td>
+                </tr>
+              </tbody>`;
+          });
         } else if (isNetflix || isDisney) {
           servicio.valores.forEach((valor, index) => {
             const precioReal = obtenerPrecioReal(servicio, index);

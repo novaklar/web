@@ -553,8 +553,7 @@
         displayName: "DirecTV Go",
         imageName: "dgo.png",
         valores: [
-          { tipo: "Plan Gold", afiliado: 24500, sugerido: 29000, ganancia: 4500 },
-          { tipo: "Plan Gold + Win play", afiliado: 32000, sugerido: 37000, ganancia: 5000 }
+          { tipo: "Plan Gold Win +", afiliado: 32000, sugerido: 37000, ganancia: 5000 }
         ]
       },
       { 
@@ -605,7 +604,7 @@
       } else if (servicio.nombre === 'disney') {
         return index === 0 ? 5000 : 9000;
       } else if (servicio.nombre === 'dgo') {
-        return index === 0 ? 20000 : 27000; // Precios reales para DGO
+        return 27000; // Precio real para DGO (Plan Gold Win +)
       } else {
         switch(servicio.nombre) {
           case 'hbo': 
@@ -667,20 +666,19 @@
       
       if (modo === 'revendedor') {
         if (isDGO) {
-          // Tabla especial para DGO en modo revendedor con nuevos valores
-          servicio.valores.forEach((valor) => {
-            tableHTML += `
-              <thead class="dgo-header">
-                <tr>
-                  <th colspan="2">${valor.tipo}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Precio Afiliado</td><td>$${valor.afiliado.toLocaleString('es-CO')}</td></tr>
-                <tr><td>Precio Sugerido</td><td>$${valor.sugerido.toLocaleString('es-CO')}</td></tr>
-                <tr><td>Ganancia</td><td>$${valor.ganancia.toLocaleString('es-CO')}</td></tr>
-              </tbody>`;
-          });
+          // Tabla especial para DGO en modo revendedor con un solo plan
+          const valor = servicio.valores[0];
+          tableHTML += `
+            <thead class="dgo-header">
+              <tr>
+                <th colspan="2">${valor.tipo}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Precio Afiliado</td><td>$${valor.afiliado.toLocaleString('es-CO')}</td></tr>
+              <tr><td>Precio Sugerido</td><td>$${valor.sugerido.toLocaleString('es-CO')}</td></tr>
+              <tr><td>Ganancia</td><td>$${valor.ganancia.toLocaleString('es-CO')}</td></tr>
+            </tbody>`;
         } else if (isNetflix || isDisney) {
           // Para Netflix y Disney: mostrar encabezados para cada plan
           servicio.valores.forEach((valor, index) => {
@@ -710,24 +708,23 @@
       } else {
         // Modo PROMOTOR con 60% de ganancia
         if (isDGO) {
-          // Tabla especial para DGO en modo promotor
-          servicio.valores.forEach((valor, index) => {
-            const precioReal = obtenerPrecioReal(servicio, index);
-            const gananciaPromotor = calcularGananciaPromotor(precioReal, valor.sugerido);
-            
-            tableHTML += `
-              <thead class="dgo-header">
-                <tr>
-                  <th colspan="2">${valor.tipo}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="promotor-highlight">
-                  <td>Ganancia Promotor (60%)</td>
-                  <td>$${gananciaPromotor.toLocaleString('es-CO')}</td>
-                </tr>
-              </tbody>`;
-          });
+          // Tabla especial para DGO en modo promotor con un solo plan
+          const valor = servicio.valores[0];
+          const precioReal = obtenerPrecioReal(servicio, 0);
+          const gananciaPromotor = calcularGananciaPromotor(precioReal, valor.sugerido);
+          
+          tableHTML += `
+            <thead class="dgo-header">
+              <tr>
+                <th colspan="2">${valor.tipo}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="promotor-highlight">
+                <td>Ganancia Promotor (60%)</td>
+                <td>$${gananciaPromotor.toLocaleString('es-CO')}</td>
+              </tr>
+            </tbody>`;
         } else if (isNetflix || isDisney) {
           servicio.valores.forEach((valor, index) => {
             const precioReal = obtenerPrecioReal(servicio, index);

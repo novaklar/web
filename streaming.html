@@ -121,11 +121,11 @@
       font-family: 'Poppins', sans-serif;
       height: 100%;
       padding: 0;
-      border-right: 2px solid #080a33;
     }
 
-    .mode-segmented-btn:last-child {
-      border-right: none;
+    /* Estilo específico para el primer botón (Promotor) */
+    .mode-segmented-btn:first-child {
+      border-right: 2px solid #080a33;
     }
 
     .mode-segmented-btn.active {
@@ -438,8 +438,8 @@
       <a href="https://novaklar.github.io/web/" class="btn-back">Regresar</a>
       
       <div class="mode-segmented" id="modeSegmented">
-        <button class="mode-segmented-btn active" id="segmentedRevendedor">Revendedor</button>
-        <button class="mode-segmented-btn" id="segmentedPromotor">Promotor</button>
+        <button class="mode-segmented-btn active" id="segmentedPromotor">Promotor</button>
+        <button class="mode-segmented-btn" id="segmentedRevendedor">Revendedor</button>
       </div>
     </div>
   </div>
@@ -456,7 +456,7 @@
   <script>
     const container = document.getElementById('cards-container');
     let currentlyOpenCard = null;
-    let currentMode = 'revendedor';
+    let currentMode = 'promotor';
 
     // Orden de popularidad
     const popularityOrder = [
@@ -811,8 +811,8 @@
     setupClickOutsideListener();
 
     // Manejo de los botones segmentados
-    const revendedorBtn = document.getElementById('segmentedRevendedor');
     const promotorBtn = document.getElementById('segmentedPromotor');
+    const revendedorBtn = document.getElementById('segmentedRevendedor');
 
     function setMode(mode) {
       currentMode = mode;
@@ -826,11 +826,11 @@
       renderAllCards(mode);
     }
 
-    revendedorBtn.addEventListener('click', () => setMode('revendedor'));
     promotorBtn.addEventListener('click', () => setMode('promotor'));
+    revendedorBtn.addEventListener('click', () => setMode('revendedor'));
 
-    // Renderizar las tarjetas inicialmente en modo revendedor
-    renderAllCards('revendedor');
+    // Renderizar las tarjetas inicialmente en modo promotor
+    renderAllCards('promotor');
   </script>
 </body>
 </html>

@@ -706,7 +706,7 @@
             </tbody>`;
         }
       } else {
-        // Modo PROMOTOR con 60% de ganancia
+        // Modo PROMOTOR con 60% de ganancia (porcentaje oculto)
         if (isDGO) {
           // Tabla especial para DGO en modo promotor con un solo plan
           const valor = servicio.valores[0];
@@ -721,7 +721,7 @@
             </thead>
             <tbody>
               <tr class="promotor-highlight">
-                <td>Ganancia Promotor (60%)</td>
+                <td>Ganancia Promotor</td>
                 <td>$${gananciaPromotor.toLocaleString('es-CO')}</td>
               </tr>
             </tbody>`;
@@ -739,7 +739,7 @@
               </thead>
               <tbody>
                 <tr class="promotor-highlight">
-                  <td>Ganancia Promotor (60%)</td>
+                  <td>Ganancia Promotor</td>
                   <td>$${gananciaPromotor.toLocaleString('es-CO')}</td>
                 </tr>
               </tbody>`;
@@ -751,7 +751,7 @@
           tableHTML += `
             <tbody>
               <tr class="promotor-highlight">
-                <td>Ganancia Promotor (60%)</td>
+                <td>Ganancia Promotor</td>
                 <td>$${gananciaPromotor.toLocaleString('es-CO')}</td>
               </tr>
             </tbody>`;

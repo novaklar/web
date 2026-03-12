@@ -528,7 +528,6 @@ h1{
     font-family: 'Poppins-Regular', sans-serif;
 }
 
-/* MODIFICACIONES PARA LAS SECCIONES DE TEXTO */
 .about-novaklar {
     padding: 2.5rem 5%;
     max-width: 1400px;
@@ -588,36 +587,26 @@ h1{
     background-color: #0d4c7f;
 }
 
-/* JUSTIFICACIÓN MEJORADA - SIN GUIONES (alineado derecho limpio) */
 .about-section p {
     margin-bottom: 1.5rem;
     line-height: 1.8;
     font-size: 1.1rem;
     font-family: 'Poppins-Regular', sans-serif;
     color: #080a33;
-
-    /* Justificar y forzar alineación también en la última línea */
     text-align: justify;
     text-align-last: justify;
     -webkit-text-align-last: justify;
     -moz-text-align-last: justify;
-
-    /* Control de algoritmo de justificación */
     text-justify: inter-word;
     -ms-text-justify: inter-word;
-
-    /* Evitar guiones automáticos y separación silábica */
     -webkit-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
-
-    /* Evitar cortes agresivos; permitir quiebre seguro cuando sea necesario */
     word-break: normal;
     overflow-wrap: break-word;
-
     max-width: 100%;
-    word-spacing: 0.05em; /* Espaciado entre palabras más controlado */
-    letter-spacing: 0.01em; /* Espaciado entre letras sutil */
+    word-spacing: 0.05em;
+    letter-spacing: 0.01em;
     white-space: normal;
 }
 
@@ -661,32 +650,23 @@ h1{
     display: none !important;
 }
 
-/* ESTILOS ESPECÍFICOS PARA PÁRRAFOS EN TÉRMINOS - JUSTIFICACIÓN MEJORADA */
 .terms p {
     margin-bottom: 1.8rem;
     line-height: 1.8;
     font-size: 1.1rem;
     font-family: 'Poppins-Regular', sans-serif;
     color: #080a33;
-
-    /* Justificar y forzar alineación también en la última línea */
     text-align: justify;
     text-align-last: justify;
     -webkit-text-align-last: justify;
     -moz-text-align-last: justify;
-
-    /* Control de algoritmo de justificación */
     text-justify: inter-word;
     -ms-text-justify: inter-word;
-
-    /* Evitar guiones automáticos y separación silábica */
     -webkit-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
-
     word-break: normal;
     overflow-wrap: break-word;
-
     padding-left: 0;
     position: relative;
     word-spacing: 0.05em;
@@ -694,11 +674,10 @@ h1{
     white-space: normal;
 }
 
-/* SUBTÍTULOS EN TÉRMINOS - REDUCIDOS DE TAMAÑO */
 .terms p strong {
     font-family: 'Poppins-Bold', sans-serif;
     color: #080a33 !important;
-    font-size: 1.05rem; /* REDUCIDO de 1.15rem a 1.05rem */
+    font-size: 1.05rem;
     display: inline-block;
     margin-right: 5px;
     font-weight: 700;
@@ -875,18 +854,15 @@ footer {
     .about-section p, 
     .about-section li,
     .terms p {
-        /* Mantener justificación limpia en pantallas <= 1024px */
         text-align: justify;
         text-align-last: justify;
         -webkit-text-align-last: justify;
         -moz-text-align-last: justify;
-
         -webkit-hyphens: none;
         -ms-hyphens: none;
         hyphens: none;
         word-break: normal;
         overflow-wrap: break-word;
-
         font-size: 1rem;
     }
     
@@ -899,7 +875,7 @@ footer {
     }
 
     .terms p strong {
-        font-size: 1rem; /* Ajuste responsive para subtítulos */
+        font-size: 1rem;
     }
 
     .whatsapp-button {
@@ -1032,18 +1008,15 @@ footer {
     .about-section p, 
     .about-section li,
     .terms p {
-        /* Mantener justificación limpia en pantallas <= 768px */
         text-align: justify;
         text-align-last: justify;
         -webkit-text-align-last: justify;
         -moz-text-align-last: justify;
-
         -webkit-hyphens: none;
         -ms-hyphens: none;
         hyphens: none;
         word-break: normal;
         overflow-wrap: break-word;
-
         font-size: 0.95rem;
         line-height: 1.65;
     }
@@ -1063,7 +1036,7 @@ footer {
     }
 
     .terms p strong {
-        font-size: 0.95rem; /* Ajuste responsive para subtítulos */
+        font-size: 0.95rem;
     }
 
     .whatsapp-button {
@@ -1192,18 +1165,15 @@ footer {
     .about-section p, 
     .about-section li,
     .terms p {
-        /* Mantener justificación limpia en pantallas <= 520px */
         text-align: justify;
         text-align-last: justify;
         -webkit-text-align-last: justify;
         -moz-text-align-last: justify;
-
         -webkit-hyphens: none;
         -ms-hyphens: none;
         hyphens: none;
         word-break: normal;
         overflow-wrap: break-word;
-
         font-size: 0.9rem;
         line-height: 1.6;
     }
@@ -1219,7 +1189,7 @@ footer {
     }
 
     .terms p strong {
-        font-size: 0.9rem; /* Ajuste responsive para subtítulos */
+        font-size: 0.9rem;
     }
 
     .whatsapp-button {

@@ -8,9 +8,6 @@ const closeBtn = document.getElementById('closeBtn');
 const header = document.querySelector('.header');
 
 const menus = {
-    studio: [
-        { text: 'NK studio', url: 'https://www.novaklar.com', target: '_blank' }
-    ],
     catalogos: [
         { text: 'Gaming', url: 'gaming.html', target: '_self' },
         { text: 'Software', url: 'software.html', target: '_self' },
@@ -29,18 +26,6 @@ function updateActiveButton(button) {
     if (!button) return;
 
     const menuType = button.getAttribute('data-menu');
-    
-    if (menuType === 'studio') {
-        const studioUrl = menus.studio[0].url;
-        const studioTarget = menus.studio[0].target;
-        
-        if (studioTarget === '_blank') {
-            window.open(studioUrl, '_blank');
-        } else {
-            window.location.href = studioUrl;
-        }
-        return;
-    }
 
     const isSameButton = button === activeButton;
 

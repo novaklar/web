@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novaklar</title>
-    <!-- CSS versionado v1.4 - Términos y condiciones actualizados -->
-    <link rel="stylesheet" href="style.css?v=1.5">
+    <link rel="stylesheet" href="style.css?v=1.6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Favicon actualizado -->
     <link rel="icon" href="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/cloud.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Floating Header con Glassmorfismo Mejorado -->
     <header class="header">
         <div class="header-content">
-            <!-- Logo actualizado -->
             <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/cloud.svg" alt="Novaklar" class="logo">
             
-            <!-- Menú para pantallas grandes -->
             <nav class="nav-links">
                 <a href="https://www.tiktok.com/@novaklar?_r=1&_t=ZS-919oaIUdgCQ" target="_blank">TikTok</a>
                 <a href="https://youtube.com/@novaklar?si=rvWZdTtdbzl_iHqY" target="_blank">YouTube</a>
@@ -28,7 +23,6 @@
                 <a href="https://whatsapp.com/channel/0029VaMxlM0EVccFMEFw9u04" target="_blank">WhatsApp</a>
             </nav>
             
-            <!-- Menú hamburguesa para móviles -->
             <div class="hamburger-menu">
                 <span></span>
                 <span></span>
@@ -37,7 +31,6 @@
         </div>
     </header>
 
-    <!-- Drawer Menu para móviles -->
     <div class="drawer-menu">
         <div class="close-btn" id="closeBtn">×</div>
         <div class="menu-items">
@@ -56,7 +49,6 @@
         </div>
     </div>
     
-    <!-- Overlay para cerrar el menú -->
     <div class="overlay"></div>
 
     <div class="main-container" id="mainContainer">
@@ -68,9 +60,6 @@
 
             <div class="buttons-section">
                 <div class="buttons-container">
-                    <div class="button-wrapper">
-                        <button class="menu-button" data-menu="studio" id="studioButton">Studio</button>
-                    </div>
                     <div class="button-wrapper">
                         <button class="menu-button" data-menu="catalogos">Catalogos</button>
                         <div class="submenu-container" data-menu="catalogos"></div>
@@ -84,7 +73,6 @@
         </div>
     </div>
 
-    <!-- Secciones adicionales -->
     <section class="counters">
         <div class="counter-container">
             <div class="counter" data-target="95">0</div>
@@ -124,13 +112,12 @@
 
         <div class="about-section">
             <h3>Modelo de negocio</h3>
-            <p>Nos basamos en tres roles fundamentales:</p>
-            <ul>
-                <li><strong>Revendedores:</strong> Venden sin necesidad de inversión previa.</li>
-                <li><strong>Promotores:</strong> Recomiendan y ganan por comisión tras cada venta.</li>
-                <li><strong>Reclutadores:</strong> Expanden el equipo y reciben comisiones por nuevos afiliados.</li>
-            </ul>
-            <p>Creemos en la innovación, la flexibilidad y el trabajo en red como motor de crecimiento real.</p>
+            <p>Nuestro modelo se basa en dos formas principales de generar ingresos dentro de Novaklar:</p>
+            <p><strong>Promotores</strong><br>
+            Es la forma más sencilla y popular de empezar. Los promotores se encargan de recomendar y promocionar los productos y servicios de Novaklar. Cuando una persona está interesada, el promotor simplemente la refiere con nuestros asesores, quienes se encargan de todo el proceso de venta y atención. Al finalizar la venta, el promotor recibe una comisión equivalente al 55% de la ganancia generada. Es un modelo simple, flexible y diseñado para que cualquiera pueda empezar a generar ingresos sin complicaciones.</p>
+            <p><strong>Revendedores</strong><br>
+            Los revendedores trabajan directamente con nuestros productos y servicios, gestionando sus propias ventas dentro del ecosistema de Novaklar. Es una opción ideal para quienes prefieren manejar sus clientes y procesos de venta de manera directa.</p>
+            <p>Creemos en la innovación, la flexibilidad y el trabajo en red como motores de crecimiento.</p>
         </div>
 
         <div class="about-section terms">
@@ -158,22 +145,6 @@
         </div>
     </a>
 
-    <script>
-        // Código JavaScript para manejar el botón Studio directo
-        document.addEventListener('DOMContentLoaded', function() {
-            const studioButton = document.getElementById('studioButton');
-            
-            // Agregar acción directa al botón Studio - VINCULADO EXCLUSIVAMENTE A NOVAKLAR.COM
-            studioButton.addEventListener('click', function() {
-                window.location.href = 'https://novaklar.com';
-            });
-            
-            // El resto de tu código JavaScript existente...
-        });
-    </script>
-    
-    <!-- JavaScript versionado -->
     <script src="script.js?v=1.2"></script>
 </body>
 </html>
-

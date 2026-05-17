@@ -23,14 +23,14 @@
     }
 
     :root {
-      --primary-blue: #0d4c7f; /* CAMBIADO: #001499 por #0d4c7f */
-      --secondary-blue: #7fcfda; /* CAMBIADO: #4270ff por #7fcfda */
+      --primary-blue: #000c7d;
+      --secondary-blue: #6b8cff;
       --light-blue: #eef5ff;
-      --white: #f1efee; /* CAMBIADO: #ffffff por #f1efee */
+      --white: #f4f6fc;
       --light-gray: #f9f9f9;
       --medium-gray: #555;
-      --dark-gray: #080a33; /* CAMBIADO: #333 por #080a33 */
-      --shadow: 0 6px 20px rgba(8, 10, 51, 0.1); /* CAMBIADO: rgba(0,0,0,0.1) por rgba(8,10,51,0.1) */
+      --dark-gray: #080a33;
+      --shadow: 0 6px 20px rgba(8, 10, 51, 0.1);
       --transition: all 0.3s ease;
       --whatsapp-green: #25d366; 
       --whatsapp-hover: #1da851;
@@ -45,19 +45,19 @@
     body {
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--light-gray); 
-      color: var(--dark-gray); /* USA EL NUEVO COLOR #080a33 */
+      color: var(--dark-gray);
       line-height: 1.6;
       padding-bottom: 3rem;
     }
 
     /* --- Header Styles --- */
     header {
-      background-color: var(--primary-blue); /* USA EL NUEVO COLOR #0d4c7f */
+      background-color: var(--primary-blue);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 1.5rem;
-      box-shadow: 0 2px 10px rgba(8, 10, 51, 0.1); /* CAMBIADO: rgba(0,0,0,0.1) por rgba(8,10,51,0.1) */
+      box-shadow: 0 2px 10px rgba(8, 10, 51, 0.1);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -109,28 +109,22 @@
       text-align: center;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       position: relative;
-      background-color: var(--white); /* USA EL NUEVO COLOR #f1efee */
+      background-color: var(--white);
       border: 1px solid #ddd; 
     }
 
     .contact-section:hover {
         transform: translateY(-5px); 
-        box-shadow: 0 15px 35px rgba(13, 76, 127, 0.1), 0 5px 10px rgba(8, 10, 51, 0.05); /* CAMBIADO */
+        box-shadow: 0 15px 35px rgba(13, 76, 127, 0.1), 0 5px 10px rgba(8, 10, 51, 0.05);
     }
 
-    /* Colores actualizados según solicitud */
     .sales-section {
-      border-top: 6px solid var(--secondary-blue); /* USA EL NUEVO COLOR #7fcfda */
-    }
-
-    .recruitment-section {
-      border-top: 6px solid var(--primary-blue); /* USA EL NUEVO COLOR #0d4c7f */
+      border-top: 6px solid var(--secondary-blue);
     }
     
-    /* Estilo de Gerencia */
     .manager-section {
       border: 1px dashed var(--medium-gray);
-      background-color: var(--white); /* USA EL NUEVO COLOR #f1efee */
+      background-color: var(--white);
       max-width: 800px; 
       margin-top: 2rem;
       padding: 2rem;
@@ -146,17 +140,12 @@
       position: relative;
     }
 
-    /* Colores de títulos actualizados */
     .sales-title {
-      color: var(--secondary-blue); /* USA EL NUEVO COLOR #7fcfda */
-    }
-
-    .recruitment-title {
-      color: var(--primary-blue); /* USA EL NUEVO COLOR #0d4c7f */
+      color: var(--secondary-blue);
     }
     
     .manager-title {
-        color: var(--dark-gray); /* USA EL NUEVO COLOR #080a33 */
+        color: var(--dark-gray);
         font-size: 1.5rem; 
     }
 
@@ -169,9 +158,8 @@
       font-family: 'Poppins', sans-serif;
     }
     
-    /* Para que el strong se vea más claro */
     .contact-info strong {
-        color: var(--dark-gray); /* USA EL NUEVO COLOR #080a33 */
+        color: var(--dark-gray);
         font-weight: bold;
     }
 
@@ -199,7 +187,7 @@
       text-decoration: none;
       font-weight: bold; 
       font-size: 1.05rem;
-      box-shadow: 0 4px 12px rgba(8, 10, 51, 0.2); /* CAMBIADO: rgba(0,0,0,0.2) por rgba(8,10,51,0.2) */
+      box-shadow: 0 4px 12px rgba(8, 10, 51, 0.2);
       transition: var(--transition);
       position: relative;
       overflow: hidden;
@@ -213,7 +201,7 @@
     .whatsapp-btn:hover {
       background-color: var(--whatsapp-hover);
       transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 8px 20px rgba(8, 10, 51, 0.3); /* CAMBIADO: rgba(0,0,0,0.3) por rgba(8,10,51,0.3) */
+      box-shadow: 0 8px 20px rgba(8, 10, 51, 0.3);
     }
 
     .whatsapp-btn i {
@@ -222,12 +210,12 @@
     }
     
     .manager-btn {
-        background-color: var(--primary-blue); /* USA EL NUEVO COLOR #0d4c7f */
+        background-color: var(--primary-blue);
         color: var(--white);
     }
 
     .manager-btn:hover {
-        background-color: #0a3d66; /* Oscurecimiento del nuevo azul primario */
+        background-color: #000a66;
     }
 
     /* Responsive Design */
@@ -283,41 +271,13 @@
       </p>
       <div class="button-group">
         <div class="button-row">
-          <a href="https://wa.me/573127741655?text=Hola%20Tatiana%2C%20te%20contacto%20desde%20la%20página%20web%20para%20una%20consulta%20comercial." class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Tatiana
-          </a>
-        </div>
-        <div class="button-row">
           <a href="https://wa.me/573018205460?text=Hola%20Alejandra%2C%20te%20contacto%20desde%20la%20página%20web%20para%20una%20consulta%20comercial." class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Alejandra
           </a>
         </div>
-        <!-- NUEVO BOTÓN DANNA AGREGADO -->
         <div class="button-row">
           <a href="https://wa.me/573027069241?text=Hola%20Danna%2C%20te%20contacto%20desde%20la%20página%20web%20para%20una%20consulta%20comercial." class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Danna
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="contact-section recruitment-section">
-      <h2 class="section-title recruitment-title">Asesoras de Reclutamiento</h2>
-      <p class="contact-info">
-        Si eres un afiliado que ingresó a través de nuestro departamento de reclutamiento y tienes preguntas o dudas específicas sobre la empresa, tu proceso de ingreso o capacitaciones, ellas te brindarán soporte.
-      </p>
-      <div class="button-group">
-        <div class="button-row">
-          <a href="https://wa.me/573216495733?text=Hola%20Ester%2C%20te%20contacto%20desde%20la%20página%20web%20con%20una%20duda%20de%20reclutamiento." class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Ester
-          </a>
-        </div>
-        <div class="button-row">
-          <a href="https://wa.me/573027069328?text=Hola%20Katherin%2C%20te%20contacto%20desde%20la%20página%20web%20con%20una%20duda%20de%20reclutamiento." class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Katherin
-          </a>
-          <a href="https://wa.me/573027069188?text=Hola%20Neyereth%2C%20te%20contacto%20desde%20la%20página%20web%20con%20una%20duda%20de%20reclutamiento." class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Neyereth
           </a>
         </div>
       </div>

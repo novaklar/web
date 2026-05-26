@@ -28,13 +28,13 @@
       margin: 0;
       /* Aplicar Poppins Regular a todo el cuerpo */
       font-family: 'Poppins Regular', sans-serif;
-      background-color: #f1efee;
+      background-color: #f4f6fc;
       color: #080a33; /* Cambiado de #333 a #080a33 */
     }
 
     header {
-      /* REEMPLAZADO: #001499 por #0d4c7f */
-      background-color: #0d4c7f;
+      /* REEMPLAZADO: #0d4c7f por #000c7d */
+      background-color: #000c7d;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -44,13 +44,13 @@
 
     header img {
       height: 40px;
-      /* Mantenido el color del logo en #f1efee */
+      /* REEMPLAZADO: #f1efee por #f4f6fc */
       filter: invert(99%) sepia(3%) saturate(106%) hue-rotate(224deg) brightness(114%) contrast(92%);
     }
 
     header a {
       text-decoration: none;
-      color: #f1efee; /* Mantenido para contraste con fondo azul */
+      color: #f4f6fc; /* REEMPLAZADO: #f1efee por #f4f6fc */
       font-weight: 600;
       font-size: 1rem;
       padding: 0.5rem 1rem;
@@ -59,7 +59,7 @@
     }
 
     header a:hover {
-      background-color: rgba(241, 239, 238, 0.2);
+      background-color: rgba(244, 246, 252, 0.2);
     }
 
     .page-title {
@@ -67,8 +67,8 @@
       font-family: 'Poppins Bold', sans-serif; 
       font-size: 2.2rem;
       font-weight: 700; /* Se mantiene, aunque Poppins Bold ya lo tiene */
-      /* REEMPLAZADO: #001499 por #0d4c7f */
-      color: #0d4c7f;
+      /* REEMPLAZADO: #0d4c7f por #000c7d */
+      color: #000c7d;
       text-align: center;
       margin: 2rem 0 0.5rem;
       padding: 0 1rem;
@@ -76,8 +76,8 @@
 
     .season-info {
       text-align: center;
-      /* REEMPLAZADO: #001499 por #0d4c7f */
-      color: #0d4c7f;
+      /* REEMPLAZADO: #0d4c7f por #000c7d */
+      color: #000c7d;
       /* La fuente es Poppins Regular por herencia de body */
       font-size: 1.1rem;
       font-weight: 500;
@@ -103,8 +103,8 @@
       font-size: 1rem;
       transition: all 0.3s ease;
       box-sizing: border-box;
-      /* >>> CAMBIO REVERTIDO: Vuelve a #f1efee (era 'white') */
-      background-color: #f1efee; 
+      /* REEMPLAZADO: #f1efee por #f4f6fc */
+      background-color: #f4f6fc; 
       color: #080a33; /* Mantenido para mejor contraste */
     }
 
@@ -114,10 +114,10 @@
 
     .search-input:focus {
       outline: none;
-      /* REEMPLAZADO: #4270ff por #7fcfda */
-      border-color: #7fcfda;
-      /* REEMPLAZADO: rgba(66, 112, 255, 0.4) por rgba(127, 207, 218, 0.4) */
-      box-shadow: 0 0 0 3px rgba(127, 207, 218, 0.4);
+      /* REEMPLAZADO: #7fcfda por #6b8cff */
+      border-color: #6b8cff;
+      /* REEMPLAZADO: rgba(127, 207, 218, 0.4) por rgba(107, 140, 255, 0.4) */
+      box-shadow: 0 0 0 3px rgba(107, 140, 255, 0.4);
     }
 
     .search-icon {
@@ -135,13 +135,13 @@
       box-shadow: 0 3px 15px rgba(0,0,0,0.08);
       border-radius: 0.8rem;
       overflow: hidden;
-      background-color: #f1efee;
+      background-color: #f4f6fc;
     }
 
     .ranking-table thead {
-      /* REEMPLAZADO: #001499 por #0d4c7f */
-      background-color: #0d4c7f;
-      color: #f1efee;
+      /* REEMPLAZADO: #0d4c7f por #000c7d */
+      background-color: #000c7d;
+      color: #f4f6fc;
     }
 
     .ranking-table th {
@@ -149,7 +149,7 @@
       text-align: left;
       font-weight: 600;
       font-size: 1.05rem;
-      color: #f1efee;
+      color: #f4f6fc;
     }
 
     .ranking-table td {
@@ -160,7 +160,7 @@
 
     /* TODAS las filas tendrán el mismo color de fondo */
     .ranking-table tbody tr {
-      background-color: #f1efee;
+      background-color: #f4f6fc;
     }
 
     .ranking-table tbody tr:last-child td {
@@ -169,13 +169,13 @@
 
     /* Hover para todas las filas */
     .ranking-table tbody tr:hover {
-      background-color: #e8e6e5 !important; /* Color más oscuro para hover */
+      background-color: #e8eaf0 !important; /* Color más oscuro para hover */
     }
 
     .rank-number {
       font-weight: bold;
-      /* REEMPLAZADO: #001499 por #0d4c7f */
-      color: #0d4c7f;
+      /* REEMPLAZADO: #0d4c7f por #000c7d */
+      color: #000c7d;
       width: 50px;
       text-align: center;
     }
@@ -188,8 +188,8 @@
     .sales-count {
       text-align: right;
       font-weight: 600;
-      /* REEMPLAZADO: #4270ff por #7fcfda */
-      color: #7fcfda;
+      /* REEMPLAZADO: #7fcfda por #6b8cff */
+      color: #6b8cff;
     }
 
     /* Eliminado el estilo especial para las primeras 3 filas (top-affiliate) */
@@ -207,20 +207,20 @@
       font-style: italic;
       color: #080a33; /* Cambiado de #666 a #080a33 */
       font-size: 1.1rem;
-      background-color: #f1efee;
+      background-color: #f4f6fc;
     }
 
     .loading i {
       display: block;
       font-size: 2rem;
       margin-bottom: 1rem;
-      /* REEMPLAZADO: #001499 por #0d4c7f */
-      color: #0d4c7f;
+      /* REEMPLAZADO: #0d4c7f por #000c7d */
+      color: #000c7d;
     }
 
     .error-message {
       color: #d32f2f;
-      background-color: #f1efee;
+      background-color: #f4f6fc;
       padding: 1.2rem;
       border-radius: 0.6rem;
       margin: 1rem 0;
@@ -245,28 +245,28 @@
       display: block;
       margin: 1.5rem auto;
       padding: 0.8rem 1.5rem;
-      /* Mantenido el color de fondo */
-      background-color: #7fcfda;
-      /* Mantenido el color del texto del botón en #f1efee */
-      color: #f1efee; 
+      /* REEMPLAZADO: #7fcfda por #6b8cff */
+      background-color: #6b8cff;
+      /* REEMPLAZADO: #f1efee por #f4f6fc */
+      color: #f4f6fc; 
       border: none;
       border-radius: 0.6rem;
       cursor: pointer;
       transition: all 0.3s ease;
       font-weight: 600;
-      box-shadow: 0 4px 6px rgba(127, 207, 218, 0.3);
+      box-shadow: 0 4px 6px rgba(107, 140, 255, 0.3);
     }
     
-    /* Mantenido el color del icono en #f1efee */
+    /* REEMPLAZADO: #f1efee por #f4f6fc */
     .refresh-btn #refresh-icon i {
-        color: #f1efee;
+        color: #f4f6fc;
     }
 
     .refresh-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(127, 207, 218, 0.4);
+      box-shadow: 0 6px 12px rgba(107, 140, 255, 0.4);
       /* Opcional: oscurecer ligeramente al hover */
-      background-color: #70c0cc;
+      background-color: #5a7af0;
     }
 
     .refresh-btn:active {
@@ -282,9 +282,9 @@
     }
 
     .total-sales {
-      /* REEMPLAZADO: #001499 y #4270ff por #0d4c7f y #7fcfda */
-      background: linear-gradient(135deg, #0d4c7f, #7fcfda);
-      color: #f1efee; /* Mantenido para contraste con fondo azul */
+      /* REEMPLAZADO: #0d4c7f y #7fcfda por #000c7d y #6b8cff */
+      background: linear-gradient(135deg, #000c7d, #6b8cff);
+      color: #f4f6fc; /* REEMPLAZADO: #f1efee por #f4f6fc */
       padding: 1.2rem;
       border-radius: 0.8rem;
       margin-top: 2rem;
@@ -292,7 +292,7 @@
       font-weight: 600;
       font-size: 1.2rem;
       /* Sombra ajustada para el nuevo azul */
-      box-shadow: 0 4px 12px rgba(13, 76, 127, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 12, 125, 0.3);
     }
 
     .total-sales span {
@@ -305,7 +305,7 @@
       padding: 2rem;
       color: #64748b;
       font-style: italic;
-      background-color: #f1efee;
+      background-color: #f4f6fc;
       border-radius: 0.8rem;
       border: 1px solid #e2e8f0;
     }

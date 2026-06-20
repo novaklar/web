@@ -467,8 +467,8 @@
       "prime.png",
       "hbo.png",
       "spotify.png",
-      "nehbo.png",
-      "nepri.png",
+      "NH.png",
+      "NP.png",
       "crunchyroll.png",
       "iptv.png",
       "apple.png",
@@ -477,7 +477,8 @@
       "plex.png",
       "viki.png",
       "tidal.png",
-      "vix.png"
+      "vix.png",
+      "universal.png"
     ];
 
     // Orden por defecto
@@ -549,6 +550,12 @@
         valores: [{ afiliado: 5500, sugerido: 9500, ganancia: 4000 }]
       },
       { 
+        nombre: "universal", 
+        displayName: "Universal",
+        imageName: "universal.png",
+        valores: [{ afiliado: 5500, sugerido: 10000, ganancia: 4500 }]
+      },
+      { 
         nombre: "dgo", 
         displayName: "DirecTV Go",
         imageName: "dgo.png",
@@ -586,13 +593,13 @@
       { 
         nombre: "nehbo", 
         displayName: "Combo Netflix + HBO",
-        imageName: "nehbo.png",
+        imageName: "NH.png",
         valores: [{ afiliado: 15000, sugerido: 20000, ganancia: 5000 }]
       },
       { 
         nombre: "nepri", 
         displayName: "Combo Netflix + Prime",
-        imageName: "nepri.png",
+        imageName: "NP.png",
         valores: [{ afiliado: 15000, sugerido: 20000, ganancia: 5000 }]
       }
     ];
@@ -605,6 +612,8 @@
         return index === 0 ? 5000 : 9000;
       } else if (servicio.nombre === 'dgo') {
         return 27000; // Precio real para DGO (Plan Gold Win +)
+      } else if (servicio.nombre === 'universal') {
+        return 2500; // Precio real para Universal
       } else {
         switch(servicio.nombre) {
           case 'hbo': 

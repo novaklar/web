@@ -488,7 +488,6 @@
         displayName: "Netflix",
         imageName: "netflix.png",
         valores: [
-          { tipo: "Perfil genérico", afiliado: 11500, sugerido: 15500, ganancia: 4000 },
           { tipo: "Perfil original", afiliado: 15000, sugerido: 18000, ganancia: 3000 }
         ]
       },
@@ -517,7 +516,7 @@
         nombre: "paramount", 
         displayName: "Paramount+",
         imageName: "paramount.png",
-        valores: [{ afiliado: 5500, sugerido: 9500, ganancia: 4000 }]
+        valores: [{ afiliado: 7500, sugerido: 12000, ganancia: 4500 }]
       },
       { 
         nombre: "viki", 
@@ -607,19 +606,20 @@
     // Función para obtener el precio real de los productos
     function obtenerPrecioReal(servicio, index = 0) {
       if (servicio.nombre === 'netflix') {
-        return index === 0 ? 9000 : 12500;
+        return 12500; // Solo perfil original ahora
       } else if (servicio.nombre === 'disney') {
         return index === 0 ? 5000 : 9000;
       } else if (servicio.nombre === 'dgo') {
         return 27000; // Precio real para DGO (Plan Gold Win +)
       } else if (servicio.nombre === 'universal') {
         return 2500; // Precio real para Universal
+      } else if (servicio.nombre === 'paramount') {
+        return 5000; // Precio real para Paramount+
       } else {
         switch(servicio.nombre) {
           case 'hbo': 
           case 'prime': 
             return 3500;
-          case 'paramount': 
           case 'viki': 
           case 'crunchyroll': 
           case 'vix': 

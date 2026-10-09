@@ -34,19 +34,18 @@
 }
 
 :root{
-    --bg: #ffffff;
-    --muted-white: rgba(255,255,255,0.25);
-    --muted-white-2: rgba(255,255,255,0.18);
-    --accent: #2f4df0;
-    --menu-bg: rgba(255, 255, 255, 0.15);
-    --primary-color: #6b8cff;
-    --hero-bg: #3ca597;
+    --color-dark: #00005b;
+    --color-light: #7a99ff;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --footer-bg: #322a56;
+    --footer-accent: #f2b2c6;
 }
 
 html, body {
     width: 100%;
-    background-color: #f4f6fc;
-    color: #080a33;
+    background-color: var(--color-white);
+    color: var(--color-black);
     line-height: 1.6;
     overflow-x: hidden;
     min-height:100vh;
@@ -56,7 +55,6 @@ html, body {
     align-items:center;
     padding:0;
     margin:0;
-    background: #f4f6fc !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -76,7 +74,7 @@ body, p, li, a, span, div {
 h1{
     margin:0;
     font-size: 96px;
-    color: #f4f6fc;
+    color: var(--color-white);
     letter-spacing: 2px;
     font-family: 'DESA', sans-serif;
     font-weight: normal;
@@ -86,7 +84,7 @@ h1{
 
 .tagline {
     margin:0;
-    color: #f4f6fc;
+    color: var(--color-white);
     font-style: italic;
     font-family: 'Poppins-Italic', sans-serif;
     font-size: 22px;
@@ -96,7 +94,7 @@ h1{
 .header {
     width: calc(100% - 40px);
     max-width: 1200px;
-    background: #080a33;
+    background: var(--color-black);
     padding: 14px 25px;
     position: fixed;
     top: 20px;
@@ -104,28 +102,28 @@ h1{
     transform: translateX(-50%);
     z-index: 1000;
     border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: none;
 }
 
 .header.scrolled {
     top: 15px;
-    background: #080a33;
-    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.15);
+    background: var(--color-black);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .header .hamburger-menu span {
-    background-color: #ffffff;
+    background-color: var(--color-white);
 }
 
 .hamburger-menu.active span:nth-child(1),
 .hamburger-menu.active span:nth-child(3) {
-    background-color: #ffffff;
+    background-color: var(--color-white);
 }
 
 .nav-links a {
-    color: #ffffff;
+    color: var(--color-white);
     text-decoration: none;
     font-weight: 600;
     font-size: 15px;
@@ -135,7 +133,7 @@ h1{
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+    color: var(--color-light);
 }
 
 .nav-links a::after {
@@ -145,7 +143,7 @@ h1{
     left: 0;
     width: 0;
     height: 1.5px;
-    background: var(--primary-color);
+    background: var(--color-light);
     transition: width 0.3s ease;
 }
 
@@ -164,6 +162,7 @@ h1{
     height: 38px;
     width: auto;
     transition: all 0.3s ease;
+    filter: brightness(0) invert(1);
 }
 
 .nav-links {
@@ -187,7 +186,7 @@ h1{
     display: block;
     height: 3px;
     width: 100%;
-    background-color: #ffffff;
+    background-color: var(--color-white);
     border-radius: 3px;
     transition: all 0.3s ease;
     transform-origin: center;
@@ -195,7 +194,7 @@ h1{
 
 .hamburger-menu.active span:nth-child(1) {
     transform: translateY(8.5px) rotate(45deg);
-    background-color: #ffffff;
+    background-color: var(--color-white);
 }
 
 .hamburger-menu.active span:nth-child(2) {
@@ -205,7 +204,7 @@ h1{
 
 .hamburger-menu.active span:nth-child(3) {
     transform: translateY(-8.5px) rotate(-45deg);
-    background-color: #ffffff;
+    background-color: var(--color-white);
 }
 
 .drawer-menu {
@@ -214,8 +213,8 @@ h1{
     right: 0;
     width: 280px;
     height: 100%;
-    background-color: #ffffff;
-    box-shadow: -2px 0 10px rgba(8, 10, 51, 0.1);
+    background-color: var(--color-white);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1001;
     display: flex;
     flex-direction: column;
@@ -235,7 +234,7 @@ h1{
     right: 20px;
     font-size: 24px;
     cursor: pointer;
-    color: #080a33;
+    color: var(--color-black);
     width: 30px;
     height: 30px;
     display: flex;
@@ -270,7 +269,7 @@ h1{
     cursor: pointer;
     transition: color 0.3s, background-color 0.3s;
     text-decoration: none;
-    color: #080a33;
+    color: var(--color-black);
     font-family: 'Poppins-Regular', sans-serif;
     text-align: left;
     min-height: auto;
@@ -281,7 +280,7 @@ h1{
 
 .menu-items a.menu-item:hover {
     background-color: transparent;
-    color: #6b8cff;
+    color: var(--color-light);
     transform: none;
 }
 
@@ -290,11 +289,11 @@ h1{
     margin-right: 10px;
     width: auto;
     text-align: left;
-    color: #080a33;
+    color: var(--color-black);
 }
 
 .menu-items a.menu-item:hover i {
-    color: #6b8cff;
+    color: var(--color-light);
 }
 
 .overlay {
@@ -303,7 +302,7 @@ h1{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(8, 10, 51, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
@@ -317,7 +316,7 @@ h1{
 
 .main-container {
     width: 100%;
-    background: linear-gradient(135deg, #6b8cff 0%, #000c7d 100%);
+    background: linear-gradient(135deg, #7a99ff 0%, #00005b 100%);
     padding: 155px 0 80px 0;
     display: flex;
     justify-content: center;
@@ -372,10 +371,10 @@ h1{
 .menu-button {
     width: 100%;
     padding: 22px 30px;
-    background: rgba(244, 246, 252, 0.35);
+    background: rgba(255, 255, 255, 0.35);
     border: none;
     border-radius: 15px;
-    color: #f4f6fc;
+    color: var(--color-white);
     font-size: 20px;
     font-weight: 700;
     font-family: 'Poppins-Bold', sans-serif;
@@ -384,46 +383,46 @@ h1{
     text-align: center;
     backdrop-filter: blur(10px);
     position: relative;
-    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
 }
 
 .menu-button:hover {
-    background: rgba(244, 246, 252, 0.45);
+    background: rgba(255, 255, 255, 0.45);
     transform: translateY(-2px);
 }
 
 .menu-button.active {
-    background: rgba(244, 246, 252, 0.35);
-    color: #f4f6fc;
+    background: rgba(255, 255, 255, 0.35);
+    color: var(--color-white);
     transform: none;
-    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
     border-radius: 15px 15px 0 0;
 }
 
 .button-wrapper:first-child .menu-button {
-    background: rgba(244, 246, 252, 0.35);
-    color: #f4f6fc;
+    background: rgba(255, 255, 255, 0.35);
+    color: var(--color-white);
 }
 
 .button-wrapper:first-child .menu-button.active {
-    background: rgba(244, 246, 252, 0.35);
-    color: #f4f6fc;
+    background: rgba(255, 255, 255, 0.35);
+    color: var(--color-white);
     border-radius: 15px;
 }
 
 .submenu-container {
     width: 100%;
     border-radius: 0 0 15px 15px;
-    background: rgba(8, 10, 51, 0.3);
+    background: rgba(0, 0, 91, 0.3);
     padding: 0 14px;
     transform-origin: top center;
     transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
-    color: #f4f6fc;
+    color: var(--color-white);
     text-align: center;
     backdrop-filter: blur(10px);
     border: none;
     margin-top: -2px;
-    box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
     max-height: 0;
     opacity: 0;
     overflow: hidden;
@@ -446,7 +445,7 @@ h1{
 .submenu a {
     display: block;
     text-decoration: none;
-    color: #f4f6fc;
+    color: var(--color-white);
     padding: 16px 12px;
     font-size: 20px;
     font-weight: 500;
@@ -456,8 +455,8 @@ h1{
 }
 
 .submenu a:hover {
-    background: rgba(244, 246, 252, 0.3);
-    color: #080a33;
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--color-black);
 }
 
 .submenu a + a {
@@ -473,8 +472,8 @@ h1{
 }
 
 .contact-button {
-    background-color: #000c7d;
-    color: white;
+    background-color: var(--color-dark);
+    color: var(--color-white);
     font-family: 'Poppins-Bold', sans-serif;
     width: 280px;
     line-height: normal;
@@ -489,11 +488,11 @@ h1{
 }
 
 .contact-button:hover {
-    background-color: #000a66;
+    background-color: var(--color-black);
 }
 
 .counters {
-    background-color: rgba(107, 140, 255, 0.1);
+    background-color: rgba(122, 153, 255, 0.1);
     padding: 40px 30px;
     border-radius: 15px;
     display: flex;
@@ -514,7 +513,7 @@ h1{
 }
 
 .counter {
-    color: #080a33;
+    color: var(--color-dark);
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -523,7 +522,7 @@ h1{
 
 .counters p {
     font-size: 1.2rem;
-    color: #080a33;
+    color: var(--color-dark);
     font-weight: 500;
     font-family: 'Poppins-Regular', sans-serif;
 }
@@ -533,14 +532,14 @@ h1{
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
-    background-color: #f4f6fc;
+    background-color: var(--color-white);
 }
 
 .about-novaklar h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #080a33;
+    color: var(--color-dark);
     position: relative;
     font-family: 'Poppins-Bold', sans-serif !important;
 }
@@ -548,9 +547,9 @@ h1{
 .about-section {
     margin-bottom: 2.5rem;
     padding: 2.5rem;
-    background-color: #f4f6fc;
+    background-color: var(--color-white);
     border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(8, 10, 51, 0.12), 
+    box-shadow: 0 6px 20px rgba(0, 0, 91, 0.12), 
                 0 1px 3px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
@@ -563,17 +562,17 @@ h1{
 
 .about-section:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(8, 10, 51, 0.18), 
+    box-shadow: 0 12px 28px rgba(0, 0, 91, 0.18), 
                 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .about-section h3 {
-    color: #080a33;
+    color: var(--color-dark);
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
     font-family: 'Poppins-Bold', sans-serif !important;
     padding-bottom: 0.8rem;
-    border-bottom: 2px solid #000c7d;
+    border-bottom: 2px solid var(--color-dark);
     position: relative;
 }
 
@@ -584,7 +583,7 @@ h1{
     left: 0;
     width: 80px;
     height: 2px;
-    background-color: #000c7d;
+    background-color: var(--color-dark);
 }
 
 .about-section p {
@@ -592,7 +591,7 @@ h1{
     line-height: 1.8;
     font-size: 1.1rem;
     font-family: 'Poppins-Regular', sans-serif;
-    color: #080a33;
+    color: var(--color-black);
     text-align: justify;
     text-align-last: justify;
     -webkit-text-align-last: justify;
@@ -621,15 +620,15 @@ h1{
     line-height: 1.7;
     font-size: 1.1rem;
     font-family: 'Poppins-Regular', sans-serif;
-    color: #080a33;
+    color: var(--color-black);
     text-align: left;
 }
 
 .terms {
-    background-color: #f4f6fc;
+    background-color: var(--color-white);
     border: none;
     border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(8, 10, 51, 0.12), 
+    box-shadow: 0 6px 20px rgba(0, 0, 91, 0.12), 
                 0 1px 3px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
@@ -637,7 +636,7 @@ h1{
 
 .terms:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(8, 10, 51, 0.18), 
+    box-shadow: 0 12px 28px rgba(0, 0, 91, 0.18), 
                 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -655,7 +654,7 @@ h1{
     line-height: 1.8;
     font-size: 1.1rem;
     font-family: 'Poppins-Regular', sans-serif;
-    color: #080a33;
+    color: var(--color-black);
     text-align: justify;
     text-align-last: justify;
     -webkit-text-align-last: justify;
@@ -676,7 +675,7 @@ h1{
 
 .terms p strong {
     font-family: 'Poppins-Bold', sans-serif;
-    color: #080a33 !important;
+    color: var(--color-dark) !important;
     font-size: 1.05rem;
     display: inline-block;
     margin-right: 5px;
@@ -684,26 +683,43 @@ h1{
 }
 
 .terms p:not(:last-child) {
-    border-bottom: 1px solid rgba(0, 12, 125, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 91, 0.1);
     padding-bottom: 1.8rem;
 }
 
 footer {
     text-align: center;
     padding: 2rem;
-    background-color: #000c7d;
-    color: white;
+    background-color: var(--footer-bg);
+    color: var(--color-white);
     margin-top: 4rem;
     width: 100%;
     font-family: 'Poppins-Regular', sans-serif;
 }
+
+.footer-hank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.footer-hank p {
+    margin: 0;
+    font-family: 'Poppins-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--color-white);
+}
+
 .novaft-logo {
     height: 60px;
     width: auto;
     vertical-align: middle;
-    margin-left: 5px;
-    filter: brightness(0) saturate(100%) invert(40%) sepia(55%) saturate(1085%) hue-rotate(203deg) brightness(101%) contrast(101%);
+    filter: brightness(0) saturate(100%) invert(82%) sepia(15%) saturate(912%) hue-rotate(283deg) brightness(97%) contrast(91%);
 }
+
 .whatsapp-button {
     position: fixed;
     bottom: 20px;
@@ -770,12 +786,12 @@ footer {
 @media (max-width:1024px) {
     h1 {
         font-size: 82px;
-        color: #f4f6fc;
+        color: var(--color-white);
     }
 
     .tagline {
         font-size: 20px;
-        color: #f4f6fc;
+        color: var(--color-white);
     }
 
     .nav-links {
@@ -786,24 +802,24 @@ footer {
         width: calc(100% - 30px);
         padding: 12px 20px;
         top: 15px;
-        background: #080a33;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.15);
+        background: var(--color-black);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         border: none;
     }
 
     .main-container {
         padding: 145px 0 60px 0;
-        background: linear-gradient(135deg, #6b8cff 0%, #000c7d 100%);
+        background: linear-gradient(135deg, #7a99ff 0%, #00005b 100%);
     }
 
     .counter {
-        color: #080a33;
+        color: var(--color-dark);
         font-size: 2.5rem;
         font-family: 'Poppins-Bold', sans-serif;
     }
 
     .counters p {
-        color: #080a33;
+        color: var(--color-dark);
         font-size: 1.1rem;
     }
 
@@ -815,40 +831,40 @@ footer {
     .menu-button {
         padding: 20px 25px;
         font-size: 18px;
-        background: rgba(244, 246, 252, 0.35);
-        color: #f4f6fc;
+        background: rgba(255, 255, 255, 0.35);
+        color: var(--color-white);
     }
 
     .menu-button:hover {
-        background: rgba(244, 246, 252, 0.45);
+        background: rgba(255, 255, 255, 0.45);
         transform: translateY(-2px);
     }
 
     .menu-button.active {
-        background: rgba(244, 246, 252, 0.35);
-        color: #f4f6fc;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+        background: rgba(255, 255, 255, 0.35);
+        color: var(--color-white);
+        box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
     }
 
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(244, 246, 252, 0.35);
-        color: #f4f6fc;
+        background: rgba(255, 255, 255, 0.35);
+        color: var(--color-white);
         border-radius: 15px;
     }
 
     .submenu-container {
-        background: rgba(8, 10, 51, 0.3);
-        color: #f4f6fc;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+        background: rgba(0, 0, 91, 0.3);
+        color: var(--color-white);
+        box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
     }
 
     .submenu a {
-        color: #f4f6fc;
+        color: var(--color-white);
     }
 
     .submenu a:hover {
-        background: rgba(244, 246, 252, 0.3);
-        color: #080a33;
+        background: rgba(255, 255, 255, 0.3);
+        color: var(--color-black);
     }
 
     .about-section {
@@ -900,12 +916,12 @@ footer {
 @media (max-width:768px) {
     h1 {
         font-size: 68px;
-        color: #f4f6fc;
+        color: var(--color-white);
     }
 
     .tagline {
         font-size: 18px;
-        color: #f4f6fc;
+        color: var(--color-white);
     }
 
     .page {
@@ -920,24 +936,24 @@ footer {
     .menu-button {
         padding: 18px 20px;
         font-size: 18px;
-        background: rgba(244, 246, 252, 0.35);
-        color: #f4f6fc;
+        background: rgba(255, 255, 255, 0.35);
+        color: var(--color-white);
     }
 
     .menu-button:hover {
-        background: rgba(244, 246, 252, 0.45);
+        background: rgba(255, 255, 255, 0.45);
         transform: translateY(-2px);
     }
 
     .menu-button.active {
-        background: rgba(244, 246, 252, 0.35);
-        color: #f4f6fc;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+        background: rgba(255, 255, 255, 0.35);
+        color: var(--color-white);
+        box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
     }
 
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(244, 246, 252, 0.35);
-        color: #f4f6fc;
+        background: rgba(255, 255, 255, 0.35);
+        color: var(--color-white);
         border-radius: 15px;
     }
 
@@ -946,8 +962,8 @@ footer {
         padding: 10px 15px;
         border-radius: 14px;
         top: 15px;
-        background: #080a33;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.15);
+        background: var(--color-black);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         border: none;
     }
 
@@ -969,7 +985,7 @@ footer {
 
     .main-container {
         padding: 135px 0 50px 0;
-        background: linear-gradient(135deg, #6b8cff 0%, #000c7d 100%);
+        background: linear-gradient(135deg, #7a99ff 0%, #00005b 100%);
     }
 
     .counters {
@@ -985,13 +1001,13 @@ footer {
     }
 
     .counter {
-        color: #080a33;
+        color: var(--color-dark);
         font-size: 2.8rem;
         font-family: 'Poppins-Bold', sans-serif;
     }
 
     .about-novaklar h2 {
-        color: #080a33;
+        color: var(--color-dark);
         font-size: 2rem;
         font-family: 'Poppins-Bold', sans-serif !important;
     }
@@ -1001,13 +1017,13 @@ footer {
         margin-left: 10px;
         margin-right: 10px;
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(8, 10, 51, 0.1), 
+        box-shadow: 0 4px 15px rgba(0, 0, 91, 0.1), 
                     0 1px 2px rgba(0, 0, 0, 0.05);
     }
     
     .about-section:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(8, 10, 51, 0.15), 
+        box-shadow: 0 6px 20px rgba(0, 0, 91, 0.15), 
                     0 1px 3px rgba(0, 0, 0, 0.08);
     }
     
@@ -1028,7 +1044,7 @@ footer {
     }
     
     .about-section h3 {
-        color: #080a33;
+        color: var(--color-dark);
         font-size: 1.4rem;
         font-family: 'Poppins-Bold', sans-serif !important;
     }
@@ -1058,32 +1074,32 @@ footer {
     }
 
     .submenu-container {
-        background: rgba(8, 10, 51, 0.3);
-        color: #f4f6fc;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+        background: rgba(0, 0, 91, 0.3);
+        color: var(--color-white);
+        box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
     }
 
     .submenu a{
         font-size:18px;
         padding:14px 8px;
-        color: #f4f6fc;
+        color: var(--color-white);
     }
 
     .submenu a:hover {
-        background: rgba(244, 246, 252, 0.3);
-        color: #080a33;
+        background: rgba(255, 255, 255, 0.3);
+        color: var(--color-black);
     }
 }
 
 @media (max-width:520px){
     h1{
         font-size: 52px;
-        color: #f4f6fc;
+        color: var(--color-white);
     }
 
     .tagline {
         font-size: 16px;
-        color: #f4f6fc;
+        color: var(--color-white);
     }
 
     .page {
@@ -1098,24 +1114,24 @@ footer {
     .menu-button {
         padding: 16px 18px;
         font-size: 16px;
-        background: rgba(244, 246, 252, 0.35);
-        color: #f4f6fc;
+        background: rgba(255, 255, 255, 0.35);
+        color: var(--color-white);
     }
 
     .menu-button:hover {
-        background: rgba(244, 246, 252, 0.45);
+        background: rgba(255, 255, 255, 0.45);
         transform: translateY(-2px);
     }
 
     .menu-button.active {
-        background: rgba(244, 246, 252, 0.35);
-        color: #f4f6fc;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+        background: rgba(255, 255, 255, 0.35);
+        color: var(--color-white);
+        box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
     }
 
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(244, 246, 252, 0.35);
-        color: #f4f6fc;
+        background: rgba(255, 255, 255, 0.35);
+        color: var(--color-white);
         border-radius: 15px;
     }
 
@@ -1143,7 +1159,7 @@ footer {
 
     .main-container {
         padding: 125px 0 40px 0;
-        background: linear-gradient(135deg, #6b8cff 0%, #000c7d 100%);
+        background: linear-gradient(135deg, #7a99ff 0%, #00005b 100%);
     }
 
     .counters {
@@ -1152,13 +1168,13 @@ footer {
     }
 
     .counter {
-        color: #080a33;
+        color: var(--color-dark);
         font-size: 2.5rem;
         font-family: 'Poppins-Bold', sans-serif;
     }
 
     .counters p {
-        color: #080a33;
+        color: var(--color-dark);
         font-size: 1rem;
     }
 
@@ -1185,7 +1201,7 @@ footer {
     }
     
     .about-section h3 {
-        color: #080a33;
+        color: var(--color-dark);
         font-size: 1.3rem;
         font-family: 'Poppins-Bold', sans-serif !important;
     }
@@ -1211,32 +1227,32 @@ footer {
     }
 
     .submenu-container {
-        background: rgba(8, 10, 51, 0.3);
-        color: #f4f6fc;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+        background: rgba(0, 0, 91, 0.3);
+        color: var(--color-white);
+        box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
     }
 
     .submenu a{
         font-size:16px;
         padding:12px 6px;
-        color: #f4f6fc;
+        color: var(--color-white);
     }
 
     .submenu a:hover {
-        background: rgba(244, 246, 252, 0.3);
-        color: #080a33;
+        background: rgba(255, 255, 255, 0.3);
+        color: var(--color-black);
     }
 }
 
 @media (max-width:380px){
     h1{
         font-size: 44px;
-        color: #f4f6fc;
+        color: var(--color-white);
     }
 
     .tagline {
         font-size: 15px;
-        color: #f4f6fc;
+        color: var(--color-white);
     }
 
     .buttons-container {
@@ -1247,24 +1263,24 @@ footer {
     .menu-button {
         padding: 14px 16px;
         font-size: 15px;
-        background: rgba(244, 246, 252, 0.35);
-        color: #f4f6fc;
+        background: rgba(255, 255, 255, 0.35);
+        color: var(--color-white);
     }
 
     .menu-button:hover {
-        background: rgba(244, 246, 252, 0.45);
+        background: rgba(255, 255, 255, 0.45);
         transform: translateY(-2px);
     }
 
     .menu-button.active {
-        background: rgba(244, 246, 252, 0.35);
-        color: #f4f6fc;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+        background: rgba(255, 255, 255, 0.35);
+        color: var(--color-white);
+        box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
     }
 
     .button-wrapper:first-child .menu-button.active {
-        background: rgba(244, 246, 252, 0.35);
-        color: #f4f6fc;
+        background: rgba(255, 255, 255, 0.35);
+        color: var(--color-white);
         border-radius: 15px;
     }
 
@@ -1295,17 +1311,17 @@ footer {
     }
 
     .submenu-container {
-        background: rgba(8, 10, 51, 0.3);
-        color: #f4f6fc;
-        box-shadow: 0 4px 10px rgba(8, 10, 51, 0.1);
+        background: rgba(0, 0, 91, 0.3);
+        color: var(--color-white);
+        box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
     }
 
     .submenu a {
-        color: #f4f6fc;
+        color: var(--color-white);
     }
 
     .submenu a:hover {
-        background: rgba(244, 246, 252, 0.3);
-        color: #080a33;
+        background: rgba(255, 255, 255, 0.3);
+        color: var(--color-black);
     }
 }

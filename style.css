@@ -1,3 +1,18 @@
+/* ============================================================
+   NOVAKLAR — HOJA DE ESTILOS PRINCIPAL
+   ============================================================
+   Versión:   2.1.0  (última versión estable)
+   Fecha:     2026-10-09
+   Autor:     Hank
+   ------------------------------------------------------------
+   CAMBIOS EN ESTA VERSIÓN:
+   - Header tradicional full-width (antes era isla flotante)
+   - Header color negro fijo de borde a borde
+   - Footer: logo corregido a #f2b2c6 exacto (antes #edb0da)
+   - Mayor espacio entre header y título h1 (160/150/140/130px)
+   - Cache-busting con query string v=2.1.0
+   ============================================================ */
+
 /* ============================
    RESET Y BASE
    ============================ */
@@ -326,12 +341,12 @@ h1 {
 }
 
 /* ============================
-   HERO / MAIN  → con más espacio arriba
+   HERO / MAIN → con más espacio arriba
    ============================ */
 .main-container {
     width: 100%;
     background: linear-gradient(135deg, #7a99ff 0%, #00005b 100%);
-    padding: 160px 0 80px 0;   /* ← aumentado de 105px a 160px */
+    padding: 160px 0 80px 0;
     display: flex;
     justify-content: center;
     min-height: auto;
@@ -838,7 +853,7 @@ footer {
     }
 
     .main-container {
-        padding: 150px 0 60px 0;   /* ← aumentado de 100px a 150px */
+        padding: 150px 0 60px 0;
         background: linear-gradient(135deg, #7a99ff 0%, #00005b 100%);
     }
 
@@ -1014,7 +1029,7 @@ footer {
     }
 
     .main-container {
-        padding: 140px 0 50px 0;   /* ← aumentado de 90px a 140px */
+        padding: 140px 0 50px 0;
         background: linear-gradient(135deg, #7a99ff 0%, #00005b 100%);
     }
 
@@ -1188,7 +1203,7 @@ footer {
     }
 
     .main-container {
-        padding: 130px 0 40px 0;   /* ← aumentado de 85px a 130px */
+        padding: 130px 0 40px 0;
         background: linear-gradient(135deg, #7a99ff 0%, #00005b 100%);
     }
 
@@ -1355,3 +1370,7 @@ footer {
         color: var(--color-black);
     }
 }
+
+/* ============================================================
+   FIN DE HOJA DE ESTILOS — v2.1.0
+   ============================================================ */

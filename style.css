@@ -1,3 +1,6 @@
+/* ============================
+   RESET Y BASE
+   ============================ */
 * {
     margin: 0;
     padding: 0;
@@ -33,28 +36,40 @@
     font-display: swap;
 }
 
-:root{
+/* ============================
+   VARIABLES
+   ============================ */
+:root {
     --color-dark: #00005b;
     --color-light: #7a99ff;
     --color-white: #ffffff;
     --color-black: #000000;
     --footer-bg: #322a56;
     --footer-accent: #f2b2c6;
+
+    /* Filtro que convierte el SVG negro en #f2b2c6 (antes daba #edb0da) */
+    --logo-filter: brightness(0) saturate(100%)
+                   invert(82%) sepia(15%) saturate(912%)
+                   hue-rotate(283deg) brightness(97%) contrast(91%)
+                   hue-rotate(22deg);
 }
 
+/* ============================
+   TIPOGRAFÍA GLOBAL
+   ============================ */
 html, body {
     width: 100%;
     background-color: var(--color-white);
     color: var(--color-black);
     line-height: 1.6;
     overflow-x: hidden;
-    min-height:100vh;
+    min-height: 100vh;
     font-family: 'Poppins-Regular', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    display:flex;
+    display: flex;
     flex-direction: column;
-    align-items:center;
-    padding:0;
-    margin:0;
+    align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -71,8 +86,8 @@ body, p, li, a, span, div {
     font-family: 'Poppins-Regular', sans-serif;
 }
 
-h1{
-    margin:0;
+h1 {
+    margin: 0;
     font-size: 96px;
     color: var(--color-white);
     letter-spacing: 2px;
@@ -83,7 +98,7 @@ h1{
 }
 
 .tagline {
-    margin:0;
+    margin: 0;
     color: var(--color-white);
     font-style: italic;
     font-family: 'Poppins-Italic', sans-serif;
@@ -91,26 +106,29 @@ h1{
     text-align: center;
 }
 
+/* ============================
+   HEADER TRADICIONAL (full-width, negro, pegado arriba)
+   ============================ */
 .header {
-    width: calc(100% - 40px);
-    max-width: 1200px;
+    width: 100%;
+    max-width: 100%;
     background: var(--color-black);
     padding: 14px 25px;
     position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    left: 0;
+    transform: none;
     z-index: 1000;
-    border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: none;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header.scrolled {
-    top: 15px;
+    top: 0;
     background: var(--color-black);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 .header .hamburger-menu span {
@@ -120,6 +138,28 @@ h1{
 .hamburger-menu.active span:nth-child(1),
 .hamburger-menu.active span:nth-child(3) {
     background-color: var(--color-white);
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 38px;
+    width: auto;
+    transition: all 0.3s ease;
+    filter: brightness(0) invert(1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
 .nav-links a {
@@ -151,26 +191,9 @@ h1{
     width: 100%;
 }
 
-.header-content {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    height: 38px;
-    width: auto;
-    transition: all 0.3s ease;
-    filter: brightness(0) invert(1);
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
+/* ============================
+   HAMBURGUESA + DRAWER
+   ============================ */
 .hamburger-menu {
     display: none;
     flex-direction: column;
@@ -284,18 +307,6 @@ h1{
     transform: none;
 }
 
-.menu-items a.menu-item i {
-    font-size: 18px;
-    margin-right: 10px;
-    width: auto;
-    text-align: left;
-    color: var(--color-black);
-}
-
-.menu-items a.menu-item:hover i {
-    color: var(--color-light);
-}
-
 .overlay {
     position: fixed;
     top: 0;
@@ -314,10 +325,13 @@ h1{
     visibility: visible;
 }
 
+/* ============================
+   HERO / MAIN
+   ============================ */
 .main-container {
     width: 100%;
     background: linear-gradient(135deg, #7a99ff 0%, #00005b 100%);
-    padding: 155px 0 80px 0;
+    padding: 105px 0 80px 0;
     display: flex;
     justify-content: center;
     min-height: auto;
@@ -327,11 +341,11 @@ h1{
 }
 
 .page {
-    width:100%;
-    max-width:none;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    width: 100%;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 60px;
     padding: 0;
     margin-top: 0;
@@ -459,10 +473,9 @@ h1{
     color: var(--color-black);
 }
 
-.submenu a + a {
-    border-top: none;
-}
-
+/* ============================
+   BOTÓN DE CONTACTO
+   ============================ */
 .contact-button-container {
     display: flex;
     justify-content: center;
@@ -491,6 +504,9 @@ h1{
     background-color: var(--color-black);
 }
 
+/* ============================
+   CONTADORES
+   ============================ */
 .counters {
     background-color: rgba(122, 153, 255, 0.1);
     padding: 40px 30px;
@@ -527,6 +543,9 @@ h1{
     font-family: 'Poppins-Regular', sans-serif;
 }
 
+/* ============================
+   ABOUT
+   ============================ */
 .about-novaklar {
     padding: 2.5rem 5%;
     max-width: 1400px;
@@ -549,7 +568,7 @@ h1{
     padding: 2.5rem;
     background-color: var(--color-white);
     border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 91, 0.12), 
+    box-shadow: 0 6px 20px rgba(0, 0, 91, 0.12),
                 0 1px 3px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
@@ -562,7 +581,7 @@ h1{
 
 .about-section:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 91, 0.18), 
+    box-shadow: 0 12px 28px rgba(0, 0, 91, 0.18),
                 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -628,7 +647,7 @@ h1{
     background-color: var(--color-white);
     border: none;
     border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 91, 0.12), 
+    box-shadow: 0 6px 20px rgba(0, 0, 91, 0.12),
                 0 1px 3px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
@@ -636,7 +655,7 @@ h1{
 
 .terms:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 91, 0.18), 
+    box-shadow: 0 12px 28px rgba(0, 0, 91, 0.18),
                 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -687,6 +706,9 @@ h1{
     padding-bottom: 1.8rem;
 }
 
+/* ============================
+   FOOTER
+   ============================ */
 footer {
     text-align: center;
     padding: 2rem;
@@ -713,13 +735,17 @@ footer {
     color: var(--color-white);
 }
 
+/* Logo corregido a #f2b2c6 exacto */
 .novaft-logo {
     height: 60px;
     width: auto;
     vertical-align: middle;
-    filter: brightness(0) saturate(100%) invert(82%) sepia(15%) saturate(912%) hue-rotate(283deg) brightness(97%) contrast(91%);
+    filter: var(--logo-filter);
 }
 
+/* ============================
+   WHATSAPP FLOTANTE
+   ============================ */
 .whatsapp-button {
     position: fixed;
     bottom: 20px;
@@ -783,7 +809,10 @@ footer {
     filter: brightness(0) invert(1);
 }
 
-@media (max-width:1024px) {
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 1024px) {
     h1 {
         font-size: 82px;
         color: var(--color-white);
@@ -799,16 +828,17 @@ footer {
     }
 
     .header {
-        width: calc(100% - 30px);
+        width: 100%;
         padding: 12px 20px;
-        top: 15px;
+        top: 0;
+        border-radius: 0;
         background: var(--color-black);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
         border: none;
     }
 
     .main-container {
-        padding: 145px 0 60px 0;
+        padding: 100px 0 60px 0;
         background: linear-gradient(135deg, #7a99ff 0%, #00005b 100%);
     }
 
@@ -872,8 +902,8 @@ footer {
         margin-left: 15px;
         margin-right: 15px;
     }
-    
-    .about-section p, 
+
+    .about-section p,
     .about-section li,
     .terms p {
         text-align: justify;
@@ -887,11 +917,11 @@ footer {
         overflow-wrap: break-word;
         font-size: 1rem;
     }
-    
+
     .about-section h3 {
         font-size: 1.5rem;
     }
-    
+
     .about-novaklar {
         padding: 2rem 4%;
     }
@@ -913,7 +943,7 @@ footer {
     }
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
     h1 {
         font-size: 68px;
         color: var(--color-white);
@@ -958,17 +988,17 @@ footer {
     }
 
     .header {
-        width: calc(100% - 20px);
+        width: 100%;
         padding: 10px 15px;
-        border-radius: 14px;
-        top: 15px;
+        border-radius: 0;
+        top: 0;
         background: var(--color-black);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
         border: none;
     }
 
     .header.scrolled {
-        top: 10px;
+        top: 0;
     }
 
     .logo {
@@ -984,7 +1014,7 @@ footer {
     }
 
     .main-container {
-        padding: 135px 0 50px 0;
+        padding: 90px 0 50px 0;
         background: linear-gradient(135deg, #7a99ff 0%, #00005b 100%);
     }
 
@@ -1017,17 +1047,17 @@ footer {
         margin-left: 10px;
         margin-right: 10px;
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 91, 0.1), 
+        box-shadow: 0 4px 15px rgba(0, 0, 91, 0.1),
                     0 1px 2px rgba(0, 0, 0, 0.05);
     }
-    
+
     .about-section:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0, 0, 91, 0.15), 
+        box-shadow: 0 6px 20px rgba(0, 0, 91, 0.15),
                     0 1px 3px rgba(0, 0, 0, 0.08);
     }
-    
-    .about-section p, 
+
+    .about-section p,
     .about-section li,
     .terms p {
         text-align: justify;
@@ -1042,17 +1072,17 @@ footer {
         font-size: 0.95rem;
         line-height: 1.65;
     }
-    
+
     .about-section h3 {
         color: var(--color-dark);
         font-size: 1.4rem;
         font-family: 'Poppins-Bold', sans-serif !important;
     }
-    
+
     .about-novaklar {
         padding: 1.5rem 3%;
     }
-    
+
     .terms {
         padding: 1.8rem;
     }
@@ -1079,9 +1109,9 @@ footer {
         box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
     }
 
-    .submenu a{
-        font-size:18px;
-        padding:14px 8px;
+    .submenu a {
+        font-size: 18px;
+        padding: 14px 8px;
         color: var(--color-white);
     }
 
@@ -1091,8 +1121,8 @@ footer {
     }
 }
 
-@media (max-width:520px){
-    h1{
+@media (max-width: 520px) {
+    h1 {
         font-size: 52px;
         color: var(--color-white);
     }
@@ -1158,7 +1188,7 @@ footer {
     }
 
     .main-container {
-        padding: 125px 0 40px 0;
+        padding: 85px 0 40px 0;
         background: linear-gradient(135deg, #7a99ff 0%, #00005b 100%);
     }
 
@@ -1183,8 +1213,8 @@ footer {
         margin-left: 8px;
         margin-right: 8px;
     }
-    
-    .about-section p, 
+
+    .about-section p,
     .about-section li,
     .terms p {
         text-align: justify;
@@ -1199,13 +1229,13 @@ footer {
         font-size: 0.9rem;
         line-height: 1.6;
     }
-    
+
     .about-section h3 {
         color: var(--color-dark);
         font-size: 1.3rem;
         font-family: 'Poppins-Bold', sans-serif !important;
     }
-    
+
     .about-novaklar {
         padding: 1.5rem 3%;
     }
@@ -1232,9 +1262,9 @@ footer {
         box-shadow: 0 4px 10px rgba(0, 0, 91, 0.1);
     }
 
-    .submenu a{
-        font-size:16px;
-        padding:12px 6px;
+    .submenu a {
+        font-size: 16px;
+        padding: 12px 6px;
         color: var(--color-white);
     }
 
@@ -1244,8 +1274,8 @@ footer {
     }
 }
 
-@media (max-width:380px){
-    h1{
+@media (max-width: 380px) {
+    h1 {
         font-size: 44px;
         color: var(--color-white);
     }

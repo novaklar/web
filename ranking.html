@@ -6,794 +6,1183 @@
   <title>Ranking de Afiliados | Novaklar</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* * ###############################
-     * # PASO 1: DEFINICIÓN DE FUENTES 
-     * ###############################
-     */
+    /* =========================================================
+       PALETA (SOLO 4 COLORES)
+         --white:  #ffffff
+         --black:  #000000
+         --deep:   #00005b
+         --accent: #7a99ff
+       ========================================================= */
+    :root {
+      --white:  #ffffff;
+      --black:  #000000;
+      --deep:   #00005b;
+      --accent: #7a99ff;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 91, 0.10);
+      --shadow-deep: 0 18px 40px rgba(0, 0, 91, 0.22);
+      --radius-lg: 1.25rem;
+      --radius-md: 0.9rem;
+      --radius-sm: 0.6rem;
+    }
+
     @font-face {
       font-family: 'Poppins Regular';
       src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
+      font-display: swap;
     }
-
     @font-face {
       font-family: 'Poppins Bold';
       src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf') format('truetype');
       font-weight: bold;
       font-style: normal;
+      font-display: swap;
     }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      /* Aplicar Poppins Regular a todo el cuerpo */
       font-family: 'Poppins Regular', sans-serif;
-      background-color: #f4f6fc;
-      color: #080a33; /* Cambiado de #333 a #080a33 */
+      background-color: var(--white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
     }
 
+    /* ---------------- HEADER ---------------- */
     header {
-      /* REEMPLAZADO: #0d4c7f por #000c7d */
-      background-color: #000c7d;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: var(--black);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 0.9rem 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(8px);
     }
 
     header img {
-      height: 40px;
-      /* REEMPLAZADO: #f1efee por #f4f6fc */
-      filter: invert(99%) sepia(3%) saturate(106%) hue-rotate(224deg) brightness(114%) contrast(92%);
+      height: 38px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s ease;
+    }
+    header img:hover { transform: scale(1.05); }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
     header a {
       text-decoration: none;
-      color: #f4f6fc; /* REEMPLAZADO: #f1efee por #f4f6fc */
+      color: var(--white);
       font-weight: 600;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: background-color 0.2s;
+      font-size: 0.92rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
     }
-
     header a:hover {
-      background-color: rgba(244, 246, 252, 0.2);
+      background-color: var(--accent);
+      color: var(--deep);
+      transform: translateY(-2px);
     }
 
-    .page-title {
-      /* Aplicar Poppins Bold al título */
-      font-family: 'Poppins Bold', sans-serif; 
-      font-size: 2.2rem;
-      font-weight: 700; /* Se mantiene, aunque Poppins Bold ya lo tiene */
-      /* REEMPLAZADO: #0d4c7f por #000c7d */
-      color: #000c7d;
+    /* ---------------- HERO ---------------- */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--deep) 0%, #00003a 60%, var(--black) 100%);
+      color: var(--white);
+      padding: 3rem 1.5rem 4.5rem;
+      overflow: hidden;
       text-align: center;
-      margin: 2rem 0 0.5rem;
-      padding: 0 1rem;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::before {
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, rgba(122,153,255,0.45) 0%, transparent 70%);
+      top: -120px; right: -80px;
+    }
+    .hero::after {
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(122,153,255,0.30) 0%, transparent 70%);
+      bottom: -120px; left: -60px;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(122, 153, 255, 0.18);
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-family: 'Poppins Bold', sans-serif;
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      font-weight: 700;
+      margin: 0 0 0.75rem;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title .accent-text {
+      background: linear-gradient(90deg, var(--accent), #c8d4ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: var(--accent);
     }
 
     .season-info {
-      text-align: center;
-      /* REEMPLAZADO: #0d4c7f por #000c7d */
-      color: #000c7d;
-      /* La fuente es Poppins Regular por herencia de body */
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 0.5rem;
+      text-transform: capitalize;
+    }
+    .season-info i { color: var(--accent); }
+
+    .data-notice {
+      max-width: 720px;
+      margin: 1.8rem auto 0;
+      background-color: rgba(122, 153, 255, 0.10);
+      border: 1px solid rgba(122, 153, 255, 0.45);
+      border-radius: var(--radius-md);
+      padding: 0.9rem 1.1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      text-align: left;
+      font-size: 0.9rem;
+      color: var(--white);
+      line-height: 1.5;
+    }
+    .data-notice i {
+      color: var(--accent);
+      font-size: 1.15rem;
+      margin-top: 0.1rem;
+      flex-shrink: 0;
+    }
+    .data-notice strong { color: var(--accent); }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      max-width: 720px;
+      margin: 2rem auto 0;
     }
 
-    .ranking-container {
-      max-width: 900px;
+    .stat-card {
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(122, 153, 255, 0.35);
+      border-radius: var(--radius-md);
+      padding: 1rem 0.75rem;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+    .stat-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      color: var(--deep);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .stat-value {
+      font-family: 'Poppins Bold', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--white);
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.15rem;
+    }
+
+    /* ---------------- MAIN ---------------- */
+    main {
+      max-width: 1000px;
+      margin: -3rem auto 0;
+      padding: 0 1.25rem 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .panel {
+      background-color: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 1.25rem 1.25rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(122, 153, 255, 0.25);
+    }
+
+    /* ---------------- PODIUM ---------------- */
+    .podium-section {
+      padding: 1.5rem 1.25rem 1.25rem;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      margin: 0 0 1rem;
+      color: var(--deep);
+      font-family: 'Poppins Bold', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .section-heading i { color: var(--accent); }
+
+    .podium {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr 1fr;
+      gap: 0.75rem;
+      align-items: end;
+      max-width: 640px;
       margin: 0 auto;
-      padding: 0 1.5rem 2rem;
+    }
+
+    .podium-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: podiumIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    .podium-item.first  { animation-delay: 0.25s; }
+    .podium-item.second { animation-delay: 0.05s; }
+    .podium-item.third  { animation-delay: 0.15s; }
+
+    @keyframes podiumIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .podium-card {
+      width: 100%;
+      background-color: var(--white);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 1rem 0.6rem;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .podium-item:hover .podium-card {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-deep);
+    }
+
+    .podium-item.first .podium-card {
+      background: linear-gradient(160deg, var(--deep) 0%, #00003a 100%);
+      border-color: var(--deep);
+      color: var(--white);
+      padding: 1.4rem 0.7rem 1.1rem;
+      box-shadow: 0 16px 36px rgba(0, 0, 91, 0.35);
+    }
+
+    .podium-medal {
+      font-size: 1.9rem;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.18));
+    }
+    .podium-item.first .podium-medal { font-size: 2.4rem; }
+
+    .podium-name {
+      font-family: 'Poppins Bold', sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--deep);
+      line-height: 1.25;
+      margin-bottom: 0.35rem;
+      word-break: break-word;
+    }
+    .podium-item.first .podium-name { color: var(--white); }
+
+    .podium-sales {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background-color: rgba(122, 153, 255, 0.18);
+      color: var(--deep);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+    }
+    .podium-item.first .podium-sales {
+      background-color: var(--accent);
+      color: var(--deep);
+    }
+
+    .podium-base {
+      width: 100%;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--deep) 100%);
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: 'Poppins Bold', sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-top: 0.5rem;
+      box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.15);
+    }
+    .podium-item.first  .podium-base { height: 70px; }
+    .podium-item.second .podium-base { height: 50px; }
+    .podium-item.third  .podium-base { height: 34px; font-size: 1.3rem; }
+
+    /* ---------------- PANEL HEADER (compacto) ---------------- */
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .panel-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--deep);
+      font-family: 'Poppins Bold', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .panel-title i { color: var(--accent); }
+
+    /* ---------------- TOOLBAR ---------------- */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex: 1 1 320px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
     }
 
     .search-container {
-      margin: 1.5rem 0;
       position: relative;
+      flex: 1 1 200px;
+      max-width: 320px;
     }
 
     .search-input {
       width: 100%;
-      padding: 0.8rem 1rem 0.8rem 3rem;
-      border: 2px solid #e2e8f0;
-      border-radius: 0.6rem;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      box-sizing: border-box;
-      /* REEMPLAZADO: #f1efee por #f4f6fc */
-      background-color: #f4f6fc; 
-      color: #080a33; /* Mantenido para mejor contraste */
+      height: 42px;
+      padding: 0 0.9rem 0 2.5rem;
+      border: 1.5px solid rgba(122, 153, 255, 0.5);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      background-color: var(--white);
+      color: var(--black);
+      transition: all 0.25s ease;
     }
-
     .search-input::placeholder {
-      color: #64748b; /* Color más suave para el placeholder */
+      color: var(--deep);
+      opacity: 0.5;
     }
-
     .search-input:focus {
       outline: none;
-      /* REEMPLAZADO: #7fcfda por #6b8cff */
-      border-color: #6b8cff;
-      /* REEMPLAZADO: rgba(127, 207, 218, 0.4) por rgba(107, 140, 255, 0.4) */
-      box-shadow: 0 0 0 3px rgba(107, 140, 255, 0.4);
+      border-color: var(--deep);
+      box-shadow: 0 0 0 4px rgba(122, 153, 255, 0.25);
     }
-
     .search-icon {
       position: absolute;
       left: 1rem;
       top: 50%;
       transform: translateY(-50%);
-      color: #64748b; /* Cambiado a color más oscuro */
-    }
-
-    .ranking-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-      border-radius: 0.8rem;
-      overflow: hidden;
-      background-color: #f4f6fc;
-    }
-
-    .ranking-table thead {
-      /* REEMPLAZADO: #0d4c7f por #000c7d */
-      background-color: #000c7d;
-      color: #f4f6fc;
-    }
-
-    .ranking-table th {
-      padding: 1.2rem 1rem;
-      text-align: left;
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: #f4f6fc;
-    }
-
-    .ranking-table td {
-      padding: 1rem;
-      border-bottom: 1px solid #e2e8f0;
-      color: #080a33; /* Cambiado de negro a #080a33 */
-    }
-
-    /* TODAS las filas tendrán el mismo color de fondo */
-    .ranking-table tbody tr {
-      background-color: #f4f6fc;
-    }
-
-    .ranking-table tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    /* Hover para todas las filas */
-    .ranking-table tbody tr:hover {
-      background-color: #e8eaf0 !important; /* Color más oscuro para hover */
-    }
-
-    .rank-number {
-      font-weight: bold;
-      /* REEMPLAZADO: #0d4c7f por #000c7d */
-      color: #000c7d;
-      width: 50px;
-      text-align: center;
-    }
-
-    .affiliate-name {
-      font-weight: 500;
-      color: #080a33; /* Cambiado de negro a #080a33 */
-    }
-
-    .sales-count {
-      text-align: right;
-      font-weight: 600;
-      /* REEMPLAZADO: #7fcfda por #6b8cff */
-      color: #6b8cff;
-    }
-
-    /* Eliminado el estilo especial para las primeras 3 filas (top-affiliate) */
-    /* Todas las filas son iguales ahora */
-
-    .medal {
-      display: inline-block;
-      margin-right: 8px;
-      font-size: 1.2em;
-    }
-
-    .loading {
-      text-align: center;
-      padding: 3rem;
-      font-style: italic;
-      color: #080a33; /* Cambiado de #666 a #080a33 */
-      font-size: 1.1rem;
-      background-color: #f4f6fc;
-    }
-
-    .loading i {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      /* REEMPLAZADO: #0d4c7f por #000c7d */
-      color: #000c7d;
-    }
-
-    .error-message {
-      color: #d32f2f;
-      background-color: #f4f6fc;
-      padding: 1.2rem;
-      border-radius: 0.6rem;
-      margin: 1rem 0;
-      text-align: center;
-      border-left: 4px solid #d32f2f;
-      border: 1px solid #e2e8f0;
-    }
-
-    .error-message i {
-      margin-right: 0.5rem;
-    }
-
-    .last-updated {
-      text-align: right;
+      color: var(--deep);
+      pointer-events: none;
       font-size: 0.85rem;
-      color: #64748b; /* Mantenido este color más suave */
-      margin-top: 0.5rem;
-      font-weight: 500;
     }
 
     .refresh-btn {
-      display: block;
-      margin: 1.5rem auto;
-      padding: 0.8rem 1.5rem;
-      /* REEMPLAZADO: #7fcfda por #6b8cff */
-      background-color: #6b8cff;
-      /* REEMPLAZADO: #f1efee por #f4f6fc */
-      color: #f4f6fc; 
-      border: none;
-      border-radius: 0.6rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      height: 42px;
+      padding: 0 1.2rem;
+      background-color: var(--deep);
+      color: var(--white);
+      border: 1.5px solid var(--deep);
+      border-radius: 999px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      font-family: inherit;
       font-weight: 600;
-      box-shadow: 0 4px 6px rgba(107, 140, 255, 0.3);
+      font-size: 0.88rem;
+      transition: all 0.25s ease;
+      white-space: nowrap;
     }
-    
-    /* REEMPLAZADO: #f1efee por #f4f6fc */
-    .refresh-btn #refresh-icon i {
-        color: #f4f6fc;
-    }
-
-    .refresh-btn:hover {
+    .refresh-btn:hover:not(:disabled) {
+      background-color: var(--accent);
+      color: var(--deep);
+      border-color: var(--accent);
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(107, 140, 255, 0.4);
-      /* Opcional: oscurecer ligeramente al hover */
-      background-color: #5a7af0;
+      box-shadow: 0 8px 20px rgba(122, 153, 255, 0.4);
     }
-
-    .refresh-btn:active {
-      transform: translateY(0);
-    }
-
+    .refresh-btn:active:not(:disabled) { transform: translateY(0); }
     .refresh-btn:disabled {
-      background: #cbd5e1;
+      opacity: 0.6;
       cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-      color: #64748b;
     }
 
-    .total-sales {
-      /* REEMPLAZADO: #0d4c7f y #7fcfda por #000c7d y #6b8cff */
-      background: linear-gradient(135deg, #000c7d, #6b8cff);
-      color: #f4f6fc; /* REEMPLAZADO: #f1efee por #f4f6fc */
-      padding: 1.2rem;
-      border-radius: 0.8rem;
-      margin-top: 2rem;
-      text-align: center;
-      font-weight: 600;
-      font-size: 1.2rem;
-      /* Sombra ajustada para el nuevo azul */
-      box-shadow: 0 4px 12px rgba(0, 12, 125, 0.3);
+    /* ---------------- RANKING LIST ---------------- */
+    .ranking-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
-    .total-sales span {
+    .rank-row {
+      display: grid;
+      grid-template-columns: 46px 1fr auto;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.7rem 0.9rem;
+      background-color: var(--white);
+      border: 1.5px solid rgba(122, 153, 255, 0.3);
+      border-radius: var(--radius-md);
+      transition: all 0.25s ease;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: rowIn 0.4s ease forwards;
+    }
+    @keyframes rowIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .rank-row:hover {
+      border-color: var(--accent);
+      background-color: rgba(122, 153, 255, 0.08);
+      transform: translateX(4px);
+    }
+
+    .rank-index {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: rgba(122, 153, 255, 0.15);
+      color: var(--deep);
+      font-family: 'Poppins Bold', sans-serif;
       font-weight: 700;
-      font-size: 1.4rem;
+      font-size: 0.88rem;
+      flex-shrink: 0;
     }
+
+    .rank-info {
+      min-width: 0;
+    }
+
+    .rank-name {
+      font-weight: 600;
+      color: var(--black);
+      font-size: 0.95rem;
+      line-height: 1.25;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .rank-bar-wrap {
+      margin-top: 0.35rem;
+      height: 4px;
+      background-color: rgba(122, 153, 255, 0.18);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .rank-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--deep));
+      border-radius: 999px;
+      width: 0%;
+      transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .rank-sales {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.8rem;
+      background-color: var(--deep);
+      color: var(--white);
+      border-radius: 999px;
+      font-family: 'Poppins Bold', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+    .rank-sales i { color: var(--accent); font-size: 0.78rem; }
+
+    /* ---------------- ESTADOS ---------------- */
+    .loading {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--deep);
+      font-size: 1rem;
+    }
+    .loading i {
+      display: block;
+      font-size: 1.9rem;
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+    }
+
+    .error-message {
+      background-color: var(--white);
+      border: 2px solid var(--deep);
+      border-left: 6px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+      color: var(--deep);
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .error-message i { margin-right: 0.5rem; color: var(--accent); }
 
     .no-results {
       text-align: center;
-      padding: 2rem;
-      color: #64748b;
-      font-style: italic;
-      background-color: #f4f6fc;
-      border-radius: 0.8rem;
-      border: 1px solid #e2e8f0;
+      padding: 2rem 1rem;
+      color: var(--deep);
+      background-color: rgba(122, 153, 255, 0.08);
+      border: 1.5px dashed var(--accent);
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
     }
-
     .no-results i {
-      font-size: 2rem;
+      font-size: 1.7rem;
       display: block;
-      margin-bottom: 1rem;
-      color: #cbd5e1;
+      margin-bottom: 0.6rem;
+      color: var(--accent);
     }
 
-    @media (max-width: 768px) {
-      .page-title {
-        font-size: 1.8rem;
-        margin: 1.5rem 0 0.5rem;
-      }
-      
-      .season-info {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-      }
-      
-      .ranking-container {
-        padding: 0 1rem 1.5rem;
-      }
-      
-      .ranking-table th, 
-      .ranking-table td {
-        padding: 0.8rem;
-        font-size: 0.9rem;
-      }
+    .last-updated {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--deep);
+      opacity: 0.7;
+      margin-top: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+    .last-updated i { color: var(--accent); }
 
-      .total-sales {
-        font-size: 1rem;
-        padding: 1rem;
-      }
+    /* ---------------- FOOTER ---------------- */
+    footer {
+      background-color: var(--black);
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.82rem;
+    }
+    footer strong { color: var(--accent); }
 
-      .total-sales span {
-        font-size: 1.2rem;
+    /* ---------------- RESPONSIVE ---------------- */
+    @media (max-width: 720px) {
+      .panel-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+      }
+      .panel-title {
+        justify-content: center;
+      }
+      .toolbar {
+        flex: 1 1 auto;
+        justify-content: stretch;
+      }
+      .search-container {
+        max-width: none;
+        flex: 1 1 auto;
       }
     }
 
-    @media (max-width: 480px) {
-      .page-title {
-        font-size: 1.6rem;
+    @media (max-width: 640px) {
+      header { padding: 0.75rem 1rem; }
+      header img { height: 32px; }
+      header a { padding: 0.45rem 0.85rem; font-size: 0.82rem; }
+      header a span.label { display: none; }
+
+      .hero { padding: 2.25rem 1rem 4rem; }
+
+      .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .stat-card { padding: 0.75rem 0.4rem; }
+      .stat-icon { width: 32px; height: 32px; font-size: 0.85rem; }
+      .stat-value { font-size: 1.15rem; }
+      .stat-label { font-size: 0.65rem; }
+
+      main { padding: 0 0.85rem 2rem; margin-top: -2.5rem; }
+      .panel { padding: 1rem 0.9rem; border-radius: var(--radius-md); }
+
+      .podium-section { padding: 1.1rem 0.9rem 0.9rem; }
+
+      .podium { gap: 0.4rem; }
+      .podium-card { padding: 0.75rem 0.35rem; }
+      .podium-item.first .podium-card { padding: 1rem 0.4rem 0.85rem; }
+      .podium-medal { font-size: 1.5rem; }
+      .podium-item.first .podium-medal { font-size: 1.9rem; }
+      .podium-name { font-size: 0.78rem; }
+      .podium-sales { font-size: 0.7rem; padding: 0.2rem 0.5rem; }
+
+      .podium-item.first  .podium-base { height: 55px; }
+      .podium-item.second .podium-base { height: 38px; }
+      .podium-item.third  .podium-base { height: 26px; font-size: 1rem; }
+
+      .rank-row {
+        grid-template-columns: 38px 1fr auto;
+        gap: 0.6rem;
+        padding: 0.6rem 0.7rem;
       }
-      
-      header {
-        padding: 0.8rem 1rem;
-      }
-      
-      header img {
-        height: 35px;
-      }
-      
-      .ranking-table {
-        font-size: 0.85rem;
-      }
-      
-      .ranking-table th, 
-      .ranking-table td {
-        padding: 0.6rem;
-      }
+      .rank-index { width: 34px; height: 34px; font-size: 0.8rem; }
+      .rank-name { font-size: 0.86rem; }
+      .rank-sales { font-size: 0.75rem; padding: 0.3rem 0.65rem; }
+
+      .toolbar { flex-direction: column; }
+      .refresh-btn { width: 100%; }
+      .search-container { max-width: none; width: 100%; }
+    }
+
+    @media (max-width: 380px) {
+      .stat-label { display: none; }
+      .podium-name { font-size: 0.72rem; }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/novaklar1.svg" alt="Novaklar Logo" />
-    <a href="https://novaklar.github.io/web/">Regresar</a>
+    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Logos/novaklar.svg" alt="Novaklar Logo" />
+    <nav class="header-nav">
+      <a href="https://novaklar.github.io/web/">
+        <i class="fas fa-arrow-left"></i>
+        <span class="label">Regresar</span>
+      </a>
+    </nav>
   </header>
 
-  <h1 class="page-title">Ranking de Afiliados</h1>
-  <div class="season-info" id="season-info"></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <i class="fas fa-trophy"></i>
+        Ranking oficial
+      </div>
+      <h1 class="hero-title">
+        Top <span class="accent-text">Afiliados</span> Novaklar
+      </h1>
+      <div class="season-info" id="season-info">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Cargando temporada...</span>
+      </div>
 
-  <div class="ranking-container">
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-value" id="stat-participants">—</div>
+          <div class="stat-label">Afiliados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-shopping-bag"></i></div>
+          <div class="stat-value" id="stat-sales">—</div>
+          <div class="stat-label">Ventas totales</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-crown"></i></div>
+          <div class="stat-value" id="stat-top">—</div>
+          <div class="stat-label">Máx. ventas</div>
+        </div>
+      </div>
+
+      <div class="data-notice">
+        <i class="fas fa-circle-info"></i>
+        <div>
+          <strong>Aviso:</strong> Si tu número de ventas no coincide con los datos reflejados en la tabla, comunícate con tu asesora para actualizar datos.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
     <div id="loading" class="loading">
       <i class="fas fa-spinner fa-spin"></i>
-      Cargando datos...
+      Cargando datos del ranking...
     </div>
-    <div id="error" class="error-message" style="display: none;">
+
+    <div id="error" class="error-message" style="display:none;">
       <i class="fas fa-exclamation-circle"></i>
       <span id="error-text"></span>
     </div>
-    
-    <button id="refresh-btn" class="refresh-btn">
-      <span id="refresh-text">Actualizar ahora</span>
-      <span id="refresh-icon" style="margin-left: 8px;"><i class="fas fa-sync-alt"></i></span>
-    </button>
 
-    <div class="search-container">
-      <i class="fas fa-search search-icon"></i>
-      <input type="text" id="search-input" class="search-input" placeholder="Buscar afiliado..." />
-    </div>
-    
-    <table class="ranking-table" id="ranking-table" style="display: none;">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Afiliado</th>
-          <th>Ventas</th>
-        </tr>
-      </thead>
-      <tbody id="ranking-body">
-        </tbody>
-    </table>
+    <!-- PODIUM (top 3) -->
+    <section id="podium-section" class="panel podium-section" style="display:none;">
+      <h2 class="section-heading">
+        <i class="fas fa-medal"></i>
+        Podio de honor
+      </h2>
+      <div class="podium" id="podium"></div>
+    </section>
 
-    <div id="no-results" class="no-results" style="display: none;">
-      <i class="fas fa-search"></i>
-      No se encontraron resultados para su búsqueda
-    </div>
+    <!-- RESTO DEL RANKING -->
+    <section id="ranking-panel" class="panel" style="display:none;">
+      <div class="panel-header">
+        <h2 class="panel-title">
+          <i class="fas fa-list-ol"></i>
+          Lista completa
+        </h2>
 
-    <div id="total-sales" class="total-sales" style="display: none;">
-      Total de ventas: <span id="total-sales-count">0</span>
-    </div>
-    
-    <div id="last-updated" class="last-updated"></div>
-  </div>
+        <div class="toolbar">
+          <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="search-input" class="search-input" placeholder="Buscar afiliado..." />
+          </div>
+          <button id="refresh-btn" class="refresh-btn">
+            <i class="fas fa-sync-alt" id="refresh-icon"></i>
+            <span id="refresh-text">Actualizar</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="ranking-list" class="ranking-list"></div>
+
+      <div id="no-results" class="no-results" style="display:none;">
+        <i class="fas fa-search"></i>
+        No se encontraron resultados para su búsqueda
+      </div>
+
+      <div id="last-updated" class="last-updated"></div>
+    </section>
+  </main>
+
+  <footer>
+    © <strong>Novaklar</strong> · Ranking de afiliados
+  </footer>
 
   <script>
-    // Configuración
+    // ============ CONFIGURACIÓN ============
     const SPREADSHEET_ID = '1D54c79yejujdFIJKVu4m3iM3ndUVnxP_fSgwSqGec5U';
     const SHEET_NAME = 'Form_Responses1';
     const RANGE = 'A:K';
-    const AFFILIATE_COLUMNS_START = 1; // Columna B (0-based sería 1)
-    const AFFILIATE_COLUMNS_END = 10; // Columna K (0-based sería 10)
+    const AFFILIATE_COLUMNS_START = 1;
+    const AFFILIATE_COLUMNS_END = 10;
     const UPDATE_INTERVAL = 5 * 60 * 1000;
-    
-    // Configuración de temporadas (base: julio 2025 = temporada 23)
+
     const BASE_SEASON = 23;
     const BASE_YEAR = 2025;
-    const BASE_MONTH = 6; // 0 = enero, 6 = julio
+    const BASE_MONTH = 6;
 
-    // Elementos del DOM
-    const rankingBody = document.getElementById('ranking-body');
-    const loadingElement = document.getElementById('loading');
-    const errorElement = document.getElementById('error');
-    const errorTextElement = document.getElementById('error-text');
-    const tableElement = document.getElementById('ranking-table');
-    const lastUpdatedElement = document.getElementById('last-updated');
-    const refreshBtn = document.getElementById('refresh-btn');
-    const refreshText = document.getElementById('refresh-text');
-    const refreshIcon = document.getElementById('refresh-icon');
-    const totalSalesElement = document.getElementById('total-sales');
-    const totalSalesCountElement = document.getElementById('total-sales-count');
-    const seasonInfoElement = document.getElementById('season-info');
-    const searchInput = document.getElementById('search-input');
-    const noResultsElement = document.getElementById('no-results');
+    // ============ DOM ============
+    const loadingElement      = document.getElementById('loading');
+    const errorElement        = document.getElementById('error');
+    const errorTextElement    = document.getElementById('error-text');
+    const podiumSection       = document.getElementById('podium-section');
+    const podiumElement       = document.getElementById('podium');
+    const rankingPanel        = document.getElementById('ranking-panel');
+    const rankingListElement  = document.getElementById('ranking-list');
+    const noResultsElement    = document.getElementById('no-results');
+    const lastUpdatedElement  = document.getElementById('last-updated');
+    const refreshBtn          = document.getElementById('refresh-btn');
+    const refreshText         = document.getElementById('refresh-text');
+    const refreshIcon         = document.getElementById('refresh-icon');
+    const seasonInfoElement   = document.getElementById('season-info');
+    const searchInput         = document.getElementById('search-input');
+    const statParticipants    = document.getElementById('stat-participants');
+    const statSales           = document.getElementById('stat-sales');
+    const statTop             = document.getElementById('stat-top');
 
-    // Variables globales
+    // ============ ESTADO ============
     let allAffiliates = [];
+    let currentTotalSales = 0;
     let refreshInterval;
 
-    // Función para calcular el mes y temporada actual
+    // ============ TEMPORADA ============
     function getCurrentSeasonInfo() {
       const now = new Date();
       const currentYear = now.getFullYear();
       const currentMonth = now.getMonth();
-      
-      // Calcular la diferencia en meses desde la temporada base
       const monthsDiff = (currentYear - BASE_YEAR) * 12 + (currentMonth - BASE_MONTH);
-      
-      // Calcular la temporada actual
       const currentSeason = BASE_SEASON + Math.max(0, monthsDiff);
-      
-      // Nombres de los meses en español
-      const monthNames = [
-        'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
-        'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
-      ];
-      
-      return {
-        month: monthNames[currentMonth],
-        season: currentSeason
-      };
+      const monthNames = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+      return { month: monthNames[currentMonth], season: currentSeason };
     }
 
-    // Función para actualizar la información de temporada
     function updateSeasonInfo() {
       const { month, season } = getCurrentSeasonInfo();
-      seasonInfoElement.textContent = `${month} - temporada #${season}`;
+      seasonInfoElement.innerHTML = `
+        <i class="fas fa-calendar-alt"></i>
+        <span>${month} · temporada <strong>#${season}</strong></span>
+      `;
     }
 
-    // Función para formatear la fecha
     function formatDate(date) {
-      const options = { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric', 
-        hour: '2-digit', 
-        minute: '2-digit'
-      };
-      return new Date(date).toLocaleDateString('es-ES', options);
+      const opts = { year:'numeric', month:'long', day:'numeric', hour:'2-digit', minute:'2-digit' };
+      return new Date(date).toLocaleDateString('es-ES', opts);
     }
 
-    // Función para animar el icono de actualización
-    function spinRefreshIcon() {
-      refreshIcon.classList.add('fa-spin');
-    }
-
-    function stopSpinRefreshIcon() {
-      refreshIcon.classList.remove('fa-spin');
-    }
-
-    // Función mejorada para normalizar nombres - MÁS ROBUSTA
+    // ============ NORMALIZACIÓN ============
     function normalizeName(name) {
       if (!name || typeof name !== 'string') return '';
-      
       return name
         .toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Eliminar acentos
-        .replace(/[^a-z0-9\s]/g, '') // Eliminar caracteres especiales
-        .replace(/\s+/g, ' ') // Reemplazar múltiples espacios por uno solo
-        .trim() // Eliminar espacios al inicio y final
-        .replace(/\b\w/g, c => c.toUpperCase()); // Capitalizar cada palabra
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .replace(/\b\w/g, c => c.toUpperCase());
     }
 
-    // Función para limpiar y estandarizar nombres - NUEVA FUNCIÓN
     function cleanName(name) {
       if (!name || typeof name !== 'string') return '';
-      
-      // Lista de variaciones comunes de nombres
-      const nameVariations = {
-        'caroll': 'Caroll',
-        'carroll': 'Caroll',
-        'arias': 'Arias',
-        'aryas': 'Arias',
-        'aryaz': 'Arias'
-      };
-      
-      // Aplicar normalización básica
+      const variations = { 'caroll':'Caroll','carroll':'Caroll','arias':'Arias','aryas':'Arias','aryaz':'Arias' };
       let cleaned = normalizeName(name);
-      
-      // Reemplazar variaciones conocidas
-      Object.keys(nameVariations).forEach(variation => {
-        const regex = new RegExp(`\\b${variation}\\b`, 'gi');
-        cleaned = cleaned.replace(regex, nameVariations[variation]);
+      Object.keys(variations).forEach(v => {
+        const regex = new RegExp(`\\b${v}\\b`, 'gi');
+        cleaned = cleaned.replace(regex, variations[v]);
       });
-      
       return cleaned;
     }
 
-    // Función mejorada para parsear datos de afiliados
+    // ============ PARSEO ============
     function parseAffiliateData(text) {
       try {
         if (!text || typeof text !== 'string') return null;
-        
-        // Eliminar espacios extras y normalizar
         text = text.trim().replace(/\s+/g, ' ');
-        
-        // Patrones para detectar diferentes formatos
+
         const patterns = [
-          // Formato: "Nombre X" (número al final)
           /^(.+?)\s+(\d+)$/,
-          // Formato: "X Nombre" (número al inicio)
           /^(\d+)\s+(.+)$/,
-          // Formato: "Nombre - X" (número después de guión)
           /^(.+?)\s*[-–—]\s*(\d+)$/,
-          // Formato: "Nombre: X" (número después de dos puntos)
           /^(.+?)\s*[:]\s*(\d+)$/,
-          // Formato: "Nombre (X)" (número entre paréntesis)
           /^(.+?)\s*[\(]\s*(\d+)\s*[\)]$/,
-          // Solo nombre (asumir 1 venta)
           /^([a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+)$/
         ];
-        
-        let name, sales;
-        
+
         for (const pattern of patterns) {
           const match = text.match(pattern);
-          if (match) {
-            if (pattern === /^([a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+)$/) {
-              // Solo nombre
-              name = match[1].trim();
-              sales = 1;
-            } else {
-              // Nombre y número
-              name = match[1].trim();
-              sales = parseInt(match[2]);
-            }
-            
-            // Validar resultados
-            if (name && name.length >= 2 && !isNaN(sales) && sales > 0) {
-              return {
-                displayName: cleanName(name), // Usar la función de limpieza
-                normalizedName: normalizeName(name),
-                sales
-              };
-            }
+          if (!match) continue;
+
+          let name, sales;
+          if (pattern === /^([a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+)$/) {
+            name = match[1].trim();
+            sales = 1;
+          } else {
+            name = match[1].trim();
+            sales = parseInt(match[2]);
+          }
+
+          if (name && name.length >= 2 && !isNaN(sales) && sales > 0) {
+            return {
+              displayName: cleanName(name),
+              normalizedName: normalizeName(name),
+              sales
+            };
           }
         }
-        
         return null;
-      } catch (error) {
-        console.error('Error parsing affiliate data:', text, error);
+      } catch (e) {
+        console.error('Error parsing affiliate data:', text, e);
         return null;
       }
     }
 
-    // Función para consolidar datos de todas las columnas
     function consolidateAffiliateData(rows) {
-      const affiliatesMap = new Map();
+      const map = new Map();
       let totalSales = 0;
-      
       try {
         rows.forEach(row => {
-          // Verificar si la fila tiene datos
           if (!row.c || !Array.isArray(row.c)) return;
-          
-          // Iterar sobre todas las columnas de afiliados (B a K)
           for (let i = AFFILIATE_COLUMNS_START; i <= AFFILIATE_COLUMNS_END; i++) {
-            if (row.c[i]) {
-              const cellValue = String(row.c[i]?.v || row.c[i]?.f || '');
-              if (cellValue.trim()) {
-                const affiliate = parseAffiliateData(cellValue);
-                if (affiliate) {
-                  totalSales += affiliate.sales;
-                  const key = affiliate.normalizedName;
-                  
-                  if (affiliatesMap.has(key)) {
-                    // Si ya existe, sumar las ventas
-                    affiliatesMap.get(key).sales += affiliate.sales;
-                  } else {
-                    // Si no existe, agregar nuevo
-                    affiliatesMap.set(key, {
-                      name: affiliate.displayName,
-                      sales: affiliate.sales,
-                      normalizedName: affiliate.normalizedName
-                    });
-                  }
-                }
-              }
+            if (!row.c[i]) continue;
+            const raw = String(row.c[i]?.v || row.c[i]?.f || '');
+            if (!raw.trim()) continue;
+            const affiliate = parseAffiliateData(raw);
+            if (!affiliate) continue;
+            totalSales += affiliate.sales;
+            const key = affiliate.normalizedName;
+            if (map.has(key)) {
+              map.get(key).sales += affiliate.sales;
+            } else {
+              map.set(key, {
+                name: affiliate.displayName,
+                sales: affiliate.sales,
+                normalizedName: affiliate.normalizedName
+              });
             }
           }
         });
-        
-        return {
-          affiliates: Array.from(affiliatesMap.values()),
-          totalSales: totalSales
-        };
-      } catch (error) {
-        console.error('Error consolidating data:', error);
-        return {
-          affiliates: [],
-          totalSales: 0
-        };
+        return { affiliates: Array.from(map.values()), totalSales };
+      } catch (e) {
+        console.error('Error consolidating data:', e);
+        return { affiliates: [], totalSales: 0 };
       }
     }
 
-    // Función para filtrar afiliados según la búsqueda
-    function filterAffiliates(searchTerm) {
-      if (!searchTerm) {
-        return allAffiliates;
-      }
-      
-      const normalizedSearch = normalizeName(searchTerm);
-      return allAffiliates.filter(affiliate => 
-        affiliate.normalizedName.includes(normalizedSearch)
-      );
+    // ============ FILTRO ============
+    function filterAffiliates(term) {
+      if (!term) return allAffiliates;
+      const norm = normalizeName(term);
+      return allAffiliates.filter(a => a.normalizedName.includes(norm));
     }
 
-    // Función para renderizar el ranking
-    function renderRanking(affiliates) {
-      rankingBody.innerHTML = '';
-      
-      if (affiliates.length === 0) {
-        tableElement.style.display = 'none';
-        noResultsElement.style.display = 'block';
-        totalSalesElement.style.display = 'none';
-        return;
-      }
-      
-      tableElement.style.display = 'table';
-      noResultsElement.style.display = 'none';
-      totalSalesElement.style.display = 'block';
-      
-      // Ordenar por ventas (descendente) y luego por nombre (ascendente)
-      affiliates.sort((a, b) => {
+    function sortBySales(list) {
+      return [...list].sort((a, b) => {
         if (b.sales !== a.sales) return b.sales - a.sales;
         return a.name.localeCompare(b.name);
       });
-      
-      affiliates.forEach((affiliate, index) => {
-        const row = document.createElement('tr');
-        // Eliminada la clase top-affiliate para que todas las filas sean iguales
-        
-        const rankCell = document.createElement('td');
-        rankCell.className = 'rank-number';
-        
-        if (index === 0) rankCell.innerHTML = `<span class="medal">🥇</span>${index + 1}`;
-        else if (index === 1) rankCell.innerHTML = `<span class="medal">🥈</span>${index + 1}`;
-        else if (index === 2) rankCell.innerHTML = `<span class="medal">🥉</span>${index + 1}`;
-        else rankCell.textContent = index + 1;
-        
-        const nameCell = document.createElement('td');
-        nameCell.className = 'affiliate-name';
-        nameCell.textContent = affiliate.name;
-        
-        const salesCell = document.createElement('td');
-        salesCell.className = 'sales-count';
-        salesCell.textContent = affiliate.sales.toLocaleString('es-CO');
-        
-        row.append(rankCell, nameCell, salesCell);
-        rankingBody.appendChild(row);
+    }
+
+    // ============ RENDER: PODIUM ============
+    function renderPodium(top3) {
+      podiumElement.innerHTML = '';
+      const order = [
+        { item: top3[1], pos: 2, cls: 'second', medal: '🥈' },
+        { item: top3[0], pos: 1, cls: 'first',  medal: '🥇' },
+        { item: top3[2], pos: 3, cls: 'third',  medal: '🥉' }
+      ];
+
+      order.forEach(({ item, pos, cls, medal }) => {
+        if (!item) return;
+        const wrapper = document.createElement('div');
+        wrapper.className = `podium-item ${cls}`;
+        wrapper.innerHTML = `
+          <div class="podium-card">
+            <div class="podium-medal">${medal}</div>
+            <div class="podium-name">${escapeHtml(item.name)}</div>
+            <div class="podium-sales">
+              <i class="fas fa-shopping-bag"></i>
+              ${item.sales.toLocaleString('es-CO')}
+            </div>
+          </div>
+          <div class="podium-base">${pos}</div>
+        `;
+        podiumElement.appendChild(wrapper);
       });
     }
 
-    // Función para actualizar las estadísticas
-    function updateStats(totalSales) {
-      totalSalesCountElement.textContent = totalSales.toLocaleString('es-CO');
+    // ============ RENDER: LISTA ============
+    function renderList(list, startRank = 0, isSearching = false) {
+      rankingListElement.innerHTML = '';
+
+      if (list.length === 0) {
+        rankingListElement.style.display = 'none';
+        noResultsElement.style.display = 'block';
+        return;
+      }
+
+      rankingListElement.style.display = 'flex';
+      noResultsElement.style.display = 'none';
+
+      const maxSales = list.reduce((m, a) => Math.max(m, a.sales), 1);
+
+      list.forEach((affiliate, i) => {
+        const pos = startRank + i + 1;
+        const pct = Math.max(6, Math.round((affiliate.sales / maxSales) * 100));
+
+        const row = document.createElement('div');
+        row.className = 'rank-row';
+        row.style.animationDelay = `${Math.min(i * 0.03, 0.4)}s`;
+
+        row.innerHTML = `
+          <div class="rank-index">${isSearching ? '' : '#'}${pos}</div>
+          <div class="rank-info">
+            <div class="rank-name" title="${escapeHtml(affiliate.name)}">${escapeHtml(affiliate.name)}</div>
+            <div class="rank-bar-wrap">
+              <div class="rank-bar" data-width="${pct}"></div>
+            </div>
+          </div>
+          <div class="rank-sales">
+            <i class="fas fa-shopping-bag"></i>
+            ${affiliate.sales.toLocaleString('es-CO')}
+          </div>
+        `;
+        rankingListElement.appendChild(row);
+      });
+
+      requestAnimationFrame(() => {
+        rankingListElement.querySelectorAll('.rank-bar').forEach(bar => {
+          bar.style.width = bar.dataset.width + '%';
+        });
+      });
     }
 
-    // Función para cargar datos desde Google Sheets
+    // ============ RENDER PRINCIPAL ============
+    function renderRanking(affiliates, isSearching = false) {
+      rankingPanel.style.display = 'block';
+
+      if (affiliates.length === 0) {
+        podiumSection.style.display = 'none';
+        renderList([], 0, isSearching);
+        updateStats(0, 0, 0);
+        return;
+      }
+
+      if (isSearching || affiliates.length < 3) {
+        podiumSection.style.display = 'none';
+        renderList(affiliates, 0, isSearching);
+      } else {
+        podiumSection.style.display = 'block';
+        renderPodium(affiliates.slice(0, 3));
+        const rest = affiliates.slice(3);
+        renderList(rest, 3, false);
+      }
+
+      const topSales = affiliates.reduce((m, a) => Math.max(m, a.sales), 0);
+      updateStats(currentTotalSales, affiliates.length, topSales);
+    }
+
+    function updateStats(totalSales, participants, topSales) {
+      statParticipants.textContent = participants.toLocaleString('es-CO');
+      statSales.textContent        = totalSales.toLocaleString('es-CO');
+      statTop.textContent          = topSales.toLocaleString('es-CO');
+    }
+
+    // ============ HELPERS ============
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, c => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      }[c]));
+    }
+
+    function spinRefreshIcon()   { refreshIcon.classList.add('fa-spin'); }
+    function stopSpinRefreshIcon(){ refreshIcon.classList.remove('fa-spin'); }
+
+    // ============ CARGA DE DATOS ============
     async function loadDataFromSheets() {
-      let spinInterval;
       try {
         loadingElement.style.display = 'block';
         errorElement.style.display = 'none';
-        tableElement.style.display = 'none';
-        noResultsElement.style.display = 'none';
-        totalSalesElement.style.display = 'none';
+        podiumSection.style.display = 'none';
+        rankingPanel.style.display = 'none';
         refreshBtn.disabled = true;
         refreshText.textContent = 'Actualizando...';
         spinRefreshIcon();
-        
-        const cacheBuster = new Date().getTime();
+
+        const cacheBuster = Date.now();
         const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&range=${RANGE}&t=${cacheBuster}`;
-        
+
         const response = await fetch(url);
         if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`);
-        
+
         const text = await response.text();
         const json = JSON.parse(text.substring(47).slice(0, -2));
-        
         if (!json.table?.rows) throw new Error('Estructura de datos inesperada');
-        
-        const affiliateData = consolidateAffiliateData(json.table.rows);
-        if (affiliateData.affiliates.length === 0) {
-          throw new Error('No se encontraron datos válidos de afiliados');
-        }
-        
-        // Guardar todos los afiliados para búsqueda
-        allAffiliates = affiliateData.affiliates;
-        
-        // Filtrar según búsqueda actual
-        const searchTerm = searchInput.value;
-        const filteredAffiliates = filterAffiliates(searchTerm);
-        
-        renderRanking(filteredAffiliates);
-        updateStats(affiliateData.totalSales);
-        
-        lastUpdatedElement.textContent = `Última actualización: ${formatDate(new Date())}`;
+
+        const data = consolidateAffiliateData(json.table.rows);
+        if (data.affiliates.length === 0) throw new Error('No se encontraron datos válidos de afiliados');
+
+        allAffiliates = data.affiliates;
+        currentTotalSales = data.totalSales;
+
+        const sorted = sortBySales(allAffiliates);
+        const isSearching = searchInput.value.trim().length > 0;
+        const filtered = isSearching ? filterAffiliates(searchInput.value) : sorted;
+
+        renderRanking(filtered, isSearching);
+
+        lastUpdatedElement.innerHTML = `<i class="fas fa-clock"></i> Última actualización: ${formatDate(new Date())}`;
         loadingElement.style.display = 'none';
-        
-      } catch (error) {
-        console.error('Error:', error);
+
+      } catch (err) {
+        console.error('Error:', err);
         loadingElement.style.display = 'none';
-        errorTextElement.textContent = error.message;
+        errorTextElement.textContent = err.message;
         errorElement.style.display = 'block';
+        updateStats(0, 0, 0);
       } finally {
         stopSpinRefreshIcon();
         refreshBtn.disabled = false;
-        refreshText.textContent = 'Actualizar ahora';
+        refreshText.textContent = 'Actualizar';
       }
     }
 
-    // Inicia la actualización automática
+    // ============ EVENTOS ============
     function startAutoRefresh() {
       updateSeasonInfo();
       loadDataFromSheets();
       refreshInterval = setInterval(loadDataFromSheets, UPDATE_INTERVAL);
     }
 
-    // Evento para actualización manual
     refreshBtn.addEventListener('click', () => {
       clearInterval(refreshInterval);
       loadDataFromSheets();
       refreshInterval = setInterval(loadDataFromSheets, UPDATE_INTERVAL);
     });
 
-    // Evento para búsqueda
+    let searchDebounce;
     searchInput.addEventListener('input', () => {
-      const searchTerm = searchInput.value;
-      const filteredAffiliates = filterAffiliates(searchTerm);
-      renderRanking(filteredAffiliates);
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(() => {
+        const term = searchInput.value.trim();
+        const isSearching = term.length > 0;
+        const sorted = sortBySales(allAffiliates);
+        const list = isSearching ? filterAffiliates(term) : sorted;
+        renderRanking(list, isSearching);
+      }, 120);
     });
 
-    // Inicia al cargar la página
     document.addEventListener('DOMContentLoaded', startAutoRefresh);
   </script>
 </body>

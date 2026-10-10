@@ -4,36 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Central de Contacto | Novaklar</title>
+
+  <!-- Forzar recarga de la última versión -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="version" content="2026-10-09-5" />
+
   <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* Fuentes personalizadas */
     @font-face {
       font-family: 'Poppins';
-      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
-      font-weight: normal;
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf?v=2026-10-09-5') format('truetype');
+      font-weight: 400;
       font-style: normal;
+      font-display: swap;
     }
-    
     @font-face {
       font-family: 'Poppins';
-      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf') format('truetype');
-      font-weight: bold;
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Medium.ttf?v=2026-10-09-5') format('truetype');
+      font-weight: 500;
       font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf?v=2026-10-09-5') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
     }
 
     :root {
-      --primary-blue: #000c7d;
-      --secondary-blue: #6b8cff;
-      --light-blue: #eef5ff;
-      --white: #f4f6fc;
-      --light-gray: #f9f9f9;
-      --medium-gray: #555;
-      --dark-gray: #080a33;
-      --shadow: 0 6px 20px rgba(8, 10, 51, 0.1);
-      --transition: all 0.3s ease;
-      --whatsapp-green: #25d366; 
+      --primary-blue: #00005b;
+      --secondary-blue: #7a99ff;
+      --white: #ffffff;
+      --black: #000000;
+      --off-white: #f7f8fc;
+      --medium-gray: #6b7280;
+      --dark-gray: #0a0a0a;
+      --border-light: #e5e7eb;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 91, 0.06);
+      --shadow-md: 0 8px 24px rgba(0, 0, 91, 0.10);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 91, 0.14);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --whatsapp-green: #25d366;
       --whatsapp-hover: #1da851;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
     }
 
     * {
@@ -42,259 +63,536 @@
       padding: 0;
     }
 
-    body {
-      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--light-gray); 
-      color: var(--dark-gray);
-      line-height: 1.6;
-      padding-bottom: 3rem;
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* --- Header Styles --- */
+    body {
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--off-white);
+      color: var(--dark-gray);
+      line-height: 1.6;
+      padding-bottom: 4rem;
+      min-height: 100vh;
+    }
+
+    /* --- Header --- */
     header {
-      background-color: var(--primary-blue);
+      background-color: var(--black);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 2px 10px rgba(8, 10, 51, 0.1);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
       position: sticky;
       top: 0;
       z-index: 100;
     }
 
+    header .logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
     header img {
-      height: 40px;
+      height: 42px;
       filter: brightness(0) invert(1);
       transition: var(--transition);
     }
 
     header img:hover {
       transform: scale(1.05);
+      filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(122, 153, 255, 0.6));
     }
 
-    header a {
+    header a.back-link {
       text-decoration: none;
       color: var(--white);
-      font-weight: normal;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-sm);
       transition: var(--transition);
       font-family: 'Poppins', sans-serif;
+      border: 1.5px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
     }
 
-    header a:hover {
-      background-color: rgba(255,255,255,0.2);
+    header a.back-link i {
+      font-size: 0.85rem;
+    }
+
+    header a.back-link:hover {
+      background-color: rgba(122, 153, 255, 0.15);
+      border-color: rgba(122, 153, 255, 0.5);
       transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--black) 0%, var(--primary-blue) 100%);
+      color: var(--white);
+      padding: 4rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(122, 153, 255, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60%;
+      right: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(122, 153, 255, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: rgba(122, 153, 255, 0.2);
+      border: 1px solid rgba(122, 153, 255, 0.4);
+      color: var(--secondary-blue);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 .accent {
+      color: var(--secondary-blue);
+    }
+
+    .hero p {
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 400;
     }
 
     /* Main Content */
     .contact-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      padding: 3rem 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .contact-section {
-      border-radius: 18px; 
-      padding: 2.5rem;
-      box-shadow: var(--shadow);
-      max-width: 500px;
-      width: 100%;
-      text-align: center;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      max-width: 1180px;
+      margin: 3rem auto 0;
+      padding: 0 1.5rem;
       position: relative;
-      background-color: var(--white);
-      border: 1px solid #ddd; 
+      z-index: 5;
     }
 
-    .contact-section:hover {
-        transform: translateY(-5px); 
-        box-shadow: 0 15px 35px rgba(13, 76, 127, 0.1), 0 5px 10px rgba(8, 10, 51, 0.05);
-    }
-
-    .sales-section {
-      border-top: 6px solid var(--secondary-blue);
-    }
-    
-    .manager-section {
-      border: 1px dashed var(--medium-gray);
-      background-color: var(--white);
-      max-width: 800px; 
-      margin-top: 2rem;
-      padding: 2rem;
-      border-radius: 18px;
-    }
-
+    /* Section headings - centrados, sin ícono ni línea */
     .section-title {
-      font-family: 'Poppins', sans-serif;
-      font-weight: bold;
-      font-size: 2rem; 
-      margin-top: 0;
-      margin-bottom: 1rem;
+      text-align: center;
+      font-size: clamp(1.4rem, 3.5vw, 1.85rem);
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.3px;
+      margin-bottom: 1.75rem;
       position: relative;
     }
 
-    .sales-title {
-      color: var(--secondary-blue);
-    }
-    
-    .manager-title {
-        color: var(--dark-gray);
-        font-size: 1.5rem; 
-    }
-
-    .contact-info {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--medium-gray);
-      margin-bottom: 1.8rem;
-      text-align: justify;
-      font-family: 'Poppins', sans-serif;
-    }
-    
-    .contact-info strong {
-        color: var(--dark-gray);
-        font-weight: bold;
+    /* Advisors Grid */
+    .advisors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
     }
 
-    .button-group {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      align-items: center;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      width: 100%;
-    }
-
-    .whatsapp-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.1rem 1.8rem; 
-      border-radius: 30px; 
-      text-decoration: none;
-      font-weight: bold; 
-      font-size: 1.05rem;
-      box-shadow: 0 4px 12px rgba(8, 10, 51, 0.2);
+    .advisor-card {
+      background-color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
       transition: var(--transition);
       position: relative;
       overflow: hidden;
-      min-width: 180px; 
+      display: flex;
+      flex-direction: column;
+    }
+
+    .advisor-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--secondary-blue), var(--primary-blue));
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .advisor-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(122, 153, 255, 0.4);
+    }
+
+    .advisor-card:hover::before {
+      opacity: 1;
+    }
+
+    .advisor-avatar {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin: 0 auto 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 91, 0.25);
+      letter-spacing: 0.5px;
+    }
+
+    .advisor-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.2px;
+    }
+
+    .advisor-role {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--primary-blue);
+      background-color: rgba(122, 153, 255, 0.12);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .advisor-card p {
+      font-size: 0.9rem;
+      color: var(--medium-gray);
+      margin-bottom: 1.5rem;
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.85rem 1.5rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      width: 100%;
+      letter-spacing: 0.2px;
+    }
+
+    .btn i {
+      font-size: 1.1rem;
+    }
+
+    .btn-whatsapp {
       background-color: var(--whatsapp-green);
       color: var(--white);
-      border: none;
-      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
     }
 
-    .whatsapp-btn:hover {
+    .btn-whatsapp:hover {
       background-color: var(--whatsapp-hover);
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 8px 20px rgba(8, 10, 51, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(37, 211, 102, 0.4);
     }
 
-    .whatsapp-btn i {
-      margin-right: 0.7rem;
-      font-size: 1.3rem;
-    }
-    
-    .manager-btn {
-        background-color: var(--primary-blue);
-        color: var(--white);
+    .btn-primary {
+      background-color: var(--primary-blue);
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(0, 0, 91, 0.25);
     }
 
-    .manager-btn:hover {
-        background-color: #000a66;
+    .btn-primary:hover {
+      background-color: #000044;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0, 0, 91, 0.35);
     }
 
-    /* Responsive Design */
-    @media (max-width: 1000px) {
-        .contact-container {
-            flex-direction: column;
-            align-items: center;
-        }
+    /* Manager Section */
+    .manager-wrapper {
+      margin-bottom: 3rem;
+    }
+
+    .manager-card {
+      background: linear-gradient(135deg, var(--black) 0%, var(--primary-blue) 100%);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .manager-card::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(122, 153, 255, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .manager-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-md);
+      background-color: rgba(122, 153, 255, 0.18);
+      border: 1.5px solid rgba(122, 153, 255, 0.4);
+      color: var(--secondary-blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .manager-content {
+      flex: 1;
+      min-width: 240px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .manager-content h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.2px;
+    }
+
+    .manager-content p {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .manager-action {
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+      min-width: 220px;
+    }
+
+    .manager-action .btn-primary {
+      background-color: var(--secondary-blue);
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    .manager-action .btn-primary:hover {
+      background-color: var(--white);
+      color: var(--primary-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(122, 153, 255, 0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      header {
+        padding: 0.9rem 1.25rem;
+      }
+      header img {
+        height: 36px;
+      }
+      header a.back-link {
+        font-size: 0.88rem;
+        padding: 0.5rem 0.85rem;
+      }
+      header a.back-link span {
+        display: none;
+      }
+      .manager-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+      .manager-action {
+        width: 100%;
+        min-width: 0;
+      }
+      .manager-action .btn {
+        width: 100%;
+      }
     }
 
     @media (max-width: 768px) {
+      .hero {
+        padding: 3rem 1.25rem 4rem;
+      }
       .contact-container {
-        gap: 1.5rem;
-        padding: 2rem 1rem;
+        padding: 0 1rem;
+        margin-top: 2.5rem;
       }
-      .contact-section {
-        padding: 2rem;
-        max-width: 100%;
+      .advisors-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
       }
-      .section-title {
-        font-size: 1.7rem;
+      .advisor-card {
+        padding: 1.75rem 1.5rem;
       }
-      .manager-title {
-        font-size: 1.3rem;
-      }
-      .whatsapp-btn {
-        width: 100%;
-        max-width: 250px;
-        padding: 1rem 1.5rem;
-        font-size: 1rem;
+      .btn {
+        padding: 0.85rem 1.25rem;
+        font-size: 0.92rem;
       }
     }
-    
-    @media (max-width: 600px) {
-        .whatsapp-btn {
-            min-width: 100%;
-        }
+
+    @media (max-width: 420px) {
+      header {
+        padding: 0.75rem 1rem;
+      }
+      header img {
+        height: 32px;
+      }
+      .hero {
+        padding: 2.5rem 1rem 3.5rem;
+      }
+      .hero-badge {
+        font-size: 0.7rem;
+        padding: 0.35rem 0.85rem;
+      }
+      .section-title {
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/novaklar1.svg" alt="Novaklar Logo" />
-    <a href="https://novaklar.github.io/web/">Regresar</a>
+    <a href="https://novaklar.github.io/web/" class="logo-wrapper">
+      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Logos/novaklar.svg?v=2026-10-09-5" alt="Novaklar Logo" />
+    </a>
+    <a href="https://novaklar.github.io/web/" class="back-link">
+      <i class="fas fa-arrow-left"></i> <span>Regresar</span>
+    </a>
   </header>
 
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Central de Contacto</span>
+      <h1>Estamos aquí para <span class="accent">ayudarte</span></h1>
+      <p>Contacta directamente con nuestro equipo comercial o con la gerencia según la naturaleza de tu consulta.</p>
+    </div>
+  </section>
+
   <div class="contact-container">
-    
-    <div class="contact-section sales-section">
-      <h2 class="section-title sales-title">Asesoras Comerciales</h2>
-      <p class="contact-info">
-        Comunícate directamente con ellas para realizar compras, referir una venta, consultar los catálogos y combos vigentes, o si necesitas reportar un fallo en algún producto o servicio.
-      </p>
-      <div class="button-group">
-        <div class="button-row">
-          <a href="https://wa.me/573018205460?text=Hola%20Alejandra%2C%20te%20contacto%20desde%20la%20página%20web%20para%20una%20consulta%20comercial." class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Alejandra
-          </a>
+
+    <h2 class="section-title">Asesoras Comerciales</h2>
+
+    <div class="advisors-grid">
+      <!-- Alejandra -->
+      <div class="advisor-card">
+        <div class="advisor-avatar">A</div>
+        <h3>Alejandra</h3>
+        <span class="advisor-role">Asesora Comercial</span>
+        <p>Compras, referidos, catálogos vigentes y reporte de fallos en productos o servicios.</p>
+        <a href="https://wa.me/573018205460?text=Hola%20Alejandra%2C%20te%20contacto%20desde%20la%20página%20web%20para%20una%20consulta%20comercial." class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Escribir
+        </a>
+      </div>
+
+      <!-- Katherin -->
+      <div class="advisor-card">
+        <div class="advisor-avatar">K</div>
+        <h3>Katherin</h3>
+        <span class="advisor-role">Asesora Comercial</span>
+        <p>Compras, referidos, catálogos vigentes y reporte de fallos en productos o servicios.</p>
+        <a href="https://wa.me/573027069328?text=Hola%20Katherin%2C%20te%20contacto%20desde%20la%20página%20web%20para%20una%20consulta%20comercial." class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Escribir
+        </a>
+      </div>
+
+      <!-- Danna -->
+      <div class="advisor-card">
+        <div class="advisor-avatar">D</div>
+        <h3>Danna</h3>
+        <span class="advisor-role">Asesora Comercial</span>
+        <p>Compras, referidos, catálogos vigentes y reporte de fallos en productos o servicios.</p>
+        <a href="https://wa.me/573027069241?text=Hola%20Danna%2C%20te%20contacto%20desde%20la%20página%20web%20para%20una%20consulta%20comercial." class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Escribir
+        </a>
+      </div>
+    </div>
+
+    <h2 class="section-title">Contacto con la Gerencia</h2>
+
+    <div class="manager-wrapper">
+      <div class="manager-card">
+        <div class="manager-icon">
+          <i class="fas fa-user-shield"></i>
         </div>
-        <div class="button-row">
-          <a href="https://wa.me/573027069241?text=Hola%20Danna%2C%20te%20contacto%20desde%20la%20página%20web%20para%20una%20consulta%20comercial." class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Danna
+        <div class="manager-content">
+          <h3>Asuntos de alta prioridad</h3>
+          <p>Este canal está disponible para todos, pero el gerente no atiende solicitudes de compra ni reportes técnicos. Úsalo solo para quejas formales, sugerencias estratégicas o temas que las asesoras no puedan resolver.</p>
+        </div>
+        <div class="manager-action">
+          <a href="https://wa.me/573177317091?text=Hola%20Gerente%2C%20te%20contacto%20desde%20la%20página%20web%20para%20un%20asunto%20de%20alta%20prioridad." class="btn btn-primary" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Escribir al Gerente
           </a>
         </div>
       </div>
-    </div>
-    
-    <div class="contact-section manager-section">
-        <h2 class="section-title manager-title">Contacto con la Gerencia</h2>
-        <p class="contact-info">
-          Este canal está disponible para todos, pero por favor ten en cuenta que el gerente no atiende solicitudes de compra o reportes técnicos. Comunícate directamente con él para asuntos que no puedan ser resueltos por las asesoras, como quejas formales, sugerencias estratégicas o temas de alta prioridad.
-        </p>
-        <div class="button-group">
-            <div class="button-row">
-                <a href="https://wa.me/573177317091?text=Hola%20Gerente%2C%20te%20contacto%20desde%20la%20página%20web%20para%20un%20asunto%20de%20alta%20prioridad." class="whatsapp-btn manager-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Escribir al Gerente
-                </a>
-            </div>
-        </div>
     </div>
 
   </div>

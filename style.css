@@ -9,6 +9,7 @@
    - Contadores: sin íconos Font Awesome
    - Contadores: número con gradiente azul característico
    - Contadores: línea de acento inferior al hover
+   - Hero: gradiente alineado al estilo del ranking (3 paradas)
    ============================================================ */
 
 /* ============================
@@ -321,7 +322,8 @@ button:focus-visible,
    ============================================================ */
 .main-container {
     width: 100%;
-    background: linear-gradient(135deg, var(--color-black) 0%, var(--color-dark) 100%);
+    /* Gradiente unificado con el hero del ranking (3 paradas) */
+    background: linear-gradient(135deg, var(--color-dark) 0%, #00003a 60%, var(--color-black) 100%);
     padding: 170px 0 120px;
     display: flex;
     justify-content: center;

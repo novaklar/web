@@ -1,7 +1,7 @@
 /* ============================================================
    NOVAKLAR — SCRIPT PRINCIPAL UNIFICADO
    ============================================================
-   Versión:   3.0.1
+   Versión:   3.0.2
    Fecha:     2026-10-10
    Autor:     Hank
    ------------------------------------------------------------
@@ -26,9 +26,9 @@
 
     const menus = {
         catalogos: [
+            { text: 'Streaming', url: 'streaming.html', target: '_self' },
             { text: 'Gaming',    url: 'gaming.html',    target: '_self' },
-            { text: 'Apps',      url: 'app.html',       target: '_self' },
-            { text: 'Streaming', url: 'streaming.html', target: '_self' }
+            { text: 'Apps',      url: 'app.html',       target: '_self' }
         ],
         elementos: [
             { text: 'Ranking',    url: 'ranking.html', target: '_self' },

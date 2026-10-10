@@ -10,12 +10,12 @@
     <meta http-equiv="Expires" content="0">
     <!-- ====================================================== -->
 
-    <title>Novaklar</title>
-    <meta name="version" content="2.1.0">
+    <title>Novaklar — Innovación a tu alcance</title>
+    <meta name="version" content="3.2.1">
     <meta name="author" content="Novaklar - Haku">
+    <meta name="description" content="Novaklar — Soluciones digitales accesibles, innovadoras y rentables. Streaming, recargas, suscripciones premium y más.">
 
-    <!-- Estilos: versión 2.1.0 (última) -->
-    <link rel="stylesheet" href="style.css?v=2.1.0">
+    <link rel="stylesheet" href="style.css?v=3.2.1">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,15 +27,15 @@
     <header class="header">
         <div class="header-content">
             <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Logos/novaklar.svg" alt="Novaklar" class="logo">
-            
+
             <nav class="nav-links">
                 <a href="https://www.tiktok.com/@novaklar?_r=1&_t=ZS-919oaIUdgCQ" target="_blank" rel="noopener">TikTok</a>
                 <a href="https://youtube.com/@novaklar?si=rvWZdTtdbzl_iHqY" target="_blank" rel="noopener">YouTube</a>
                 <a href="https://www.instagram.com/novaklarr?igsh=b2hvaWxsbjRiMGs2" target="_blank" rel="noopener">Instagram</a>
                 <a href="https://whatsapp.com/channel/0029VaMxlM0EVccFMEFw9u04" target="_blank" rel="noopener">WhatsApp</a>
             </nav>
-            
-            <div class="hamburger-menu">
+
+            <div class="hamburger-menu" aria-label="Abrir menú" role="button" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -44,26 +44,29 @@
     </header>
 
     <div class="drawer-menu">
-        <div class="close-btn" id="closeBtn">×</div>
+        <div class="close-btn" id="closeBtn" aria-label="Cerrar menú">×</div>
         <div class="menu-items">
-            <a href="https://www.tiktok.com/@novaklar?_r=1&_t=ZS-919oaIUdgCQ" target="_blank" rel="noopener" class="menu-item">
+            <a href="https://www.tiktok.com/@novaklar?_r=1&_t=ZS-919oaIUdgCQ" target="_blank" rel="noopener" class="menu-item" data-network="tiktok">
                 <span>TikTok</span>
             </a>
-            <a href="https://youtube.com/@novaklar?si=rvWZdTtdbzl_iHqY" target="_blank" rel="noopener" class="menu-item">
+            <a href="https://youtube.com/@novaklar?si=rvWZdTtdbzl_iHqY" target="_blank" rel="noopener" class="menu-item" data-network="youtube">
                 <span>YouTube</span>
             </a>
-            <a href="https://www.instagram.com/novaklarr?igsh=b2hvaWxsbjRiMGs2" target="_blank" rel="noopener" class="menu-item">
+            <a href="https://www.instagram.com/novaklarr?igsh=b2hvaWxsbjRiMGs2" target="_blank" rel="noopener" class="menu-item" data-network="instagram">
                 <span>Instagram</span>
             </a>
-            <a href="https://whatsapp.com/channel/0029VaMxlM0EVccFMEFw9u04" target="_blank" rel="noopener" class="menu-item">
+            <a href="https://whatsapp.com/channel/0029VaMxlM0EVccFMEFw9u04" target="_blank" rel="noopener" class="menu-item" data-network="whatsapp">
                 <span>WhatsApp</span>
             </a>
         </div>
     </div>
-    
+
     <div class="overlay"></div>
 
     <div class="main-container" id="mainContainer">
+        <div class="hero-bg-grid" aria-hidden="true"></div>
+        <div class="hero-glow" aria-hidden="true"></div>
+
         <div class="page">
             <div class="title-section">
                 <h1>novaklar</h1>
@@ -73,7 +76,7 @@
             <div class="buttons-section">
                 <div class="buttons-container">
                     <div class="button-wrapper">
-                        <button class="menu-button" data-menu="catalogos">Catalogos</button>
+                        <button class="menu-button" data-menu="catalogos">Catálogos</button>
                         <div class="submenu-container" data-menu="catalogos"></div>
                     </div>
                     <div class="button-wrapper">
@@ -99,7 +102,7 @@
             <p>Ventas realizadas</p>
         </div>
     </section>
-    
+
     <div class="contact-button-container">
         <a href="CR.html" class="contact-button">Contactar asesoras</a>
     </div>
@@ -134,15 +137,15 @@
 
         <div class="about-section terms">
             <h3>Términos y condiciones</h3>
-            
+
             <p><strong>1. Uso de los servicios:</strong> Novaklar actúa como intermediario entre el usuario y los proveedores de servicios digitales. Al utilizar nuestra plataforma, el usuario acepta los términos aquí descritos.</p>
-            
+
             <p><strong>2. Responsabilidad del usuario:</strong> Cada usuario es responsable de utilizar de forma ética y legal los productos adquiridos. Cualquier intento de fraude o maluso implicará la suspensión inmediata del acceso.</p>
-            
+
             <p><strong>3. Pagos y reembolsos:</strong> Los pagos deben ser realizados a través de los canales oficiales. Una vez entregado un producto digital correctamente, no se realizan reembolsos, excepto en casos de errores comprobables.</p>
-            
+
             <p><strong>4. Protección de datos:</strong> Novaklar se compromete a proteger la privacidad de sus usuarios y no compartir datos personales con terceros sin consentimiento.</p>
-            
+
             <p><strong>5. Cambios en los términos:</strong> Nos reservamos el derecho de modificar estos términos en cualquier momento. Se recomienda revisar esta sección periódicamente.</p>
         </div>
     </section>
@@ -163,7 +166,6 @@
         </div>
     </a>
 
-    <!-- Script: versión 1.2 (sin cambios) -->
     <script src="script.js?v=1.2"></script>
 </body>
 </html>

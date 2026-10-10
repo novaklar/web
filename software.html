@@ -3,89 +3,193 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Software | Novaklar</title>
-  
+  <title>Apps | Novaklar</title>
+
+  <!-- Forzar recarga de la última versión -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="version" content="2026-10-10-2" />
+
   <style>
     @font-face {
       font-family: 'Poppins';
       font-weight: 700;
-      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf') format('truetype');
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf?v=2026-10-10-2') format('truetype');
       font-display: swap;
     }
     @font-face {
       font-family: 'Poppins';
       font-weight: 400;
-      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf?v=2026-10-10-2') format('truetype');
       font-display: swap;
     }
+    @font-face {
+      font-family: 'Poppins';
+      font-weight: 500;
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Medium.ttf?v=2026-10-10-2') format('truetype');
+      font-display: swap;
+    }
+  </style>
 
+  <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
     body {
       margin: 0;
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f1efee;
+      background-color: #ffffff;
       color: #080a33;
+      padding-top: 2rem;
+      cursor: default;
     }
 
-    header {
-      background-color: #0d4c7f;
+    .top-controls {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 0 1.5rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    header img { height: 40px; }
+    .logo-container {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
 
-    header a {
-      text-decoration: none;
-      color: #f1efee;
-      font-weight: 400;
+    .logo-container img {
+      height: 80px;
+      width: auto;
+      filter: brightness(0);
+    }
+
+    .controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    /* Botón Regresar - negro */
+    .btn-back {
+      padding: 0.7rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
       font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: background-color 0.2s;
-    }
-
-    header a:hover { background-color: rgba(241, 239, 238, 0.2); }
-
-    .page-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #080a33;
+      cursor: pointer;
+      text-decoration: none;
       text-align: center;
-      margin: 2.5rem 0 0.5rem;
-    }
-
-    .section-subtitle {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #0d4c7f;
-      text-align: center;
-      margin: 1rem 0 1.5rem;
+      transition: all 0.2s ease;
+      font-family: 'Poppins', sans-serif;
+      min-height: 48px;
+      height: 52px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 15px;
+      box-sizing: border-box;
+      background-color: transparent;
+      color: #000000;
+      border: 2px solid #000000;
+      width: 140px;
     }
 
-    #adobe-title {
-      margin-top: 1rem; 
+    .btn-back:hover {
+      background-color: rgba(0, 0, 0, 0.08);
     }
 
-    .section-subtitle::before, .section-subtitle::after {
-      content: "";
-      height: 2px;
-      width: 50px;
-      background-color: #0d4c7f;
-      opacity: 0.3;
+    /* Botones segmentados - negros */
+    .mode-segmented {
+      display: flex;
+      gap: 0;
+      width: 280px;
+      height: 52px;
+      border: 2px solid #000000;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      background-color: transparent;
+    }
+
+    .mode-segmented-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #000000;
+      background-color: transparent;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      height: 100%;
+      padding: 0;
+    }
+
+    .mode-segmented-btn:first-child {
+      border-right: 2px solid #000000;
+    }
+
+    .mode-segmented-btn.active {
+      background-color: #000000;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    /* Cabeceras de las tablas */
+    .table-container thead tr th {
+      padding: 0.5rem 1rem;
+      text-align: center;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .table-container thead tr:first-child th {
+      padding-top: 0.6rem;
+      border-top-left-radius: 0.6rem;
+      border-top-right-radius: 0.6rem;
+      overflow: hidden;
+    }
+
+    .table-container thead:not(:first-child) tr th {
+      border-radius: 0 !important;
+    }
+
+    .table-container td {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      color: #080a33;
+      font-weight: 400;
+    }
+
+    .table-container tr:last-child td {
+      border-bottom: none;
+    }
+
+    .promotor-highlight {
+      background-color: #f0f7ff;
+    }
+
+    .promotor-highlight td:first-child {
+      color: #080a33;
+      font-weight: 500;
+    }
+
+    .promotor-highlight td:last-child {
+      color: #080a33;
+      font-size: 1.1rem;
+      font-weight: 600;
     }
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.8rem;
-      padding: 0 1.5rem 2rem;
+      padding: 1.5rem;
       justify-content: center;
       max-width: 1200px;
       margin: 0 auto;
@@ -93,30 +197,40 @@
 
     .card {
       background-color: transparent;
+      border: none;
+      padding: 0;
       cursor: pointer;
       transition: transform 0.2s ease;
-      width: 250px;
+      width: 300px;
       margin: 0 auto;
     }
 
     .card img {
-      width: 100%;
+      width: 300px;
+      height: 130px;
+      object-fit: cover;
       border-radius: 0.6rem;
       transition: transform 0.3s ease;
       display: block;
       box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     }
 
-    .card:hover img { transform: scale(1.05); }
+    .card:hover img {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
 
     .table-container {
       display: none;
       margin-top: 0.8rem;
-      background-color: #f1efee;
+      background-color: #ffffff;
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       border: 1px solid #e2e8f0;
+      width: 100%;
+      position: relative;
+      z-index: 10;
     }
 
     .table-container table {
@@ -126,109 +240,298 @@
       font-size: 0.9rem;
     }
 
-    .table-container th { padding: 0.5rem 1rem; text-align: center; }
-    .table-container td { padding: 0.5rem 1rem; border-bottom: 1px solid #e2e8f0; }
-
-    .buy-section { padding: 1rem; border-top: 2px dashed #e2e8f0; }
-    .buy-text { text-align: center; margin-bottom: 0.8rem; font-size: 0.85rem; font-weight: 500; }
-
-    .whatsapp-buttons { display: flex; flex-direction: column; gap: 0.5rem; }
-    .whatsapp-btn {
-      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-      padding: 0.6rem; background-color: #25D366; color: #f1efee;
-      text-decoration: none; border-radius: 0.4rem; font-weight: 600; font-size: 0.85rem;
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      background-color: #04d749;
+      border: none;
+      outline: none;
+      padding: 0;
+      box-shadow: 0 4px 12px rgba(4, 215, 73, 0.3);
     }
 
-    .note { font-size: 0.75rem; color: #64748b; text-align: center; font-style: italic; margin-top: 0.5rem; }
+    .whatsapp-button:hover {
+      background-color: #04c043;
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(4, 215, 73, 0.4);
+    }
+
+    .whatsapp-button:active,
+    .whatsapp-button:focus {
+      background-color: #04c043;
+      outline: none;
+      box-shadow: 0 4px 12px rgba(4, 215, 73, 0.3);
+    }
+
+    .whatsapp-icon-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px;
+    }
+
+    .whatsapp-icon-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    @media (max-width: 768px) {
+      body { padding-top: 1.5rem; }
+      .top-controls { padding: 0 1rem 1.5rem; }
+      .logo-container { margin-bottom: 1.5rem; }
+      .logo-container img { height: 70px; }
+      .controls-row { flex-direction: column; gap: 1rem; width: 100%; }
+      .btn-back { width: 100%; max-width: 300px; }
+      .mode-segmented { width: 100%; max-width: 300px; }
+      .whatsapp-button { width: 55px; height: 55px; border-radius: 14px; bottom: 20px; right: 20px; }
+      .whatsapp-icon-container { padding: 13px; }
+    }
 
     @media (max-width: 600px) {
-      .card { width: 300px; }
+      .logo-container img { height: 65px; }
+      .btn-back, .mode-segmented { max-width: 280px; }
+      .container { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; padding: 1rem; }
+      .card { width: 280px; }
+      .card img { width: 280px; }
+      .whatsapp-button { width: 50px; height: 50px; border-radius: 13px; bottom: 15px; right: 15px; }
+      .whatsapp-icon-container { padding: 12px; }
+    }
+
+    @media (max-width: 400px) {
+      body { padding-top: 1rem; }
+      .top-controls { padding: 0 1rem 1rem; }
+      .logo-container img { height: 60px; }
+      .btn-back, .mode-segmented { max-width: 260px; }
       .container { grid-template-columns: 1fr; }
+      .card { width: 100%; max-width: 300px; }
+      .card img { width: 100%; max-width: 300px; }
+      .whatsapp-button { width: 45px; height: 45px; border-radius: 11px; bottom: 10px; right: 10px; }
+      .whatsapp-icon-container { padding: 10px; }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+  <div class="top-controls">
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Logos/novaklar.svg?v=2026-10-10-2" alt="Novaklar Logo" />
+    </div>
 
-  <header>
-    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/cloud.svg" alt="Novaklar Logo" />
-    <a href="https://novaklar.github.io/web/">Regresar</a>
-  </header>
+    <div class="controls-row">
+      <a href="https://novaklar.github.io/web/" class="btn-back">Regresar</a>
 
-  <h1 class="page-title">Software</h1>
+      <div class="mode-segmented" id="modeSegmented">
+        <button class="mode-segmented-btn active" id="segmentedPromotor">Promotor</button>
+        <button class="mode-segmented-btn" id="segmentedRevendedor">Revendedor</button>
+      </div>
+    </div>
+  </div>
 
-  <div class="section-subtitle">Apps</div>
-  <div class="container" id="apps-container"></div>
+  <div class="container" id="cards-container"></div>
 
-  <div class="section-subtitle" id="adobe-title">Adobe</div>
-  <div class="container" id="adobe-container"></div>
+  <!-- WhatsApp Button -->
+  <a href="CR.html" target="_blank" class="whatsapp-button" aria-label="Chat WhatsApp">
+    <div class="whatsapp-icon-container">
+      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/extra/whatsapp.svg?v=2026-10-10-2" alt="WhatsApp">
+    </div>
+  </a>
 
   <script>
+    const VERSION = '2026-10-10-2';
+
+    const container = document.getElementById('cards-container');
     let currentlyOpenCard = null;
+    let currentMode = 'promotor';
 
-    const appsData = [
-      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/gpt.png", valores: [16500, 20500, 4000], tipo: "simple", headerBg: "none", nombre: "Chat GPT" },
-      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/duo.png", valores: "Sin stock", tipo: "sin-stock", nombre: "Duolingo" },
-      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/canva.png", valores: { mensual: [10500, 12500, 2000], anual: [28500, 36500, 8000] }, tipo: "doble", headerBg: "linear-gradient(135deg, #03bfcd, #7a2ee7)", nombre: "Canva" },
-      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/capcut.png", valores: { mensual: [19500, 21500, 2000], trimestral: [55500, 60500, 5000] }, tipo: "doble", headerBg: "#000000", nombre: "CapCut" }
+    // Orden de popularidad (Gemini primero, luego el resto)
+    const popularityOrder = [
+      "geminy.png",
+      "gpt.png",
+      "canva.png",
+      "capcut.png",
+      "duo.png"
     ];
 
-    const adobeData = [
-      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/ps.png", name: "Photoshop", valores: [7000, 12000, 5000], headerBg: "#001e36", titleColor: "#2faaff" },
-      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/ai.png", name: "Illustrator", valores: [7000, 12000, 5000], headerBg: "#330000", titleColor: "#ff9a00" },
-      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/pr.png", name: "Premiere Pro", valores: [7000, 12000, 5000], headerBg: "#00005b", titleColor: "#9999ff" },
-      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/ae.png", name: "After Effects", valores: [7000, 12000, 5000], headerBg: "#00005b", titleColor: "#9999ff" },
-      { img: "https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/an.png", name: "Animate", valores: [7000, 12000, 5000], headerBg: "#00005b", titleColor: "#9999ff" }
+    const servicios = [
+      {
+        nombre: "gemini",
+        displayName: "Gemini",
+        imageName: "geminy.png",
+        headerBg: "linear-gradient(135deg, #4285f4, #9b72cb)",
+        sinPrecio: true,
+        mensaje: "Precios próximamente"
+      },
+      {
+        nombre: "gpt",
+        displayName: "ChatGPT",
+        imageName: "gpt.png",
+        headerBg: "#10a37f",
+        valores: [
+          { afiliado: 16500, sugerido: 20500, ganancia: 4000 }
+        ]
+      },
+      {
+        nombre: "duo",
+        displayName: "Duolingo",
+        imageName: "duo.png",
+        headerBg: "#58cc02",
+        sinStock: true,
+        mensaje: "Sin stock"
+      },
+      {
+        nombre: "canva",
+        displayName: "Canva",
+        imageName: "canva.png",
+        headerBg: "linear-gradient(135deg, #03bfcd, #7a2ee7)",
+        valores: [
+          { tipo: "Plan Mensual", afiliado: 10500, sugerido: 12500, ganancia: 2000 },
+          { tipo: "Plan Anual", afiliado: 28500, sugerido: 36500, ganancia: 8000 }
+        ]
+      },
+      {
+        nombre: "capcut",
+        displayName: "CapCut",
+        imageName: "capcut.png",
+        headerBg: "#000000",
+        valores: [
+          { tipo: "Plan Mensual", afiliado: 19500, sugerido: 21500, ganancia: 2000 },
+          { tipo: "Plan Trimestral", afiliado: 55500, sugerido: 60500, ganancia: 5000 }
+        ]
+      }
     ];
 
-    function createCard(item, isAdobe = false) {
+    // Ordenar según popularidad
+    servicios.sort((a, b) => {
+      return popularityOrder.indexOf(a.imageName) - popularityOrder.indexOf(b.imageName);
+    });
+
+    function crearTarjeta(servicio, modo) {
       const card = document.createElement('div');
       card.className = 'card';
-      let tableContent = '';
+      card.dataset.nombre = servicio.nombre;
 
-      if (!isAdobe) {
-        if (item.tipo === "sin-stock") {
-          tableContent = `<div class="table-container"><table><tbody><tr><td colspan="2" style="color:#dc2626; font-weight:600; text-align:center; padding:1rem;">${item.valores}</td></tr></tbody></table></div>`;
-        } else {
-          const isDoble = item.tipo === "doble";
-          const isSimpleSinHeader = item.tipo === "simple" && item.headerBg === "none";
-          const plansHtml = isDoble 
-            ? Object.entries(item.valores).map(([name, vals]) => `
-                <thead><tr><th colspan="2" style="background: ${item.headerBg}; color: #f1efee">Plan ${name.charAt(0).toUpperCase() + name.slice(1)}</th></tr></thead>
-                <tbody><tr><td>Precio Afiliado</td><td>$${vals[0].toLocaleString('es-CO')}</td></tr><tr><td>Precio Sugerido</td><td>$${vals[1].toLocaleString('es-CO')}</td></tr><tr><td>Ganancia</td><td>$${vals[2].toLocaleString('es-CO')}</td></tr></tbody>`).join('')
-            : `${isSimpleSinHeader ? '' : `<thead><tr><th colspan="2" style="background: ${item.headerBg}; color: #f1efee">${item.nombre}</th></tr></thead>`}
-               <tbody><tr><td>Precio Afiliado</td><td>$${item.valores[0].toLocaleString('es-CO')}</td></tr><tr><td>Precio Sugerido</td><td>$${item.valores[1].toLocaleString('es-CO')}</td></tr><tr><td>Ganancia</td><td>$${item.valores[2].toLocaleString('es-CO')}</td></tr></tbody>`;
+      const rutaImagen = `https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/${servicio.imageName}?v=${VERSION}`;
 
-          tableContent = `<div class="table-container"><table>${plansHtml}</table><div class="buy-section"><div class="buy-text">¡Adquiere ${item.nombre} ahora!</div><div class="whatsapp-buttons">
-            <a href="https://wa.me/573018205460?text=Hola,%20busco%20${item.nombre}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Alejandra</a>
-            <a href="https://wa.me/573127741655?text=Hola,%20busco%20${item.nombre}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Tatiana</a>
-            <a href="https://wa.me/573027069241?text=Hola,%20busco%20${item.nombre}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Danna</a>
-          </div></div></div>`;
-        }
+      let tableHTML = `<div class="table-container"><table>`;
+
+      if (servicio.sinPrecio || servicio.sinStock) {
+        const color = servicio.sinStock ? '#dc2626' : '#00005b';
+        const headerText = servicio.sinStock ? servicio.displayName : `${servicio.displayName} · Próximamente`;
+        tableHTML += `
+          <thead>
+            <tr><th colspan="2" style="background:${servicio.headerBg}; color:#ffffff">${headerText}</th></tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="2" style="text-align:center; padding:1rem; font-weight:600; color:${color};">${servicio.mensaje}</td></tr>
+          </tbody>
+        `;
       } else {
-        tableContent = `<div class="table-container"><table><thead><tr><th colspan="2" style="background: ${item.headerBg}; color: ${item.titleColor}">${item.name}</th></tr></thead>
-          <tbody><tr><td>Precio Afiliado</td><td>$${item.valores[0].toLocaleString('es-CO')}</td></tr><tr><td>Precio Sugerido</td><td>$${item.valores[1].toLocaleString('es-CO')}</td></tr><tr><td>Ganancia</td><td>$${item.valores[2].toLocaleString('es-CO')}</td></tr></tbody></table>
-          <div class="buy-section"><div class="buy-text">¡Adquiere Adobe ${item.name}!</div><div class="whatsapp-buttons">
-            <a href="https://wa.me/573018205460?text=Adobe%20${item.name}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Alejandra</a>
-            <a href="https://wa.me/573127741655?text=Adobe%20${item.name}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Tatiana</a>
-            <a href="https://wa.me/573027069241?text=Adobe%20${item.name}" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Danna</a>
-          </div><div class="note">Versión 2023 + Tutorial de descarga.</div></div></div>`;
+        servicio.valores.forEach((v) => {
+          const headerText = v.tipo ? v.tipo : servicio.displayName;
+
+          tableHTML += `
+            <thead>
+              <tr><th colspan="2" style="background:${servicio.headerBg}; color:#ffffff">${headerText}</th></tr>
+            </thead>
+            <tbody>
+          `;
+
+          if (modo === 'revendedor') {
+            tableHTML += `
+              <tr><td>Precio Real</td><td>—</td></tr>
+              <tr><td>Precio Afiliado</td><td>$${v.afiliado.toLocaleString('es-CO')}</td></tr>
+              <tr><td>Precio Sugerido</td><td>$${v.sugerido.toLocaleString('es-CO')}</td></tr>
+              <tr><td>Ganancia</td><td>$${v.ganancia.toLocaleString('es-CO')}</td></tr>
+            `;
+          } else {
+            tableHTML += `
+              <tr><td>Precio Real</td><td>—</td></tr>
+              <tr class="promotor-highlight"><td>Ganancia Promotor</td><td>—</td></tr>
+            `;
+          }
+
+          tableHTML += `</tbody>`;
+        });
       }
 
-      card.innerHTML = `<img src="${item.img}" alt="${isAdobe ? item.name : item.nombre}" />${tableContent}`;
+      tableHTML += `</table></div>`;
+
+      card.innerHTML = `
+        <img src="${rutaImagen}" alt="${servicio.displayName}" />
+        ${tableHTML}
+      `;
+
       const tableContainer = card.querySelector('.table-container');
-      
+
       card.addEventListener('click', (e) => {
         if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') return;
-        if (currentlyOpenCard && currentlyOpenCard !== tableContainer) currentlyOpenCard.style.display = 'none';
+
+        if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
+          currentlyOpenCard.style.display = 'none';
+        }
+
         tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
+
         currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
       });
+
       return card;
     }
 
-    appsData.forEach(item => document.getElementById('apps-container').appendChild(createCard(item, false)));
-    adobeData.forEach(item => document.getElementById('adobe-container').appendChild(createCard(item, true)));
+    function setupClickOutsideListener() {
+      document.addEventListener('click', function(e) {
+        if (currentlyOpenCard) {
+          const card = currentlyOpenCard.closest('.card');
+          if (!card.contains(e.target)) {
+            currentlyOpenCard.style.display = 'none';
+            currentlyOpenCard = null;
+          }
+        }
+      });
+    }
+
+    function renderAllCards(modo) {
+      container.innerHTML = '';
+      servicios.forEach((servicio) => {
+        container.appendChild(crearTarjeta(servicio, modo));
+      });
+    }
+
+    setupClickOutsideListener();
+
+    const promotorBtn = document.getElementById('segmentedPromotor');
+    const revendedorBtn = document.getElementById('segmentedRevendedor');
+
+    function setMode(mode) {
+      currentMode = mode;
+      if (mode === 'revendedor') {
+        revendedorBtn.classList.add('active');
+        promotorBtn.classList.remove('active');
+      } else {
+        revendedorBtn.classList.remove('active');
+        promotorBtn.classList.add('active');
+      }
+      renderAllCards(mode);
+    }
+
+    promotorBtn.addEventListener('click', () => setMode('promotor'));
+    revendedorBtn.addEventListener('click', () => setMode('revendedor'));
+
+    renderAllCards('promotor');
   </script>
 </body>
 </html>

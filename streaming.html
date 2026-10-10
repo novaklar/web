@@ -4,24 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Streaming | Novaklar</title>
-  
+
+  <!-- Forzar recarga de la última versión -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="version" content="2026-10-09-1" />
+
   <style>
     @font-face {
       font-family: 'Poppins';
       font-weight: 700;
-      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf') format('truetype');
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf?v=2026-10-09-1') format('truetype');
       font-display: swap;
     }
     @font-face {
       font-family: 'Poppins';
       font-weight: 400;
-      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf?v=2026-10-09-1') format('truetype');
       font-display: swap;
     }
     @font-face {
       font-family: 'Poppins';
       font-weight: 500;
-      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Medium.ttf') format('truetype');
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Medium.ttf?v=2026-10-09-1') format('truetype');
       font-display: swap;
     }
   </style>
@@ -32,7 +38,7 @@
     body {
       margin: 0;
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f6fc;
+      background-color: #ffffff; /* Fondo blanco */
       color: #080a33;
       padding-top: 2rem;
       cursor: default;
@@ -67,7 +73,7 @@
       margin: 0 auto;
     }
 
-    /* Botón Regresar - peso medium */
+    /* Botón Regresar - negro */
     .btn-back {
       padding: 0.7rem 2rem;
       border-radius: 0.5rem;
@@ -85,22 +91,22 @@
       justify-content: center;
       box-sizing: border-box;
       background-color: transparent;
-      color: #080a33;
-      border: 2px solid #080a33;
+      color: #000000; /* Negro */
+      border: 2px solid #000000; /* Negro */
       width: 140px;
     }
 
     .btn-back:hover {
-      background-color: rgba(8, 10, 51, 0.08);
+      background-color: rgba(0, 0, 0, 0.08);
     }
 
-    /* Botones segmentados - peso regular/medium */
+    /* Botones segmentados - negros */
     .mode-segmented {
       display: flex;
       gap: 0;
       width: 280px;
       height: 52px;
-      border: 2px solid #080a33;
+      border: 2px solid #000000; /* Negro */
       border-radius: 0.5rem;
       overflow: hidden;
       background-color: transparent;
@@ -115,7 +121,7 @@
       font-size: 0.95rem;
       cursor: pointer;
       transition: all 0.2s ease;
-      color: #080a33;
+      color: #000000; /* Negro */
       background-color: transparent;
       border: none;
       font-family: 'Poppins', sans-serif;
@@ -123,14 +129,13 @@
       padding: 0;
     }
 
-    /* Estilo específico para el primer botón (Promotor) */
     .mode-segmented-btn:first-child {
-      border-right: 2px solid #080a33;
+      border-right: 2px solid #000000; /* Negro */
     }
 
     .mode-segmented-btn.active {
-      background-color: #080a33;
-      color: white;
+      background-color: #000000; /* Negro */
+      color: #ffffff;
       font-weight: 500;
     }
 
@@ -161,12 +166,10 @@
       background: linear-gradient(to right, #022336, #19bac6);
     }
 
-    /* Estilo para encabezados de DGO */
     .table-container thead.dgo-header th {
       background-color: #021327;
     }
 
-    /* Filas de las tablas - peso regular */
     .table-container td {
       padding: 0.5rem 1rem;
       border-bottom: 1px solid #e2e8f0;
@@ -178,7 +181,6 @@
       border-bottom: none;
     }
 
-    /* Estilo para el modo promotor */
     .promotor-highlight {
       background-color: #f0f7ff;
     }
@@ -232,7 +234,7 @@
     .table-container {
       display: none;
       margin-top: 0.8rem;
-      background-color: #f4f6fc;
+      background-color: #ffffff; /* Fondo blanco también para tablas */
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -249,7 +251,6 @@
       font-size: 0.9rem;
     }
 
-    /* WhatsApp Button Styles */
     .whatsapp-button {
       position: fixed;
       bottom: 20px;
@@ -300,7 +301,6 @@
       filter: brightness(0) invert(1);
     }
 
-    /* Responsive styles */
     @media (max-width: 768px) {
       body {
         padding-top: 1.5rem;
@@ -431,7 +431,7 @@
 <body>
   <div class="top-controls">
     <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/deepblue.svg" alt="Novaklar Logo" />
+      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Logos/novaklar.svg?v=2026-10-09-1" alt="Novaklar Logo" />
     </div>
     
     <div class="controls-row">
@@ -449,16 +449,17 @@
   <!-- WhatsApp Button -->
   <a href="CR.html" target="_blank" class="whatsapp-button" aria-label="Chat WhatsApp">
     <div class="whatsapp-icon-container">
-      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/extra/whatsapp.svg" alt="WhatsApp">
+      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/extra/whatsapp.svg?v=2026-10-09-1" alt="WhatsApp">
     </div>
   </a>
 
   <script>
+    const VERSION = '2026-10-09-1'; // Versión para forzar recarga
+
     const container = document.getElementById('cards-container');
     let currentlyOpenCard = null;
     let currentMode = 'promotor';
 
-    // Orden de popularidad
     const popularityOrder = [
       "netflix.png",
       "spotify.png",
@@ -481,7 +482,6 @@
       "universal.png"
     ];
 
-    // Orden por defecto
     const servicios = [
       { 
         nombre: "netflix", 
@@ -603,18 +603,17 @@
       }
     ];
 
-    // Función para obtener el precio real de los productos
     function obtenerPrecioReal(servicio, index = 0) {
       if (servicio.nombre === 'netflix') {
-        return 12500; // Solo perfil original ahora
+        return 12500;
       } else if (servicio.nombre === 'disney') {
         return index === 0 ? 5000 : 9000;
       } else if (servicio.nombre === 'dgo') {
-        return 27000; // Precio real para DGO (Plan Gold Win +)
+        return 27000;
       } else if (servicio.nombre === 'universal') {
-        return 2500; // Precio real para Universal
+        return 2500;
       } else if (servicio.nombre === 'paramount') {
-        return 5000; // Precio real para Paramount+
+        return 5000;
       } else {
         switch(servicio.nombre) {
           case 'hbo': 
@@ -633,7 +632,6 @@
             return 8500;
           case 'tidal':
             return 5000;
-          // Combos
           case 'nehbo':
           case 'nepri':
             return 12500;
@@ -643,7 +641,6 @@
       }
     }
 
-    // Función para calcular la ganancia del promotor (60% de la diferencia)
     function calcularGananciaPromotor(precioReal, precioSugerido) {
       const diferencia = precioSugerido - precioReal;
       return Math.round(diferencia * 0.60);
@@ -663,7 +660,7 @@
       
       card.dataset.popularity = popularityOrder.indexOf(servicio.imageName);
       
-      const rutaImagen = `https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/${servicio.imageName}`;
+      const rutaImagen = `https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/${servicio.imageName}?v=${VERSION}`;
       
       let tableHTML = `
         <div class="table-container">
@@ -675,7 +672,6 @@
       
       if (modo === 'revendedor') {
         if (isDGO) {
-          // Tabla especial para DGO en modo revendedor con un solo plan
           const valor = servicio.valores[0];
           tableHTML += `
             <thead class="dgo-header">
@@ -689,7 +685,6 @@
               <tr><td>Ganancia</td><td>$${valor.ganancia.toLocaleString('es-CO')}</td></tr>
             </tbody>`;
         } else if (isNetflix || isDisney) {
-          // Para Netflix y Disney: mostrar encabezados para cada plan
           servicio.valores.forEach((valor, index) => {
             const headerClass = isNetflix ? 'netflix-header' : 'disney-header';
             
@@ -706,7 +701,6 @@
               </tbody>`;
           });
         } else {
-          // Para otros servicios: sin encabezado, solo la tabla
           tableHTML += `
             <tbody>
               <tr><td>Precio Afiliado</td><td>$${servicio.valores[0].afiliado.toLocaleString('es-CO')}</td></tr>
@@ -715,9 +709,7 @@
             </tbody>`;
         }
       } else {
-        // Modo PROMOTOR con 60% de ganancia (porcentaje oculto)
         if (isDGO) {
-          // Tabla especial para DGO en modo promotor con un solo plan
           const valor = servicio.valores[0];
           const precioReal = obtenerPrecioReal(servicio, 0);
           const gananciaPromotor = calcularGananciaPromotor(precioReal, valor.sugerido);
@@ -791,7 +783,6 @@
       return card;
     }
 
-    // Función para cerrar tarjetas al hacer clic fuera
     function setupClickOutsideListener() {
       document.addEventListener('click', function(e) {
         if (currentlyOpenCard) {
@@ -816,10 +807,8 @@
       });
     }
 
-    // Configurar el listener para cerrar tarjetas al hacer clic fuera
     setupClickOutsideListener();
 
-    // Manejo de los botones segmentados
     const promotorBtn = document.getElementById('segmentedPromotor');
     const revendedorBtn = document.getElementById('segmentedRevendedor');
 
@@ -838,7 +827,6 @@
     promotorBtn.addEventListener('click', () => setMode('promotor'));
     revendedorBtn.addEventListener('click', () => setMode('revendedor'));
 
-    // Renderizar las tarjetas inicialmente en modo promotor
     renderAllCards('promotor');
   </script>
 </body>

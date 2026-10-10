@@ -1,14 +1,14 @@
 /* ============================================================
    NOVAKLAR — HOJA DE ESTILOS PRINCIPAL
    ============================================================
-   Versión:   3.5.1
+   Versión:   3.5.2
    Fecha:     2026-10-09
    Autor:     Hank
    ------------------------------------------------------------
-   NOVEDADES v3.5.1:
-   - Iconos de "Cómo empezar": SIN borde/highlight/aro
-   - Se elimina inset shadow y ring de focus
-   - Íconos con gradiente azul característico limpio
+   NOVEDADES v3.5.2:
+   - Contadores: sin íconos Font Awesome
+   - Contadores: número con gradiente azul característico
+   - Contadores: línea de acento inferior al hover
    ============================================================ */
 
 /* ============================
@@ -849,7 +849,7 @@ button:focus-visible,
 }
 
 /* ============================================================
-   CONTADORES
+   CONTADORES — SIN íconos
    ============================================================ */
 .counters {
     position: relative;
@@ -870,46 +870,58 @@ button:focus-visible,
     text-align: center;
     min-width: 180px;
     flex: 1;
-    padding: 28px 22px;
+    padding: 34px 22px;
     background: var(--color-white);
     border-radius: var(--radius-lg);
     border: 1px solid rgba(122, 153, 255, 0.2);
     box-shadow: 0 12px 32px rgba(0, 0, 91, 0.10);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
-.counter-container::before {
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    font-size: 1.9rem;
-    color: var(--color-light);
-    display: block;
-    margin-bottom: 12px;
-    line-height: 1;
-    transition: var(--transition);
+
+/* Línea de acento inferior al hover */
+.counter-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--color-dark), var(--color-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.counter-container:nth-child(1)::before { content: "\f118"; }
-.counter-container:nth-child(2)::before { content: "\f0c0"; }
-.counter-container:nth-child(3)::before { content: "\f201"; }
+
 .counter-container:hover {
     transform: translateY(-6px);
     border-color: rgba(122, 153, 255, 0.5);
     box-shadow: 0 20px 48px rgba(0, 0, 91, 0.16);
 }
-.counter-container:hover::before { color: var(--color-dark); transform: scale(1.1); }
+.counter-container:hover::after {
+    transform: scaleX(1);
+}
+
 .counter {
-    color: var(--color-dark);
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: 700;
     line-height: 1;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-family: 'Poppins-Bold', sans-serif;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
+    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-light) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 .counters p {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     color: var(--color-muted);
     font-weight: 500;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.3px;
+    margin: 0;
 }
 
 /* ============================================================
@@ -1180,8 +1192,8 @@ footer p { font-size: 0.95rem; opacity: 0.9; }
     .nav-links { gap: 16px; }
     .header { padding: 12px 20px; }
     .main-container { padding: 155px 0 110px; }
-    .counter { font-size: 2.5rem; }
-    .counters p { font-size: 1rem; }
+    .counter { font-size: 2.6rem; }
+    .counters p { font-size: 0.95rem; }
     .buttons-container { max-width: 400px; }
     .menu-button { padding: 20px 24px; font-size: 18px; }
     .about-section { padding: 2rem; margin-left: 15px; margin-right: 15px; }
@@ -1215,8 +1227,8 @@ footer p { font-size: 0.95rem; opacity: 0.9; }
         width: 94%;
         gap: 14px;
     }
-    .counter-container { width: 100%; min-width: 0; padding: 24px 20px; }
-    .counter { font-size: 2.5rem; }
+    .counter-container { width: 100%; min-width: 0; padding: 30px 20px; }
+    .counter { font-size: 2.6rem; }
     .about-novaklar h2 { font-size: 2rem; }
     .about-section { padding: 1.8rem; margin-left: 10px; margin-right: 10px; border-radius: var(--radius-md); }
     .about-section p, .about-section li, .terms p { font-size: 0.98rem; line-height: 1.75; }
@@ -1260,8 +1272,8 @@ footer p { font-size: 0.95rem; opacity: 0.9; }
     .drawer-menu { width: 85%; padding: 70px 20px 30px; }
     .main-container { padding: 130px 0 90px; }
     .counters { padding: 0 15px; margin-top: 50px; width: 95%; }
-    .counter { font-size: 2.3rem; }
-    .counters p { font-size: 0.95rem; }
+    .counter { font-size: 2.4rem; }
+    .counters p { font-size: 0.92rem; }
     .about-section { padding: 1.5rem; margin-left: 8px; margin-right: 8px; }
     .about-section p, .about-section li, .terms p { font-size: 0.94rem; line-height: 1.7; }
     .about-section h3 { font-size: 1.25rem; gap: 10px; }
@@ -1302,5 +1314,5 @@ footer p { font-size: 0.95rem; opacity: 0.9; }
 }
 
 /* ============================================================
-   FIN DE HOJA DE ESTILOS — v3.5.1
+   FIN DE HOJA DE ESTILOS — v3.5.2
    ============================================================ */

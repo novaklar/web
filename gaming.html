@@ -4,66 +4,137 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gaming | Novaklar</title>
-  
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="version" content="2026-10-10-2" />
+
   <style>
     @font-face {
       font-family: 'Poppins';
       font-weight: 700;
-      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf') format('truetype');
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf?v=2026-10-10-2') format('truetype');
       font-display: swap;
     }
     @font-face {
       font-family: 'Poppins';
       font-weight: 400;
-      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf') format('truetype');
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf?v=2026-10-10-2') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      font-weight: 500;
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Medium.ttf?v=2026-10-10-2') format('truetype');
       font-display: swap;
     }
   </style>
 
   <link href="https://fonts.googleapis.com/css2?family=Comme:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f1efee;
+      background-color: #ffffff;
       color: #080a33;
+      padding-top: 2rem;
+      cursor: default;
     }
 
-    header {
-      background-color: #0d4c7f;
+    .top-controls {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 0 1.5rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    header img {
-      height: 40px;
-    }
-
-    header a {
-      text-decoration: none;
-      color: #f1efee;
-      font-weight: 400;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: background-color 0.2s;
-    }
-
-    header a:hover {
-      background-color: rgba(241, 239, 238, 0.2);
-    }
-
-    .page-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #080a33;
+    .logo-container {
+      margin-bottom: 2rem;
       text-align: center;
-      margin: 3rem 0 2rem;
-      padding: 0 1rem;
+    }
+
+    .logo-container img {
+      height: 80px;
+      width: auto;
+      filter: brightness(0);
+    }
+
+    .controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    .btn-back {
+      padding: 0.7rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s ease;
+      font-family: 'Poppins', sans-serif;
+      min-height: 48px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      background-color: transparent;
+      color: #000000;
+      border: 2px solid #000000;
+      width: 140px;
+    }
+
+    .btn-back:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .mode-segmented {
+      display: flex;
+      gap: 0;
+      width: 280px;
+      height: 52px;
+      border: 2px solid #000000;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      background-color: transparent;
+    }
+
+    .mode-segmented-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #000000;
+      background-color: transparent;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      height: 100%;
+      padding: 0;
+    }
+
+    .mode-segmented-btn:first-child {
+      border-right: 2px solid #000000;
+    }
+
+    .mode-segmented-btn.active {
+      background-color: #000000;
+      color: #ffffff;
+      font-weight: 500;
     }
 
     .container {
@@ -115,13 +186,15 @@
     .table-container {
       display: none;
       margin-top: 0.8rem;
-      background-color: #f1efee;
+      background-color: #ffffff;
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       border: 1px solid #e2e8f0;
       width: 100%;
       max-width: 900px;
+      position: relative;
+      z-index: 10;
     }
 
     .table-container table {
@@ -135,12 +208,14 @@
       padding: 0.5rem 1rem;
       text-align: center;
       font-weight: 600;
+      color: #ffffff;
     }
 
     .table-container td {
       padding: 0.5rem 1rem;
       border-bottom: 1px solid #e2e8f0;
       color: #080a33;
+      font-weight: 400;
     }
 
     .table-container tr:last-child td {
@@ -152,35 +227,137 @@
       color: #f1efee !important;
     }
 
-    /* ACTUALIZADO: Tono Negro Puro */
     .plan-header-freefire {
       background-color: #000000 !important;
       color: #f1efee !important;
     }
 
+    .promotor-highlight {
+      background-color: #f0f7ff;
+    }
+
+    .promotor-highlight td:first-child {
+      color: #080a33;
+      font-weight: 500;
+    }
+
+    .promotor-highlight td:last-child {
+      color: #080a33;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      background-color: #04d749;
+      border: none;
+      outline: none;
+      padding: 0;
+      box-shadow: 0 4px 12px rgba(4, 215, 73, 0.3);
+    }
+
+    .whatsapp-button:hover {
+      background-color: #04c043;
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(4, 215, 73, 0.4);
+    }
+
+    .whatsapp-button:active,
+    .whatsapp-button:focus {
+      background-color: #04c043;
+      outline: none;
+      box-shadow: 0 4px 12px rgba(4, 215, 73, 0.3);
+    }
+
+    .whatsapp-icon-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px;
+    }
+
+    .whatsapp-icon-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
     @media (max-width: 768px) {
+      body { padding-top: 1.5rem; }
+      .top-controls { padding: 0 1rem 1.5rem; }
+      .logo-container { margin-bottom: 1.5rem; }
+      .logo-container img { height: 70px; }
+      .controls-row { flex-direction: column; gap: 1rem; width: 100%; }
+      .btn-back { width: 100%; max-width: 300px; }
+      .mode-segmented { width: 100%; max-width: 300px; }
       .card-img-container, .table-container { max-width: 600px; }
+      .whatsapp-button { width: 55px; height: 55px; border-radius: 14px; bottom: 20px; right: 20px; }
+      .whatsapp-icon-container { padding: 13px; }
     }
 
     @media (max-width: 600px) {
-      .card-img-container, .table-container { max-width: 300px; }
-      .page-title { font-size: 1.8rem; }
+      .logo-container img { height: 65px; }
+      .btn-back, .mode-segmented { max-width: 280px; }
+      .card-img-container, .table-container { max-width: 100%; }
+      .container { padding: 1rem; gap: 1.5rem; }
+      .whatsapp-button { width: 50px; height: 50px; border-radius: 13px; bottom: 15px; right: 15px; }
+      .whatsapp-icon-container { padding: 12px; }
+    }
+
+    @media (max-width: 400px) {
+      body { padding-top: 1rem; }
+      .top-controls { padding: 0 1rem 1rem; }
+      .logo-container img { height: 60px; }
+      .btn-back, .mode-segmented { max-width: 260px; }
+      .whatsapp-button { width: 45px; height: 45px; border-radius: 11px; bottom: 10px; right: 10px; }
+      .whatsapp-icon-container { padding: 10px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/cloud.svg" alt="Novaklar Logo" />
-    <a href="https://novaklar.github.io/web/">Regresar</a>
-  </header>
+  <div class="top-controls">
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Logos/novaklar.svg?v=2026-10-10-2" alt="Novaklar Logo" />
+    </div>
 
-  <h1 class="page-title">Gaming</h1>
+    <div class="controls-row">
+      <a href="https://novaklar.github.io/web/" class="btn-back">Regresar</a>
+
+      <div class="mode-segmented" id="modeSegmented">
+        <button class="mode-segmented-btn active" id="segmentedPromotor">Promotor</button>
+        <button class="mode-segmented-btn" id="segmentedRevendedor">Revendedor</button>
+      </div>
+    </div>
+  </div>
 
   <div class="container" id="cards-container"></div>
 
+  <a href="CR.html" target="_blank" class="whatsapp-button" aria-label="Chat WhatsApp">
+    <div class="whatsapp-icon-container">
+      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/extra/whatsapp.svg?v=2026-10-10-2" alt="WhatsApp">
+    </div>
+  </a>
+
   <script>
+    const VERSION = '2026-10-10-2';
+
     const container = document.getElementById('cards-container');
-    let currentOpenTable = null;
+    let currentlyOpenCard = null;
 
     const robloxPlans = [
       { robux: "Premium 450 Robux", afiliado: 27500, sugerido: 29500, ganancia: 2000 },
@@ -211,41 +388,101 @@
       { diamantes: "Tarjeta Mensual", afiliado: 49000, sugerido: 53000, ganancia: 4000 }
     ];
 
-    function createCard(plans, titleKey, imgSrc, headerClass) {
+    // Cuando tengas el precio real, agrégalo como propiedad "real" en cada plan.
+    // Ejemplo: { robux: "...", afiliado: 27500, sugerido: 29500, ganancia: 2000, real: 25000 }
+    // El precio real NO se muestra en la tabla, solo se usa para calcular la ganancia del promotor.
+
+    function calcularGananciaPromotor(precioReal, precioSugerido) {
+      if (typeof precioReal !== 'number' || typeof precioSugerido !== 'number') return null;
+      return Math.round((precioSugerido - precioReal) * 0.60);
+    }
+
+    function createCard(plans, titleKey, imgSrc, headerClass, modo) {
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
         <div class="card-img-container">
-          <img src="${imgSrc}" alt="${titleKey}">
+          <img src="${imgSrc}?v=${VERSION}" alt="${titleKey}">
         </div>
         <div class="table-container">
           <table><tbody></tbody></table>
         </div>
       `;
-      
+
       const tbody = card.querySelector('tbody');
+      let html = '';
+
       plans.forEach((plan) => {
-        tbody.innerHTML += `
+        html += `
           <tr><th colspan="2" class="${headerClass}">${plan[titleKey]}</th></tr>
-          <tr><td>Precio Afiliado</td><td>$${plan.afiliado.toLocaleString('es-CO')}</td></tr>
-          <tr><td>Precio Sugerido</td><td>$${plan.sugerido.toLocaleString('es-CO')}</td></tr>
-          <tr><td>Ganancia</td><td>$${plan.ganancia.toLocaleString('es-CO')}</td></tr>
         `;
+
+        if (modo === 'revendedor') {
+          html += `
+            <tr><td>Precio Afiliado</td><td>$${plan.afiliado.toLocaleString('es-CO')}</td></tr>
+            <tr><td>Precio Sugerido</td><td>$${plan.sugerido.toLocaleString('es-CO')}</td></tr>
+            <tr><td>Ganancia</td><td>$${plan.ganancia.toLocaleString('es-CO')}</td></tr>
+          `;
+        } else {
+          const gananciaPromotor = calcularGananciaPromotor(plan.real, plan.sugerido);
+          const valor = gananciaPromotor !== null ? `$${gananciaPromotor.toLocaleString('es-CO')}` : '—';
+          html += `
+            <tr class="promotor-highlight"><td>Ganancia Promotor</td><td>${valor}</td></tr>
+          `;
+        }
       });
-      
+
+      tbody.innerHTML = html;
+
       const tableContainer = card.querySelector('.table-container');
       card.addEventListener('click', (e) => {
         if (e.target.closest('.table-container')) return;
-        if (currentOpenTable && currentOpenTable !== tableContainer) currentOpenTable.style.display = 'none';
+        if (currentlyOpenCard && currentlyOpenCard !== tableContainer) currentlyOpenCard.style.display = 'none';
         tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
-        currentOpenTable = tableContainer.style.display === 'block' ? tableContainer : null;
+        currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
       });
+
       return card;
     }
 
-    container.appendChild(createCard(robloxPlans, 'robux', 'https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/roblox.png', 'plan-header-roblox'));
-    container.appendChild(createCard(freeFirePlans, 'diamantes', 'https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/freefire.png', 'plan-header-freefire'));
+    function setupClickOutsideListener() {
+      document.addEventListener('click', function(e) {
+        if (currentlyOpenCard) {
+          const card = currentlyOpenCard.closest('.card');
+          if (!card.contains(e.target)) {
+            currentlyOpenCard.style.display = 'none';
+            currentlyOpenCard = null;
+          }
+        }
+      });
+    }
+
+    function renderAllCards(modo) {
+      container.innerHTML = '';
+      container.appendChild(createCard(robloxPlans, 'robux', 'https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/roblox.png', 'plan-header-roblox', modo));
+      container.appendChild(createCard(freeFirePlans, 'diamantes', 'https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/freefire.png', 'plan-header-freefire', modo));
+    }
+
+    setupClickOutsideListener();
+
+    const promotorBtn = document.getElementById('segmentedPromotor');
+    const revendedorBtn = document.getElementById('segmentedRevendedor');
+
+    function setMode(mode) {
+      if (mode === 'revendedor') {
+        revendedorBtn.classList.add('active');
+        promotorBtn.classList.remove('active');
+      } else {
+        revendedorBtn.classList.remove('active');
+        promotorBtn.classList.add('active');
+      }
+      renderAllCards(mode);
+    }
+
+    promotorBtn.addEventListener('click', () => setMode('promotor'));
+    revendedorBtn.addEventListener('click', () => setMode('revendedor'));
+
+    renderAllCards('promotor');
   </script>
 </body>
 </html>
-

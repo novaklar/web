@@ -9,25 +9,25 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <meta name="version" content="2026-10-10-2" />
+  <meta name="version" content="2026-10-10-4" />
 
   <style>
     @font-face {
       font-family: 'Poppins';
       font-weight: 700;
-      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf?v=2026-10-10-2') format('truetype');
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Bold.ttf?v=2026-10-10-4') format('truetype');
       font-display: swap;
     }
     @font-face {
       font-family: 'Poppins';
       font-weight: 400;
-      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf?v=2026-10-10-2') format('truetype');
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Regular.ttf?v=2026-10-10-4') format('truetype');
       font-display: swap;
     }
     @font-face {
       font-family: 'Poppins';
       font-weight: 500;
-      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Medium.ttf?v=2026-10-10-2') format('truetype');
+      src: url('https://raw.githubusercontent.com/novaklar/web/main/Poppins-Medium.ttf?v=2026-10-10-4') format('truetype');
       font-display: swap;
     }
   </style>
@@ -38,7 +38,7 @@
     body {
       margin: 0;
       font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
+      background-color: #ffffff; /* Fondo blanco */
       color: #080a33;
       padding-top: 2rem;
       cursor: default;
@@ -92,8 +92,8 @@
       justify-content: center;
       box-sizing: border-box;
       background-color: transparent;
-      color: #000000;
-      border: 2px solid #000000;
+      color: #000000; /* Negro */
+      border: 2px solid #000000; /* Negro */
       width: 140px;
     }
 
@@ -107,7 +107,7 @@
       gap: 0;
       width: 280px;
       height: 52px;
-      border: 2px solid #000000;
+      border: 2px solid #000000; /* Negro */
       border-radius: 0.5rem;
       overflow: hidden;
       background-color: transparent;
@@ -122,7 +122,7 @@
       font-size: 0.95rem;
       cursor: pointer;
       transition: all 0.2s ease;
-      color: #000000;
+      color: #000000; /* Negro */
       background-color: transparent;
       border: none;
       font-family: 'Poppins', sans-serif;
@@ -131,16 +131,16 @@
     }
 
     .mode-segmented-btn:first-child {
-      border-right: 2px solid #000000;
+      border-right: 2px solid #000000; /* Negro */
     }
 
     .mode-segmented-btn.active {
-      background-color: #000000;
+      background-color: #000000; /* Negro */
       color: #ffffff;
       font-weight: 500;
     }
 
-    /* Cabeceras de las tablas */
+    /* Cabeceras de las tablas - peso semibold */
     .table-container thead tr th {
       padding: 0.5rem 1rem;
       text-align: center;
@@ -173,7 +173,7 @@
     .promotor-highlight {
       background-color: #f0f7ff;
     }
-
+    
     .promotor-highlight td:first-child {
       color: #080a33;
       font-weight: 500;
@@ -223,7 +223,7 @@
     .table-container {
       display: none;
       margin-top: 0.8rem;
-      background-color: #ffffff;
+      background-color: #ffffff; /* Fondo blanco también para tablas */
       border-radius: 0.6rem;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -244,7 +244,7 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      width: 60px;
+      width: 60px; 
       height: 60px;
       border-radius: 15px;
       display: flex;
@@ -291,49 +291,141 @@
     }
 
     @media (max-width: 768px) {
-      body { padding-top: 1.5rem; }
-      .top-controls { padding: 0 1rem 1.5rem; }
-      .logo-container { margin-bottom: 1.5rem; }
-      .logo-container img { height: 70px; }
-      .controls-row { flex-direction: column; gap: 1rem; width: 100%; }
-      .btn-back { width: 100%; max-width: 300px; }
-      .mode-segmented { width: 100%; max-width: 300px; }
-      .whatsapp-button { width: 55px; height: 55px; border-radius: 14px; bottom: 20px; right: 20px; }
-      .whatsapp-icon-container { padding: 13px; }
+      body {
+        padding-top: 1.5rem;
+      }
+      
+      .top-controls {
+        padding: 0 1rem 1.5rem;
+      }
+      
+      .logo-container {
+        margin-bottom: 1.5rem;
+      }
+      
+      .logo-container img {
+        height: 70px;
+      }
+      
+      .controls-row {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+      }
+      
+      .btn-back {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .mode-segmented {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .whatsapp-button {
+        width: 55px;
+        height: 55px;
+        border-radius: 14px;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .whatsapp-icon-container {
+        padding: 13px;
+      }
     }
 
     @media (max-width: 600px) {
-      .logo-container img { height: 65px; }
-      .btn-back, .mode-segmented { max-width: 280px; }
-      .container { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; padding: 1rem; }
-      .card { width: 280px; }
-      .card img { width: 280px; }
-      .whatsapp-button { width: 50px; height: 50px; border-radius: 13px; bottom: 15px; right: 15px; }
-      .whatsapp-icon-container { padding: 12px; }
+      .logo-container img {
+        height: 65px;
+      }
+      
+      .btn-back, .mode-segmented {
+        max-width: 280px;
+      }
+      
+      .container {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+      }
+      
+      .card {
+        width: 280px;
+      }
+      
+      .card img {
+        width: 280px;
+      }
+
+      .whatsapp-button {
+        width: 50px;
+        height: 50px;
+        border-radius: 13px;
+        bottom: 15px;
+        right: 15px;
+      }
+
+      .whatsapp-icon-container {
+        padding: 12px;
+      }
     }
 
     @media (max-width: 400px) {
-      body { padding-top: 1rem; }
-      .top-controls { padding: 0 1rem 1rem; }
-      .logo-container img { height: 60px; }
-      .btn-back, .mode-segmented { max-width: 260px; }
-      .container { grid-template-columns: 1fr; }
-      .card { width: 100%; max-width: 300px; }
-      .card img { width: 100%; max-width: 300px; }
-      .whatsapp-button { width: 45px; height: 45px; border-radius: 11px; bottom: 10px; right: 10px; }
-      .whatsapp-icon-container { padding: 10px; }
+      body {
+        padding-top: 1rem;
+      }
+      
+      .top-controls {
+        padding: 0 1rem 1rem;
+      }
+      
+      .logo-container img {
+        height: 60px;
+      }
+      
+      .btn-back, .mode-segmented {
+        max-width: 260px;
+      }
+      
+      .container {
+        grid-template-columns: 1fr;
+      }
+      
+      .card {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .card img {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .whatsapp-button {
+        width: 45px;
+        height: 45px;
+        border-radius: 11px;
+        bottom: 10px;
+        right: 10px;
+      }
+
+      .whatsapp-icon-container {
+        padding: 10px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="top-controls">
     <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Logos/novaklar.svg?v=2026-10-10-2" alt="Novaklar Logo" />
+      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/Logos/novaklar.svg?v=2026-10-10-4" alt="Novaklar Logo" />
     </div>
-
+    
     <div class="controls-row">
       <a href="https://novaklar.github.io/web/" class="btn-back">Regresar</a>
-
+      
       <div class="mode-segmented" id="modeSegmented">
         <button class="mode-segmented-btn active" id="segmentedPromotor">Promotor</button>
         <button class="mode-segmented-btn" id="segmentedRevendedor">Revendedor</button>
@@ -346,18 +438,17 @@
   <!-- WhatsApp Button -->
   <a href="CR.html" target="_blank" class="whatsapp-button" aria-label="Chat WhatsApp">
     <div class="whatsapp-icon-container">
-      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/extra/whatsapp.svg?v=2026-10-10-2" alt="WhatsApp">
+      <img src="https://raw.githubusercontent.com/novaklar/web/refs/heads/main/extra/whatsapp.svg?v=2026-10-10-4" alt="WhatsApp">
     </div>
   </a>
 
   <script>
-    const VERSION = '2026-10-10-2';
+    const VERSION = '2026-10-10-4'; // Versión para forzar recarga
 
     const container = document.getElementById('cards-container');
     let currentlyOpenCard = null;
     let currentMode = 'promotor';
 
-    // Orden de popularidad (Gemini primero, luego el resto)
     const popularityOrder = [
       "geminy.png",
       "gpt.png",
@@ -367,49 +458,50 @@
     ];
 
     const servicios = [
-      {
-        nombre: "gemini",
+      { 
+        nombre: "gemini", 
         displayName: "Gemini",
         imageName: "geminy.png",
-        headerBg: "linear-gradient(135deg, #4285f4, #9b72cb)",
-        sinPrecio: true,
-        mensaje: "Precios próximamente"
+        headerBg: "#000000",
+        valores: [
+          { tipo: "Plan 2 Meses", real: 15000, afiliado: 19000, sugerido: 26000 },
+          { tipo: "Plan 18 Meses", real: 30000, afiliado: 40000, sugerido: 55000 }
+        ]
       },
-      {
-        nombre: "gpt",
+      { 
+        nombre: "gpt", 
         displayName: "ChatGPT",
         imageName: "gpt.png",
         headerBg: "#10a37f",
-        valores: [
-          { afiliado: 16500, sugerido: 20500, ganancia: 4000 }
-        ]
-      },
-      {
-        nombre: "duo",
-        displayName: "Duolingo",
-        imageName: "duo.png",
-        headerBg: "#58cc02",
         sinStock: true,
         mensaje: "Sin stock"
       },
-      {
-        nombre: "canva",
+      { 
+        nombre: "canva", 
         displayName: "Canva",
         imageName: "canva.png",
         headerBg: "linear-gradient(135deg, #03bfcd, #7a2ee7)",
         valores: [
-          { tipo: "Plan Mensual", afiliado: 10500, sugerido: 12500, ganancia: 2000 },
-          { tipo: "Plan Anual", afiliado: 28500, sugerido: 36500, ganancia: 8000 }
+          { tipo: "Plan 1 Mes", real: 5000, afiliado: 9000, sugerido: 13000 },
+          { tipo: "Plan 1 Año", real: 15000, afiliado: 28000, sugerido: 38000 }
         ]
       },
-      {
-        nombre: "capcut",
+      { 
+        nombre: "capcut", 
         displayName: "CapCut",
         imageName: "capcut.png",
         headerBg: "#000000",
         valores: [
-          { tipo: "Plan Mensual", afiliado: 19500, sugerido: 21500, ganancia: 2000 },
-          { tipo: "Plan Trimestral", afiliado: 55500, sugerido: 60500, ganancia: 5000 }
+          { tipo: "Plan 1 Mes", real: 10000, afiliado: 14000, sugerido: 18000 }
+        ]
+      },
+      { 
+        nombre: "duo", 
+        displayName: "Duolingo",
+        imageName: "duo.png",
+        headerBg: "#58cc02",
+        valores: [
+          { tipo: "Plan Anual · 12 Meses", real: 10000, afiliado: 20000, sugerido: 20000 }
         ]
       }
     ];
@@ -419,76 +511,95 @@
       return popularityOrder.indexOf(a.imageName) - popularityOrder.indexOf(b.imageName);
     });
 
-    function crearTarjeta(servicio, modo) {
+    function calcularGananciaPromotor(precioReal, precioSugerido) {
+      const diferencia = precioSugerido - precioReal;
+      return Math.round(diferencia * 0.60);
+    }
+
+    function formatoPrecio(valor) {
+      return '$' + valor.toLocaleString('es-CO');
+    }
+
+    function celdaValor(valor) {
+      const estilo = valor < 0 ? ' style="color:#dc2626; font-weight:600;"' : '';
+      return `<td${estilo}>${formatoPrecio(valor)}</td>`;
+    }
+
+    function crearTarjeta(servicio, modo = 'promotor') {
       const card = document.createElement('div');
       card.className = 'card';
       card.dataset.nombre = servicio.nombre;
-
+      card.dataset.popularity = popularityOrder.indexOf(servicio.imageName);
+      
       const rutaImagen = `https://raw.githubusercontent.com/novaklar/web/refs/heads/main/nkc/${servicio.imageName}?v=${VERSION}`;
-
-      let tableHTML = `<div class="table-container"><table>`;
-
-      if (servicio.sinPrecio || servicio.sinStock) {
-        const color = servicio.sinStock ? '#dc2626' : '#00005b';
-        const headerText = servicio.sinStock ? servicio.displayName : `${servicio.displayName} · Próximamente`;
+      
+      const headerStyle = `background:${servicio.headerBg}; color:#ffffff;`;
+      
+      let tableHTML = `
+        <div class="table-container">
+          <table>`;
+      
+      if (servicio.sinStock) {
+        // Caso sin stock (ChatGPT)
         tableHTML += `
           <thead>
-            <tr><th colspan="2" style="background:${servicio.headerBg}; color:#ffffff">${headerText}</th></tr>
+            <tr><th colspan="2" style="${headerStyle}">${servicio.displayName}</th></tr>
           </thead>
           <tbody>
-            <tr><td colspan="2" style="text-align:center; padding:1rem; font-weight:600; color:${color};">${servicio.mensaje}</td></tr>
-          </tbody>
-        `;
+            <tr><td colspan="2" style="text-align:center; padding:1rem; font-weight:600; color:#dc2626;">${servicio.mensaje}</td></tr>
+          </tbody>`;
       } else {
-        servicio.valores.forEach((v) => {
-          const headerText = v.tipo ? v.tipo : servicio.displayName;
-
+        servicio.valores.forEach((valor) => {
+          const headerText = valor.tipo ? valor.tipo : servicio.displayName;
+          
           tableHTML += `
             <thead>
-              <tr><th colspan="2" style="background:${servicio.headerBg}; color:#ffffff">${headerText}</th></tr>
+              <tr><th colspan="2" style="${headerStyle}">${headerText}</th></tr>
             </thead>
-            <tbody>
-          `;
-
+            <tbody>`;
+          
           if (modo === 'revendedor') {
+            const ganancia = valor.sugerido - valor.afiliado;
             tableHTML += `
-              <tr><td>Precio Real</td><td>—</td></tr>
-              <tr><td>Precio Afiliado</td><td>$${v.afiliado.toLocaleString('es-CO')}</td></tr>
-              <tr><td>Precio Sugerido</td><td>$${v.sugerido.toLocaleString('es-CO')}</td></tr>
-              <tr><td>Ganancia</td><td>$${v.ganancia.toLocaleString('es-CO')}</td></tr>
+              <tr><td>Precio Afiliado</td><td>${formatoPrecio(valor.afiliado)}</td></tr>
+              <tr><td>Precio Sugerido</td><td>${formatoPrecio(valor.sugerido)}</td></tr>
+              <tr><td>Ganancia</td>${celdaValor(ganancia)}</tr>
             `;
           } else {
+            const gananciaPromotor = calcularGananciaPromotor(valor.real, valor.sugerido);
             tableHTML += `
-              <tr><td>Precio Real</td><td>—</td></tr>
-              <tr class="promotor-highlight"><td>Ganancia Promotor</td><td>—</td></tr>
+              <tr class="promotor-highlight">
+                <td>Ganancia Promotor</td>
+                ${celdaValor(gananciaPromotor)}
+              </tr>
             `;
           }
-
+          
           tableHTML += `</tbody>`;
         });
       }
-
+      
       tableHTML += `</table></div>`;
-
+      
       card.innerHTML = `
         <img src="${rutaImagen}" alt="${servicio.displayName}" />
         ${tableHTML}
       `;
-
+      
       const tableContainer = card.querySelector('.table-container');
-
+      
       card.addEventListener('click', (e) => {
         if (e.target.tagName === 'IMG' && tableContainer.style.display === 'block') return;
-
+        
         if (currentlyOpenCard && currentlyOpenCard !== tableContainer) {
           currentlyOpenCard.style.display = 'none';
         }
-
+        
         tableContainer.style.display = tableContainer.style.display === 'block' ? 'none' : 'block';
-
+        
         currentlyOpenCard = tableContainer.style.display === 'block' ? tableContainer : null;
       });
-
+      
       return card;
     }
 
@@ -506,6 +617,7 @@
 
     function renderAllCards(modo) {
       container.innerHTML = '';
+      
       servicios.forEach((servicio) => {
         container.appendChild(crearTarjeta(servicio, modo));
       });
